@@ -1,0 +1,24 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 6626 ms / want 500 ms¡¿ 2019/9/11 9:52:03 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 554 ms / want 500 ms¡¿ 2019/9/11 9:52:05 ====
+select * from loanapply where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 714 ms / want 500 ms¡¿ 2019/9/11 10:01:02 ====
+insert into borrower ([Aliases],[Guid],[Phone],[IsValidatePhone],[IsSalesman],[IsValid],[CreateTime],[UpdateTime]) values (@Aliases,@Guid,@Phone,@IsValidatePhone,@IsSalesman,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 714 ms / want 500 ms¡¿ 2019/9/11 10:01:03 ====
+insert into loanapply ([BorrowerId],[CreditPhone],[RepaymentStatus],[SalesmanId],[Step],[Company],[LoanType],[IsValid],[CreateTime],[UpdateTime]) values (@BorrowerId,@CreditPhone,@RepaymentStatus,@SalesmanId,@Step,@Company,@LoanType,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 585 ms / want 500 ms¡¿ 2019/9/11 10:06:04 ====
+select mobilephone from sbt_user where dept_id = 'izm'
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3471 ms / want 500 ms¡¿ 2019/9/11 16:42:47 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1027 ms / want 500 ms¡¿ 2019/9/11 16:42:50 ====
+select * from loanapply where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3674 ms / want 500 ms¡¿ 2019/9/11 17:29:29 ====
+select * from Borrower where  IsValid=@IsValid
+

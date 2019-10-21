@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2546D49B-7219-4683-89F1-8B3C424D4C6C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sigbit.Framework</RootNamespace>
+    <AssemblyName>Sigbit.Framework</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Sigbit.Framework.XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\Sigbit.Framework.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\Sigbit.Framework.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="License\SbtLicIDFeaturesConfig.cs" />
+    <Compile Include="LoginLogger__ForJS.cs" />
+    <Compile Include="NaviTab\NVTBar.cs" />
+    <Compile Include="NaviTab\NVTBarContainer.cs" />
+    <Compile Include="NaviTab\NVTNaviTabController.cs" />
+    <Compile Include="NaviTab\NVTTabItem.cs" />
+    <Compile Include="Patch\DBDefine\TableDef\TbSysPatchWork.cs" />
+    <Compile Include="Patch\DBDefine\TableDef\TbSysWebapp.cs" />
+    <Compile Include="Patch\DBDefine\TableDef\TbSysWebappVersion.cs" />
+    <Compile Include="Patch\ScheduleEngine\SbtPatchScheduleEngine.cs" />
+    <Compile Include="Patch\WebAppVersion\ATPatchWebAppVersionUpdater.cs" />
+    <Compile Include="Patch\XPPatchBase.cs" />
+    <Compile Include="Patch\XPPatchWorkEngine.cs" />
+    <Compile Include="Role\SbtRoleRightUpdate.cs" />
+    <Compile Include="Role\SbtRoleRight__Lib.cs" />
+    <Compile Include="Role\SbtRoleUserUtil.cs" />
+    <Compile Include="SbtAppContext.cs" />
+    <Compile Include="SbtAppLogger.cs" />
+    <Compile Include="SbtCodeTables.cs" />
+    <Compile Include="SbtFrameworkConfig.cs" />
+    <Compile Include="SbtMenuNode.cs" />
+    <Compile Include="SbtMessageBoxPage.cs" />
+    <Compile Include="SbtPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SbtPageParameter.cs" />
+    <Compile Include="SbtPageStatus.cs" />
+    <Compile Include="SbtPatchBase.cs" />
+    <Compile Include="SbtSavePage.cs">
+    </Compile>
+    <Compile Include="SbtTheme.cs" />
+    <Compile Include="SbtUser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\NLSUserLock.cs" />
+    <Compile Include="Security\NPSPasswordUtil.cs" />
+    <Compile Include="Security\SbtSecurityConfig.cs" />
+    <Compile Include="Security\SbtSecurityConfig_LockUser.cs" />
+    <Compile Include="Security\SbtSecurityConfig_Password.cs" />
+    <Compile Include="SubSystem\DBDefine\QDBPoolSubSystem.cs" />
+    <Compile Include="SubSystem\DBDefine\TableDef\TbSysSubSystemDefine.cs" />
+    <Compile Include="SubSystem\SUSMenuChangeSubSystemUtil.cs" />
+    <Compile Include="SubSystem\SUSSubSystem.cs" />
+    <Compile Include="SupervisorTool\DataAdmin\ExecuteMultiSQL.cs" />
+    <Compile Include="SupervisorTool\MenuManage\MBZMenuBatchCodeChange.cs" />
+    <Compile Include="TableDef\TbLogOperationAudit.cs" />
+    <Compile Include="TableDef\TbLogUserLogin.cs" />
+    <Compile Include="TableDef\TbRole.cs" />
+    <Compile Include="TableDef\TbRoleRight.cs" />
+    <Compile Include="TableDef\TbRoleUser.cs" />
+    <Compile Include="TableDef\TbSysMenu.cs" />
+    <Compile Include="TableDef\TbSysMenu__Lib.cs" />
+    <Compile Include="TableDef\TbSysParameter.cs" />
+    <Compile Include="TableDef\TbSysPreferenceSetting.cs" />
+    <Compile Include="TableDef\TbUser.cs" />
+    <Compile Include="TableDef\TbUserDept.cs" />
+    <Compile Include="TableDef\TbUserParameter.cs" />
+    <Compile Include="TableDef\TbUserPreference.cs" />
+    <Compile Include="TableDef\TbUserRight.cs" />
+    <Compile Include="TableDef\TbUserSecurity.cs" />
+    <Compile Include="Task\PrivateTask.cs" />
+    <Compile Include="Task\PrivateTaskListBase.cs" />
+    <Compile Include="Task\PrivateTaskScannerBase.cs" />
+    <Compile Include="Task\SbtTaskCommon.cs" />
+    <Compile Include="Task\SbtTaskConvert.cs" />
+    <Compile Include="Task\SbtTaskDaemonBase.cs" />
+    <Compile Include="Task\SbtTaskDaemonDemo1.cs" />
+    <Compile Include="Task\SbtTaskProcess.cs" />
+    <Compile Include="Task\SbtTaskRuleItem.cs" />
+    <Compile Include="Task\SbtTaskRuleLib.cs" />
+    <Compile Include="Task\SbtTaskScheduler.cs" />
+    <Compile Include="Task\TbSysDaemonLog.cs" />
+    <Compile Include="Task\TbSysDaemonTask.cs" />
+    <Compile Include="Task\TbSysDaemonType.cs" />
+    <Compile Include="Task\SbtTaskDaemonDemo2.cs" />
+    <Compile Include="Test\TestExecCSFunction.cs" />
+    <Compile Include="__SbtDBPool.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sigbit.Common\Sigbit.Common.csproj">
+      <Project>{5B852150-D9C3-4AB3-BDC0-DAD16B819059}</Project>
+      <Name>Sigbit.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sigbit.Data\Sigbit.Data.csproj">
+      <Project>{8F07A089-A32D-4B31-B62E-4BAF9017AF34}</Project>
+      <Name>Sigbit.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sigbit.Web\Sigbit.Web.csproj">
+      <Project>{6bc93636-7fe9-4511-aff7-38bbe002966c}</Project>
+      <Name>Sigbit.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

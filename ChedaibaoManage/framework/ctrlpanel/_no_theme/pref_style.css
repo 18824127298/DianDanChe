@@ -1,0 +1,78 @@
+﻿/* ---------- 页面样式定义 ---------- */
+body { 
+font-size: 9pt;                             /* 字体大小                  */
+font-family:Verdana;                         /* 字体名称                  */
+scrollbar-face-color: #8DA468;               /* 滚动条凸出部分的颜色      */
+scrollbar-highlight-color: #E6E6E6;          /* 滚动条空白部分的颜色      */ 
+scrollbar-shadow-color: #C8D2B8;             /* 立体滚动条阴影的颜色      */
+scrollbar-3dlight-color: #D1D7DC;            /* 滚动条亮边的颜色          */
+scrollbar-arrow-color: #3E5630;              /* 上下按钮上三角箭头的颜色  */
+scrollbar-track-color: #E6ECDD;              /* 滚动条的背景颜色          */
+scrollbar-darkshadow-color: #BDC5AF;}        /* 滚动条强阴影的颜色        */
+
+/* ---------- 内容页背景定义 ---------- */
+.bodycolor { 
+BACKGROUND: #F0F9F0;                                            /*  背景演示 */
+/*  background-image: url("./images/table_bj.jpg");                 背景图片 */
+background-repeat: no-repeat;                                   /*  不重复   */ 
+background-position:right bottom;                               /*  右对齐，底部*/ 
+background-attachment: fixed; }                                 /*  不滚动 */
+
+.big { 
+FONT-WEIGHT: bold;
+font-size: 9pt;
+COLOR: #202E17;}   
+
+.small  {
+font-size: 9pt;}                   /* 通用小号字样式        */
+
+/* ---------- 文字标题分割线 ---------- */
+.hr1 {
+color: #D1D8C6;                              /* 线颜色               */
+width: 99%;                                  /* 线宽度               */
+text-align:left;                             /* 线位置               */
+height:3px;  }                               /* 线厚度（高度）       */
+
+/* ---------- 表格内容样式 ---------- */
+.TableData { 
+BACKGROUND: #EBF3E6; 
+FONT-SIZE: 10pt;}
+
+/* ---------- 按键控制表格背景样式 ---------- */
+.TableControl{ 
+BACKGROUND: #F0EEDB;}
+
+/* ---------- 大按键样式定义 ---------- */
+input.BigButton{ 
+BORDER-RIGHT: #666666 1px solid; 
+BORDER-TOP: #666666 1px solid; 
+FONT-SIZE: 12px; 
+BACKGROUND-IMAGE: url("button_bg.gif"); 
+BORDER-LEFT: #666666 1px solid; 
+BORDER-BOTTOM: #666666 1px solid; 
+HEIGHT: 20px; 
+BACKGROUND-COLOR: #ffffff }
+
+/* ---------- 小按键样式定义 ---------- */
+input.SmallButton{ 
+BORDER-RIGHT: #666666 1px solid; 
+BORDER-TOP: #666666 1px solid; 
+FONT-SIZE: 12px; 
+BACKGROUND-IMAGE: url("button_bg.gif"); 
+BORDER-LEFT: #666666 1px solid; 
+BORDER-BOTTOM: #666666 1px solid; 
+HEIGHT: 20px; 
+BACKGROUND-COLOR: #ffffff }
+
+
+
+/* ---------- 消息框样式 ---------- */
+.Message { 
+font-size:10pt;                                 /* 字体大小   */
+COLOR:#487242;                                  /* 字颜色颜色 */
+BACKGROUND:#F0EEDB;                             /*  背景颜色  */
+margin:10px; 
+border:1px                                      /* 周围虚线宽度 */
+dotted #374C2C;                                 /* 周围虚线颜色 */
+font-weight:bold; 
+padding:9px; } 

@@ -1,0 +1,44 @@
+==== 【instanceDefault】【actual 1244 ms / want 500 ms】 2016/11/24 11:06:55 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== (instanceDefault)【SQL语句运行错误】2016/11/24 11:28:16 ====
+select c.Id, c.Name,c.Amount,c.Number,c.BidStartTime, p.RepaymentDate,c.GainsRate,c.CreditType,p.Stages,g.FullName,c.DateType,c.Deadline, c.CommissionFee,SUM(p.EstimationOfInterest) as EstimationOfInterest, SUM(p.Principal) as Principal from RepaymentPlan p join Credit c on p.CreditId = c.Id join God g on c.CreditGodId=g.Id where c.CreditStatus=5 
+ order by p.repaymentdategroup by c.Id, p.CreditId ,c.BidStartTime, c.Name,c.Amount,c.Number, p.RepaymentDate,c.GainsRate,c.CreditType,c.DateType,c.Deadline,p.Stages,g.FullName,c.CommissionFee order by p.RepaymentDate
+-------- 错误信息 --------
+关键字 'by' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/11/24 11:28:16 ====
+select c.Id, c.Name,c.Amount,c.Number,c.BidStartTime, p.RepaymentDate,c.GainsRate,c.CreditType,p.Stages,g.FullName,c.DateType,c.Deadline, c.CommissionFee,SUM(p.EstimationOfInterest) as EstimationOfInterest, SUM(p.Principal) as Principal from RepaymentPlan p join Credit c on p.CreditId = c.Id join God g on c.CreditGodId=g.Id where c.CreditStatus=5 
+ order by p.repaymentdategroup by c.Id, p.CreditId ,c.BidStartTime, c.Name,c.Amount,c.Number, p.RepaymentDate,c.GainsRate,c.CreditType,c.DateType,c.Deadline,p.Stages,g.FullName,c.CommissionFee order by p.RepaymentDate
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/11/24 11:28:16 ====
+select c.Id, c.Name,c.Amount,c.Number,c.BidStartTime, p.RepaymentDate,c.GainsRate,c.CreditType,p.Stages,g.FullName,c.DateType,c.Deadline, c.CommissionFee,SUM(p.EstimationOfInterest) as EstimationOfInterest, SUM(p.Principal) as Principal from RepaymentPlan p join Credit c on p.CreditId = c.Id join God g on c.CreditGodId=g.Id where c.CreditStatus=5 
+ order by p.repaymentdategroup by c.Id, p.CreditId ,c.BidStartTime, c.Name,c.Amount,c.Number, p.RepaymentDate,c.GainsRate,c.CreditType,c.DateType,c.Deadline,p.Stages,g.FullName,c.CommissionFee order by p.RepaymentDate
+-------- 错误信息 --------
+关键字 'by' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/11/24 11:46:14 ====
+select c.Id, c.Name,c.Amount,c.Number,c.BidStartTime, p.RepaymentDate,c.GainsRate,c.CreditType,p.Stages,g.FullName,c.DateType,c.Deadline, c.CommissionFee,SUM(p.EstimationOfInterest) as EstimationOfInterest, SUM(p.Principal) as Principal from RepaymentPlan p join Credit c on p.CreditId = c.Id join God g on c.CreditGodId=g.Id where c.CreditStatus=5 
+ order by gainsrategroup by c.Id, p.CreditId ,c.BidStartTime, c.Name,c.Amount,c.Number, p.RepaymentDate,c.GainsRate,c.CreditType,c.DateType,c.Deadline,p.Stages,g.FullName,c.CommissionFee order by p.RepaymentDate
+-------- 错误信息 --------
+关键字 'by' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/11/24 11:46:14 ====
+select c.Id, c.Name,c.Amount,c.Number,c.BidStartTime, p.RepaymentDate,c.GainsRate,c.CreditType,p.Stages,g.FullName,c.DateType,c.Deadline, c.CommissionFee,SUM(p.EstimationOfInterest) as EstimationOfInterest, SUM(p.Principal) as Principal from RepaymentPlan p join Credit c on p.CreditId = c.Id join God g on c.CreditGodId=g.Id where c.CreditStatus=5 
+ order by gainsrategroup by c.Id, p.CreditId ,c.BidStartTime, c.Name,c.Amount,c.Number, p.RepaymentDate,c.GainsRate,c.CreditType,c.DateType,c.Deadline,p.Stages,g.FullName,c.CommissionFee order by p.RepaymentDate
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/11/24 11:46:14 ====
+select c.Id, c.Name,c.Amount,c.Number,c.BidStartTime, p.RepaymentDate,c.GainsRate,c.CreditType,p.Stages,g.FullName,c.DateType,c.Deadline, c.CommissionFee,SUM(p.EstimationOfInterest) as EstimationOfInterest, SUM(p.Principal) as Principal from RepaymentPlan p join Credit c on p.CreditId = c.Id join God g on c.CreditGodId=g.Id where c.CreditStatus=5 
+ order by gainsrategroup by c.Id, p.CreditId ,c.BidStartTime, c.Name,c.Amount,c.Number, p.RepaymentDate,c.GainsRate,c.CreditType,c.DateType,c.Deadline,p.Stages,g.FullName,c.CommissionFee order by p.RepaymentDate
+-------- 错误信息 --------
+关键字 'by' 附近有语法错误。
+

@@ -1,0 +1,15 @@
+==== (instanceDefault)【SQL语句运行错误】2017/9/30 9:48:25 ====
+select Remark as id,Remark from Audit where IsValid=1 and AuditType='7'
+-------- 错误信息 --------
+对象名 'Audit' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/9/30 9:48:25 ====
+select Remark as id,Remark from Audit where IsValid=1 and AuditType='7'
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/9/30 9:48:25 ====
+select Remark as id,Remark from Audit where IsValid=1 and AuditType='7'
+-------- 错误信息 --------
+对象名 'Audit' 无效。
+

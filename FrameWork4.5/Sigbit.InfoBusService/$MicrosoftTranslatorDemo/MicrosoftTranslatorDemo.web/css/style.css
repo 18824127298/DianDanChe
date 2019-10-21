@@ -1,0 +1,413 @@
+<style type="text/css">  <!--
+
+/* ---------- 文字链接 － 链接的普通状态 ---------- */
+A:link { 
+color: #496326; 
+TEXT-DECORATION: none;}           
+
+/* ---------- 文字链接 － 已被访问链接 ---------- */
+A:visited { 
+COLOR: #223117; 
+TEXT-DECORATION: none}       
+
+/* ---------- 文字链接 － 处于活动状态链接 ---------- */
+A:active { 
+COLOR: #3333ff; 
+TEXT-DECORATION: none}        
+
+/* ---------- 文字链接 － 指针在链接上 ---------- */
+A:hover { 
+COLOR: #ff0000; 
+text-decoration: underline;}   
+
+/* ---------- 页面样式定义 ---------- */
+body 
+{ 
+font-size: 9pt;                             /* 字体大小                  */
+font-family:Verdana;                         /* 字体名称                  */
+scrollbar-face-color: #8DA468;               /* 滚动条凸出部分的颜色      */
+scrollbar-highlight-color: #E6E6E6;          /* 滚动条空白部分的颜色      */ 
+scrollbar-shadow-color: #C8D2B8;             /* 立体滚动条阴影的颜色      */
+scrollbar-3dlight-color: #D1D7DC;            /* 滚动条亮边的颜色          */
+scrollbar-arrow-color: #3E5630;              /* 上下按钮上三角箭头的颜色  */
+scrollbar-track-color: #E6ECDD;              /* 滚动条的背景颜色          */
+scrollbar-darkshadow-color: #BDC5AF;		 /* 滚动条强阴影的颜色        */
+}       
+
+/* ---------- 文字标题分割线 ---------- */
+.hr1 {
+color: #D1D8C6;                              /* 线颜色               */
+width: 99%;                                  /* 线宽度               */
+text-align:left;                             /* 线位置               */
+height:3px;  }                               /* 线厚度（高度）       */
+
+/* ---------- 内容页背景定义 ---------- */
+.bodycolor { 
+BACKGROUND: #F0F9F0;                                            /*  背景演示 */
+/*  background-image: url("./images/table_bj.jpg");                 背景图片 */
+background-repeat: no-repeat;                                   /*  不重复   */ 
+background-position:right bottom;                               /*  右对齐，底部*/ 
+background-attachment: fixed; }                                 /*  不滚动 */
+
+/* ---------- 主操作区分页背景定义 ---------- */
+.bodycolor2 { 
+BACKGROUND: #F0F9F0; }                                          /*  背景 */
+
+/* ---------- 面板背景样式 ---------- */
+.panel { 
+BACKGROUND: #DBE0D9; 
+background-image: url("../theme_images/main/menu/index_26.jpg");                 /*  背景图片 */
+background-repeat: no-repeat;                                   /*  不重复   */ 
+background-position:left bottom;                                /*  右对齐，底部*/ 
+background-attachment: fixed; }                                 /*  不滚动 */
+
+/* ---------- 主界面区（table_main）样式 ---------- */
+.panelTableMain { 
+BACKGROUND: #DBE0D9; 
+background-repeat: no-repeat;                                   /*  不重复   */ 
+background-position:left bottom;                                /*  右对齐，底部*/ 
+background-attachment: fixed; }                                 /*  不滚动 */
+
+/* ---------- 选中状态正常颜色 ---------- */
+.menu_top_mouse1 { 
+background-color: #779D66; }                            
+                                      
+/* ---------- 未选中正常颜色颜色 ---------- */
+.menu_top_mouse2 { 
+background-color: #D2DFCF; }                              
+                                       
+/* ---------- 鼠标进入颜色 ---------- */
+.menu_top_mouse3 { 
+background-color: #E2E1CA; }               
+
+/* ---------- 菜单选项－选中状态正常效果 ---------- background-color: #728336; */
+.menu_operation_1 { 
+background-image: url("../theme_images/main/menu/index_21-2.gif"); }       
+
+/* ---------- 菜单选项－未选中正常颜色效果 ---------- */
+.menu_operation_2 { 
+background-image: url("../theme_images/main/menu/index_21.gif"); }       
+
+/* ---------- 菜单选项－鼠标进入效果 ---------- */
+.menu_operation_3 { 
+background-image: url("../theme_images/main/menu/index_21-3.gif"); }     
+
+/* ---------- 内容页标题栏文字 ---------- */
+.title1 { 
+FONT-WEIGHT: bold;
+font-size: 9pt;
+COLOR: #202E17;}       
+
+.big { 
+FONT-WEIGHT: bold;
+font-size: 9pt;
+COLOR: #202E17;}   
+
+
+.big1   { 
+FONT-WEIGHT: bold;
+font-size: 9pt;
+COLOR: #202E17;}   
+
+
+.big2   { 
+FONT-WEIGHT: bold;
+font-size: 9pt;
+COLOR: #202E17;}   
+
+
+.verybig{ 
+FONT-WEIGHT: bold;
+font-size: 9pt;
+COLOR: #202E17;}   
+
+
+/* ---------- 消息框样式 ---------- */
+.Message { 
+font-size:10pt;                                 /* 字体大小   */
+COLOR:#487242;                                  /* 字颜色颜色 */
+BACKGROUND:#F0EEDB;                             /*  背景颜色  */
+margin:10px; 
+border:1px                                      /* 周围虚线宽度 */
+dotted #374C2C;                                 /* 周围虚线颜色 */
+font-weight:bold; 
+padding:9px; } 
+
+/* ---------- 状态栏 中间文字 ---------- */
+.sb_center_text { 
+cursor:hand; 
+color:#ffffff; } 
+
+/* ---------- 状态栏 在线人数文字 ---------- */
+.sb_online_text { 
+color: #ffffff;
+WIDTH: 100%; 
+text-decoration: none; } 
+
+/* ---------- 状态栏 在线人数数字 ---------- */
+.sb_online_num { 
+border:0;
+width:24pt;
+height:12pt;
+color:#ffffff;
+cursor:hand;
+text-align:center;
+FONT-WEIGHT: bold;
+background-color:transparent; } 
+
+
+.small  {
+font-size: 9pt;}                   /* 通用小号字样式        */
+
+
+.small1  { 
+font-size: 9pt; }                 /* 通用小号字样式，黑色  */
+
+
+/* ---------- 小按键样式定义 ---------- */
+input.SmallButton{ 
+BORDER-RIGHT: #666666 1px solid; 
+BORDER-TOP: #666666 1px solid; 
+FONT-SIZE: 12px; 
+BACKGROUND-IMAGE: url("../theme_images/main/table/button_bg.gif"); 
+BORDER-LEFT: #666666 1px solid; 
+BORDER-BOTTOM: #666666 1px solid; 
+HEIGHT: 20px; 
+BACKGROUND-COLOR: #ffffff }
+
+/* ---------- 大按键样式定义 ---------- */
+input.BigButton{ 
+BORDER-RIGHT: #666666 1px solid; 
+BORDER-TOP: #666666 1px solid; 
+FONT-SIZE: 12px; 
+BACKGROUND-IMAGE: url("../theme_images/main/table/button_bg.gif"); 
+BORDER-LEFT: #666666 1px solid; 
+BORDER-BOTTOM: #666666 1px solid; 
+HEIGHT: 20px; 
+BACKGROUND-COLOR: #ffffff }
+
+
+input.SmallInput {
+COLOR: #431426; 
+BACKGROUND: #F7F6EF; 
+border:1 solid black; 
+FONT-SIZE: 9pt; 
+FONT-STYLE: normal; 
+FONT-VARIANT: normal; 
+FONT-WEIGHT: normal; 
+HEIGHT: 18px; 
+LINE-HEIGHT: normal}
+
+
+input.SmallInput1{ 
+COLOR: #000066; 
+BACKGROUND: #F8F8F8; 
+border:1 solid black; 
+BORDER-RIGHT:0; 
+FONT-SIZE: 9pt; 
+FONT-STYLE: normal; 
+FONT-VARIANT: normal; 
+FONT-WEIGHT: normal; 
+HEIGHT: 18px; 
+LINE-HEIGHT: normal}
+
+
+input.BigInput   { 
+COLOR: #000066; 
+BACKGROUND: #F8F8F8; 
+border:1 solid black; 
+BORDER-BOTTOM:1px double;
+FONT-SIZE: 9pt; 
+FONT-STYLE: normal;
+FONT-VARIANT: normal; 
+FONT-WEIGHT: normal; 
+HEIGHT: 18px; 
+LINE-HEIGHT: normal}
+
+
+input.BigInputMoney{
+COLOR:#000066; 
+BACKGROUND: #F8F8F8; 
+text-align: RIGHT; 
+border:1 solid black; 
+BORDER-BOTTOM:1px double; 
+FONT-SIZE: 9pt; 
+FONT-STYLE: normal; 
+FONT-VARIANT: normal; 
+FONT-WEIGHT: normal; 
+HEIGHT: 18px; 
+LINE-HEIGHT: normal}
+
+
+input.SmallStatic{ 
+COLOR: #000066; 
+BACKGROUND: #E0E0E0; 
+border:1 solid black; 
+FONT-SIZE: 9pt; 
+FONT-STYLE: normal; 
+FONT-VARIANT: normal; 
+FONT-WEIGHT: normal; 
+HEIGHT: 18px; 
+LINE-HEIGHT: normal}
+
+
+input.BigStatic  { 
+COLOR: #000066; 
+BACKGROUND: #E0E0E0; 
+border:1 solid black; 
+BORDER-BOTTOM:1px double; 
+FONT-SIZE: 9pt; 
+FONT-STYLE: normal; 
+FONT-VARIANT: normal;
+FONT-WEIGHT: normal; 
+HEIGHT: 18px; 
+LINE-HEIGHT: normal}
+
+
+select.BigSelect  { 
+COLOR: #000066; 
+BACKGROUND: #F8F8F8; 
+border:1 solid black; 
+BORDER-BOTTOM:1px double;
+FONT-SIZE: 9pt; 
+FONT-STYLE: normal; 
+FONT-VARIANT: normal; 
+FONT-WEIGHT: normal; 
+HEIGHT: 18px; 
+LINE-HEIGHT: normal}
+
+select.SmallSelect{ 
+COLOR: #000066; 
+BACKGROUND: #F7F6EF; 
+border:1 solid black; 
+BORDER-BOTTOM:1px double; 
+FONT-SIZE: 9pt; 
+FONT-STYLE: normal; 
+FONT-VARIANT: normal; 
+FONT-WEIGHT: normal; 
+HEIGHT: 18px; 
+LINE-HEIGHT: normal}
+
+select.BigStatic  { 
+COLOR: #000066; 
+BACKGROUND: #E0E0E0; 
+border:1 solid black; 
+BORDER-BOTTOM:1px double;
+FONT-SIZE: 9pt;
+FONT-STYLE: normal; 
+FONT-VARIANT: normal;
+FONT-WEIGHT: normal; 
+HEIGHT: 18px; 
+LINE-HEIGHT: normal}
+
+
+select.SmallStatic{ 
+COLOR: #000066; 
+BACKGROUND: #E0E0E0; 
+border:1 solid black;
+FONT-SIZE: 9pt; 
+FONT-STYLE: normal; 
+FONT-VARIANT: normal; 
+FONT-WEIGHT: normal; 
+HEIGHT: 18px; 
+LINE-HEIGHT: normal}
+
+
+textarea.BigInput { 
+COLOR: #000066; 
+BACKGROUND: #F8F8F8; 
+border:1 solid black; 
+BORDER-BOTTOM:1px double; 
+FONT-SIZE: 9pt; 
+FONT-STYLE: normal; 
+FONT-VARIANT: normal; 
+FONT-WEIGHT: normal;
+LINE-HEIGHT: normal;}
+
+
+textarea.BigStatic{ 
+COLOR: #000066; 
+BACKGROUND: #E0E0E0; 
+border:1 solid black;
+BORDER-BOTTOM:1px double; 
+FONT-SIZE: 9pt; 
+FONT-STYLE: normal; 
+FONT-VARIANT: normal;
+FONT-WEIGHT: normal;
+LINE-HEIGHT: normal;}
+
+/* ---------- 按键控制表格背景样式 ---------- */
+.TableControl{ 
+BACKGROUND: #F0EEDB;}
+
+/* ---------- 表格标题样式 ---------- */
+.TableHeader { 
+BACKGROUND: #F0ECD5; 
+color: #FFFFFF; 
+font-weight: bold; 
+background-image: url("../theme_images/main/table/header_bg.jpg") }
+
+/* ---------- 表格标题样式 按键 ---------- */
+.TableHeader1 { 
+BACKGROUND: #D3E5FA; 
+background-image: url("../theme_images/main/table/header_bg.jpg");  
+CURSOR: hand; 
+COLOR: #ffffff;}                                       /* ---------- 字体颜色 ---------- */
+
+
+/* ---------- 内框表格背景演示 ---------- */
+.TableContent{ 
+BACKGROUND: #E2DDBF;}
+
+/* ---------- 表格内容样式 ---------- */
+.TableData { 
+BACKGROUND: #EBF3E6; 
+FONT-SIZE: 10pt;}
+
+/* ---------- 表格交叉样式1 ---------- */
+.TableLine1 { 
+BACKGROUND: #EEECDF;}
+
+/* ---------- 表格交叉样式2 ---------- */
+.TableLine2 { 
+BACKGROUND: #F0ECD5;}
+
+/* ---------- 其它样式定义 ---------- */
+.deletebg {  
+font-family: "宋体"; 
+font-size: 12px; 
+border-color: black black #000000; 
+border-style: solid;
+border-top-width: 0px; 
+border-right-width: 0px; 
+border-bottom-width: 0px; 
+border-left-width: 0px;
+text-align:center;}
+
+.querybg {  
+font-family: "宋体"; 
+font-size: 12px;
+border-color: black black #000000; 
+border-style: solid; 
+border-top-width: 0px; 
+border-right-width: 0px; 
+border-bottom-width: 1px; 
+border-left-width: 0px}
+
+.toolbutton { 
+BORDER-RIGHT: #104a7b 1px solid;   
+BORDER-TOP: #afc4d5 1px solid;    
+BACKGROUND: #d6e7ef;    
+BORDER-LEFT: #afc4d5 1px solid;   
+CURSOR: hand;    
+COLOR: #000066;    
+BORDER-BOTTOM: #104a7b 1px solid; 
+margin: 0pt;
+width: 60pt;  
+HEIGHT: 18px;    
+FONT-SIZE: 10pt;    
+TEXT-DECORATION: none;
+background-image: url("../images/button_back.gif");}
+
+
+-->  </style>  

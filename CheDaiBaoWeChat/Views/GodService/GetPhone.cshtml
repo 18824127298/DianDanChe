@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "请输入电话号码";
+    string sReturnUrl = ViewBag.ReturnUrl;
+}
+
+<body class="bodybg">
+    <meta name="viewport" content="width=device-width">
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+    <header>
+        <a class="back" href="javascript:history.go(-1)"></a>
+    </header>
+    <div class="banner">
+    </div>
+    <form action="Create" class="registerform" method="post">
+        <div class="box">
+            <input name="Phone" id="Phone" type="text" class="user" value="" datatype="m" nullmsg="请输入手机号或姓名！" placeholder="请输入手机号或姓名">
+
+
+            <input name="提交" type="button" id="btnRegister" class="userbtn" value="下一步">
+            <br>
+        </div>
+    </form>
+</body>
+<script>
+
+
+    $("#btnRegister").click(function () {
+        if ($("#Phone").val() == "") {
+            alert("请输入手机号码或姓名");
+            return false;
+        }
+        $.post("InsertPhone",
+           {
+               Phone: $("#Phone").val(),
+               rn: Math.random()
+           }, function (json) {
+               if (json == "0") {
+                   alert("请输入正确的手机号或姓名");
+               } else if (json == "1") {
+                   window.location.href = "@sReturnUrl";
+               } else {
+                   alert("输入的姓名有重复，请输入手机号");
+               }
+           });
+    });
+</script>

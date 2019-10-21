@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8F07A089-A32D-4B31-B62E-4BAF9017AF34}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sigbit.Data</RootNamespace>
+    <AssemblyName>Sigbit.Data</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>http://localhost/Sigbit.Data/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Sigbit.Data.XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\Sigbit.Data.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\Sigbit.Data.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DbLinq.PostgreSql">
+      <HintPath>..\..\CommonService\Dll\DbLinq.PostgreSql.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\CommonService\Dll\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySQLDriverCS">
+      <HintPath>..\..\CommonService\Dll\MySQLDriverCS.dll</HintPath>
+    </Reference>
+    <Reference Include="Sybase.Data.AseClient">
+      <HintPath>..\..\CommonService\Dll\Sybase.Data.AseClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataConnectionPool.cs" />
+    <Compile Include="DataHelper.cs" />
+    <Compile Include="DataHelperConfig.cs" />
+    <Compile Include="DBConnBase.cs" />
+    <Compile Include="DBConnMSSql.cs" />
+    <Compile Include="DBConnMySql.cs" />
+    <Compile Include="DBConnMySql5.cs" />
+    <Compile Include="DBConnMySql5GBK.cs" />
+    <Compile Include="DBConnODBC.cs" />
+    <Compile Include="DBConnOleDb.cs" />
+    <Compile Include="DBConnOracle.cs" />
+    <Compile Include="DBConnPostgreSql.cs" />
+    <Compile Include="DBConnSybase.cs" />
+    <Compile Include="DBPerfMonitor\Common\UTDCMSqlRegulator.cs" />
+    <Compile Include="DBStruct\ColumnDefine.cs" />
+    <Compile Include="DBStruct\ColumnDefineList.cs" />
+    <Compile Include="DBStruct\DBStructBuilder.cs" />
+    <Compile Include="DBStruct\DBStructExtractor.cs" />
+    <Compile Include="DBStruct\TableDefine.cs" />
+    <Compile Include="DBStruct\TableIndexDefine.cs" />
+    <Compile Include="DBStruct\TCXTableCommentPool.cs" />
+    <Compile Include="FoxDBF\DBFCreate.cs" />
+    <Compile Include="FoxDBF\DBFFieldType.cs" />
+    <Compile Include="FoxDBF\FOXBytesBuilder.cs" />
+    <Compile Include="FoxDBF\FoxDBFConfig.cs" />
+    <Compile Include="FoxDBF\FoxDBFile.cs" />
+    <Compile Include="FoxDBF\FOXFIELD.cs" />
+    <Compile Include="FoxDBF\FoxFieldDef.cs" />
+    <Compile Include="FoxDBF\FOXFIELDList.cs" />
+    <Compile Include="FoxDBF\FOXHEAD.cs" />
+    <Compile Include="FoxDBF\FOXUtil.cs" />
+    <Compile Include="FoxDBF\MFXRecordDataList.cs" />
+    <Compile Include="FoxDBF\TestForm\FormTestFoxDBFClasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoxDBF\TestForm\FormTestFoxDBFClasses.Designer.cs">
+      <DependentUpon>FormTestFoxDBFClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoxUtils\HZUtf8PinYin\FUXHanzPinYin.cs" />
+    <Compile Include="FoxUtils\HZUtf8PinYin\TestForm\FormTestUTF8PinYin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoxUtils\HZUtf8PinYin\TestForm\FormTestUTF8PinYin.Designer.cs">
+      <DependentUpon>FormTestUTF8PinYin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MySqlUtils\MySqlIndexUtil.cs" />
+    <Compile Include="MySqlUtils\MySqlTableUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RomitSQL\DBConnRomitSql.cs" />
+    <Compile Include="RomitSQL\RemoteServiceEngine\RomitRemoteServiceEngine.cs" />
+    <Compile Include="RomitSQL\ROMMBase.cs" />
+    <Compile Include="RomitSQL\ROMMSQLRequest.cs" />
+    <Compile Include="RomitSQL\ROMMSQLResult.cs" />
+    <Compile Include="RomitSQL\ROMXConstants.cs" />
+    <Compile Include="TableBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Sybase.Data.AseClient.dll" />
+    <Content Include="bin\Debug\sybdrvado11.dll" />
+    <Content Include="bin\Debug\sybdrvssl.dll" />
+    <Content Include="RomitSQL\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FoxDBF\TestForm\FormTestFoxDBFClasses.resx">
+      <DependentUpon>FormTestFoxDBFClasses.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sigbit.Common\Sigbit.Common.csproj">
+      <Project>{5B852150-D9C3-4AB3-BDC0-DAD16B819059}</Project>
+      <Name>Sigbit.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sigbit.Net\Sigbit.Net.csproj">
+      <Project>{e88a6389-f6df-4cc7-b31b-6c3183aafe51}</Project>
+      <Name>Sigbit.Net</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

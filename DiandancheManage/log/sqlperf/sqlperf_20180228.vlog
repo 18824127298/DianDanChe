@@ -1,0 +1,4 @@
+==== ¡¾instanceDefault¡¿¡¾actual 840 ms / want 500 ms¡¿ 2018/2/28 19:08:08 ====
+SELECT SUM(b.[Amount]) as Allamount, g.[FullName] , g.[Aliases]  FROM [Bid] b join [God] g on b.[GodId] = g.[Id] where b.[IsValid] = 1
+and g.[IsValid] = 1 and g.[GodType] = 1 and b.[CreateTime] >=  DATEADD(mm,DATEDIFF(mm,0,dateadd(month,-1,getdate())),0) and b.[CreateTime] <dateadd(ms,-3,DATEADD(mm,DATEDIFF(mm,0,getdate()),0))  GROUP BY g.[FullName] , g.[Aliases] ORDER BY Allamount DESC 
+

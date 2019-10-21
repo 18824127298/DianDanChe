@@ -1,0 +1,9 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1676 ms / want 500 ms¡¿ 2019/6/26 14:52:37 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 888 ms / want 500 ms¡¿ 2019/6/26 14:54:15 ====
+select * from loanapply where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 952 ms / want 500 ms¡¿ 2019/6/26 18:07:47 ====
+select * from Borrower where  IsValid=@IsValid
+

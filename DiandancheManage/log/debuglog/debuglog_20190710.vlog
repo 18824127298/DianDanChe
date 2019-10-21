@@ -1,0 +1,24 @@
+========== 2019-07-10 10:26:04 ==========
+1
+
+========== 2019-07-10 10:26:04 ==========
+WxPayApi.ResultNotify Receive data from WeChat : 
+
+========== 2019-07-10 10:26:04 ==========
+WxPayApi.ResultNotify Sign check error : <xml><return_code><![CDATA[FAIL]]></return_code><return_msg><![CDATA[将空的xml串转换为WxPayData不合法!]]></return_msg></xml>
+
+========== 2019-07-10 10:28:56 ==========
+1
+
+========== 2019-07-10 10:29:08 ==========
+1
+
+========== 2019-07-10 10:30:44 ==========
+1
+
+========== 2019-07-10 14:29:15 ==========
+WxPayApi.ResultNotify Receive data from WeChat : 
+
+========== 2019-07-10 14:29:15 ==========
+WxPayApi.ResultNotify Sign check error : <xml><return_code><![CDATA[FAIL]]></return_code><return_msg><![CDATA[将空的xml串转换为WxPayData不合法!]]></return_msg></xml>
+

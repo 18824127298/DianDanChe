@@ -1,0 +1,3766 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sigbit.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Sigbit.Common.AppPath">
+            <summary>
+            应用的路径
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.AppPath.AppFullPath(System.String,System.String)">
+            <summary>
+            得到应用完整的全路径
+            </summary>
+            <param name="sDirName">目录名</param>
+            <param name="sFileName">文件名</param>
+            <returns>完整的路径</returns>
+        </member>
+        <member name="M:Sigbit.Common.AppPath.IsAbsolutePath(System.String)">
+            <summary>
+            是否绝对路径
+            </summary>
+            <param name="sPathName">路径名</param>
+            <returns>是否绝对路径</returns>
+        </member>
+        <member name="M:Sigbit.Common.AppPath.GetCurrentVirtualPath">
+            <summary>
+            得到当前的虚拟目录
+            </summary>
+            <returns>当前的虚拟目录</returns>
+        </member>
+        <member name="M:Sigbit.Common.AppPath.SetPathSeriesName(System.String)">
+            <summary>
+            设置用于区分配置项的组名
+            </summary>
+            <param name="sSeriesName">组名</param>
+        </member>
+        <member name="P:Sigbit.Common.AppPath.AppRootPath">
+            <summary>
+            应用的根路径(应mango 2013-12)
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.ArrayUtil">
+            <summary>
+            数组相关的实用例程
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.ArrayUtil.ToStringArray(System.Collections.ArrayList)">
+            <summary>
+            
+            </summary>
+            <param name="arrList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.ArrayUtil.ToArrayList(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="arrString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.ArrayUtil.MergeStringArrayToString(System.String[],System.Char)">
+            <summary>
+            将字符串数组编码至一个字符串中
+            </summary>
+            <param name="arrString">字符串数组，需要事先保证字符串中不包含分隔符</param>
+            <param name="cSplitChar">分隔符</param>
+            <returns>编码结果</returns>
+        </member>
+        <member name="M:Sigbit.Common.ArrayUtil.MergeStringArrayToString(System.Collections.ArrayList,System.Char)">
+            <summary>
+            将字符串列表编码至一个字符串中
+            </summary>
+            <param name="arrList">字符串列表，需要事先保证字符串中不包含分隔符</param>
+            <param name="cSplitChar">分隔符</param>
+            <returns>编码结果</returns>
+        </member>
+        <member name="M:Sigbit.Common.ArrayUtil.GetOrderValueIntArray(System.Int32)">
+            <summary>
+            得到一个整数数组，其中数组的值就是该数组的下标
+            </summary>
+            <param name="nNum">数组的大小</param>
+            <returns>获得的数组</returns>
+        </member>
+        <member name="M:Sigbit.Common.ArrayUtil.GetMixedIntArrayOrder(System.Int32[],System.Int32[]@)">
+            <summary>
+            打乱整数数组的值的顺序，得到一个新的乱序了的数组
+            </summary>
+            <param name="arrValues">待乱序的数组</param>
+            <param name="arrOldPosition">乱序后的原来数据的位置</param>
+            <returns>新的乱序了的数组</returns>
+        </member>
+        <member name="M:Sigbit.Common.ArrayUtil.GetMixedIntArrayOrder(System.Int32[])">
+            <summary>
+            打乱整数数组的值的顺序，得到一个新的乱序了的数组
+            </summary>
+            <param name="arrValues">待乱序的数组</param>
+            <returns>新的乱序了的数组</returns>
+        </member>
+        <member name="M:Sigbit.Common.ArrayUtil.GetMixedStringArrayOrder(System.String[],System.Int32[]@)">
+            <summary>
+            打乱字符串数组的值的顺序，得到一个新的乱序了的数组
+            </summary>
+            <param name="arrValues">待乱序的数组</param>
+            <param name="arrOldPosition">乱序后的原来数据的位置</param>
+            <returns>新的乱序了的数组</returns>
+        </member>
+        <member name="M:Sigbit.Common.ArrayUtil.GetMixedStringArrayOrder(System.String[])">
+            <summary>
+            打乱字符串数组的值的顺序，得到一个新的乱序了的数组
+            </summary>
+            <param name="arrValues">待乱序的数组</param>
+            <returns>新的乱序了的数组</returns>
+        </member>
+        <member name="M:Sigbit.Common.ArrayUtil.RepeatByte(System.Byte,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="by"></param>
+            <param name="nCount"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sigbit.Common.CodeTableItem">
+            <summary>
+            代码表中的一项，记录代码和描述的关系
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.CodeTableItem.Code">
+            <summary>
+            代码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.CodeTableItem.Des">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.CodeTableBase">
+            <summary>
+            代码表
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.CodeTableBase._list">
+            <summary>
+            数据的存储位置
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.CodeTableBase.AddItem(System.String,System.String)">
+            <summary>
+            加入一项
+            </summary>
+            <param name="sCode">代码</param>
+            <param name="sDes">描述</param>
+        </member>
+        <member name="M:Sigbit.Common.CodeTableBase.GetCodeByDes(System.String)">
+            <summary>
+            根据描述得到相应的代码
+            </summary>
+            <param name="sDes">描述</param>
+            <returns>代码</returns>
+        </member>
+        <member name="M:Sigbit.Common.CodeTableBase.GetDesByCode(System.String)">
+            <summary>
+            得到代码的相关描述
+            </summary>
+            <param name="sCode">代码</param>
+            <returns>描述</returns>
+        </member>
+        <member name="M:Sigbit.Common.CodeTableBase.GetCode(System.Int32)">
+            <summary>
+            由索引得到代码
+            </summary>
+            <param name="nIndex">索引号</param>
+            <returns>代码</returns>
+        </member>
+        <member name="M:Sigbit.Common.CodeTableBase.GetDes(System.Int32)">
+            <summary>
+            由索引得到描述
+            </summary>
+            <param name="nIndex">索引号</param>
+            <returns>描述</returns>
+        </member>
+        <member name="F:Sigbit.Common.CodeTableBase._nDefaultIndex">
+            <summary>
+            缺省的下标
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.CodeTableBase.Clear">
+            <summary>
+            清零
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.CodeTableBase.DefaultIndex">
+            <summary>
+            缺省的下标
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.CodeTableBase.DefaultCode">
+            <summary>
+            缺省的代码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.CodeTableBase.DefaultDes">
+            <summary>
+            缺省的描述
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.CodeTableBase.Count">
+            <summary>
+            得到代码项的数量
+            </summary>
+            <returns>代码项的数量</returns>
+        </member>
+        <member name="T:Sigbit.Common.CBComment">
+            <summary>
+            注释
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.CBComment.CommentString">
+            <summary>
+            注释文字
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.CBKeyValuePair">
+            <summary>
+            键值对
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.CBKeyValuePair.Key">
+            <summary>
+            键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.CBKeyValuePair.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.CBSection.SectionName">
+            <summary>
+            段名
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.ConfigBase">
+            <summary>
+            配置的基类。配置基于XML文件的格式，按相对固定的格式组织。
+            如果需要针对一个特定文件进行处理时，一般需要继承该类。
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.GetFileName">
+            <summary>
+            得到配置文件的名称
+            </summary>
+            <returns>配置文件的名称</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sFileName">配置文件名</param>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.LoadFromFile(System.String)">
+            <summary>
+            从文件中加载配置项
+            </summary>
+            <param name="sFileName">配置文件名</param>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.LoadFromFile__Comment(System.Xml.XmlNode)">
+            <summary>
+            加载一级注释
+            </summary>
+            <param name="commentNode"></param>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.LoadFromFile__Section(System.Xml.XmlNode)">
+            <summary>
+            加载一级段
+            </summary>
+            <param name="sectionNode">段节点</param>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.SaveToFile(System.String)">
+            <summary>
+            写入文件
+            </summary>
+            <param name="sFileName">文件名</param>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.SaveToFile__GetCommentElement(System.Xml.XmlDocument,Sigbit.Common.CBComment)">
+            <summary>
+            得到注释的XML节点
+            </summary>
+            <param name="xmlDoc">Xml文档</param>
+            <param name="comment">注释</param>
+            <returns>注释的Xml节点</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.SaveToFile__GetSectionElement(System.Xml.XmlDocument,Sigbit.Common.CBSection)">
+            <summary>
+            得到段的Xml节点
+            </summary>
+            <param name="xmlDoc">Xml文档</param>
+            <param name="section">段</param>
+            <returns>段的Xml节点</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.GetString(System.String,System.String,System.String)">
+            <summary>
+            得到配置字符串
+            </summary>
+            <param name="sSectionName">段名</param>
+            <param name="sKeyName">关键字名</param>
+            <param name="sDefault">缺省值</param>
+            <returns>配置的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.GetString(System.String,System.String)">
+            <summary>
+            得到配置字符串
+            </summary>
+            <param name="sSectionName">段名</param>
+            <param name="sKeyName">关键字名</param>
+            <returns>配置的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.GetInt(System.String,System.String,System.Int32)">
+            <summary>
+            得到配置的整数
+            </summary>
+            <param name="sSectionName">段名</param>
+            <param name="sKeyName">关键字名</param>
+            <param name="nDefault">缺省值</param>
+            <returns>配置的整数</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.GetInt(System.String,System.String)">
+            <summary>
+             得到配置的整数
+             </summary>
+             <param name="sSectionName">段名</param>
+             <param name="sKeyName">关键字名</param>
+             <returns>配置的整数</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.GetBool(System.String,System.String,System.Boolean)">
+            <summary>
+            得到配置的布尔值
+            </summary>
+            <param name="sSectionName">段名</param>
+            <param name="sKeyName">关键字名</param>
+            <param name="bDefault">缺省值</param>
+            <returns>配置的布尔值</returns>
+            <remarks>
+            判断配置项的第一个字符，为1,T,t,Y,y则返回真，
+            为0,F,f,N,n返回假。这样，对于true, false, yes,
+            no的处理也能够一网打尽。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.GetBool(System.String,System.String)">
+            <summary>
+            得到配置的布尔值
+            </summary>
+            <param name="sSectionName">段名</param>
+            <param name="sKeyName">关键字名</param>
+            <returns>配置的布尔值</returns>
+            <remarks>缺省返回false</remarks>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.GetBool3State(System.String,System.String,Sigbit.Common.Bool3State)">
+            <summary>
+            得到配置的三态布尔值
+            </summary>
+            <param name="sSectionName">段名</param>
+            <param name="sKeyName">关键字名</param>
+            <param name="bDefault">缺省值</param>
+            <returns>配置的三态布尔值</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.GetBool3State(System.String,System.String)">
+            <summary>
+            得到配置的三态布尔值
+            </summary>
+            <param name="sSectionName">段名</param>
+            <param name="sKeyName">关键字名</param>
+            <returns>配置的三态布尔值</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.SetString(System.String,System.String,System.String)">
+            <summary>
+            设置字符串键值配置
+            </summary>
+            <param name="sSectionName">段名</param>
+            <param name="sKeyName">键名</param>
+            <param name="sValue">值</param>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.SetInt(System.String,System.String,System.Int32)">
+            <summary>
+            设置整型值
+            </summary>
+            <param name="sSectionName">段</param>
+            <param name="sKeyName">键</param>
+            <param name="nValue">值</param>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.SetBool(System.String,System.String,System.Boolean)">
+            <summary>
+            设置布尔值
+            </summary>
+            <param name="sSectionName">段</param>
+            <param name="sKeyName">键</param>
+            <param name="bValue">值</param>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.SetBool3State(System.String,System.String,Sigbit.Common.Bool3State)">
+            <summary>
+            设置三态布尔值
+            </summary>
+            <param name="sSectionName">段</param>
+            <param name="sKeyName">键</param>
+            <param name="bValue">值</param>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.GetSection(System.String)">
+            <summary>
+            得到一个段的哈希键值对
+            </summary>
+            <param name="sSectionName">段名</param>
+            <returns>哈希键值对</returns>
+            <remarks>主要用于兼容之前的函数</remarks>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.ReadSectionKeys(System.String)">
+            <summary>
+            得到一个段的所有键名
+            </summary>
+            <param name="sSectionName">段名</param>
+            <returns>键名列表</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.ReadSectionKeys__ArrayList(System.String)">
+            <summary>
+            得到一个段的所有键名
+            </summary>
+            <param name="sSectionName">段名</param>
+            <returns>键名列表（ArrayList）</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.ReadSections">
+            <summary>
+            得到段名列表
+            </summary>
+            <returns>段名列表</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.ReadSections__ArrayList">
+            <summary>
+            得到段名列表
+            </summary>
+            <returns>段名列表（ArrayList）</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.SectionExists(System.String)">
+            <summary>
+            是否已经存在一个段
+            </summary>
+            <param name="sSectionName">段名</param>
+            <returns>是否已经存在</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.KeyExists(System.String,System.String)">
+            <summary>
+            是否已经存在一个键
+            </summary>
+            <param name="sSectionName">段名</param>
+            <param name="sKeyName">键名</param>
+            <returns>是否已经存在</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.RemoveSection(System.String)">
+            <summary>
+            移除一个段。如果该段不存在，则抛出例外。
+            </summary>
+            <param name="sSectionName">段名</param>
+        </member>
+        <member name="M:Sigbit.Common.ConfigBase.RemoveKey(System.String,System.String)">
+            <summary>
+            移除一个键。如果该键不存在，则抛出例外。
+            </summary>
+            <param name="sSectionName">段名</param>
+            <param name="sKeyName">键名</param>
+        </member>
+        <member name="T:Sigbit.Common.ConvertUtil">
+            <summary>
+            处理各个类型之间的转换
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.NotNullStr(System.Object,System.String)">
+            <summary>
+            返回非空(null)字符串
+            </summary>
+            <param name="canNullStr">待转换的对象</param>
+            <param name="defaultStr">缺省字符串</param>
+            <returns>得到字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.NotNullStr(System.Object)">
+            <summary>
+            返回非空(null)字符串
+            </summary>
+            <param name="canNullStr">待转换的对象</param>
+            <returns>得到的字符串。如果为对象null，则返回""</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToInt(System.Object,System.Int32)">
+            <summary>
+            将对象转换为整型
+            </summary>
+            <param name="objInt">对象</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>得到的整数</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToInt__StringOnly(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="sToConvertString"></param>
+            <param name="nDefaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToInt(System.Object)">
+            <summary>
+            将对象转换为整型
+            </summary>
+            <param name="objInt">对象</param>
+            <returns>得到的整数。缺省为0</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToBool(System.Object,System.Boolean)">
+            <summary>
+            将对象转换为布尔型
+            </summary>
+            <param name="objBool">待转换的对象</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>得到的布尔型</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToBool(System.Object)">
+            <summary>
+            将对象转换为布尔型
+            </summary>
+            <param name="objBool">待转换的对象</param>
+            <returns>得到的布尔型。缺省为false。</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToBool(Sigbit.Common.Bool3State,System.Boolean)">
+            <summary>
+            三态布尔转换为布尔型
+            </summary>
+            <param name="bool3State">三态布尔型</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>得到的布尔型</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToBool(Sigbit.Common.Bool3State)">
+            <summary>
+            三态布尔转换为布尔，缺省值为false
+            </summary>
+            <param name="bool3State">三态布尔值</param>
+            <returns>得到的布尔值</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToBool3State(System.Boolean)">
+            <summary>
+            布尔值转至三态布尔
+            </summary>
+            <param name="bBool">布尔值</param>
+            <returns>三态布尔</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToDecimal(System.Object,System.Decimal)">
+            <summary>
+            将对象转换为Decimal类型
+            </summary>
+            <param name="objDecimal">待转换的对象</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>得到的Decimal类型</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToDecimal(System.Object)">
+            <summary>
+            将对象转换为Decimal类型
+            </summary>
+            <param name="objDecimal">待转换的对象</param>
+            <returns>得到的Decimal类型。缺省为0</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToFloat(System.Object,System.Double)">
+            <summary>
+            将对象转换为Float类型
+            </summary>
+            <param name="objFloat">待转换的对象</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>得到的Float类型</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToFloat(System.Object)">
+            <summary>
+            将对象转换为Float类型
+            </summary>
+            <param name="objFloat">待转换的对象</param>
+            <returns>得到的Float类型。缺省为0</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToString(System.Object,System.String)">
+            <summary>
+            将对象转换为字符串类型
+            </summary>
+            <param name="objString">待转换为对象</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>得到的字符串类型</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ToString(System.Object)">
+            <summary>
+            将对象转换为字符串类型
+            </summary>
+            <param name="objString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ExtractNumberFromString(System.String,System.Double)">
+            <summary>
+            将字符串解析为数字
+            </summary>
+            <param name="sString">字符串</param>
+            <param name="fDefault">缺省值</param>
+            <returns>数字</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.ExtractNumberFromString__CutRearString(System.String)">
+            <summary>
+            取出可以转换为数字的字符串
+            </summary>
+            <param name="sRearString">第一位是数字或负数符号的字符串</param>
+            <returns>可转换为数字的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.EnumToString(System.Object)">
+            <summary>
+            将枚举转换为字符串
+            </summary>
+            <param name="enumObject">枚举值</param>
+            <returns>字符串。小写，每个单词以下划线分开。</returns>
+        </member>
+        <member name="M:Sigbit.Common.ConvertUtil.StringToEnum(System.String,System.Object)">
+            <summary>
+            将字符串转换为特定类型的枚举值。字符串小写，每个单词以下划线分开。
+            </summary>
+            <param name="sString">字符串</param>
+            <param name="enumValue">该类型枚举的某一个值，用于获取类型</param>
+            <returns>特定类型的枚举值。</returns>
+        </member>
+        <member name="T:Sigbit.Common.DateTimeUtil">
+            <summary>
+            对时间的处理，尤其是字符串时间格式的处理提供支持
+            </summary>
+            <remarks>
+            在DateTimeUtil中，对日期、时间统一按特定的字符串格式进行
+            处理，时间采用19位的字符串，编码为“yyyy-mm-dd hh:mi:ss”，
+            日期采用10位的字符串，编码为“yyyy-mm-dd”。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.IsDateTime(System.String)">
+            <summary>
+            判断给定的日期时间字符串是否符合相应的格式
+            </summary>
+            <param name="strDate">日期时间字符串</param>
+            <returns>是否符合格式</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.MonthFirstDate(System.String)">
+            <summary>
+            指定日期的该月第一天
+            </summary>
+            <param name="sThisDate">指定的日期</param>
+            <returns>该月第一天</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.MonthLastDate(System.String)">
+            <summary>
+            指定日期的该月最后一天
+            </summary>
+            <param name="sThisDate">指定的日期</param>
+            <returns>该月最后一天</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToDateTime(System.String)">
+            <summary>
+            转换字符串类型的时间至日期时间类型
+            </summary>
+            <param name="strDateTime">时间字符串</param>
+            <returns>日期时间类型的值</returns>
+            <remarks>如果格式不正确，则返回当前的时间</remarks>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToTime(System.String)">
+            <summary>
+            转换时间类型的字符串至日期时间类型
+            </summary>
+            <param name="strTime">时间字符串</param>
+            <returns>时间值</returns>
+            <remarks>如果格式不正确，则返回的是"00:00:00"的时间值</remarks>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToTimeStr(System.DateTime)">
+            <summary>
+            将时间值转换至时间字符串
+            </summary>
+            <param name="time">时间值</param>
+            <returns>时间字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToTimeStr(System.Object,System.String)">
+            <summary>
+            将对象转换为指定格式的字符串
+            </summary>
+            <param name="time">待转换的对象</param>
+            <param name="sFormat">指定的字符串格式</param>
+            <returns>转换后的字符串</returns>
+            <remarks>如果为空值，或非日期时间对象，则返回""</remarks>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToTimeStr(System.Object)">
+            <summary>
+            将对象转换为字符串，格式为"HH:mm:ss"
+            </summary>
+            <param name="time">待转换的对象</param>
+            <returns>转换后的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToTimeStrFromSecond(System.Int32)">
+            <summary>
+            从秒数转换为时间字符串
+            </summary>
+            <param name="Second">秒数</param>
+            <returns>时间字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToSecondsFromTimeStr(System.String)">
+            <summary>
+            将时间字符串转换为秒数
+            </summary>
+            <param name="timeStr">时间字符串</param>
+            <returns>转换后的秒数</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToDateStr(System.DateTime)">
+            <summary>
+            将日期时间值转换为日期字符串
+            </summary>
+            <param name="dt">日期时间值</param>
+            <returns>日期字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToDateStr(System.Object,System.String)">
+            <summary>
+            将对象转换为日期字符串
+            </summary>
+            <param name="dt">对象</param>
+            <param name="defaultStr">缺省字符串</param>
+            <returns>转换后的字符串。如果为空值，则按缺省值返回</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToDateStr(System.Object)">
+            <summary>
+            将对象转换为日期字符串
+            </summary>
+            <param name="dt">对象</param>
+            <returns>转换后的字符串。如果转换不成功，则返回""</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToDateTimeStr(System.DateTime)">
+            <summary>
+            将日期时间值转换为字符串
+            </summary>
+            <param name="dt">日期时间值</param>
+            <returns>字符串(len=19)</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToDateTimeStrWithMilliSeconds(System.DateTime)">
+            <summary>
+            转换时间值到带毫秒字符串
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToDateTimeStr(System.Object,System.String)">
+            <summary>
+            将对象转换为日期时间字符串
+            </summary>
+            <param name="dt">对象</param>
+            <param name="defaultStr">转换不成功时所取的缺省字符串</param>
+            <returns>转换后的日期时间字符串(len=19)</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToDateTimeStr(System.Object)">
+            <summary>
+            将对象转换为日期时间字符串
+            </summary>
+            <param name="dt">对象</param>
+            <returns>转换后的日期时间字符串(len=19)</returns>
+            <remarks>如果转换不成功，则返回""</remarks>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToDateTimeStr(System.Object,System.String,System.String)">
+            <summary>
+            将对象转换为指定格式的日期时间字符串
+            </summary>
+            <param name="dt">对象</param>
+            <param name="defaultStr">缺省字符串</param>
+            <param name="sFormat">格式</param>
+            <returns>转换后的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.Year(System.String)">
+            <summary>
+            获取日期的年份
+            </summary>
+            <param name="dtString">日期时间串</param>
+            <returns>年份</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.Month(System.String)">
+            <summary>
+            获取日期的月份
+            </summary>
+            <param name="dtString">日期时间串</param>
+            <returns>月份</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.Day(System.String)">
+            <summary>
+            获取日期中该月的第几天
+            </summary>
+            <param name="dtString">日期时间串</param>
+            <returns>该月的第几天</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.Hour(System.String)">
+            <summary>
+            获取日期中的小时部分
+            </summary>
+            <param name="dtString">日期时间串</param>
+            <returns>小时部分</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.Minute(System.String)">
+            <summary>
+            获取日期中的分钟部分
+            </summary>
+            <param name="dtString">日期时间串</param>
+            <returns>分钟部分</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.Second(System.String)">
+            <summary>
+            获取日期中的秒部分
+            </summary>
+            <param name="dtString">日期时间串</param>
+            <returns>秒部分</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.DayOfWeek(System.String)">
+            <summary>
+            获取表示的日期是星期几
+            </summary>
+            <param name="dtString">日期时间串</param>
+            <returns>星期几</returns>
+            <remarks>返回值从0至6；星期日为0，星期六为6</remarks>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.DayOfYear(System.String)">
+            <summary>
+            获取表示的日期是一年中的第几天
+            </summary>
+            <param name="dtString">日期时间串</param>
+            <returns>一年中的第几天</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.AddMonths(System.String,System.Int32)">
+            <summary>
+            将指定的月份数加到日期值上
+            </summary>
+            <param name="dtString">原来的日期</param>
+            <param name="nOffset">指定的月份数</param>
+            <returns>得到的日期</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.AddDays(System.String,System.Int32)">
+            <summary>
+            将指定的天数加到日期值上
+            </summary>
+            <param name="dtString">原来的日期</param>
+            <param name="offset">指定的天数</param>
+            <returns>得到的日期</returns>
+            <remarks>天数可以为负数</remarks>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.AddSeconds(System.String,System.Int32)">
+            <summary>
+            将指定的秒数加到日期值上
+            </summary>
+            <param name="dtString">原来的日期时间</param>
+            <param name="offset">指定的秒数</param>
+            <returns>得到的日期时间</returns>
+            <remarks>秒数可以为负数</remarks>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.AddMilliSeconds(System.String,System.Int32)">
+            <summary>
+            添加指定的毫秒数
+            </summary>
+            <param name="dtString"></param>
+            <param name="offset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.AddMilliSeconds(System.String,System.Double)">
+            <summary>
+            添加指定的秒数
+            </summary>
+            <param name="dtString">时间串</param>
+            <param name="offset">添加的秒数</param>
+            <returns>添加指定秒数后的时间</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.DaysAfter(System.String,System.String)">
+            <summary>
+            得到两个日期时间之间相差的天数
+            </summary>
+            <param name="dtFromString">起始日期</param>
+            <param name="dtToString">终止日期</param>
+            <returns>相差的天数</returns>
+            <remarks>
+            不判断时间的情况。只判断日期是否切换，即使时间相差仅数分钟，
+            只要切换了日期，也计算相差的天数。例如，2005-05-05 23:58:58和
+            2005-05-06 00:02:03之间所差的天数也是1。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.SecondsAfter(System.String,System.String)">
+            <summary>
+            得到两个日期时间之间相差的秒数
+            </summary>
+            <param name="dtFromString">起始日期时间</param>
+            <param name="dtToString">终止日期时间</param>
+            <returns>相差的秒数</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.MilliSecondsAfter(System.String,System.String)">
+            <summary>
+            得到两个日期时间之间相差的毫秒数
+            </summary>
+            <param name="dtFromString">起始日期时间</param>
+            <param name="dtToString">终止日期时间</param>
+            <returns>相差的毫秒数</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.EncodeTime(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            通过时、分、秒得到时间串
+            </summary>
+            <param name="nHour">小时</param>
+            <param name="nMinute">分钟</param>
+            <param name="nSecond">秒</param>
+            <returns>时间部分</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.EncodeDate(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            通过年、月、日得到日期部分
+            </summary>
+            <param name="nYear">年份</param>
+            <param name="nMonth">月份</param>
+            <param name="nDay">日</param>
+            <returns>日期部分</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.GetDatePart(System.String)">
+            <summary>
+            得到日期部分
+            </summary>
+            <param name="sDatetime">日期时间</param>
+            <returns>日期部分</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.GetTimePart(System.String)">
+            <summary>
+            得到时间部分
+            </summary>
+            <param name="sDatetime">日期时间</param>
+            <returns>时间部分</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.BeginTimeOfDay(System.String)">
+            <summary>
+            得到一天的起始时间
+            </summary>
+            <param name="sDate">日期</param>
+            <returns>起始时间</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.EndTimeOfDay(System.String)">
+            <summary>
+            得到一天的结束时间
+            </summary>
+            <param name="sDate">日期</param>
+            <returns>结束时间</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToDateTime14Str(System.String)">
+            <summary>
+            由19位的日期时间转到14位的日期时间
+            </summary>
+            <param name="sDT">19位的日期时间</param>
+            <returns>14位的日期时间</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.FromDateTime14Str(System.String)">
+            <summary>
+            由14位的日期时间转到19位的日期时间
+            </summary>
+            <param name="sDT14">14位的日期时间</param>
+            <returns>19位的日期时间</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.NowTimestamp">
+            <summary>
+            当前时间的时间戳
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToTimestamp(System.DateTime)">
+            <summary>
+            得到时间戳
+            </summary>
+            <param name="dt">DateTime值</param>
+            <returns>时间戳</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.ToTimestamp(System.String)">
+            <summary>
+            得到时间戳
+            </summary>
+            <param name="sDateTimeString">时间日期字符串</param>
+            <returns>时间戳</returns>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.FromTimestamp(System.String)">
+            <summary>
+            从时间戳得到日期时间字符串
+            </summary>
+            <param name="sTimestamp">时间戳</param>
+            <remarks>时间日期字符串</remarks>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.FromTimestampDT(System.String)">
+            <summary>
+            从时间戳得到日期时间
+            </summary>
+            <param name="sTimestamp">时间戳</param>
+            <remarks>时间日期字符串</remarks>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.VIVTimeStringWithoutSecond(System.String)">
+            <summary>
+            得到不包括秒数的日期时间字符串
+            </summary>
+            <param name="sDateTimeString">19位日期时间字符串</param>
+            <returns>2015-11-06 23:59</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Sigbit.Common.DateTimeUtil.VIVTimeStringtWithoutYearSecond(System.String)">
+            <summary>
+            得到不包括年份和秒数的日期时间字符串
+            </summary>
+            <param name="sDateTimeString">19位日期时间字符串</param>
+            <returns>11-06 23:59</returns>
+        </member>
+        <member name="P:Sigbit.Common.DateTimeUtil.ThisMonthFirstDate">
+            <summary>
+            得到当前月的第一天
+            </summary>
+            <returns>当前月的第一天</returns>
+        </member>
+        <member name="P:Sigbit.Common.DateTimeUtil.ThisMonthLastDate">
+            <summary>
+            得到当前月的最后一天
+            </summary>
+            <returns>当前月的最后一天</returns>
+        </member>
+        <member name="P:Sigbit.Common.DateTimeUtil.Now">
+            <summary>
+            获取当前的时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.DateTimeUtil.NowWithMilliSeconds">
+            <summary>
+            带毫秒部分的当前时间，示例为2003.07.22 10:02:52.136
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.DateTimeUtil.Today">
+            <summary>
+            获取当前的时间
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.DebugLogger">
+            <summary>
+            诊断查错日志记录
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.DebugLogger.LogError(System.String)">
+            <summary>
+            错误记录
+            </summary>
+            <param name="sLogText">错误文本</param>
+        </member>
+        <member name="M:Sigbit.Common.DebugLogger.LogWarning(System.String)">
+            <summary>
+            警告记录
+            </summary>
+            <param name="sLogText">警告文本</param>
+        </member>
+        <member name="M:Sigbit.Common.DebugLogger.LogDebugMessage(System.String,System.String)">
+            <summary>
+            记录文本信息
+            </summary>
+            <param name="sMessage">文本信息</param>
+            <param name="sKey">标识字</param>
+        </member>
+        <member name="M:Sigbit.Common.DebugLogger.LogDebugMessage(System.String)">
+            <summary>
+            记录文本信息
+            </summary>
+            <param name="sMessage">文本信息</param>
+        </member>
+        <member name="M:Sigbit.Common.DebugLogger.LogByDate(System.String,System.String)">
+            <summary>
+            按日期分文件进行记录
+            </summary>
+            <param name="sLogType">日志类型</param>
+            <param name="sLogText">日志文本</param>
+        </member>
+        <member name="T:Sigbit.Common.DebugUtil">
+            <summary>
+            Debug应用
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.DebugUtil.WriteToDebugFile(System.String)">
+            <summary>
+            将调试串写入文件中
+            </summary>
+            <param name="sDebugString">调试串</param>
+        </member>
+        <member name="T:Sigbit.Common.Encrypt.ICRC">
+            <summary>
+            CRC 接口
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.ICRC.Reset">
+            <summary>
+            重置数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.ICRC.Crc(System.Int32)">
+            <summary>
+             CRC
+            </summary>
+            <param name="bval"></param>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.ICRC.Crc(System.String)">
+            <summary>
+            CRC字符串
+            </summary>
+            <param name="sInputString"></param>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.ICRC.Crc(System.Byte[])">
+            <summary>
+            CRC 数组
+            </summary>
+            <param name="buffer"></param>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.ICRC.Crc(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            CRC 指定数组范围
+            </summary>
+            <param name="buf"></param>
+            <param name="off"></param>
+            <param name="len"></param>
+        </member>
+        <member name="P:Sigbit.Common.Encrypt.ICRC.Value">
+            <summary>
+            CRC 值
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.Encrypt.CRC8">
+            <summary> 
+            CRC8 的摘要说明。 
+            </summary> 
+        </member>
+        <member name="F:Sigbit.Common.Encrypt.CRC8.CRC8_Table">
+            <summary> 
+            CRC 8 位校验表 
+            </summary> 
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC8.Reset">
+            <summary> 
+            CRC校验前设置校验值 
+            </summary> 
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC8.Crc(System.Byte,System.Byte)">
+            <summary> 
+            8 位 CRC 校验 产生校验码 需要被校验码和校验码 
+            </summary> 
+            <param name="CRC"></param> 
+            <param name="OldCRC"> 初始为 0 ,以后为 返回值 ret </param> 
+            <returns> 产生校验码时 ret　为校验码</returns> 
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC8.Crc(System.Int32)">
+            <summary> 
+            8 位 CRC 校验 产生校验码 只要被校验码 
+            </summary> 
+            <param name="bval"></param> 
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC8.Crc(System.Byte[])">
+            <summary> 
+            8 位 CRC 校验 产生校验码 只要被校验的字节数组 
+            </summary> 
+            <param name="buffer"></param> 
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC8.Crc(System.String)">
+            <summary>
+            CRC
+            </summary>
+            <param name="sInputString">输入串</param>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC8.Crc(System.Byte[],System.Int32,System.Int32)">
+            <summary> 
+            8 位 CRC 校验 产生校验码 要被校验的字节数组、起始结果位置和字节长度 
+            </summary> 
+            <param name="buf"></param> 
+            <param name="off"></param> 
+            <param name="len"></param> 
+        </member>
+        <member name="P:Sigbit.Common.Encrypt.CRC8.Value">
+             <summary> 
+            返回 CRC8校验结果; 
+             </summary> 
+        </member>
+        <member name="T:Sigbit.Common.Encrypt.CRC16">
+            <summary> 
+            CRC16 的摘要说明。 
+            </summary> 
+        </member>
+        <member name="F:Sigbit.Common.Encrypt.CRC16.uppercrctab">
+            <summary> 
+            16 位校验表 Upper 表 
+            </summary> 
+        </member>
+        <member name="F:Sigbit.Common.Encrypt.CRC16.lowercrctab">
+            <summary> 
+            16 位校验表 Lower 表 
+            </summary> 
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC16.Reset">
+            <summary> 
+            设置crc 初始值 
+            </summary> 
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC16.Crc(System.UInt16,System.Byte[])">
+            <summary> 
+            Crc16 
+            </summary> 
+            <param name="ucrc"></param> 
+            <param name="buf"></param> 
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC16.Crc(System.Int32)">
+            <summary> 
+            Crc16 
+            </summary> 
+            <param name="bval"></param> 
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC16.Crc(System.Byte[])">
+            <summary> 
+            Crc16 
+            </summary> 
+            <param name="buffer"></param> 
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC16.Crc(System.String)">
+            <summary>
+            CRC16
+            </summary>
+            <param name="sInputString"></param>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC16.Crc(System.Byte[],System.Int32,System.Int32)">
+            <summary> 
+            Crc16 
+            </summary> 
+            <param name="buf"></param> 
+            <param name="off"></param> 
+            <param name="len"></param> 
+        </member>
+        <member name="P:Sigbit.Common.Encrypt.CRC16.Value">
+            <summary> 
+            校验后的结果 
+            </summary> 
+        </member>
+        <member name="T:Sigbit.Common.Encrypt.CRC32">
+            <summary>
+            CRC32
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC32.Reset">
+            <summary>
+            清零
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC32.Crc(System.Int32)">
+            <summary>
+            CRC
+            </summary>
+            <param name="bval">bval</param>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC32.Crc(System.Byte[])">
+            <summary>
+            CRC
+            </summary>
+            <param name="buffer">字节数组</param>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC32.Crc(System.String)">
+            <summary>
+            CRC16
+            </summary>
+            <param name="sInputString"></param>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRC32.Crc(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            CRC
+            </summary>
+            <param name="buf">Buffer</param>
+            <param name="off">Offset</param>
+            <param name="len">Length</param>
+        </member>
+        <member name="P:Sigbit.Common.Encrypt.CRC32.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.Encrypt.CRCCCITT">
+            <summary>
+            CRC CCITT类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRCCCITT._CRC(System.Byte[])">
+            <summary>
+            生成校验码
+            </summary>
+            <param name="ABytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRCCCITT.CRC(System.Byte[])">
+            <summary>
+            生成校验码
+            </summary>
+            <param name="ABytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRCCCITT.CRC(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            生成CRC校验码
+            </summary>
+            <param name="ABytes"></param>
+            <param name="nOffset"></param>
+            <param name="nLen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.CRCCCITT.CRC(System.Byte[],System.Int32)">
+            <summary>
+            生成CRC校验码
+            </summary>
+            <param name="ABytes"></param>
+            <param name="nLen"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sigbit.Common.Encrypt.DESEncryptor">
+            <summary> 
+            DESEncryptor 的摘要说明。 
+            </summary> 
+        </member>
+        <member name="F:Sigbit.Common.Encrypt.DESEncryptor.inputString">
+            <summary> 
+            输入字符串 
+            </summary> 
+        </member>
+        <member name="F:Sigbit.Common.Encrypt.DESEncryptor.outString">
+            <summary> 
+            输出字符串 
+            </summary> 
+        </member>
+        <member name="F:Sigbit.Common.Encrypt.DESEncryptor.inputFilePath">
+            <summary> 
+            输入文件路径 
+            </summary> 
+        </member>
+        <member name="F:Sigbit.Common.Encrypt.DESEncryptor.outFilePath">
+            <summary> 
+            输出文件路径 
+            </summary> 
+        </member>
+        <member name="F:Sigbit.Common.Encrypt.DESEncryptor.encryptKey">
+            <summary> 
+            加密密钥 
+            </summary> 
+        </member>
+        <member name="F:Sigbit.Common.Encrypt.DESEncryptor.decryptKey">
+            <summary> 
+            解密密钥 
+            </summary> 
+        </member>
+        <member name="F:Sigbit.Common.Encrypt.DESEncryptor.noteMessage">
+            <summary> 
+            提示信息 
+            </summary> 
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.DESEncryptor.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.DESEncryptor.DesEncrypt">
+            <summary> 
+            加密字符串 
+            </summary> 
+            <remarks>密钥必须为８位</remarks>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.DESEncryptor.DesDecrypt">
+            <summary> 
+            解密字符串 
+            </summary> 
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.DESEncryptor.FileDesEncrypt">
+            <summary> 
+            DES加密文件 
+            </summary> 
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.DESEncryptor.FileDesDecrypt">
+            <summary> 
+            解密文件 
+            </summary> 
+        </member>
+        <member name="P:Sigbit.Common.Encrypt.DESEncryptor.InputString">
+            <summary> 
+            输入字符串 
+            </summary> 
+        </member>
+        <member name="P:Sigbit.Common.Encrypt.DESEncryptor.OutString">
+            <summary> 
+            输出字符串 
+            </summary> 
+        </member>
+        <member name="P:Sigbit.Common.Encrypt.DESEncryptor.InputFilePath">
+            <summary> 
+            输入文件路径 
+            </summary> 
+        </member>
+        <member name="P:Sigbit.Common.Encrypt.DESEncryptor.OutFilePath">
+            <summary> 
+            输出文件路径 
+            </summary> 
+        </member>
+        <member name="P:Sigbit.Common.Encrypt.DESEncryptor.EncryptKey">
+            <summary> 
+            加密密钥 
+            </summary> 
+        </member>
+        <member name="P:Sigbit.Common.Encrypt.DESEncryptor.DecryptKey">
+            <summary> 
+            解密密钥 
+            </summary> 
+        </member>
+        <member name="P:Sigbit.Common.Encrypt.DESEncryptor.NoteMessage">
+            <summary> 
+            错误信息 
+            </summary> 
+        </member>
+        <member name="T:Sigbit.Common.Encrypt.EncryptUtil">
+            <summary>
+            加密相关操作
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.CRC32(System.String)">
+            <summary>
+            CRC32
+            </summary>
+            <param name="sInput">输入串</param>
+            <returns>CRC32值</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.CRC32(System.Byte[])">
+            <summary>
+            CRC32
+            </summary>
+            <param name="buffer">输入字节数组</param>
+            <returns>CRC32值</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.CRC32File(System.String)">
+            <summary>
+            CRC32
+            </summary>
+            <param name="filename">文件名</param>
+            <returns>CRC32值</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.CRC16(System.String)">
+            <summary>
+            CRC16
+            </summary>
+            <param name="sInput">输入串</param>
+            <returns>CRC16值</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.CRC16(System.Byte[])">
+            <summary>
+            CRC16
+            </summary>
+            <param name="buffer">输入字节数组</param>
+            <returns>CRC16值</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.CRC16File(System.String)">
+            <summary>
+            CRC16文件
+            </summary>
+            <param name="filename">文件名</param>
+            <returns>CRC16值</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.CRC8(System.String)">
+            <summary>
+            CRC8
+            </summary>
+            <param name="sInput">输入串</param>
+            <returns>CRC8值</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.CRC8(System.Byte[])">
+            <summary>
+            CRC8
+            </summary>
+            <param name="buffer">输入字节数组</param>
+            <returns>CRC8值</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.CRC8File(System.String)">
+            <summary>
+            CRC8文件
+            </summary>
+            <param name="filename">输入文件</param>
+            <returns>CRC8值</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.Base64EncodeString(System.String)">
+            <summary>
+            Base64编码
+            </summary>
+            <param name="sInputString">输入串</param>
+            <returns>BASE64编码串</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.Base64EncodeString(System.String,System.Text.Encoding)">
+            <summary>
+            
+            </summary>
+            <param name="sInputString"></param>
+            <param name="enc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.Base64DecodeString(System.String)">
+            <summary>
+            Base64解码
+            </summary>
+            <param name="sInputString">输入串</param>
+            <returns>解码结果</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.Base64DecodeString(System.String,System.Text.Encoding)">
+            <summary>
+            
+            </summary>
+            <param name="sInputString"></param>
+            <param name="enc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.Base64DecodeFile(System.String,System.String)">
+            <summary>
+            Base64文件解码
+            </summary>
+            <param name="sFileSrc">源文件名</param>
+            <param name="sFileDest">目标文件名</param>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.Base64EncodeFile(System.String,System.String)">
+            <summary>
+            Base64文件编码
+            </summary>
+            <param name="sFileSrc">源文件名</param>
+            <param name="sFileDest">目标文件名</param>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.GetKeyByteArray(System.String)">
+            <summary>
+            把字符串转换为数组
+            </summary>
+            <param name="strKey">字符串</param>
+            <returns>字节数组</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.GetStringValue(System.Byte[])">
+            <summary>
+             把数组转换为16进制字符串
+            </summary>
+            <param name="Byte">字节数组</param>
+            <returns>字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.DesEncodeString(System.String,System.String)">
+            <summary>
+            DES加密串
+            </summary>
+            <param name="originalValue">源值</param>
+            <param name="password">密码</param>
+            <returns>结果串</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.DesDecodeString(System.String,System.String)">
+            <summary>
+            DES解密串
+            </summary>
+            <param name="originalValue">源值</param>
+            <param name="password">密码</param>
+            <returns>结果串</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.DesEncodeFile(System.String,System.String,System.String)">
+            <summary>
+            DES加密文件
+            </summary>
+            <param name="sFileSrc">源文件</param>
+            <param name="sFileDest">目标文件</param>
+            <param name="password">密码</param>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.DesDecodeFile(System.String,System.String,System.String)">
+            <summary>
+            DES解密文件
+            </summary>
+            <param name="sFileSrc">源文件</param>
+            <param name="sFileDest">目标文件</param>
+            <param name="password">密码</param>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.MD5String(System.String)">
+            <summary>
+            32位MD5编码
+            </summary>
+            <param name="sInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.MD5String16(System.String)">
+            <summary>
+            16位MD5,取32位加密串的8～25位
+            </summary>
+            <param name="sInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.MD5File(System.String)">
+            <summary>
+            MD5文件
+            </summary>
+            <param name="sFilename">文件名</param>
+            <returns>MD5结果</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.SHA1String(System.String)">
+            <summary>
+            SHA1编码
+            </summary>
+            <param name="sInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.SHA1File(System.String)">
+            <summary>
+            SHA1文件
+            </summary>
+            <param name="sFilename">文件名</param>
+            <returns>结果串</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.SHA256String(System.String)">
+            <summary>
+            SHA256编码
+            </summary>
+            <param name="sInput">输入串</param>
+            <returns>编码结果</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.SHA256File(System.String)">
+            <summary>
+            SH256文件
+            </summary>
+            <param name="sFilename">文件名</param>
+            <returns>编码结果</returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.SHA512String(System.String)">
+            <summary>
+             SHA512编码
+            </summary>
+            <param name="sInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.Encrypt.EncryptUtil.SHA512File(System.String)">
+            <summary>
+            SHA512文件
+            </summary>
+            <param name="sFilename">文件名</param>
+            <returns>结果</returns>
+        </member>
+        <member name="T:Sigbit.Common.EnumExUtil">
+            <summary>
+            枚举的扩展操作方法
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.EnumExUtil.ToDescString(System.Enum)">
+            <summary>
+            
+            </summary>
+            <param name="eEnum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.EnumExUtil.ToCodeString(System.Enum)">
+            <summary>
+            
+            </summary>
+            <param name="eEnum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.EnumExUtil.CodeToDesc(System.Enum,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="eEnum"></param>
+            <param name="sCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.EnumExUtil.CodeToEnum(System.Enum,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="eEnum"></param>
+            <param name="sCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.EnumExUtil.ToCodeTable(System.Enum)">
+            <summary>
+            
+            </summary>
+            <param name="eEnum"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sigbit.Common.FileUtil">
+            <summary>
+            封装文件相关的函数调用
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.ReadStringFromFile(System.String)">
+            <summary>
+            从文件读取字符串
+            </summary>
+            <param name="sFileName">文件名</param>
+            <returns>从文件中读取的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.ReadBytesFromFile(System.String)">
+            <summary>
+            从文件读取字符数组
+            </summary>
+            <param name="sFileName">文件名</param>
+            <returns>从文件中读取的字符数组</returns>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.ReadStringListFromFile(System.String)">
+            <summary>
+            从文件中读取字符串数组
+            </summary>
+            <param name="sFileName">文件名</param>
+            <returns>从文件中读取的字符串数组</returns>
+            <remarks>本函数会跳过空行</remarks>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.ReadStringListFromFile(System.String,System.Boolean)">
+            <summary>
+            从文件中读取字符串数组
+            </summary>
+            <param name="sFileName">文件名</param>
+            <param name="bIncludeEmptyLine">是否包括空行</param>
+            <returns>从文件中读取的字符串数组</returns>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.WriteStringToFile(System.String,System.String)">
+            <summary>
+            写入字符串到文件中。创建一个新的文件，并写入字符串
+            </summary>
+            <param name="sFileName">文件名</param>
+            <param name="sString">待写入的字符串</param>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.WriteBytesToFile(System.String,System.Byte[])">
+            <summary>
+            写入字节数组到文件中。创建一个新的文件，并写入字节数组。
+            </summary>
+            <param name="sFileName">文件名</param>
+            <param name="bsContent">待写入的字节数组</param>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.WriteStringListToFile(System.String,System.String[])">
+            <summary>
+            写入字符串列表到文件中。创建一个新的文件，并写入字符串列表。
+            </summary>
+            <param name="sFileName">文件名</param>
+            <param name="slContent">待写入的字符串列表</param>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.WriteStringListToFile(System.String,System.Collections.ArrayList)">
+            <summary>
+            写入字符串列表到文件中。创建一个新的文件，并写入字符串列表。
+            </summary>
+            <param name="sFileName">文件名</param>
+            <param name="slContent">待写入的字符串列表</param>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.ChangeFileExt(System.String,System.String)">
+            <summary>
+            改变文件的扩展名
+            </summary>
+            <param name="sFileName">文件名</param>
+            <param name="sExtension">扩展名</param>
+            <returns>改变过扩展名的文件名</returns>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.CutFileExt(System.String)">
+            <summary>
+            截掉一个文件的扩展名，返回文件的其余部分
+            </summary>
+            <param name="sFileName">文件名</param>
+            <returns>截掉扩展名的文件名</returns>
+            <remarks> 如果文件名带路径，则带路径一起返回</remarks>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.ExtractFileExt(System.String)">
+            <summary>
+            得到文件的扩展名，如无扩展名返回""，扩展名形式为".xxx"
+            </summary>
+            <param name="sFileName">文件名</param>
+            <returns>扩展名</returns>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.IsAbsolutePath(System.String)">
+            <summary>
+            是否绝对路径
+            </summary>
+            <param name="sPathName">路径名</param>
+            <returns>是否绝对路径</returns>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.ExcludeTrailingSlash(System.String)">
+            <summary>
+            去掉字符串尾部的目录分隔符
+            </summary>
+            <param name="sSrc">字符串</param>
+            <returns>去除分隔符以后的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.IsPathDelimiter(System.String,System.Int32)">
+            <summary>
+            一个字符串中的指定位置字符是否是目录分隔符
+            </summary>
+            <param name="sString">字符串</param>
+            <param name="nIndex">指定位置</param>
+            <returns>是否目录分隔符</returns>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.LastDelimiter(System.String,System.String)">
+            <summary>
+            得到一个字符串中最后一个分隔符，分隔符定义在指定字符串中
+            </summary>
+            <param name="sDelimiters">分隔符串</param>
+            <param name="sString">待查找的字符串</param>
+            <returns>找到的分隔符位置，如果没有找到则返回0</returns>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.ExtractFilePath(System.String)">
+            <summary>
+            得到一个文件名的目录部分
+            </summary>
+            <param name="sFileName">文件名</param>
+            <returns>目录字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.ExtractFileName(System.String)">
+            <summary>
+            得到路径文件名的文件部分
+            </summary>
+            <param name="sPathName">路径文件名</param>
+            <returns>文件部分</returns>
+        </member>
+        <member name="M:Sigbit.Common.FileUtil.RemoveFilesBeforeTime(System.String,System.DateTime)">
+            <summary>
+            删除指定目录指定时间前的所有文件
+            </summary>
+            <param name="sDirectoryName"></param>
+            <param name="dtBeforeTime"></param>
+        </member>
+        <member name="T:Sigbit.Common.GlobalStringMessage">
+            <summary>
+            全局应用字符串消息类
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.GlobalStringMessage.DEFAULT_INSTANCE_NAME">
+            <summary>
+            缺省的实例名
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.GlobalStringMessage._messageInstanceName">
+            <summary>
+            消息实例名称
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.GlobalStringMessage.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.GlobalStringMessage.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sMessageInstanceName">消息实例名称</param>
+        </member>
+        <member name="M:Sigbit.Common.GlobalStringMessage.PushMessage(System.String)">
+            <summary>
+            加入消息
+            </summary>
+            <param name="sMessage">消息</param>
+        </member>
+        <member name="M:Sigbit.Common.GlobalStringMessage.PushMessage(System.String,System.Boolean)">
+            <summary>
+            加入消息
+            </summary>
+            <param name="sMessage">消息</param>
+            <param name="bGenEvent">是否生成事件</param>
+        </member>
+        <member name="M:Sigbit.Common.GlobalStringMessage.GetMessage">
+            <summary>
+            获得消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.GlobalStringMessage.ClearMessage">
+            <summary>
+            清除消息
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.GlobalStringMessage.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.GlobalStringMessage.MessageInstanceName">
+            <summary>
+            消息池实例名称
+            </summary>
+        </member>
+        <member name="E:Sigbit.Common.GlobalStringMessage.NewMessage">
+            <summary>
+            新消息事件
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.GlobalStringMessage.MessageDelegate">
+            <summary>
+            消息委托
+            </summary>
+            <param name="sMessage">传入消息字符串</param>
+        </member>
+        <member name="T:Sigbit.Common.IniFile">
+            <summary>
+            传统Windows格式配置文件的读写类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.IniFile.WritePrivateProfileString(System.String,System.String,System.String,System.String)">
+            <summary>
+            写入配置项
+            </summary>
+            <param name="section">段名</param>
+            <param name="key">关键字名</param>
+            <param name="val">具体的配置值</param>
+            <param name="filePath">文件名</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:Sigbit.Common.IniFile.GetPrivateProfileString(System.String,System.String,System.String,System.Text.StringBuilder,System.Int32,System.String)">
+            <summary>
+            读取配置项
+            </summary>
+            <param name="section">段名</param>
+            <param name="key">关键字名</param>
+            <param name="def">缺省值</param>
+            <param name="retVal">返回值</param>
+            <param name="size">返回值大小</param>
+            <param name="filePath">文件名</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:Sigbit.Common.IniFile.#ctor(System.String)">
+            <summary>
+            构造函数，传入指定的ini文件名
+            </summary>
+            <param name="iniPath">ini文件名</param>
+        </member>
+        <member name="M:Sigbit.Common.IniFile.IniWriteValue(System.String,System.String,System.String)">
+            <summary>
+            写入ini文件的键值
+            </summary>
+            <param name="section">段名</param>
+            <param name="key">关键字名</param>
+            <param name="value">键值</param>
+        </member>
+        <member name="M:Sigbit.Common.IniFile.IniReadValue(System.String,System.String)">
+            <summary>
+            读取配置文件的键值
+            </summary>
+            <param name="section">段名</param>
+            <param name="key">关键字名</param>
+            <returns>读取到的键值</returns>
+            <remarks>缺省值为""</remarks>
+        </member>
+        <member name="M:Sigbit.Common.IniFile.IniReadValue(System.String,System.String,System.String)">
+            <summary>
+            读取配置文件的键值
+            </summary>
+            <param name="section">段名</param>
+            <param name="key">关键字名</param>
+            <param name="defaultString">缺省值</param>
+            <returns>读取到的键值</returns>
+        </member>
+        <member name="M:Sigbit.Common.IniFile.ProfileString(System.String,System.String,System.String)">
+            <summary>
+            读取文件的配置项
+            </summary>
+            <param name="fileName">文件名</param>
+            <param name="section">段名</param>
+            <param name="key">关键字名</param>
+            <returns>读取到的配置项</returns>
+            <remarks>如果读取不到，缺省值为""</remarks>
+        </member>
+        <member name="M:Sigbit.Common.IniFile.ProfileString(System.String,System.String,System.String,System.String)">
+            <summary>
+            读取文件的配置项
+            </summary>
+            <param name="fileName">文件名</param>
+            <param name="section">段名</param>
+            <param name="key">关键字名</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>读取到的配置项</returns>
+        </member>
+        <member name="M:Sigbit.Common.IniFile.SetProfileString(System.String,System.String,System.String,System.String)">
+            <summary>
+            写入文件的配置项
+            </summary>
+            <param name="fileName">文件名</param>
+            <param name="section">段名</param>
+            <param name="key">关键字名</param>
+            <param name="value">缺省值</param>
+        </member>
+        <member name="P:Sigbit.Common.IniFile.Path">
+            <summary>
+            INI文件名
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.MiscUtil">
+            <summary>
+            放一些杂项例程
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.MiscUtil.Random">
+            <summary>
+            随机数产生器
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.MiscUtil.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.RandGenerateMethod">
+            <summary>
+            随机数的产生方法
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.RandGenerateMethod.Default">
+            <summary>
+            缺省方式
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.RandGenerateMethod.Guid">
+            <summary>
+            GUID方式
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.RandStringType">
+            <summary>
+            枚举类型，生成字符串的方式
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.RandStringType.Upper">
+            <summary>
+            生成大写的英文字符串
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.RandStringType.Lower">
+            <summary>
+            生成小写的英文字符串
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.RandStringType.UpperLower">
+            <summary>
+            生成大小写混合的英文字符串
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.RandStringType.UpperNumber">
+            <summary>
+            生成大写与数字混合的字符串
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.RandStringType.LowerNumber">
+            <summary>
+            生成小写与数字混合的字符串
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.RandStringType.UpperLowerNumber">
+            <summary>
+            生成大小写与数字混合的字符串
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.RandStringType.Number">
+            <summary>
+            生成数字字符串
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.RandStringType.Chs">
+            <summary>
+            汉字字符串
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.RandStringType.ChsEng">
+            <summary>
+            汉字和英文数字混合的字符串
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.RandUtil">
+            <summary>
+            生成随机数字、字符串、列表的应用类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NextDouble">
+            <summary>
+            产生0~1之内的随机数
+            </summary>
+            <returns>产生的随机数</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewNumber(System.Int32)">
+            <summary>
+            生成0～MaxValue-1的随机整数
+            </summary>
+            <param name="MaxValue">指定的最大值</param>
+            <returns>返回得到一个小于所指定最大值的非负随机数</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewNumber(System.Int32,System.Int32)">
+            <summary>
+            生成从nFromValue到nToValue的随机数字（包括nFromValue和nToValue）
+            </summary>
+            <param name="nFromValue">随机数的下界最小值</param>
+            <param name="nToValue">随机数的上界最大值</param>
+            <returns>返回得到一个小于所指定最大值的非负随机数</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewFloat(System.Double)">
+            <summary>
+            生成随机浮点数
+            </summary>
+            <param name="fMaxValue">最大值</param>
+            <returns>从0至最大值的一个浮点数</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewFloat(System.Double,System.Double)">
+            <summary>
+            生成随机浮点数
+            </summary>
+            <param name="fFromValue">最小值</param>
+            <param name="fToValue">最大值</param>
+            <returns>介于最小值和最大值之间的随机浮点数</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewChar(Sigbit.Common.RandStringType)">
+            <summary>
+            按指定的类型生成随机字符
+            </summary>
+            <param name="randType">字符串的类型</param>
+            <returns>返回一个指定类型的随机字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewString(System.Int32,Sigbit.Common.RandStringType)">
+            <summary>
+            生成指定长度、指定类型的字符串
+            </summary>
+            <param name="nLength">生成随机字符串的长度</param>
+            <param name="randType">生成随机字符串的类型</param>
+            <returns>返回一个指定长度的、指定类型的随机字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewString(System.Int32,System.Int32,Sigbit.Common.RandStringType)">
+            <summary>
+            生成指定长度区间、指定类型的字符串
+            </summary>
+            <param name="nFromLength">从该长度开始</param>
+            <param name="nToLength">到该长度截至</param>
+            <param name="randType">生成随机字符串的类型</param>
+            <returns>返回一个指定长度区间、指定类型的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewTime">
+            <summary>
+            得到当天范围内的随机时间
+            </summary>
+            <returns>返回当天的随机时间</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewTime(System.String,System.String)">
+            <summary>
+            得到从起始时间到终止时间的随机时间
+            </summary>
+            <param name="sFromTime">起始时间</param>
+            <param name="sToTime">终止时间</param>
+            <returns>返回随机时间</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewTime(System.String,System.Int32)">
+            <summary>
+            得到从指定时间开始，之后0~nSeconds-1秒的随机时间（nSeconds可以为负数）
+            </summary>
+            <param name="sFromTime">起始时间</param>
+            <param name="nSeconds">之后的秒数</param>
+            <returns>返回随机时间</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewChsChar">
+            <summary>
+            得到随机的汉字字符
+            </summary>
+            <returns>返回随机的汉字字符</returns>
+            <remarks>
+            gb2312一级简码的组织方式是：
+            第一个字节  176-214  215
+            第二个字节  161-254  161-249
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewChsString(System.Int32)">
+            <summary>
+            生成指定长度的随机汉字串
+            </summary>
+            <param name="nLength">随机汉字的长度</param>
+            <returns>返回指定长度的随机汉字串</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewChsString(System.Int32,System.Int32)">
+            <summary>
+            生成指定长度区间的随机汉字串
+            </summary>
+            <param name="nFromLength">起始长度</param>
+            <param name="nToLength">截止的长度</param>
+            <returns>返回指定长度的随机汉字串</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.AlterString(System.String,System.Int32,Sigbit.Common.RandStringType)">
+            <summary>
+            将一个字符串随机换掉几个字符
+            </summary>
+            <param name="sSrc">原字符串</param>
+            <param name="nCount">随机换的字符个数</param>
+            <param name="randType">目标字符的类型</param>
+            <returns>目标字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.AlterString(System.String,System.Int32,System.Int32,Sigbit.Common.RandStringType)">
+            <summary>
+            将一个字符串随机换掉几个字符，字符的数量在指定的区间间
+            </summary>
+            <param name="sSrc">原字符串</param>
+            <param name="nFromCount">起始数量</param>
+            <param name="nToCount">终止数量</param>
+            <param name="randType">目标字符的类型</param>
+            <returns>目标字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewNumberList(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            得到指定规模，指定区间的数字列表
+            </summary>
+            <param name="nSize">显示的规模</param>
+            <param name="nRange">数据的范围</param>
+            <param name="dupNumberForbidden">是否禁止重复数字</param>
+            <returns>数字列表</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewNumberList__GetANotDupNumber(System.Collections.SortedList,System.Int32)">
+            <summary>
+            得到不重复的一个数字
+            </summary>
+            <param name="list">列表</param>
+            <param name="nRange">范围</param>
+            <returns>得到的数字</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.NewNumberList(System.Int32)">
+            <summary>
+            得到一个数字列表
+            </summary>
+            <param name="nSize">大小</param>
+            <returns>数字列表</returns>
+            <remarks>相当于NewNumberList(nSize, nSize, true)</remarks>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.DisorderList(System.Collections.ArrayList)">
+            <summary>
+            将一个列表乱序排列
+            </summary>
+            <param name="list">列表</param>
+            <returns>乱序排列后的列表</returns>
+        </member>
+        <member name="M:Sigbit.Common.RandUtil.SetRandSeed(System.Int32)">
+            <summary>
+            设置随机种子
+            </summary>
+            <param name="nSeed"></param>
+        </member>
+        <member name="P:Sigbit.Common.RandUtil.RandGenerateMethod">
+            <summary>
+            随机数产生方式
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.RealTimeMessageBase">
+            <summary>
+            实时的文本消息
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.RealTimeMessageBase.AddMessageLine(System.String)">
+            <summary>
+            增加一行
+            </summary>
+            <param name="sLine">一行文本</param>
+        </member>
+        <member name="M:Sigbit.Common.RealTimeMessageBase.AddMessageLine">
+            <summary>
+            增加一个空行
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.RealTimeMessageBase.AddUserMessage(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sUser"></param>
+            <param name="sMessage"></param>
+        </member>
+        <member name="M:Sigbit.Common.RealTimeMessageBase.FetchAndClear">
+            <summary>
+            提取显示的文本，并清除
+            </summary>
+            <returns>显示的文本</returns>
+        </member>
+        <member name="P:Sigbit.Common.RealTimeMessageBase.DisplayMessageText">
+            <summary>
+            用于显示的文本信息
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.RealTimeMessageBase.MessageLineCount">
+            <summary>
+            消息行数
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.ReturnValue">
+            <summary>
+            对返回值进行封装
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.#ctor(System.Boolean,System.String,System.String,System.Object)">
+            <summary>
+            带参数的构造函数
+            </summary>
+            <param name="hasError">是否有错误</param>
+            <param name="errCode">错误代码</param>
+            <param name="message">错误信息</param>
+            <param name="retObj">返回类</param>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.#ctor(System.Boolean,System.String,System.String)">
+            <summary>
+            带参数的构造函数
+            </summary>
+            <param name="hasError">是否有错误</param>
+            <param name="errCode">错误代码</param>
+            <param name="message">错误信息</param>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.#ctor(System.Boolean,System.String)">
+            <summary>
+            带参数的构造函数
+            </summary>
+            <param name="hasError">是否有错误</param>
+            <param name="message">错误信息</param>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.#ctor(System.String,System.String)">
+            <summary>
+            带参数的构造函数
+            </summary>
+            <param name="errCode">错误代码</param>
+            <param name="errMessage">错误信息</param>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.#ctor(System.String)">
+            <summary>
+            带参数的构造函数
+            </summary>
+            <param name="errMessage">错误信息</param>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.GetValue(System.String)">
+            <summary>
+            得到值对象
+            </summary>
+            <param name="key">关键字</param>
+            <returns>值对象</returns>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.GetStringValue(System.String,System.String)">
+            <summary>
+            得到值字符串
+            </summary>
+            <param name="key">关键字</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>值字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.GetStringValue(System.String)">
+            <summary>
+            得到值字符串
+            </summary>
+            <param name="key">关键字</param>
+            <returns>值字符串。缺省为""</returns>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.GetIntValue(System.String,System.Int32)">
+            <summary>
+            得到值整型
+            </summary>
+            <param name="key">关键字</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>值整型</returns>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.GetIntValue(System.String)">
+            <summary>
+            得到值整型
+            </summary>
+            <param name="key">关键字</param>
+            <returns>值整型。缺省为0</returns>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.GetBooleanValue(System.String,System.Boolean)">
+            <summary>
+            得到值布尔型
+            </summary>
+            <param name="key">关键字</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>值布尔型</returns>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.GetBooleanValue(System.String)">
+            <summary>
+            得到值布尔型
+            </summary>
+            <param name="key">关键字</param>
+            <returns>值布尔型。缺省为false。</returns>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.GetDecimalValue(System.String,System.Decimal)">
+            <summary>
+            得到值Decimal类型
+            </summary>
+            <param name="key">关键字</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>值Decimal类型</returns>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.GetDecimalValue(System.String)">
+            <summary>
+            得到值Decimal类型
+            </summary>
+            <param name="key">关键字</param>
+            <returns>值Decimal类型，缺省为0</returns>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.GetFloatValue(System.String,System.Double)">
+            <summary>
+            得到值浮点型
+            </summary>
+            <param name="key">关键字</param>
+            <param name="defaultValue">缺省值</param>
+            <returns>值浮点型</returns>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.GetFloatValue(System.String)">
+            <summary>
+            得到值浮点型
+            </summary>
+            <param name="key">关键字</param>
+            <returns>值浮点型。缺省为0</returns>
+        </member>
+        <member name="M:Sigbit.Common.ReturnValue.PutValue(System.String,System.Object)">
+            <summary>
+            设置一个值
+            </summary>
+            <param name="key">关键字</param>
+            <param name="valueObj">待设的值</param>
+        </member>
+        <member name="P:Sigbit.Common.ReturnValue.HasError">
+            <summary>
+            是否有错误
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.ReturnValue.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.ReturnValue.Message">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.ReturnValue.ReturnObject">
+            <summary>
+            返回的类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.SbtEnumDescString">
+            <summary>
+            枚举项描述，继承Attribute
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SbtEnumDescString.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="P:Sigbit.Common.SbtEnumDescString.Text">
+            <summary>
+            描述内容
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.SbtEnumExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SbtEnumExtensions.ToDescString(System.Enum)">
+            <summary>
+            我们定义了一个扩大函数ToDescription， 就像所有的扩大函数一样，它的参数是类似（this …），
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SbtEnumExtensions.ToCodeString(System.Enum)">
+            <summary>
+            
+            </summary>
+            <param name="enumeration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.SbtEnumExtensions.CodeToDesc(System.Enum,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="enumeration"></param>
+            <param name="sCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.SbtEnumExtensions.CodeToEnum(System.Enum,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="enueration"></param>
+            <param name="sCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.SbtEnumExtensions.ToCodeTable(System.Enum)">
+            <summary>
+            
+            </summary>
+            <param name="enumeration"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Sigbit.Common.SbtEnumExtensions__CodeTablePool.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.Scopii.NTXScopii.MergeWith(Sigbit.Common.Scopii.NTXScopii)">
+            <summary>
+            与另一个SCOPII合并
+            </summary>
+            <param name="anotherScopii">另一个SCOPII</param>
+            <remarks>这种“智能”合并方式，要求字符串顺序从小到大排列。</remarks>
+        </member>
+        <member name="P:Sigbit.Common.Scopii.NTXScopii.FromPart">
+            <summary>
+            起始
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.Scopii.NTXScopii.ToPart">
+            <summary>
+            至
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.SQLSortDirection">
+            <summary>
+            排序的顺序
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.SQLSortField">
+            <summary>
+            一个排序字段
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.SQLSortField.FieldName">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.SQLSortField.Direction">
+            <summary>
+            排序的方式
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.SQLSortFields">
+            <summary>
+            排序字段列表
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLSortFields.AddSortField(System.String)">
+            <summary>
+            增加一个排序字段
+            </summary>
+            <param name="sFieldName">字段名</param>
+        </member>
+        <member name="M:Sigbit.Common.SQLSortFields.AddSortField(System.String,Sigbit.Common.SQLSortDirection)">
+            <summary>
+            增加一个排序字段
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="direction">方向</param>
+        </member>
+        <member name="M:Sigbit.Common.SQLSortFields.PushSortField(System.String,System.Int32)">
+            <summary>
+            将排序字段压入到原排序字段中生成新的排序字段列表
+            </summary>
+            <param name="sPushFieldName">字段名</param>
+            <param name="nMaxSortFieldCount">最多的排序字段数</param>
+            <remarks>原来如果有该字段，则排序顺序倒过来，如没有则增加</remarks>
+        </member>
+        <member name="M:Sigbit.Common.SQLSortFields.PushSortField(System.String)">
+            <summary>
+            将排序字段压入到原排序字段中生成新的排序字段列表
+            </summary>
+            <param name="sPushFieldName">字段名</param>
+            <remarks>缺省的最多排序字段数限制为3</remarks>
+        </member>
+        <member name="M:Sigbit.Common.SQLSortFields.ToString">
+            <summary>
+            得到SQL语句的order by部分
+            </summary>
+            <returns>SQL语句的order by部分</returns>
+        </member>
+        <member name="T:Sigbit.Common.SQLBuilder">
+            <summary>
+            提供简化构造SQL语句的方便途径
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.PushSortField(System.String,System.Int32)">
+            <summary>
+            将排序字段压入到原排序字段中生成新的排序字段列表
+            </summary>
+            <param name="sPushFieldName">字段名</param>
+            <param name="nMaxSortFieldCount">最多的排序字段数</param>
+            <remarks>原来如果有该字段，则排序顺序倒过来，如没有则增加</remarks>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.PushSortField(System.String)">
+            <summary>
+            将排序字段压入到原排序字段中生成新的排序字段列表
+            </summary>
+            <param name="sPushFieldName">字段名</param>
+            <remarks>缺省的最多排序字段数限制为3</remarks>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.AddFixCondition(System.String,System.String,System.Object,Sigbit.Common.SQLConditionOperator,System.String,Sigbit.Common.SQLConditionFieldType)">
+            <summary>
+            增加固定的SQL条件
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="sFieldChineseName">字段中文名</param>
+            <param name="objFieldValue">字段值</param>
+            <param name="op">操作符</param>
+            <param name="sDescription">描述</param>
+            <param name="fieldType">字段类型</param>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.AddFixCondition(System.String,System.String,System.Object,Sigbit.Common.SQLConditionOperator,System.String)">
+            <summary>
+            增加固定的SQL条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.AddFixCondition(System.String,System.String,System.Object,Sigbit.Common.SQLConditionOperator)">
+            <summary>
+            增加固定的SQL条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.AddFixCondition(System.String,System.String,System.Object)">
+            <summary>
+            增加固定的SQL条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.AddFixCondition(System.String,System.String)">
+            <summary>
+            增加固定的SQL条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.AddFixCondition(System.String)">
+            <summary>
+            增加固定的SQL条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.ClearFixConditions">
+            <summary>
+            清空固定的SQL条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.RemoveFixCondition(System.String)">
+            <summary>
+            增加固定的SQL条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.AddCondition(System.String,System.String,System.Object,Sigbit.Common.SQLConditionOperator,System.String,Sigbit.Common.SQLConditionFieldType)">
+            <summary>
+            增加可变的SQL条件
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="sFieldChineseName">字段中文名</param>
+            <param name="objFieldValue">字段值</param>
+            <param name="op">操作符</param>
+            <param name="sDescription">描述</param>
+            <param name="fieldType">字段类型</param>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.AddCondition(System.String,System.String,System.Object,Sigbit.Common.SQLConditionOperator,System.String)">
+            <summary>
+            增加可变的SQL条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.AddCondition(System.String,System.String,System.Object,Sigbit.Common.SQLConditionOperator)">
+            <summary>
+            增加可变的SQL条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.AddCondition(System.String,System.String,System.Object)">
+            <summary>
+            增加可变的SQL条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.AddCondition(System.String,System.String)">
+            <summary>
+            增加可变的SQL条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.AddCondition(System.String)">
+            <summary>
+            增加可变的SQL条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.ClearConditions">
+            <summary>
+            清空条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.RemoveCondition(System.String,Sigbit.Common.SQLConditionOperator)">
+            <summary>
+            移除条件
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="op">操作符</param>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.RemoveCondition(System.String)">
+            <summary>
+            移除条件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.GetConditionValue(System.String,Sigbit.Common.SQLConditionOperator)">
+            <summary>
+            取出条件的值
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="op">操作符</param>
+            <returns>取出的值</returns>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.GetConditionValue(System.String)">
+            <summary>
+            取出条件的值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.GetConditionValueString(System.String,Sigbit.Common.SQLConditionOperator)">
+            <summary>
+            取出条件的字符串值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.GetConditionValueString(System.String)">
+            <summary>
+            取出条件的字符串值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.GetConditionValueInt(System.String,Sigbit.Common.SQLConditionOperator)">
+            <summary>
+            取出条件的整型值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.GetConditionValueInt(System.String)">
+            <summary>
+            取出条件的整型值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.GetConditionDescription">
+            <summary>
+            取出搜索条件的描述
+            </summary>
+            <returns>搜索条件的描述</returns>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.GetConditionCount">
+            <summary>
+            得到条件入口的数量
+            </summary>
+            <returns>条件入口的数量</returns>
+        </member>
+        <member name="M:Sigbit.Common.SQLBuilder.ToString">
+            <summary>
+            得到SQL语句
+            </summary>
+            <returns>SQL语句</returns>
+        </member>
+        <member name="P:Sigbit.Common.SQLBuilder.NonConditionSql">
+            <summary>
+            没有任何限定条件的SQL语句，一般的格式为"select xxx, yyy from TTT"
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.SQLConditionFieldType">
+            <summary>
+            条件字段的类型
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionFieldType.String">
+            <summary>
+            字符串类型
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionFieldType.Boolean">
+            <summary>
+            布尔型
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionFieldType.Int">
+            <summary>
+            整型
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionFieldType.Float">
+            <summary>
+            浮点型
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionFieldType.DateTime">
+            <summary>
+            时间类型
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.SQLConditionOperator">
+            <summary>
+            条件表达式的操作符定义
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.Equal">
+            <summary>
+            等于，=
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.NotEqual">
+            <summary>
+            不等于，&lt;&gt;
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.GreaterThan">
+            <summary>
+            大于，&gt;
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.GreaterEqualThan">
+            <summary>
+            大于等于，&gt;=
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.LessThan">
+            <summary>
+            小于，&lt;
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.LessEqualThan">
+            <summary>
+            小于等于，&lt;=
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.Like">
+            <summary>
+            相似，like
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.LikeLeft">
+            <summary>
+            相似,like "%x"
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.LikeRight">
+            <summary>
+            相似，like "x%"
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.NotLike">
+            <summary>
+            不相似，not (like)
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.In">
+            <summary>
+            在xxx内
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.NotIn">
+            <summary>
+            不在xxx内
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.UserDefined">
+            <summary>
+            用户定义的其它条件限定
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.SQLConditionOperator.SYSAny">
+            <summary>
+            系统操作，读取、移除任何一个字段
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.SQLConditionEntry">
+            <summary>
+            条件入口类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLConditionEntry.#ctor(System.String,System.String,System.Object,Sigbit.Common.SQLConditionOperator,System.String,Sigbit.Common.SQLConditionFieldType)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="sFieldChineseName">字段中文名</param>
+            <param name="objFieldValue">值</param>
+            <param name="op">操作符</param>
+            <param name="sDescription">描述</param>
+            <param name="fieldType">字段类型</param>
+        </member>
+        <member name="M:Sigbit.Common.SQLConditionEntry.GetConditionFieldType(System.Object)">
+            <summary>
+            通过传入变量值，通过该变量的类型，得到数据库字段的类型
+            </summary>
+            <param name="oValue">变量对象</param>
+            <returns>相关数据库字段的类型</returns>
+        </member>
+        <member name="M:Sigbit.Common.SQLConditionEntry.ToString">
+            <summary>
+            得到查询条件的SQL语句
+            </summary>
+            <returns>SQL语句</returns>
+        </member>
+        <member name="P:Sigbit.Common.SQLConditionEntry.FieldName">
+            <summary>
+            实际数据字段
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.SQLConditionEntry.FieldChinsesName">
+            <summary>
+            字段中文名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.SQLConditionEntry.FieldType">
+            <summary>
+            字段类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.SQLConditionEntry.Operator">
+            <summary>
+            操作符
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.SQLConditionEntry.FieldValue">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.SQLConditionEntry.Description">
+            <summary>
+            条件描述
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.SQLConditionList">
+            <summary>
+            查询条件列表
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SQLConditionList.AddCondition(Sigbit.Common.SQLConditionEntry)">
+            <summary>
+            增加一个条件
+            </summary>
+            <param name="entry">条件项</param>
+        </member>
+        <member name="M:Sigbit.Common.SQLConditionList.GetConditionValue(System.String,Sigbit.Common.SQLConditionOperator)">
+            <summary>
+            取出条件的字段值
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="op">操作符</param>
+            <returns>字段值(object类型)</returns>
+        </member>
+        <member name="M:Sigbit.Common.SQLConditionList.ToString">
+            <summary>
+            输出限定条件的SQL语句
+            </summary>
+            <returns>限定条件的SQL语句</returns>
+        </member>
+        <member name="T:Sigbit.Common.StringUtil">
+            <summary>
+            字符串处理的相关函数集
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.RepeatChar(System.Char,System.Int32)">
+            <summary>
+            得到一个字符重复多遍后生成的字符串
+            </summary>
+            <param name="c">字符</param>
+            <param name="count">重复次数</param>
+            <returns>结果字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.RepeatChar(System.String,System.Int32)">
+            <summary>
+            得到一个字符串重复多遍后生成的字符串
+            </summary>
+            <param name="c">字符串</param>
+            <param name="count">重复次数</param>
+            <returns>结果字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.Space(System.Int32)">
+            <summary>
+            得到由空格组成的指定长度的字符串
+            </summary>
+            <param name="count">指定长度</param>
+            <returns>得到的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.IsNumber(System.String)">
+            <summary>
+            判断一个字符串是否为数字串
+            </summary>
+            <param name="s">待判断的字符串</param>
+            <returns>是否数字串</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.FormatCurrency(System.Object,System.Boolean,System.Int32)">
+            <summary>
+            对金额进行格式化
+            </summary>
+            <param name="amt">金额对象</param>
+            <param name="thousandSep">是否加千位间隔</param>
+            <param name="precision">精度</param>
+            <returns>格式化后的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.FormatCurrency(System.Object)">
+            <summary>
+            对金额进行格式化
+            </summary>
+            <param name="amt">金额对象</param>
+            <returns>格式化后的字符串。带千位分隔符，2位精度。</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.FormatCurrency(System.Object,System.Boolean)">
+            <summary>
+            对金额进行格式化
+            </summary>
+            <param name="amt">金额对象</param>
+            <param name="thousandSep">是否加千位间隔</param>
+            <returns>格式化后的字符串。2位精度。</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.QuotedToDBStr(System.String)">
+            <summary>
+            对字符串格式化为符合SQL语句的带引号的字符串
+            </summary>
+            <param name="str">原始字符串</param>
+            <returns>格式化的字符串</returns>
+            <remarks>该函数做两件事：
+            1. 将字符串内的单引号变为两个单引号；
+            2. 前后加上单引号；
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.QuotedToDBStr(System.Object,System.String)">
+            <summary>
+            将对象格式化对符合SQL语句的单引号的字符串
+            </summary>
+            <param name="str">对象</param>
+            <param name="defaultStr">缺省字符串</param>
+            <returns>格式化后的字符串</returns>
+            <remarks>如缺省的字符串为null值，则返回的字符串为null</remarks>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.QuotedToDBStr(System.Object)">
+            <summary>
+            将对象格式化对符合SQL语句的单引号的字符串
+            </summary>
+            <param name="str">对象</param>
+            <returns>格式化后的字符串，缺省为""。</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.BoolToDBStr(System.Boolean)">
+            <summary>
+            将布尔值转换为SQL语句的字符串
+            </summary>
+            <param name="flag">布尔值</param>
+            <returns>得到的字符串，取值非1即0</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.BoolToDBStr(System.Object)">
+            <summary>
+            将对象转换为SQL语句的字符串
+            </summary>
+            <param name="objFlag">对象</param>
+            <returns>得到的字符串，取值非1即0</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.Occurs(System.String,System.String)">
+            <summary>
+            计数某子串在字符串中产生的次数
+            </summary>
+            <param name="sSubStr">待寻找的子串</param>
+            <param name="sString">包含子串的字符串</param>
+            <returns>计数得到的次数</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.Split(System.String,System.String)">
+            <summary>
+            分隔字符串为数组
+            </summary>
+            <param name="str">字符串</param>
+            <param name="sSplitStr">分隔符</param>
+            <returns>经分隔的字符串数组</returns>
+            <remarks>.net自带的split方法只能用一个字符分隔</remarks>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.ConvertText2Html(System.String)">
+            <summary>
+            将文本转换为HTML的格式
+            </summary>
+            <param name="sText">待转换的文本</param>
+            <returns>HTML格式的文本</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.ConvertHtml2Text(System.String)">
+            <summary>
+            将HTML格式转换为普通文本格式
+            </summary>
+            <param name="sText">HTML格式字符串</param>
+            <returns>普通文本格式字符串</returns>
+        </member>
+        <!-- 对于成员“M:Sigbit.Common.StringUtil.ReplaceHtmlTag(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Common.StringUtil.GetTextLength(System.String)">
+            <summary>
+            得到字符串的字节长度
+            </summary>
+            <param name="sText">字符串</param>
+            <returns>长度</returns>
+            <remarks>中文的长度为两个字节，英文为一个字节</remarks>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.IsHZChar(System.Char)">
+            <summary>
+            判断是否为汉字字符
+            </summary>
+            <param name="ch">字符</param>
+            <returns>如果是汉字字符则返回true，否则返回false</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.IsEnglishLetter(System.Char)">
+            <summary>
+            判断是否为英文字母
+            </summary>
+            <param name="ch">字符</param>
+            <returns>如果是英文字母则返回true，否则返回false</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.GetParameterValue(System.String,System.String)">
+            <summary>
+            从字符串中解析出参数值
+            </summary>
+            <param name="QueryString">查询参数串</param>
+            <param name="ParameterName">参数名称</param>
+            <returns>获得的参数值</returns>
+            <remarks>字符串按urlLink的参数格式编码</remarks>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.DbToString(System.Object)">
+            <summary>
+            转化为string 类型
+            </summary>
+            <param name="obj">待转化的object类型</param>
+            <returns>转化结果</returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.ShortenString(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="sSrcString"></param>
+            <param name="nLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.StringUtil.ShortenString(System.String,System.Int32,System.Char)">
+            <summary>
+            
+            </summary>
+            <param name="sSrcString"></param>
+            <param name="nLength"></param>
+            <param name="cFillChar"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sigbit.Common.TimeCostLogger">
+            <summary>
+            计时信息记录
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.TimeCostLogger.Start(System.String,System.String)">
+            <summary>
+            开始计时
+            </summary>
+            <param name="sMsg">计时消息正文</param>
+            <param name="sKey">计时关键字</param>
+        </member>
+        <member name="M:Sigbit.Common.TimeCostLogger.Start(System.String)">
+            <summary>
+            开始计时
+            </summary>
+            <param name="sMsg">计时消息正文</param>
+        </member>
+        <member name="M:Sigbit.Common.TimeCostLogger.Start">
+            <summary>
+            开始计时
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.TimeCostLogger.Tick(System.String)">
+            <summary>
+            中间记时
+            </summary>
+            <param name="sMsg">记时消息</param>
+        </member>
+        <member name="M:Sigbit.Common.TimeCostLogger.Tick">
+            <summary>
+            中间记时
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.TimeCostLogger.Stop(System.String)">
+            <summary>
+            结束记时，并记录文本日志。
+            </summary>
+            <param name="sMsg">记时消息</param>
+        </member>
+        <member name="T:Sigbit.Common.Bool3State">
+            <summary>
+            三态的布尔值
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.Bool3State.Undefine">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.Bool3State.True">
+            <summary>
+            相当于true
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.Bool3State.False">
+            <summary>
+            相当于false
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.SigbitCommonConfig.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.SigbitCommonConfig.Instance">
+            <summary>
+            唯一实例 
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.SigbitCommonConfig.DebugFileEnabled">
+            <summary>
+            是否写日志
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.SigbitCommonConfig.DebugFileDirectory">
+            <summary>
+            Debug日志的目录
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.SigbitCommonConfig.TimeCostLoggerDirectory">
+            <summary>
+            计时日志的目录
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.HZNumberConvert">
+            <summary>
+            汉字字符串和数字之间的转换函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZNumberConvert.FloatToHZMoney(System.Double)">
+            <summary>
+             将数字转为大写的汉字人民币大写表示
+            </summary>
+            <param name="fMoney">浮点数表示的钱</param>
+            <returns>汉字表示的钱</returns>
+            <remarks>
+            1. 支持到亿元；
+            2. 不支持负数；
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZNumberConvert.FloatToHZString(System.Double)">
+            <summary>
+            将一串数字转换为汉字的字符串表示
+            </summary>
+            <param name="fNumber">浮点数</param>
+            <returns>汉字的字符串表示</returns>
+            <remarks>表示的精度为小数点后3位</remarks>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZNumberConvert.HZStringToFloat(System.String)">
+            <summary>
+            汉字串转换为浮点数
+            </summary>
+            <param name="sHZString">汉字串</param>
+            <returns>浮点数</returns>
+            <remarks>缺省为0</remarks>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZNumberConvert.HZStringToFloat(System.String,System.Double)">
+            <summary>
+            汉字串转换为浮点数
+            </summary>
+            <param name="sHZString">汉字串</param>
+            <param name="fDefault">缺省值</param>
+            <returns>浮点数</returns>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.HZGenPersonSexIntention">
+            <summary>
+            生成性别的意图
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZGenPersonSexIntention.Male">
+            <summary>
+            男性
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZGenPersonSexIntention.Female">
+            <summary>
+            女性
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZGenPersonSexIntention.Both">
+            <summary>
+            两者都有
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.HZRandUtil">
+            <summary>
+            汉字的随机例程
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZRandUtil.NewPersonName">
+            <summary>
+            随机生成人名
+            </summary>
+            <returns>生成的人名</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZRandUtil.NewPersonName(Sigbit.Common.WordProcess.HZGenPersonSexIntention)">
+            <summary>
+            随机生成人名，该函数生成的人名会好听些
+            </summary>
+            <param name="genIntention">生成的意图</param>
+            <returns>生成的人名</returns>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.HZStringRegulateMapBase">
+            <summary>
+            对应表形式转换的基类
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZStringRegulateMapBase._arrFindChars">
+            <summary>
+            查找的字符集
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZStringRegulateMapBase._arrReplaceWithChars">
+            <summary>
+            替换的字符集
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringRegulateMapBase.InitMap(System.Char[],System.Char[])">
+            <summary>
+            初始化字符集
+            </summary>
+            <param name="arrFindChars">查找的字符集</param>
+            <param name="arrReplaceWithChars">替换的字符集</param>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringRegulateMapBase.RegulateString(System.String)">
+            <summary>
+            得到规整过的字符串
+            </summary>
+            <param name="sRawString">原字符串</param>
+            <returns>规整过的字符串</returns>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.HZStringRegulateMapBase.MapHash">
+            <summary>
+            用于转换的Hash对应表
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.HZStringRegulateMapHalfSizeDigit">
+            <summary>
+            全角数字到半角的转换
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringRegulateMapHalfSizeDigit.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.HZStringRegulateMapHalfSizeDigit.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.HZStringRegulateMapHalfSizeLetter">
+            <summary>
+            全角数字到半角的转换
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringRegulateMapHalfSizeLetter.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.HZStringRegulateMapHalfSizeLetter.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.HZStringRegulateMapHalfSizePuctuation">
+            <summary>
+            全角标点到半角的转换
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringRegulateMapHalfSizePuctuation.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.HZStringRegulateMapHalfSizePuctuation.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.HZStringRegulateMapHalfSizeArabicNumber">
+            <summary>
+            汉字数字到阿拉伯数字的转换
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringRegulateMapHalfSizeArabicNumber.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.HZStringRegulateMapHalfSizeArabicNumber.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.HZStringRegulateMapFullSizeChsWordNumber">
+            <summary>
+            阿拉伯数字到汉字数字的转换
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringRegulateMapFullSizeChsWordNumber.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.HZStringRegulateMapFullSizeChsWordNumber.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.HZStringRegulateRule">
+            <summary>
+            汉字字符串规整规则
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZStringRegulateRule.ToHalfSizeDigit">
+            <summary>
+            转换至半角数字
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZStringRegulateRule.ToHalfSizeLetter">
+            <summary>
+            转换至半角字母
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZStringRegulateRule.ToHalfSizePuctuation">
+            <summary>
+            转换至半角标点符号
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZStringRegulateRule.ToHalfSizeAll">
+            <summary>
+            数字、字母和标点符号都转为半角
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZStringRegulateRule.DeleteSpace">
+            <summary>
+            删不可见字符，如空格、TAB和回车换行等
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZStringRegulateRule.ToLower">
+            <summary>
+            大写变小写
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZStringRegulateRule.ToArabicNumber">
+            <summary>
+            数字转为阿拉伯数字
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZStringRegulateRule.RegulateAll">
+            <summary>
+            应用所有的转换规则
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZStringRegulateRule.ToChsWordNumber">
+            <summary>
+            阿拉伯数字转为汉字数字
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.HZStringConvert">
+            <summary>
+            汉字字符相关的转换函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringConvert.ToHalfSizeAlpha(System.String)">
+            <summary>
+            转换到半角字符串
+            </summary>
+            <param name="sFullSizeAlphaStr">全角字符串</param>
+            <returns>半角字符串</returns>
+            <remarks>
+            转换包括全角的英文、数字、标点、空格
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringConvert.RegulateHZString(System.String,Sigbit.Common.WordProcess.HZStringRegulateRule)">
+            <summary>
+            转换、规整汉字字符串
+            </summary>
+            <param name="sHZString">汉字字符串</param>
+            <param name="rule">规整规则</param>
+            <returns>规整后的字符串</returns>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.HZStringConvert.SPACE_CHARS">
+            <summary>
+            不显示的字符
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringConvert.RegulateHZString__DeleteSpace(System.String)">
+            <summary>
+            删除不显示的字符
+            </summary>
+            <param name="sRaw">原始串</param>
+            <returns>返回串</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringConvert.RegulateHZString__ToArabicNumber(System.String)">
+            <summary>
+            汉字数字到阿拉伯数字
+            </summary>
+            <param name="sHZString">原始串</param>
+            <returns>返回串</returns>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.HZStringConvert.FullHalfAlphaMap">
+            <summary>
+            全角到半角的哈希对应表
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.TrimPuctuationMethod">
+            <summary>
+            去标点的方式
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.TrimPuctuationMethod.Begin">
+            <summary>
+            去掉前面的标点
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.TrimPuctuationMethod.End">
+            <summary>
+            去掉后面的标点
+            </summary>
+        </member>
+        <member name="F:Sigbit.Common.WordProcess.TrimPuctuationMethod.Both">
+            <summary>
+            两头去标点
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.HZStringProc">
+            <summary>
+            汉字字符串的处理类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringProc.ObtainPureHZString(System.String)">
+            <summary>
+            取出字符串中的全部汉字
+            </summary>
+            <param name="sRawStr">字符串</param>
+            <returns>取出的汉字字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringProc.ObtainPureHZString(System.String,System.Int32)">
+            <summary>
+            取出字符串中的若干汉字
+            </summary>
+            <param name="sRawStr">字符串</param>
+            <param name="nHZCount">汉字的数量，-1表示取出全部</param>
+            <returns>取出的指定数量的汉字串</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringProc.PadHZLeft(System.String,System.Int32)">
+            <summary>
+            右对齐字符串，以空格填充左边
+            </summary>
+            <param name="sString">字符串参数</param>
+            <param name="nWidth">填充的宽度</param>
+            <returns>对齐后的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringProc.PadHZLeft(System.String,System.Int32,System.Char)">
+            <summary>
+            右对齐字符串，以指定字符填充左边
+            </summary>
+            <param name="sString">字符串参数</param>
+            <param name="nWidth">填充的宽度</param>
+            <param name="cPaddingChar">填充的字符</param>
+            <returns>对齐后的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringProc.PadHZRight(System.String,System.Int32)">
+            <summary>
+            左对齐字符串，以空格填充右边
+            </summary>
+            <param name="sString">字符串参数</param>
+            <param name="nWidth">填充的宽度</param>
+            <returns>对齐后的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringProc.PadHZRight(System.String,System.Int32,System.Char)">
+            <summary>
+            左对齐字符串，以指定字符填充右边
+            </summary>
+            <param name="sString">字符串参数</param>
+            <param name="nWidth">填充的宽度</param>
+            <param name="cPaddingChar">填充的字符</param>
+            <returns>对齐后的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringProc.TrimPuctuation(System.String,Sigbit.Common.WordProcess.TrimPuctuationMethod)">
+            <summary>
+            去掉字符串的标点
+            </summary>
+            <param name="sHZString">汉字字符串</param>
+            <param name="trimMeth">去标点的方式</param>
+            <returns>去标点的结果</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringProc.SubstringBytes(System.String,System.Int32,System.Int32)">
+            <summary>
+            按字节数截取汉字串
+            </summary>
+            <param name="sSrc">源汉字串</param>
+            <param name="nStartIndex">起始位置</param>
+            <param name="nBytes">字节数</param>
+            <returns>子串</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringProc.HZByteLength(System.String)">
+            <summary>
+            得到汉字串的字节长度
+            </summary>
+            <param name="sHZString">汉字串</param>
+            <returns>字节长度</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringProc.AddSpaceInTooLongLetterString(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.HZStringProc.AddSpaceInTooLongLetterString(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="sInput"></param>
+            <param name="nMaxLetterLength"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.HZStringProc.PuctuationHashTable">
+            <summary>
+            全角到半角的哈希对应表
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.LevenshteinDistance">
+            <summary>
+            计算编辑距离
+            </summary>
+            <remarks>
+                编辑距离就是用来计算从原串(s)转换到目标串(t)所需要的最少的插
+            入，删除和替换的数目，在NLP中应用比较广泛，如一些评测方法中就用
+            到了(wer,mWer等)，同时也常用来计算你对原文本所作的改动数。编辑距
+            离的算法是首先由俄国科学家Levenshtein提出的，故又叫Levenshtein
+            Distance。<br/>
+                Levenshtein Distance算法可以看作动态规划。它的思路就是从两个字
+            符串的左边开始比较，记录已经比较过的子串相似度(实际上叫做距离)，
+            然后进一步得到下一个字符位置时的相似度。用下面的例子: GUMBO和
+            GAMBOL。当算到矩阵D[3,3]位置时,也就是当比较到GUM和GAM时,要从已经
+            比较过的3对子串GU-GAM, GUM-GA和GU-GA之中选一个差别最小的来当它的
+            值. 所以要从左上到右下构造矩阵。<br/>
+            <br/>
+            编辑距离的伪算法：<br/>
+                整数Levenshtein距离(字符str1[1..lenStr1], 字符str2[1..lenStr2])
+                宣告int d[0..lenStr1, 0..lenStr2]
+                宣告int i, j, cost
+                对于 i 等于 由 0 至 lenStr1
+                       d[i, 0] := i
+                对于 j 等于 由 0 至 lenStr2
+                       d[0, j] := j
+                对于 i 等于 由 1 至 lenStr1
+                     对于 j 等于 由 1 至 lenStr2
+                         若 str1[i] = str2[j] 则 cost := 0
+                                            否则 cost := 1
+                         d[i, j] := 最小值(
+                                           d[i-1, j  ] + 1,     // 删除
+                                           d[i  , j-1] + 1,     // 插入
+                                           d[i-1, j-1] + cost   // 替换
+                                           )
+               返回 d[lenStr1, lenStr2]
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.LevenshteinDistance.Minimum(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            得到三个值中的最小值
+            </summary>
+            <param name="a">第一个值</param>
+            <param name="b">第二个值</param>
+            <param name="c">第三个值</param>
+            <returns>取小值</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.LevenshteinDistance.GetDistance(System.String,System.String)">
+            <summary>
+            计算并得到Levenshtein Distance
+            </summary>
+            <param name="sStr1">字符串一</param>
+            <param name="sStr2">字符串二</param>
+            <returns>两个字符中之间的距离</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.XQPatternTree.PatternNode.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sString">字符串</param>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.XQPatternTree.PatternNode.IsMatched(System.String)">
+            <summary>
+            判断节点是否能够匹配字符串
+            </summary>
+            <param name="sWantMatchString">希望匹配的字符串</param>
+            <returns>是否匹配</returns>
+            <remarks>
+            由于一个关键字即使匹配上，但它的超集还会存在，所以不能直接
+            返回true。因此，做了修订。(HISTORY:20070508:oldix)
+            </remarks>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.XQPatternTree.PatternNode.NodeChar">
+            <summary>
+            节点字符
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.XQPatternTree.PatternNode.ChildNodes">
+            <summary>
+            子节点列表
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.XQPatternTree.PatternNode.ChildCount">
+            <summary>
+            子节点的数量
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.XQPatternTree.PatternNode.IsLeafNode">
+            <summary>
+            是否叶节点
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.XQPatternTree.PatternNode.PatternString">
+            <summary>
+            如果是叶节点，则记录Pattern字符串
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.XQPatternTree.PatternTree">
+            <summary>
+            基于词的定位树
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.XQPatternTree.PatternTree.AddPatternString(System.String)">
+            <summary>
+            增加待定位的Pattern
+            </summary>
+            <param name="sPatternString">Pattern串</param>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.XQPatternTree.PatternTree.IsMatched(System.String)">
+            <summary>
+            字符串是否能够匹配
+            </summary>
+            <param name="sWantMatchString">待匹配串</param>
+            <returns>是否匹配</returns>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.XQPatternTree.PatternTree.GetMatchedPatterns">
+            <summary>
+            得到匹配的Pattern串列表
+            </summary>
+            <returns>匹配的Pattern串列表</returns>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.XQPatternTree.PatternTree.CurrentAddingPatternString">
+            <summary>
+            当前增加的PatternString
+            </summary>
+        </member>
+        <member name="P:Sigbit.Common.WordProcess.XQPatternTree.PatternTree.MatchedPatterns">
+            <summary>
+            匹配的结果
+            </summary>
+        </member>
+        <member name="T:Sigbit.Common.WordProcess.XQPatternTree.TEST__PatternNode__Func">
+            <summary>
+            测试类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.XQPatternTree.TEST__PatternNode__Func.Build">
+            <summary>
+            建树
+            </summary>
+        </member>
+        <member name="M:Sigbit.Common.WordProcess.XQPatternTree.TEST__PatternNode__Func.GetMatchedPatterns(System.String)">
+            <summary>
+            得到匹配的结果串列表
+            </summary>
+            <param name="sWantMatchString">希望匹配的字符串</param>
+            <returns>匹配结果</returns>
+        </member>
+    </members>
+</doc>

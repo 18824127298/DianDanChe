@@ -1,0 +1,47 @@
+==== 【instanceDefault】【actual 2166 ms / want 500 ms】 2017/2/9 14:31:06 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/9 15:16:21 ====
+insert into CreditRelationCompact 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  CreditId,         CompactId         
+) values (          
+1,
+'2017-02-09 15:16:21','2017-02-09 15:16:21',
+5,1)
+
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/9 15:16:21 ====
+insert into CreditRelationCompact 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  CreditId,         CompactId         
+) values (          
+1,
+'2017-02-09 15:16:21','2017-02-09 15:16:21',
+5,1)
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/9 15:16:21 ====
+insert into CreditRelationCompact 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  CreditId,         CompactId         
+) values (          
+1,
+'2017-02-09 15:16:21','2017-02-09 15:16:21',
+5,1)
+
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+

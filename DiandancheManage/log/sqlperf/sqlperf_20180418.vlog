@@ -1,0 +1,6 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1097 ms / want 500 ms¡¿ 2018/4/18 18:07:26 ====
+select * from BankCard where  IsValid=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 992 ms / want 500 ms¡¿ 2018/4/18 18:07:30 ====
+select * from sbt_sys_sub_system_define order by display_order
+

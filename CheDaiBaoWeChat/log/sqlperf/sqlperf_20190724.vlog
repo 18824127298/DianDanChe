@@ -1,0 +1,27 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2224 ms / want 500 ms¡¿ 2019/7/24 15:52:41 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 999 ms / want 500 ms¡¿ 2019/7/24 15:53:38 ====
+select * from loanapply where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 652 ms / want 500 ms¡¿ 2019/7/24 15:53:39 ====
+insert into loanapply ([BorrowerId],[CreditPhone],[CreditAmount],[Deadline],[BusinessName],[RecruitmentName],[Brand],[CheType],[TotalAmountStage],[DownPayments],[EducationLevel],[MaritalStatus],[LivingConditions],[CustomerClassification],[RepaymentStatus],[SalesmanId],[MonthlyPayment],[RentRate],[IsValid],[CreateTime],[UpdateTime]) values (@BorrowerId,@CreditPhone,@CreditAmount,@Deadline,@BusinessName,@RecruitmentName,@Brand,@CheType,@TotalAmountStage,@DownPayments,@EducationLevel,@MaritalStatus,@LivingConditions,@CustomerClassification,@RepaymentStatus,@SalesmanId,@MonthlyPayment,@RentRate,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1505 ms / want 500 ms¡¿ 2019/7/24 16:43:00 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1006 ms / want 500 ms¡¿ 2019/7/24 16:48:48 ====
+insert into loanfile ([LoanApplyId],[ZhengFilePath],[FanFilePath],[BorrowerId],[IsValid],[CreateTime],[UpdateTime]) values (@LoanApplyId,@ZhengFilePath,@FanFilePath,@BorrowerId,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 766 ms / want 500 ms¡¿ 2019/7/24 17:24:31 ====
+update idcardinformation set [Name]=@Name,[Birth]=@Birth,[Address]=@Address,[IdCardNumber]=@IdCardNumber,[Sex]=@Sex,[Nation]=@Nation,[SigningOrganization]=@SigningOrganization,[IssuanceDate]=@IssuanceDate,[ExpirationDate]=@ExpirationDate,[BorrowerId]=@BorrowerId,[IsValid]=@IsValid,[CreateTime]=@CreateTime,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 766 ms / want 500 ms¡¿ 2019/7/24 17:24:31 ====
+update idcardinformation set [Name]=@Name,[Birth]=@Birth,[Address]=@Address,[IdCardNumber]=@IdCardNumber,[Sex]=@Sex,[Nation]=@Nation,[SigningOrganization]=@SigningOrganization,[IssuanceDate]=@IssuanceDate,[ExpirationDate]=@ExpirationDate,[BorrowerId]=@BorrowerId,[IsValid]=@IsValid,[CreateTime]=@CreateTime,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 541 ms / want 500 ms¡¿ 2019/7/24 17:24:31 ====
+select mobilephone from sbt_user where dept_id = 'izm'
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 613 ms / want 500 ms¡¿ 2019/7/24 17:24:32 ====
+insert into sendmessagehistory ([Phone],[SmsContent],[SendStatus],[SendFailMsg],[SendTime],[Remarks],[IsValid],[CreateTime],[UpdateTime]) values (@Phone,@SmsContent,@SendStatus,@SendFailMsg,@SendTime,@Remarks,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+

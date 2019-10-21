@@ -1,0 +1,148 @@
+﻿@using CheDaiBaoWeChatModel.Models;
+@model LoanApply
+@{
+    ViewBag.Title = "融资租赁记录";
+    //CarType carType = ViewBag.CarType as CarType;
+    OperateModel operateModel = ViewBag.OperateModel as OperateModel;
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi,width=640, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no" />
+    <link href="~/Content/css/newcommon.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.1.min.js"></script>
+    <style type="text/css">
+        .jq-head {
+            width: 100%;
+            height: 335px;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: auto!important;
+            background: #fff;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            height: 335px;
+        }
+
+        .jq-header {
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 335px;
+        }
+    </style>
+</head>
+<body class="bodybg">
+
+    @if (Model == null)
+    {
+        <p class="bq003" style="font-size: 2rem; line-height: 12rem; text-align: center">您没有融资租赁记录</p>
+    }
+    else
+    {
+        <body bgcolor="#f5f5f9">
+            <section class="content">
+                <!-- <h3 class="progress"></h3> -->
+                @*<div class="jq-head">
+                    <img src="@carType.ImageUrl" alt="" />
+                </div>*@
+                <div class="stepBox">
+                    <ul class="loanStep clearfix">
+                        <li class="first @(ViewBag.IsIDNumber == 1 ? "on" : "")">
+                            <i class="circle active"></i>
+                            <span class="text fz18">提交审核</span>
+                        </li>
+                        <li class="two @((Model.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.还款中 || Model.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.还款完成 || Model.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.审核未通过) ? "on" : "")">
+                            <i class="circle @(ViewBag.IsIDNumber == 1 ? "active" : "")"></i>
+                            <span class="text fz18">审核中</span>
+                        </li>
+                        <li class="four @((Model.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.还款中 || Model.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.还款完成 || Model.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.审核未通过) ? "on" : "")">
+                            <i class="circle  @((Model.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.还款中 || Model.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.还款完成 || Model.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.审核未通过) ? "active" : "")"></i>
+                            <span class="text fz18">@((Model.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.还款中 || Model.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.还款完成) ? "申请成功" : Model.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.审核未通过 ? "审核拒绝" : "等待结果")</span>
+                        </li>
+                        @*                        <li class="four">
+                            <i class="circle @(Model.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.还款中 ? "active" : "")"></i>
+                            <span class="text fz18"></span>
+                        </li>*@
+                    </ul>
+                </div>
+                <div class="jq-list">
+                    <a class="one">
+                        <span class="fz30"><i></i>品牌：</span>
+                        <i>@Model.Brand</i>
+                    </a>
+                    <a class="two">
+                        <span class="fz30"><i></i>型号：</span>
+                        <i>@Model.CheType</i>
+                    </a>
+                    @if (Model.LoanType == CheDaiBaoWeChatModel.LoanType.租客)
+                    {
+                        <a class="three">
+                            <span class="fz30"><i></i>期数：</span>
+                            <i>@Model.Deadline 个月</i>
+                        </a>
+                        <a class="four">
+                            <span class="fz30"><i></i>租金：</span>
+                            <i>@Convert.ToInt32(Model.BicyclesRent) 元</i>
+                        </a>
+                        <a class="five">
+                            <span class="fz30"><i></i>押金：</span>
+                            <i>@Convert.ToInt32(Model.Deposit) 元</i>
+                        </a>
+                        <a class="five">
+                            <span class="fz30"><i></i>电单车编号：</span>
+                            <i>@Model.BicycleNumber</i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="">
+                            <span class="fz30"><i></i>融资租赁总额：</span>
+                            <i>@Convert.ToInt32(Model.TotalAmountStage) 元</i>
+                        </a>
+                        <a class="three">
+                            <span class="fz30"><i></i>期数：</span>
+                            <i>@Model.Deadline 个月</i>
+                        </a>
+                        <a class="four">
+                            <span class="fz30"><i></i>自付：</span>
+                            <i>@Convert.ToInt32(Model.DownPayments) 元</i>
+                        </a>
+                        <a class="five">
+                            <span class="fz30"><i></i>总价格：</span>
+                            <i>@Convert.ToInt32(Model.CreditAmount) 元</i>
+                        </a>
+                    }
+                    <a class="five">
+                        <span class="fz30"><i></i>身份证是否已上传：</span>
+                        <i>@(ViewBag.bsf == true ? "是" : "否")</i>
+                    </a>
+                    <a class="five">
+                        <span class="fz30"><i></i>银行卡是否已上传：</span>
+                        <i>@(ViewBag.byh == true ? "是" : "否")</i>
+                    </a>
+                    <a class="five" style="border-bottom: none">
+                        <span class="fz30"><i></i>补充资料是否上传：</span>
+                        <i>@(ViewBag.bbc == true ? "是" : "否")</i>
+                    </a>
+                </div>
+            </section>
+        </body>
+    }
+
+</body>
+
+<script type="text/javascript">
+    $(function () {
+        ShowMenu(0);
+    })
+</script>

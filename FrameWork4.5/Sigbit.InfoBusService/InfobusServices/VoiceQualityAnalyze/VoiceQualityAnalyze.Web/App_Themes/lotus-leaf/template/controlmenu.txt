@@ -1,0 +1,93 @@
+<script language="JavaScript">
+
+var AUTO_HIDE_MENU=0;
+
+
+var arrowpic1="../../App_Themes/lotus-leaf/template/controlmenu/index7_03.gif";
+var arrowpic2="../../App_Themes/lotus-leaf/template/controlmenu/index72_04.gif"
+
+//--------------------- 状态初始 ----------------------
+var MENU_SWITCH;
+function panel_menu_open()
+{
+ MENU_SWITCH=AUTO_HIDE_MENU;
+ panel_menu_ctrl();
+}
+
+
+//------------------ 面板状态切换 ---------------------
+function panel_menu_ctrl()
+{
+   if(MENU_SWITCH==0)
+   {
+      parent.frame2.cols="10,186,13,*,8";
+      MENU_SWITCH=1;
+      arrow.src=arrowpic1;
+   }
+   else
+   {
+      parent.frame2.cols="0,0,13,*,8";
+      MENU_SWITCH=0;
+      arrow.src=arrowpic2;
+   }
+}
+
+
+//------------------ 面板状态切换 ---------------------
+function enter_menu_ctrl()
+{
+   if(AUTO_HIDE_MENU==1)    // 判断面板是否允许自动隐藏
+   {
+     if(MENU_SWITCH==0)
+     {
+        parent.frame2.cols="10,186,13,*,8";
+        MENU_SWITCH=1;
+        arrow.src=arrowpic1;
+     }
+     else
+     {
+        parent.frame2.cols="0,0,13,*,8";
+        MENU_SWITCH=0;
+        arrow.src=arrowpic2;
+     }
+   }
+}
+
+
+//--------------- 上下框架页显示控制 -----------------
+  var DB_VIEW=0;                           // 状态值初始
+  var DB_rows=parent.parent.frame1.rows;   // 保存原始值
+  function DB_Display()
+  {
+    if (DB_VIEW==0)     // 未隐藏
+    {
+      parent.parent.frame1.rows="0,*,0";
+      DB_VIEW=1;
+    }
+    else                // 已隐藏
+    {
+      parent.parent.frame1.rows=DB_rows;
+      DB_VIEW=0;
+    }
+  }
+
+</script>
+
+<body topmargin="0" leftmargin="0" onselectstart="return false" onload="panel_menu_open()" onContextMenu="DB_Display();return false;">
+
+<table width="13" height="100%" border="0" cellpadding="0" cellspacing="0"  onMouseMove="enter_menu_ctrl()" >
+  <tr>
+    <td height="20"><img src="../../App_Themes/lotus-leaf/template/controlmenu/index7_01.gif" width="13" height="20" alt="" /></td>
+  </tr>
+  <tr style="cursor:hand" onclick="panel_menu_ctrl()"> 
+    <td background="../../App_Themes/lotus-leaf/template/controlmenu/index0_02.jpg"  >
+	<img id="arrow" src="../../App_Themes/lotus-leaf/template/controlmenu/index7_03.gif" width="13" height="100" GALLERYIMG="no"   alt="左键点击控制菜单栏面板，右键点击控制上下状态栏。"/>
+	</td>
+  </tr>
+  <tr>
+    <td height="19"><img id="DBarrow" src="../../App_Themes/lotus-leaf/template/controlmenu/index7_05.gif" width="13" height="58"/></td>
+  </tr>
+</table>
+
+
+</body>

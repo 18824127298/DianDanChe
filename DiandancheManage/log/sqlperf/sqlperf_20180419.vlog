@@ -1,0 +1,6 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 4657 ms / want 500 ms¡¿ 2018/4/19 10:10:14 ====
+select * from BankCard where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 645 ms / want 500 ms¡¿ 2018/4/19 10:14:37 ====
+insert into opera ([OperaType],[Remark],[ClientAddress],[ClientDevices],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@ClientAddress,@ClientDevices,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+

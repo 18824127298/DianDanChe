@@ -1,0 +1,70 @@
+﻿/*----------- 表的背景色(同body背景) -------------*/
+.calbackcolor
+{
+	background:#F0ECD5;
+}
+
+/*----------- 表格和标题颜色(同今天的颜色) -------------*/
+.caltable        
+{
+	font-family:宋体,tahoma,sans-serif; 
+	font-size:9pt;
+	border:0px;
+	background-color:#DC9593;
+}
+
+/*-------- 下拉列表 -------------*/
+SELECT.calsmallSel
+{    
+	BACKGROUND-COLOR: #ffffff;
+    COLOR: black;    
+} 
+
+/*-------- 平常的日期 -----------------*/
+.calnormal
+{
+	/*BACKGROUND: #ffffff*/
+} 
+
+/*------------ 今天的日期 ---------------*/
+.caltoday 
+{
+	font-weight:bold;
+	BACKGROUND:#DC9593
+} 
+
+/*---------- 星期六 -------------------*/
+.calsatday
+{
+	color:green
+} 
+
+/*---------- 星期日 -------------------*/
+.calsunday
+{
+	color:red
+} 
+
+/*---------- 每日标题 -------------------*/
+.caldays 
+{
+	font-weight:bold
+} 
+
+/*.drpdwn        
+{
+	font-family:宋体,MS SONG,SimSun,tahoma,sans-serif;
+	font-size:9pt;
+	color:#000066;
+	background-color:#FFFFFF
+} */
+
+/*
+.Arraw 
+{
+	color:#0000BB;
+    cursor:hand;
+    font-family:Webdings;
+    font-size:9pt
+}
+*/

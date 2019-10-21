@@ -1,0 +1,6 @@
+========== 2019-08-26 17:29:16 ==========
+WxPayApi.ResultNotify Receive data from WeChat : 
+
+========== 2019-08-26 17:29:17 ==========
+WxPayApi.ResultNotify Sign check error : <xml><return_code><![CDATA[FAIL]]></return_code><return_msg><![CDATA[将空的xml串转换为WxPayData不合法!]]></return_msg></xml>
+

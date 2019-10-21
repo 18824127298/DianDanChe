@@ -1,0 +1,272 @@
+==== 【instanceDefault】【actual 1410 ms / want 500 ms】 2017/2/8 9:38:52 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/8 11:47:32 ====
+insert into Bid 
+( Id,               IsValid,          
+  CreateTime,       UpdateTime,       
+  Amount,           CreditId,         
+  BidMode,          GodId,            
+  CreditRate,       UnBidInterest,    
+  BidInterest,      BidDay            
+) values (          
+0,0,
+'','',
+10000,1,
+1,1,
+0.11,0,
+0,0)
+
+-------- 错误信息 --------
+当 IDENTITY_INSERT 设置为 OFF 时，不能为表 'Bid' 中的标识列插入显式值。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/8 11:47:32 ====
+insert into Bid 
+( Id,               IsValid,          
+  CreateTime,       UpdateTime,       
+  Amount,           CreditId,         
+  BidMode,          GodId,            
+  CreditRate,       UnBidInterest,    
+  BidInterest,      BidDay            
+) values (          
+0,0,
+'','',
+10000,1,
+1,1,
+0.11,0,
+0,0)
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/8 11:47:32 ====
+insert into Bid 
+( Id,               IsValid,          
+  CreateTime,       UpdateTime,       
+  Amount,           CreditId,         
+  BidMode,          GodId,            
+  CreditRate,       UnBidInterest,    
+  BidInterest,      BidDay            
+) values (          
+0,0,
+'','',
+10000,1,
+1,1,
+0.11,0,
+0,0)
+
+-------- 错误信息 --------
+当 IDENTITY_INSERT 设置为 OFF 时，不能为表 'Bid' 中的标识列插入显式值。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/8 17:54:35 ====
+insert into sbt_log_operation_audit 
+( log_uid,          user_uid,         
+  user_name,        proc_time,        
+  proc_class_id,    proc_class_name,  
+  proc_subclass_id, proc_subclass_name, 
+  action_code,      action_name,      
+  action_description, ip_address,       
+  process_data,     sql_statement,    
+  modify_time,      remarks           
+) values (          
+'c246a32c-181f-498a-8e8d-d0025fc85b97','8fdf1f59-7942-43bc-8db7-0228e66bd814',
+'admin','2017-02-08 17:54:35.153',
+'bsi-credit','借贷标的管理',
+'bsi-credit_create_unaudit','未审核标的管理',
+'','上传咨信文件',
+'银行垫资赎契再贷款类业务:银行垫资赎契再贷款类业务,123','',
+'','',
+'2017-02-08 17:54:35','')
+
+-------- 错误信息 --------
+对象名 'sbt_log_operation_audit' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/8 17:54:35 ====
+insert into sbt_log_operation_audit 
+( log_uid,          user_uid,         
+  user_name,        proc_time,        
+  proc_class_id,    proc_class_name,  
+  proc_subclass_id, proc_subclass_name, 
+  action_code,      action_name,      
+  action_description, ip_address,       
+  process_data,     sql_statement,    
+  modify_time,      remarks           
+) values (          
+'c246a32c-181f-498a-8e8d-d0025fc85b97','8fdf1f59-7942-43bc-8db7-0228e66bd814',
+'admin','2017-02-08 17:54:35.153',
+'bsi-credit','借贷标的管理',
+'bsi-credit_create_unaudit','未审核标的管理',
+'','上传咨信文件',
+'银行垫资赎契再贷款类业务:银行垫资赎契再贷款类业务,123','',
+'','',
+'2017-02-08 17:54:35','')
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/8 17:54:35 ====
+insert into sbt_log_operation_audit 
+( log_uid,          user_uid,         
+  user_name,        proc_time,        
+  proc_class_id,    proc_class_name,  
+  proc_subclass_id, proc_subclass_name, 
+  action_code,      action_name,      
+  action_description, ip_address,       
+  process_data,     sql_statement,    
+  modify_time,      remarks           
+) values (          
+'c246a32c-181f-498a-8e8d-d0025fc85b97','8fdf1f59-7942-43bc-8db7-0228e66bd814',
+'admin','2017-02-08 17:54:35.153',
+'bsi-credit','借贷标的管理',
+'bsi-credit_create_unaudit','未审核标的管理',
+'','上传咨信文件',
+'银行垫资赎契再贷款类业务:银行垫资赎契再贷款类业务,123','',
+'','',
+'2017-02-08 17:54:35','')
+
+-------- 错误信息 --------
+对象名 'sbt_log_operation_audit' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/8 17:54:40 ====
+insert into sbt_log_operation_audit 
+( log_uid,          user_uid,         
+  user_name,        proc_time,        
+  proc_class_id,    proc_class_name,  
+  proc_subclass_id, proc_subclass_name, 
+  action_code,      action_name,      
+  action_description, ip_address,       
+  process_data,     sql_statement,    
+  modify_time,      remarks           
+) values (          
+'9e47ca2e-4c8a-4456-963c-13ab5eb5ce2a','8fdf1f59-7942-43bc-8db7-0228e66bd814',
+'admin','2017-02-08 17:54:40.826',
+'bsi-credit','借贷标的管理',
+'bsi-credit_create_unaudit','未审核标的管理',
+'','上传咨信文件',
+'银行垫资赎契再贷款类业务:银行垫资赎契再贷款类业务,123','',
+'','',
+'2017-02-08 17:54:40','')
+
+-------- 错误信息 --------
+对象名 'sbt_log_operation_audit' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/8 17:54:40 ====
+insert into sbt_log_operation_audit 
+( log_uid,          user_uid,         
+  user_name,        proc_time,        
+  proc_class_id,    proc_class_name,  
+  proc_subclass_id, proc_subclass_name, 
+  action_code,      action_name,      
+  action_description, ip_address,       
+  process_data,     sql_statement,    
+  modify_time,      remarks           
+) values (          
+'9e47ca2e-4c8a-4456-963c-13ab5eb5ce2a','8fdf1f59-7942-43bc-8db7-0228e66bd814',
+'admin','2017-02-08 17:54:40.826',
+'bsi-credit','借贷标的管理',
+'bsi-credit_create_unaudit','未审核标的管理',
+'','上传咨信文件',
+'银行垫资赎契再贷款类业务:银行垫资赎契再贷款类业务,123','',
+'','',
+'2017-02-08 17:54:40','')
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/8 17:54:40 ====
+insert into sbt_log_operation_audit 
+( log_uid,          user_uid,         
+  user_name,        proc_time,        
+  proc_class_id,    proc_class_name,  
+  proc_subclass_id, proc_subclass_name, 
+  action_code,      action_name,      
+  action_description, ip_address,       
+  process_data,     sql_statement,    
+  modify_time,      remarks           
+) values (          
+'9e47ca2e-4c8a-4456-963c-13ab5eb5ce2a','8fdf1f59-7942-43bc-8db7-0228e66bd814',
+'admin','2017-02-08 17:54:40.826',
+'bsi-credit','借贷标的管理',
+'bsi-credit_create_unaudit','未审核标的管理',
+'','上传咨信文件',
+'银行垫资赎契再贷款类业务:银行垫资赎契再贷款类业务,123','',
+'','',
+'2017-02-08 17:54:40','')
+
+-------- 错误信息 --------
+对象名 'sbt_log_operation_audit' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/8 17:57:09 ====
+insert into sbt_log_operation_audit 
+( log_uid,          user_uid,         
+  user_name,        proc_time,        
+  proc_class_id,    proc_class_name,  
+  proc_subclass_id, proc_subclass_name, 
+  action_code,      action_name,      
+  action_description, ip_address,       
+  process_data,     sql_statement,    
+  modify_time,      remarks           
+) values (          
+'cd5837b6-d792-427a-981f-d277f4da5910','8fdf1f59-7942-43bc-8db7-0228e66bd814',
+'admin','2017-02-08 17:57:09.144',
+'bsi-credit','借贷标的管理',
+'bsi-credit_create_unaudit','未审核标的管理',
+'','上传咨信文件',
+'银行垫资赎契再贷款类业务:银行垫资赎契再贷款类业务,768','',
+'','',
+'2017-02-08 17:57:09','')
+
+-------- 错误信息 --------
+对象名 'sbt_log_operation_audit' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/8 17:57:09 ====
+insert into sbt_log_operation_audit 
+( log_uid,          user_uid,         
+  user_name,        proc_time,        
+  proc_class_id,    proc_class_name,  
+  proc_subclass_id, proc_subclass_name, 
+  action_code,      action_name,      
+  action_description, ip_address,       
+  process_data,     sql_statement,    
+  modify_time,      remarks           
+) values (          
+'cd5837b6-d792-427a-981f-d277f4da5910','8fdf1f59-7942-43bc-8db7-0228e66bd814',
+'admin','2017-02-08 17:57:09.144',
+'bsi-credit','借贷标的管理',
+'bsi-credit_create_unaudit','未审核标的管理',
+'','上传咨信文件',
+'银行垫资赎契再贷款类业务:银行垫资赎契再贷款类业务,768','',
+'','',
+'2017-02-08 17:57:09','')
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/8 17:57:10 ====
+insert into sbt_log_operation_audit 
+( log_uid,          user_uid,         
+  user_name,        proc_time,        
+  proc_class_id,    proc_class_name,  
+  proc_subclass_id, proc_subclass_name, 
+  action_code,      action_name,      
+  action_description, ip_address,       
+  process_data,     sql_statement,    
+  modify_time,      remarks           
+) values (          
+'cd5837b6-d792-427a-981f-d277f4da5910','8fdf1f59-7942-43bc-8db7-0228e66bd814',
+'admin','2017-02-08 17:57:09.144',
+'bsi-credit','借贷标的管理',
+'bsi-credit_create_unaudit','未审核标的管理',
+'','上传咨信文件',
+'银行垫资赎契再贷款类业务:银行垫资赎契再贷款类业务,768','',
+'','',
+'2017-02-08 17:57:09','')
+
+-------- 错误信息 --------
+对象名 'sbt_log_operation_audit' 无效。
+

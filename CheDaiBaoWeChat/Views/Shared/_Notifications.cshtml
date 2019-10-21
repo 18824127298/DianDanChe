@@ -1,0 +1,32 @@
+﻿@using CheDaiBaoCommonController.Model;
+@{
+    //success messages
+    var messagesList = new List<MessageResultModels>();
+
+    if (TempData[string.Format("Message.{0}", typeof(MessageResultModels).Name)] != null)
+    {
+        messagesList.AddRange(TempData[string.Format("Message.{0}", typeof(MessageResultModels).Name)] as IList<MessageResultModels>);
+    }
+    if (ViewData[string.Format("Message.{0}", typeof(MessageResultModels).Name)] != null)
+    {
+        messagesList.AddRange(ViewData[string.Format("Message.{0}", typeof(MessageResultModels).Name)] as IList<MessageResultModels>);
+    }
+}
+@foreach (var message in messagesList)
+{
+    <script>
+        $(function () {
+            @*alert('@Html.Raw(message.Context)', '@message.NotifyEnums');*@
+            alert("@message.Context");
+        });
+
+        window.alert = function (name) {
+            var iframe = document.createElement("IFRAME");
+            iframe.style.display = "none";
+            iframe.setAttribute("src", 'data:text/plain,');
+            document.documentElement.appendChild(iframe);
+            window.frames[0].window.alert(name);
+            iframe.parentNode.removeChild(iframe);
+        };
+    </script>
+}

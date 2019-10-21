@@ -1,0 +1,60 @@
+==== (instanceDefault)【SQL语句运行错误】2016/7/8 16:36:03 ====
+SELECT month, SUM(pc) AS pc, SUM(wechat) AS wechat FROM (SELECT DATEADD(month, DATEDIFF(month, 0, CreateTime), 0) AS month, CASE  WHEN [RegChannel] = 1 THEN 1 ELSE null END AS pc, CASE  WHEN [RegChannel] > 1 THEN 1 ELSE null END AS wechatFROM [God] WHERE CreateTime BETWEEN DATEADD(month, DATEDIFF(month, 0, GETDATE()) -11, 0) AND GETDATE() ) AS aGROUP BY month ORDER BY month 
+-------- 错误信息 --------
+'God' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/7/8 16:36:03 ====
+SELECT month, SUM(pc) AS pc, SUM(wechat) AS wechat FROM (SELECT DATEADD(month, DATEDIFF(month, 0, CreateTime), 0) AS month, CASE  WHEN [RegChannel] = 1 THEN 1 ELSE null END AS pc, CASE  WHEN [RegChannel] > 1 THEN 1 ELSE null END AS wechatFROM [God] WHERE CreateTime BETWEEN DATEADD(month, DATEDIFF(month, 0, GETDATE()) -11, 0) AND GETDATE() ) AS aGROUP BY month ORDER BY month 
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/7/8 16:36:03 ====
+SELECT month, SUM(pc) AS pc, SUM(wechat) AS wechat FROM (SELECT DATEADD(month, DATEDIFF(month, 0, CreateTime), 0) AS month, CASE  WHEN [RegChannel] = 1 THEN 1 ELSE null END AS pc, CASE  WHEN [RegChannel] > 1 THEN 1 ELSE null END AS wechatFROM [God] WHERE CreateTime BETWEEN DATEADD(month, DATEDIFF(month, 0, GETDATE()) -11, 0) AND GETDATE() ) AS aGROUP BY month ORDER BY month 
+-------- 错误信息 --------
+'God' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/7/8 16:36:50 ====
+SELECT month, SUM(pc) AS pc, SUM(wechat) AS wechat FROM (SELECT DATEADD(month, DATEDIFF(month, 0, CreateTime), 0) AS month, CASE  WHEN [RegChannel] = 1 THEN 1 ELSE null END AS pc, CASE  WHEN [RegChannel] > 1 THEN 1 ELSE null END AS wechatFROM [God] WHERE CreateTime BETWEEN DATEADD(month, DATEDIFF(month, 0, GETDATE()) -11, 0) AND GETDATE() ) AS aGROUP BY month ORDER BY month 
+-------- 错误信息 --------
+'God' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/7/8 16:36:50 ====
+SELECT month, SUM(pc) AS pc, SUM(wechat) AS wechat FROM (SELECT DATEADD(month, DATEDIFF(month, 0, CreateTime), 0) AS month, CASE  WHEN [RegChannel] = 1 THEN 1 ELSE null END AS pc, CASE  WHEN [RegChannel] > 1 THEN 1 ELSE null END AS wechatFROM [God] WHERE CreateTime BETWEEN DATEADD(month, DATEDIFF(month, 0, GETDATE()) -11, 0) AND GETDATE() ) AS aGROUP BY month ORDER BY month 
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/7/8 16:36:50 ====
+SELECT month, SUM(pc) AS pc, SUM(wechat) AS wechat FROM (SELECT DATEADD(month, DATEDIFF(month, 0, CreateTime), 0) AS month, CASE  WHEN [RegChannel] = 1 THEN 1 ELSE null END AS pc, CASE  WHEN [RegChannel] > 1 THEN 1 ELSE null END AS wechatFROM [God] WHERE CreateTime BETWEEN DATEADD(month, DATEDIFF(month, 0, GETDATE()) -11, 0) AND GETDATE() ) AS aGROUP BY month ORDER BY month 
+-------- 错误信息 --------
+'God' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/7/8 16:37:54 ====
+SELECT month, SUM(pc) AS pc, SUM(wechat) AS wechat FROM (SELECT DATEADD(month, DATEDIFF(month, 0, CreateTime), 0) AS month, CASE  WHEN [RegChannel] = 1 THEN 1 ELSE null END AS pc, CASE  WHEN [RegChannel] > 1 THEN 1 ELSE null END AS wechatFROM [God] WHERE CreateTime BETWEEN DATEADD(month, DATEDIFF(month, 0, GETDATE()) -11, 0) AND GETDATE() ) AS aGROUP BY month ORDER BY month 
+-------- 错误信息 --------
+'God' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/7/8 16:37:54 ====
+SELECT month, SUM(pc) AS pc, SUM(wechat) AS wechat FROM (SELECT DATEADD(month, DATEDIFF(month, 0, CreateTime), 0) AS month, CASE  WHEN [RegChannel] = 1 THEN 1 ELSE null END AS pc, CASE  WHEN [RegChannel] > 1 THEN 1 ELSE null END AS wechatFROM [God] WHERE CreateTime BETWEEN DATEADD(month, DATEDIFF(month, 0, GETDATE()) -11, 0) AND GETDATE() ) AS aGROUP BY month ORDER BY month 
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/7/8 16:37:54 ====
+SELECT month, SUM(pc) AS pc, SUM(wechat) AS wechat FROM (SELECT DATEADD(month, DATEDIFF(month, 0, CreateTime), 0) AS month, CASE  WHEN [RegChannel] = 1 THEN 1 ELSE null END AS pc, CASE  WHEN [RegChannel] > 1 THEN 1 ELSE null END AS wechatFROM [God] WHERE CreateTime BETWEEN DATEADD(month, DATEDIFF(month, 0, GETDATE()) -11, 0) AND GETDATE() ) AS aGROUP BY month ORDER BY month 
+-------- 错误信息 --------
+'God' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/7/8 16:40:40 ====
+SELECT month, SUM(pc) AS pc, SUM(wechat) AS wechat FROM (SELECT DATEADD(month, DATEDIFF(month, 0, CreateTime), 0) AS month, CASE  WHEN [RegChannel] = 1 THEN 1 ELSE null END AS pc, CASE  WHEN [RegChannel] > 1 THEN 1 ELSE null END AS wechatFROM [God] WHERE CreateTime BETWEEN DATEADD(month, DATEDIFF(month, 0, GETDATE()) -11, 0) AND GETDATE() ) AS aGROUP BY month ORDER BY month 
+-------- 错误信息 --------
+'God' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/7/8 16:40:40 ====
+SELECT month, SUM(pc) AS pc, SUM(wechat) AS wechat FROM (SELECT DATEADD(month, DATEDIFF(month, 0, CreateTime), 0) AS month, CASE  WHEN [RegChannel] = 1 THEN 1 ELSE null END AS pc, CASE  WHEN [RegChannel] > 1 THEN 1 ELSE null END AS wechatFROM [God] WHERE CreateTime BETWEEN DATEADD(month, DATEDIFF(month, 0, GETDATE()) -11, 0) AND GETDATE() ) AS aGROUP BY month ORDER BY month 
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/7/8 16:40:40 ====
+SELECT month, SUM(pc) AS pc, SUM(wechat) AS wechat FROM (SELECT DATEADD(month, DATEDIFF(month, 0, CreateTime), 0) AS month, CASE  WHEN [RegChannel] = 1 THEN 1 ELSE null END AS pc, CASE  WHEN [RegChannel] > 1 THEN 1 ELSE null END AS wechatFROM [God] WHERE CreateTime BETWEEN DATEADD(month, DATEDIFF(month, 0, GETDATE()) -11, 0) AND GETDATE() ) AS aGROUP BY month ORDER BY month 
+-------- 错误信息 --------
+'God' 附近有语法错误。
+

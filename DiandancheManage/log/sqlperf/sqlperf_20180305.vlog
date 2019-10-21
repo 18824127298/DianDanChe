@@ -1,0 +1,119 @@
+==== 【instanceDefault】【actual 584 ms / want 500 ms】 2018/3/5 17:10:46 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/5 17:15:51 ====
+SELECT godid, g.[FullName], g.[Aliases] , SUM(touzi) as touzi, sum(chongzhi) as chongzhi, sum(tixian) as tixian FROM (select [PayGodId] as godid, SUM([Amount]) as touzi, 0 as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 21 or [FeeType] = 909) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] UNION 
+select [IncomeGodId] as godid,0 as touzi, SUM([Amount]) as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 1 or [FeeType] = 11) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [IncomeGodId]  UNION 
+select [PayGodId] as godid, 0 as touzi, 0 as chongzhi, SUM([Amount]) as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 2 or [FeeType] = 12) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] ) as tab left join [God] g on g.[Id] = tab.godid where (touzi>=50000 or tixian > 50000 or chongzhi>50000) group by godid, g.[FullName] , g.[Aliases] 
+-------- 错误信息 --------
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/5 17:15:51 ====
+SELECT godid, g.[FullName], g.[Aliases] , SUM(touzi) as touzi, sum(chongzhi) as chongzhi, sum(tixian) as tixian FROM (select [PayGodId] as godid, SUM([Amount]) as touzi, 0 as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 21 or [FeeType] = 909) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] UNION 
+select [IncomeGodId] as godid,0 as touzi, SUM([Amount]) as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 1 or [FeeType] = 11) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [IncomeGodId]  UNION 
+select [PayGodId] as godid, 0 as touzi, 0 as chongzhi, SUM([Amount]) as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 2 or [FeeType] = 12) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] ) as tab left join [God] g on g.[Id] = tab.godid where (touzi>=50000 or tixian > 50000 or chongzhi>50000) group by godid, g.[FullName] , g.[Aliases] 
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/5 17:15:51 ====
+SELECT godid, g.[FullName], g.[Aliases] , SUM(touzi) as touzi, sum(chongzhi) as chongzhi, sum(tixian) as tixian FROM (select [PayGodId] as godid, SUM([Amount]) as touzi, 0 as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 21 or [FeeType] = 909) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] UNION 
+select [IncomeGodId] as godid,0 as touzi, SUM([Amount]) as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 1 or [FeeType] = 11) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [IncomeGodId]  UNION 
+select [PayGodId] as godid, 0 as touzi, 0 as chongzhi, SUM([Amount]) as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 2 or [FeeType] = 12) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] ) as tab left join [God] g on g.[Id] = tab.godid where (touzi>=50000 or tixian > 50000 or chongzhi>50000) group by godid, g.[FullName] , g.[Aliases] 
+-------- 错误信息 --------
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+
+==== 【instanceDefault】【actual 529 ms / want 500 ms】 2018/3/5 17:27:17 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/5 17:28:38 ====
+SELECT godid, g.[FullName], g.[Aliases] , SUM(touzi) as touzi, sum(chongzhi) as chongzhi, sum(tixian) as tixian FROM (select [PayGodId] as godid, SUM([Amount]) as touzi, 0 as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 21 or [FeeType] = 909) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] UNION 
+select [IncomeGodId] as godid,0 as touzi, SUM([Amount]) as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 1 or [FeeType] = 11) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [IncomeGodId]  UNION 
+select [PayGodId] as godid, 0 as touzi, 0 as chongzhi, SUM([Amount]) as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 2 or [FeeType] = 12) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] ) as tab left join [God] g on g.[Id] = tab.godid where (touzi>=50000 or tixian > 50000 or chongzhi>50000) group by godid, g.[FullName] , g.[Aliases] 
+-------- 错误信息 --------
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/5 17:28:38 ====
+SELECT godid, g.[FullName], g.[Aliases] , SUM(touzi) as touzi, sum(chongzhi) as chongzhi, sum(tixian) as tixian FROM (select [PayGodId] as godid, SUM([Amount]) as touzi, 0 as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 21 or [FeeType] = 909) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] UNION 
+select [IncomeGodId] as godid,0 as touzi, SUM([Amount]) as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 1 or [FeeType] = 11) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [IncomeGodId]  UNION 
+select [PayGodId] as godid, 0 as touzi, 0 as chongzhi, SUM([Amount]) as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 2 or [FeeType] = 12) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] ) as tab left join [God] g on g.[Id] = tab.godid where (touzi>=50000 or tixian > 50000 or chongzhi>50000) group by godid, g.[FullName] , g.[Aliases] 
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/5 17:28:38 ====
+SELECT godid, g.[FullName], g.[Aliases] , SUM(touzi) as touzi, sum(chongzhi) as chongzhi, sum(tixian) as tixian FROM (select [PayGodId] as godid, SUM([Amount]) as touzi, 0 as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 21 or [FeeType] = 909) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] UNION 
+select [IncomeGodId] as godid,0 as touzi, SUM([Amount]) as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 1 or [FeeType] = 11) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [IncomeGodId]  UNION 
+select [PayGodId] as godid, 0 as touzi, 0 as chongzhi, SUM([Amount]) as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 2 or [FeeType] = 12) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] ) as tab left join [God] g on g.[Id] = tab.godid where (touzi>=50000 or tixian > 50000 or chongzhi>50000) group by godid, g.[FullName] , g.[Aliases] 
+-------- 错误信息 --------
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/5 17:29:12 ====
+SELECT godid, g.[FullName], g.[Aliases] , SUM(touzi) as touzi, sum(chongzhi) as chongzhi, sum(tixian) as tixian FROM (select [PayGodId] as godid, SUM([Amount]) as touzi, 0 as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 21 or [FeeType] = 909) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] UNION 
+select [IncomeGodId] as godid,0 as touzi, SUM([Amount]) as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 1 or [FeeType] = 11) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [IncomeGodId]  UNION 
+select [PayGodId] as godid, 0 as touzi, 0 as chongzhi, SUM([Amount]) as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 2 or [FeeType] = 12) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] ) as tab left join [God] g on g.[Id] = tab.godid where (touzi>=50000 or tixian > 50000 or chongzhi>50000) group by godid, g.[FullName] , g.[Aliases] 
+-------- 错误信息 --------
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/5 17:29:13 ====
+SELECT godid, g.[FullName], g.[Aliases] , SUM(touzi) as touzi, sum(chongzhi) as chongzhi, sum(tixian) as tixian FROM (select [PayGodId] as godid, SUM([Amount]) as touzi, 0 as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 21 or [FeeType] = 909) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] UNION 
+select [IncomeGodId] as godid,0 as touzi, SUM([Amount]) as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 1 or [FeeType] = 11) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [IncomeGodId]  UNION 
+select [PayGodId] as godid, 0 as touzi, 0 as chongzhi, SUM([Amount]) as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 2 or [FeeType] = 12) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] ) as tab left join [God] g on g.[Id] = tab.godid where (touzi>=50000 or tixian > 50000 or chongzhi>50000) group by godid, g.[FullName] , g.[Aliases] 
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/5 17:29:13 ====
+SELECT godid, g.[FullName], g.[Aliases] , SUM(touzi) as touzi, sum(chongzhi) as chongzhi, sum(tixian) as tixian FROM (select [PayGodId] as godid, SUM([Amount]) as touzi, 0 as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 21 or [FeeType] = 909) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] UNION 
+select [IncomeGodId] as godid,0 as touzi, SUM([Amount]) as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 1 or [FeeType] = 11) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [IncomeGodId]  UNION 
+select [PayGodId] as godid, 0 as touzi, 0 as chongzhi, SUM([Amount]) as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 2 or [FeeType] = 12) and [CreateTime] > 2018-03-01 00:00:00 and [CreateTime] < 2018-03-31 23:59:59.999 group by [PayGodId] ) as tab left join [God] g on g.[Id] = tab.godid where (touzi>=50000 or tixian > 50000 or chongzhi>50000) group by godid, g.[FullName] , g.[Aliases] 
+-------- 错误信息 --------
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/5 17:31:01 ====
+SELECT godid, g.[FullName], g.[Aliases] , SUM(touzi) as touzi, sum(chongzhi) as chongzhi, sum(tixian) as tixian FROM (select [PayGodId] as godid, SUM([Amount]) as touzi, 0 as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 21 or [FeeType] = 909) and [CreateTime] > 2018-02-01 00:00:00 and [CreateTime] < 2018-02-28 23:59:59.999 group by [PayGodId] UNION 
+select [IncomeGodId] as godid,0 as touzi, SUM([Amount]) as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 1 or [FeeType] = 11) and [CreateTime] > 2018-02-01 00:00:00 and [CreateTime] < 2018-02-28 23:59:59.999 group by [IncomeGodId]  UNION 
+select [PayGodId] as godid, 0 as touzi, 0 as chongzhi, SUM([Amount]) as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 2 or [FeeType] = 12) and [CreateTime] > 2018-02-01 00:00:00 and [CreateTime] < 2018-02-28 23:59:59.999 group by [PayGodId] ) as tab left join [God] g on g.[Id] = tab.godid where (touzi>=50000 or tixian > 50000 or chongzhi>50000) group by godid, g.[FullName] , g.[Aliases] 
+-------- 错误信息 --------
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/5 17:31:01 ====
+SELECT godid, g.[FullName], g.[Aliases] , SUM(touzi) as touzi, sum(chongzhi) as chongzhi, sum(tixian) as tixian FROM (select [PayGodId] as godid, SUM([Amount]) as touzi, 0 as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 21 or [FeeType] = 909) and [CreateTime] > 2018-02-01 00:00:00 and [CreateTime] < 2018-02-28 23:59:59.999 group by [PayGodId] UNION 
+select [IncomeGodId] as godid,0 as touzi, SUM([Amount]) as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 1 or [FeeType] = 11) and [CreateTime] > 2018-02-01 00:00:00 and [CreateTime] < 2018-02-28 23:59:59.999 group by [IncomeGodId]  UNION 
+select [PayGodId] as godid, 0 as touzi, 0 as chongzhi, SUM([Amount]) as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 2 or [FeeType] = 12) and [CreateTime] > 2018-02-01 00:00:00 and [CreateTime] < 2018-02-28 23:59:59.999 group by [PayGodId] ) as tab left join [God] g on g.[Id] = tab.godid where (touzi>=50000 or tixian > 50000 or chongzhi>50000) group by godid, g.[FullName] , g.[Aliases] 
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/5 17:31:01 ====
+SELECT godid, g.[FullName], g.[Aliases] , SUM(touzi) as touzi, sum(chongzhi) as chongzhi, sum(tixian) as tixian FROM (select [PayGodId] as godid, SUM([Amount]) as touzi, 0 as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 21 or [FeeType] = 909) and [CreateTime] > 2018-02-01 00:00:00 and [CreateTime] < 2018-02-28 23:59:59.999 group by [PayGodId] UNION 
+select [IncomeGodId] as godid,0 as touzi, SUM([Amount]) as chongzhi, 0 as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 1 or [FeeType] = 11) and [CreateTime] > 2018-02-01 00:00:00 and [CreateTime] < 2018-02-28 23:59:59.999 group by [IncomeGodId]  UNION 
+select [PayGodId] as godid, 0 as touzi, 0 as chongzhi, SUM([Amount]) as tixian FROM [FundsFlow] where [IsValid] = 1 and ([FeeType] = 2 or [FeeType] = 12) and [CreateTime] > 2018-02-01 00:00:00 and [CreateTime] < 2018-02-28 23:59:59.999 group by [PayGodId] ) as tab left join [God] g on g.[Id] = tab.godid where (touzi>=50000 or tixian > 50000 or chongzhi>50000) group by godid, g.[FullName] , g.[Aliases] 
+-------- 错误信息 --------
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+'00' 附近有语法错误。
+
+==== 【instanceDefault】【actual 850 ms / want 500 ms】 2018/3/5 20:12:50 ====
+select * from sbt_log_user_login where last_heartbeat_time <= '2018-03-05 20:11:49' and has_logout = 'N'  and login_time <= '2018-03-05 20:11:49'
+

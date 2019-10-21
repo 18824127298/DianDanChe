@@ -1,0 +1,35 @@
+==== ¡¾instanceDefault¡¿¡¾actual 3687 ms / want 500 ms¡¿ 2019/08/26 14:20:02 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 507 ms / want 500 ms¡¿ 2019/08/26 14:20:34 ====
+update sbt_log_user_login set 
+ login_log_uid = '285936f3-be3b-40f1-8f28-1f4838cdaab8',
+ application_name = '',
+ user_uid = '8fdf1f59-7942-43bc-8db7-0228e66bd814',
+ user_name = 'admin',
+ login_time = '2019-08-23 17:09:53',
+ login_ip_address = '::1',
+ is_login_success = 'Y',
+ login_fail_type = '',
+ login_fail_desc = '',
+ lock_operation = '',
+ last_heartbeat_time = '',
+ has_logout = 'Y',
+ logout_time = '2019-08-23 17:10:23',
+ logout_cause = 'heartbeat_lost',
+ in_system_duration = 30,
+ remarks = ''
+  where login_log_uid = '285936f3-be3b-40f1-8f28-1f4838cdaab8'
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 942 ms / want 500 ms¡¿ 2019/08/26 14:22:40 ====
+select * from Borrower where id=@Id and IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 748 ms / want 500 ms¡¿ 2019/08/26 14:22:46 ====
+insert into opera ([OperaType],[Remark],[BorrowerId],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@BorrowerId,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+

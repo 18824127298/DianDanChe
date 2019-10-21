@@ -1,0 +1,18 @@
+﻿using CheDaiBaoCommonController.Controllers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+
+namespace CheDaiBaoWeChatController.Controllers
+{
+    public class RechargeController : BaseCommonController
+    {
+        public ActionResult WeiXinReturn()
+        {
+            return View();
+        }
+    }
+}

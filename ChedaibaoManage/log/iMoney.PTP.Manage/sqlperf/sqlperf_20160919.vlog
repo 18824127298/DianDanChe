@@ -1,0 +1,94 @@
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:15:32 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:15:32 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:15:32 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:23:55 ====
+select SUM(t.Amount),gb.CreateTime from (select distinct g.RelationId, b.Amount,gb.CreateTime from GodBounsRecord g join Bid b on g.RelationId= b.Id join GodBouns gb on g.BounsId=gb.Id where g.IsValid=1 and b.IsValid=1 and gb.BounsType=1 and g.GodId='6') as t and gb.CreateTime>='2016-09-01' and gb.CreateTime<='2016-09-20 00:00:00'
+-------- 错误信息 --------
+关键字 'and' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:23:55 ====
+select SUM(t.Amount),gb.CreateTime from (select distinct g.RelationId, b.Amount,gb.CreateTime from GodBounsRecord g join Bid b on g.RelationId= b.Id join GodBouns gb on g.BounsId=gb.Id where g.IsValid=1 and b.IsValid=1 and gb.BounsType=1 and g.GodId='6') as t and gb.CreateTime>='2016-09-01' and gb.CreateTime<='2016-09-20 00:00:00'
+-------- 错误信息 --------
+【重试一次(ExecuteScalar)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:23:55 ====
+select SUM(t.Amount),gb.CreateTime from (select distinct g.RelationId, b.Amount,gb.CreateTime from GodBounsRecord g join Bid b on g.RelationId= b.Id join GodBouns gb on g.BounsId=gb.Id where g.IsValid=1 and b.IsValid=1 and gb.BounsType=1 and g.GodId='6') as t and gb.CreateTime>='2016-09-01' and gb.CreateTime<='2016-09-20 00:00:00'
+-------- 错误信息 --------
+关键字 'and' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:24:25 ====
+select SUM(t.Amount),gb.CreateTime from (select distinct g.RelationId, b.Amount,gb.CreateTime from GodBounsRecord g join Bid b on g.RelationId= b.Id join GodBouns gb on g.BounsId=gb.Id where g.IsValid=1 and b.IsValid=1 and gb.BounsType=1 and g.GodId='6') as t where gb.CreateTime>='2016-09-01' and gb.CreateTime<='2016-09-20 00:00:00'
+-------- 错误信息 --------
+无法绑定由多个部分组成的标识符 "gb.CreateTime"。
+无法绑定由多个部分组成的标识符 "gb.CreateTime"。
+无法绑定由多个部分组成的标识符 "gb.CreateTime"。
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:24:25 ====
+select SUM(t.Amount),gb.CreateTime from (select distinct g.RelationId, b.Amount,gb.CreateTime from GodBounsRecord g join Bid b on g.RelationId= b.Id join GodBouns gb on g.BounsId=gb.Id where g.IsValid=1 and b.IsValid=1 and gb.BounsType=1 and g.GodId='6') as t where gb.CreateTime>='2016-09-01' and gb.CreateTime<='2016-09-20 00:00:00'
+-------- 错误信息 --------
+【重试一次(ExecuteScalar)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:24:25 ====
+select SUM(t.Amount),gb.CreateTime from (select distinct g.RelationId, b.Amount,gb.CreateTime from GodBounsRecord g join Bid b on g.RelationId= b.Id join GodBouns gb on g.BounsId=gb.Id where g.IsValid=1 and b.IsValid=1 and gb.BounsType=1 and g.GodId='6') as t where gb.CreateTime>='2016-09-01' and gb.CreateTime<='2016-09-20 00:00:00'
+-------- 错误信息 --------
+无法绑定由多个部分组成的标识符 "gb.CreateTime"。
+无法绑定由多个部分组成的标识符 "gb.CreateTime"。
+无法绑定由多个部分组成的标识符 "gb.CreateTime"。
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:24:57 ====
+select SUM(t.Amount),gb.CreateTime from (select distinct g.RelationId, b.Amount,gb.CreateTime from GodBounsRecord g join Bid b on g.RelationId= b.Id join GodBouns gb on g.BounsId=gb.Id where g.IsValid=1 and b.IsValid=1 and gb.BounsType=1 and g.GodId='6') as t where t.CreateTime>='2016-09-01' and t.CreateTime<='2016-09-20 00:00:00'
+-------- 错误信息 --------
+无法绑定由多个部分组成的标识符 "gb.CreateTime"。
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:24:57 ====
+select SUM(t.Amount),gb.CreateTime from (select distinct g.RelationId, b.Amount,gb.CreateTime from GodBounsRecord g join Bid b on g.RelationId= b.Id join GodBouns gb on g.BounsId=gb.Id where g.IsValid=1 and b.IsValid=1 and gb.BounsType=1 and g.GodId='6') as t where t.CreateTime>='2016-09-01' and t.CreateTime<='2016-09-20 00:00:00'
+-------- 错误信息 --------
+【重试一次(ExecuteScalar)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:24:57 ====
+select SUM(t.Amount),gb.CreateTime from (select distinct g.RelationId, b.Amount,gb.CreateTime from GodBounsRecord g join Bid b on g.RelationId= b.Id join GodBouns gb on g.BounsId=gb.Id where g.IsValid=1 and b.IsValid=1 and gb.BounsType=1 and g.GodId='6') as t where t.CreateTime>='2016-09-01' and t.CreateTime<='2016-09-20 00:00:00'
+-------- 错误信息 --------
+无法绑定由多个部分组成的标识符 "gb.CreateTime"。
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:26:16 ====
+select SUM(t.Amount),t.CreateTime from (select distinct g.RelationId, b.Amount,gb.CreateTime from GodBounsRecord g join Bid b on g.RelationId= b.Id join GodBouns gb on g.BounsId=gb.Id where g.IsValid=1 and b.IsValid=1 and gb.BounsType=1 and g.GodId='6') as t where t.CreateTime>='2016-09-01' and t.CreateTime<='2016-09-20 00:00:00'
+-------- 错误信息 --------
+选择列表中的列 't.CreateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:26:16 ====
+select SUM(t.Amount),t.CreateTime from (select distinct g.RelationId, b.Amount,gb.CreateTime from GodBounsRecord g join Bid b on g.RelationId= b.Id join GodBouns gb on g.BounsId=gb.Id where g.IsValid=1 and b.IsValid=1 and gb.BounsType=1 and g.GodId='6') as t where t.CreateTime>='2016-09-01' and t.CreateTime<='2016-09-20 00:00:00'
+-------- 错误信息 --------
+【重试一次(ExecuteScalar)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/9/19 9:26:16 ====
+select SUM(t.Amount),t.CreateTime from (select distinct g.RelationId, b.Amount,gb.CreateTime from GodBounsRecord g join Bid b on g.RelationId= b.Id join GodBouns gb on g.BounsId=gb.Id where g.IsValid=1 and b.IsValid=1 and gb.BounsType=1 and g.GodId='6') as t where t.CreateTime>='2016-09-01' and t.CreateTime<='2016-09-20 00:00:00'
+-------- 错误信息 --------
+选择列表中的列 't.CreateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+

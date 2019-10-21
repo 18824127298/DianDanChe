@@ -1,0 +1,107 @@
+<style type="text/css">
+<!--
+body {
+	margin-left: 5px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #DBE0D9;
+}
+body,td,th {
+	color: #FFFFFF;
+}
+.small {
+font-size:9pt;
+}
+-->
+</style>
+
+<body onselectstart="return false" onload="parent.init_menu()">
+
+<table height="90"  border="0" cellpadding="0" cellspacing="0" class="small">
+  <tr>
+    <td width="26" align="center" valign="top" background="../../../App_Themes/green-bamboo/template/fpanel_menu_operation/index_21.gif" id="menu_6" style="cursor:hand" title="收藏夹"   onclick="parent.view_menu(6)">
+    <table width="15" height="25" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10">&nbsp;</td>
+      </tr>
+    </table>
+    收<br>
+    藏<br>
+    夹</td>
+    
+	<td width="4">&nbsp;</td>
+	
+    <td width="26" align="center" valign="top" background="../../../App_Themes/green-bamboo/template/fpanel_menu_operation/index_21.gif" id="menu_4" style="cursor:hand" title="快捷方式" onclick="parent.view_menu(4)">
+    <table width="15" height="14" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10">&nbsp;</td>
+      </tr>
+    </table>
+    快<br>
+    捷<br>
+    方<br>
+    式</td>
+    
+	<td width="4">&nbsp;</td>
+
+    <td width="26" align="center" valign="top" background="../../../App_Themes/green-bamboo/template/fpanel_menu_operation/index_21.gif" id="menu_1" style="cursor:hand" title="主菜单"   onclick="parent.view_menu(1)">
+    <table width="15" height="14" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10">&nbsp;</td>
+      </tr>
+    </table>
+    功<br>
+    能<br>
+    菜<br>
+    单</td>
+    
+	<td width="4">&nbsp;</td>
+	
+    <td width="26" align="center" valign="top" background="../../../App_Themes/green-bamboo/template/fpanel_menu_operation/index_21.gif" id="menu_2" style="cursor:hand" title="在线人员" onclick="parent.view_menu(2)">
+    <table width="15" height="14" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10">&nbsp;</td>
+      </tr>
+    </table>
+    在<br>
+    线<br>
+    人<br>
+    员</TD>
+    
+	<td width="4">&nbsp;</td>
+	
+    <td width="26" align="center" valign="top" background="../../../App_Themes/green-bamboo/template/fpanel_menu_operation/index_21.gif" id="menu_3" style="cursor:hand" title="全部人员" onclick="parent.view_menu(3)">
+    <table width="15" height="14" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10">&nbsp;</td>
+      </tr>
+    </table>
+    全<br>
+    部<br>
+    人<br>
+    员</td>
+    
+	<td width="4">&nbsp;</td>
+	
+	<td width="26" align="center" valign="top" background="../../../App_Themes/green-bamboo/template/fpanel_menu_operation/index_21.gif"  id="menu_5" style="cursor:hand" title="短信箱" onclick="parent.view_menu(5)">
+	<table width="15" height="25" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10">&nbsp;</td>
+      </tr>
+    </table>
+    短<br>
+    信<br>
+    箱</td>
+  </tr>
+</table>
+
+<br>
+<br>
+<!-- 状态图片预载 -->
+<span class="small">
+<img src="../../../App_Themes/green-bamboo/template/fpanel_menu_operation/index_21-2.gif">
+<img src="../../../App_Themes/green-bamboo/template/fpanel_menu_operation/index_21-3.gif">
+</span>
+
+</body>

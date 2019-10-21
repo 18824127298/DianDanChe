@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C7B07205-A192-491F-94FD-877DD0ADDBF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CheDaiBaoWeChatModel</RootNamespace>
+    <AssemblyName>CheDaiBaoWeChatModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.5.1.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Smobiler.Core, Version=2016.4.1109.3400, Culture=neutral, PublicKeyToken=c28d201d12639a97, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configs.cs" />
+    <Compile Include="Enumerates.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Borrow.cs" />
+    <Compile Include="Models\Borrower.cs" />
+    <Compile Include="Models\LoanApply.cs" />
+    <Compile Include="Models\MobileCodeInfoModel.cs" />
+    <Compile Include="Models\Opera.cs" />
+    <Compile Include="Models\PartialModel\BankCard.cs" />
+    <Compile Include="Models\PartialModel\Borrow.cs" />
+    <Compile Include="Models\PartialModel\Borrower.cs" />
+    <Compile Include="Models\PartialModel\BusinessFile.cs" />
+    <Compile Include="Models\PartialModel\CapriciousLoan.cs" />
+    <Compile Include="Models\PartialModel\Car.cs" />
+    <Compile Include="Models\PartialModel\CarIllegal.cs" />
+    <Compile Include="Models\PartialModel\CarType.cs" />
+    <Compile Include="Models\PartialModel\Contacts.cs" />
+    <Compile Include="Models\PartialModel\Discount.cs" />
+    <Compile Include="Models\PartialModel\DriverApplication.cs" />
+    <Compile Include="Models\PartialModel\FollowUp.cs" />
+    <Compile Include="Models\PartialModel\FundsFlow.cs" />
+    <Compile Include="Models\PartialModel\IdCardInformation.cs" />
+    <Compile Include="Models\PartialModel\Information.cs" />
+    <Compile Include="Models\PartialModel\LoanApply.cs" />
+    <Compile Include="Models\PartialModel\LoanFile.cs" />
+    <Compile Include="Models\PartialModel\Opera.cs" />
+    <Compile Include="Models\PartialModel\OperateModel.cs" />
+    <Compile Include="Models\PartialModel\Recharge.cs" />
+    <Compile Include="Models\PartialModel\Refund.cs" />
+    <Compile Include="Models\PartialModel\SendMessageHistory.cs" />
+    <Compile Include="Models\PartialModel\SeparateAccounts.cs" />
+    <Compile Include="Models\Recharge.cs" />
+    <Compile Include="Models\SendMobileResultModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validators\BorrowerValidator.cs" />
+    <Compile Include="Validators\CarValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

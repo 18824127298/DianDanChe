@@ -1,0 +1,16 @@
+==== ¡¾instanceDefault¡¿¡¾actual 1205 ms / want 500 ms¡¿ 2017/6/6 11:14:40 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 656 ms / want 500 ms¡¿ 2017/6/6 15:55:37 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+

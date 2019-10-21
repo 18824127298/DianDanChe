@@ -1,0 +1,12 @@
+<frameset id="frame1" border="0" framespacing="0" rows="68,94,*,0,0,0" frameborder="NO"
+    cols="*" class="panel">
+    <frame name="menu_info" src="function_panel/menu_info.aspx" frameborder="0"
+        noresize scrolling="no" class="panel">
+    <frame name="menu_operation" src="function_panel/menu_operation.aspx" frameborder="0"
+        noresize scrolling="no" class="panel">
+    <frame name="menu_main" src="function_panel/menu.aspx" frameborder="0" noresize class="panel">
+<%--    <frame name="user_online" src="function_panel.files/user_online.htm" frameborder="0"
+        noresize>--%>
+    <frame name="user_all" src="function_panel/user_all.aspx" frameborder="0" noresize>
+    <frame name="menu_page" src="about:blank" frameborder="0" noresize>
+</frameset>

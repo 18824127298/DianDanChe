@@ -1,0 +1,57 @@
+<body topmargin="0" leftmargin="0" onselectstart="return false" onload="timeview();">
+
+<table width="100%" height="70" border="0" align="right" 
+	cellpadding="0" cellspacing="0" 
+	background="../../App_Themes/robot-snmobile/template/index_top/index_01.gif" 
+	id="__01">
+  <tr align="right" >
+  
+	<td width="1">
+		<img src="../../App_Themes/robot-snmobile/template/index_top/index_01.gif"
+			width="1" height="70" alt="" /></td>
+	  
+	<!-- 显示默认图标 -->
+	<td width="203" height="50" rowspan="2" align="left" nowrap>
+	  <div align="left">
+		<img src="../../App_Themes/robot-snmobile/template/index_top/index_02.gif" 
+			alt="" width="265" height="70" align="middle" />
+	  </div>
+	</td>
+
+	<td >        
+		<table width="500" height="70" border="0" cellpadding="0" cellspacing="0">
+		  <tr>
+			<td height="50">
+			<table width="227" border="0" align="right" cellpadding="0" cellspacing="0">
+			  <tr>
+				<td width="70" align="center" valign="middle">
+					<div align="center">
+						<img src="../../App_Themes/robot-snmobile/template/index_top/index_04.gif" 
+							alt="返回桌面" width="48" height="25" border="0" 
+							style="cursor:hand"  onClick="javascript:GoTable();"/></div></td>
+				<td width="70" align="center" valign="middle">
+					<div align="center">
+						<img src="../../App_Themes/robot-snmobile/template/index_top/index_05.gif" 
+							alt="注销[%LOGIN_USER_ID%]" width="48" height="25" border="0" 
+							style="cursor:hand"  onClick="javascript:iflogout()"/></div></td>
+				<td width="70" align="center" valign="middle">
+					<div align="center">
+						<img src="../../App_Themes/robot-snmobile/template/index_top/index_06.gif" 
+							alt="退出系统" width="48" height="25" border="0" 
+							style="cursor:hand" onClick="javascript:ifexit()"/></div></td>
+			  </tr>
+			</table>
+			</td>
+		  </tr>
+
+		  <tr>
+			<td align="right" class="small">
+			  现在时刻：<b><span id="time_area"></span></b>&nbsp;&nbsp;&nbsp;&nbsp;
+			</td>
+		  </tr>
+		</table>
+	</td>
+  </tr>
+</table>
+
+</body>

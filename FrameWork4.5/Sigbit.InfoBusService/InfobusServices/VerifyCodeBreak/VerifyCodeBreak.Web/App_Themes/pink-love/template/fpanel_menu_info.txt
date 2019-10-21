@@ -1,0 +1,29 @@
+<body onselectstart="return false">
+
+<table width="186" height="100" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="2" valign="top" nowrap background="../../../App_Themes/pink-love/template/fpanel_menu_info/index_10.jpg">
+		<table width="100%"  border="0" cellpadding="0" cellspacing="2">
+		<tr>
+          <td height=48>&nbsp;</td>
+        </tr>
+          <tr>
+            <td>
+				<div align="center" class="small">
+					[%DEPT_NAME%] >> [%USER_PRIV%]
+				</div>
+			</td>
+          </tr>
+          <tr>
+            <td><div align="center" class="small">
+            <img src="../../../images/avatar_face/01.gif" align="absmiddle">
+            [%USER_NAME%] £¬[%HELLO_STR%]<b></b></div>
+            </td>
+          </tr>
+        </table>
+        </td>
+	</tr>
+</table>
+
+</body>
+

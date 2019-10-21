@@ -1,0 +1,59 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1294 ms / want 500 ms¡¿ 2019/7/29 0:41:52 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3669 ms / want 500 ms¡¿ 2019/7/29 0:42:24 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_MultiMapImpl¡¿¡¾actual 1292 ms / want 500 ms¡¿ 2019/7/29 0:47:43 ====
+select * from LoanApply l join Borrower b on l.borrowerId = b.Id
+and l.IsValid= 1 and l.SalesmanId = @SalesmanId order by l.CreateTime desc
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 678 ms / want 500 ms¡¿ 2019/7/29 1:08:42 ====
+insert into opera ([OperaType],[Remark],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_MultiMapImpl¡¿¡¾actual 755 ms / want 500 ms¡¿ 2019/7/29 1:09:47 ====
+select * from LoanApply l join Borrower b on l.borrowerId = b.Id
+and l.IsValid= 1 and l.SalesmanId = @SalesmanId and CONVERT(varchar(100), l.CreateTime, 111) = CONVERT(varchar(100), GETDATE(), 111) order by l.CreateTime desc
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1113 ms / want 500 ms¡¿ 2019/7/29 1:21:46 ====
+insert into borrower ([Aliases],[Guid],[Phone],[IDType],[IsValidatePhone],[WeiXinId],[UnionId],[IsSalesman],[IsValid],[CreateTime],[UpdateTime]) values (@Aliases,@Guid,@Phone,@IDType,@IsValidatePhone,@WeiXinId,@UnionId,@IsSalesman,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 528 ms / want 500 ms¡¿ 2019/7/29 11:03:19 ====
+select * from Borrow where id=@Id and IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1402 ms / want 500 ms¡¿ 2019/7/29 14:12:41 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3088 ms / want 500 ms¡¿ 2019/7/29 16:01:52 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1244 ms / want 500 ms¡¿ 2019/7/29 16:02:43 ====
+select * from contacts where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 843 ms / want 500 ms¡¿ 2019/7/29 16:09:17 ====
+insert into opera ([OperaType],[Remark],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 593 ms / want 500 ms¡¿ 2019/7/29 16:25:39 ====
+insert into contacts ([Contact],[Phone],[BorrowerId],[LoanapplyId],[IsValid],[CreateTime],[UpdateTime]) values (@Contact,@Phone,@BorrowerId,@LoanapplyId,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1441 ms / want 500 ms¡¿ 2019/7/29 16:41:37 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 1418 ms / want 500 ms¡¿ 2019/7/29 16:45:50 ====
+update contacts set IsValid=0,UpdateTime='2019-07-29 16:45:49' where 1=1  and [Contact]=@Contact  and [Phone]=@Phone  and [BorrowerId]=@BorrowerId  and [LoanapplyId]=@LoanapplyId  and [IsValid]=@IsValid  and [CreateTime]=@CreateTime  and [UpdateTime]=@UpdateTime
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 1418 ms / want 500 ms¡¿ 2019/7/29 16:45:50 ====
+update contacts set IsValid=0,UpdateTime='2019-07-29 16:45:49' where 1=1  and [Contact]=@Contact  and [Phone]=@Phone  and [BorrowerId]=@BorrowerId  and [LoanapplyId]=@LoanapplyId  and [IsValid]=@IsValid  and [CreateTime]=@CreateTime  and [UpdateTime]=@UpdateTime
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 550 ms / want 500 ms¡¿ 2019/7/29 16:48:38 ====
+update contacts set IsValid=0,UpdateTime='2019-07-29 16:48:37' where 1=1  and [Contact]=@Contact  and [Phone]=@Phone  and [BorrowerId]=@BorrowerId  and [LoanapplyId]=@LoanapplyId  and [IsValid]=@IsValid  and [CreateTime]=@CreateTime  and [UpdateTime]=@UpdateTime
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 550 ms / want 500 ms¡¿ 2019/7/29 16:48:38 ====
+update contacts set IsValid=0,UpdateTime='2019-07-29 16:48:37' where 1=1  and [Contact]=@Contact  and [Phone]=@Phone  and [BorrowerId]=@BorrowerId  and [LoanapplyId]=@LoanapplyId  and [IsValid]=@IsValid  and [CreateTime]=@CreateTime  and [UpdateTime]=@UpdateTime
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 774 ms / want 500 ms¡¿ 2019/7/29 18:54:33 ====
+update loanfile set [LoanApplyId]=@LoanApplyId,[ZhengFilePath]=@ZhengFilePath,[FanFilePath]=@FanFilePath,[BankCardPath]=@BankCardPath,[BorrowerId]=@BorrowerId,[Score]=@Score,[IsValid]=@IsValid,[CreateTime]=@CreateTime,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 774 ms / want 500 ms¡¿ 2019/7/29 18:54:33 ====
+update loanfile set [LoanApplyId]=@LoanApplyId,[ZhengFilePath]=@ZhengFilePath,[FanFilePath]=@FanFilePath,[BankCardPath]=@BankCardPath,[BorrowerId]=@BorrowerId,[Score]=@Score,[IsValid]=@IsValid,[CreateTime]=@CreateTime,[UpdateTime]=@UpdateTime where id=@Id
+

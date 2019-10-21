@@ -1,0 +1,175 @@
+﻿@{
+    ViewBag.Title = "杰运好车-添加车辆";
+}
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://wx.che01.com/addcar2.php -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width">
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+    <script>
+        $(function () {
+            $(".jc-p").click(function () {
+                $(".bg3").fadeIn(300);
+                $(".jcBox").fadeIn(300);
+            });
+            $(".bg3").click(function () {
+                $(".bg3").fadeOut(300);
+                $(".jcBox").fadeOut(300);
+                $(".idshow").fadeOut(300);
+            });
+
+            $(".title2").click(function () {
+                $(".bg3").fadeIn(300);
+                $(".idshow").fadeIn(300);
+            });
+
+
+            $(".jcBox li").click(function () {
+                var s = $(this).html();
+                $("#car1").val(s);
+                $(".bg3").fadeOut(300);
+                $(".jcBox").fadeOut(300);
+                $(".idshow").fadeOut(300);
+
+            });
+
+
+        });
+        function show() {
+            var data = "";
+
+
+            data = data + "&txt=" + $("#txt").val();
+            data = data + "&car1=" + $("#car1").val() + "&car2=" + $("#car2").val();
+            data = data + "&CarDrive=" + $("#CarDrive").val();
+            data = data + "&CarCode=" + $("#CarCode").val();
+            data = data + "&uu=addcar2.php";
+            location.href = "sltcar.php?" + data;
+        }
+</script>
+</head>
+
+<body class="bodybg">
+    <form action="http://wx.che01.com/addcar2.php" class="registerform" method="post">
+        <input name="act" type="hidden" value="go">
+        <input name="level1" type="hidden" value="">
+        <input name="level2" type="hidden" value="">
+        <input name="level3" type="hidden" value="">
+        <input name="level4" type="hidden" value="">
+        <input name="icon" type="hidden" value="">
+
+
+        <header class="head2">
+            <a class="back" href="javascript:history.go(-1)"></a>
+            <h1 class="h01">添加车辆</h1>
+        </header>
+
+        <div class="title2">请根据《机动车行驶证》仔细填写</div>
+        <table class="tab2" cellpadding="1" cellspacing="1">
+
+            <tbody>
+                <tr>
+                    <td width="25%">车系</td>
+                    <td width="75%">
+                        <input name="cartype" type="text" class="text01" onclick="show()" value="" placeholder="请选择您爱车车型">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="25%">备注</td>
+                    <td width="75%">
+                        <input name="txt" id="txt" value="" type="text" class="text01" placeholder="如张三的车">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="tab2" cellpadding="1" cellspacing="1">
+            <tbody>
+                <tr>
+                    <td width="25%">车牌号码</td>
+                    <td width="75%">
+                        <input class="jc-p" value="" id="car1" name="car1" readonly="">
+                        <input name="car2" id="car2" type="text" class="text01" value="" style="width: 50%" onkeyup="this.value = this.value.toUpperCase();" placeholder="请输入车牌号码">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="25%">发动机号</td>
+                    <td width="75%">
+                        <input name="CarDrive" id="CarDrive" type="text" class="text01" datatype="s6-6" errormsg="发动机号不对" value="" placeholder="请输入发动机后6位号">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="25%">车身架号</td>
+                    <td width="75%">
+                        <input name="CarCode" id="CarCode" type="text" datatype="s6-6" errormsg="车身架号不对" nullmsg="请再次输入加油卡卡号！" class="text01" value="" placeholder="请输入车身架后6位号">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="title2">什么是发动机号和车身架号？</div>
+
+        <div class="idshow">
+            <img src="./车1号-添加车辆_files/3.png" width="80%">
+        </div>
+
+        <p class="p001 p002">所填信息为当地交管局查询所需，您的信息将严格保密</p>
+
+        <input name="提交" type="submit" class="userbtn" value="提　交">
+
+        <footer></footer>
+
+        <div class="bg2 bg3"></div>
+        <ul class="jcBox">
+            <li>津</li>
+            <li>京</li>
+            <li>冀</li>
+            <li>晋</li>
+            <li>蒙</li>
+            <li>辽</li>
+            <li>吉</li>
+            <li>黑</li>
+            <li>沪</li>
+            <li>苏</li>
+            <li>浙</li>
+            <li>皖</li>
+            <li>闽</li>
+            <li>赣</li>
+            <li>鲁</li>
+            <li>豫</li>
+            <li>鄂</li>
+            <li>湘</li>
+            <li>粤</li>
+            <li>桂</li>
+            <li>琼</li>
+            <li>渝</li>
+            <li>川</li>
+            <li>黔</li>
+            <li>滇</li>
+            <li>藏</li>
+            <li>陕</li>
+            <li>甘</li>
+            <li>青</li>
+            <li>宁</li>
+            <li>新</li>
+            <li>港</li>
+            <li>澳</li>
+            <li>台</li>
+        </ul>
+    </form>
+
+
+
+
+    <div id="Validform_msg" class="msg">
+        <div class="title Validform_title">提示信息</div>
+        <div class="content Validform_info">您的卡将于5个工作日内寄出</div>
+        <div class="btn">
+            <li class="ok">确定</li>
+            <li class=""><a class="Validform_close">关闭</a></li>
+        </div>
+    </div>
+</body>
+</html>

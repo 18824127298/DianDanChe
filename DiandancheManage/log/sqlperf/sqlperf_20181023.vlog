@@ -1,0 +1,5 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1092 ms / want 500 ms¡¿ 2018/10/23 16:36:40 ====
+select * FROM [God] WHERE [IsValid] =  1 and [Id] IN (select DISTINCT([GodId]) 
+                  FROM [RepaymentPlan] WHERE [IsValid] = 1 and [UnPrincipal] > 0
+                  and [GodId] <> 21803) and [IDNumber] like '%***%'
+

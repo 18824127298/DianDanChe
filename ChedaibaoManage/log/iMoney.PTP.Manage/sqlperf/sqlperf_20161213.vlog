@@ -1,0 +1,49 @@
+==== ¡¾instanceDefault¡¿¡¾actual 625 ms / want 500 ms¡¿ 2016/12/13 9:36:46 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 869 ms / want 500 ms¡¿ 2016/12/13 11:49:05 ====
+insert into God(IsValid,CreateTime,UpdateTime,Aliases,FullName,LoginKey,Phone,Salt,WithdrawalPwd,WithdrawalSalt,Picture,Email,IDNumber,IDType,IsValidatePhone,IsValidateEmail,GodType,RecommendGodId,WeiXinId,IsAutomaticBid,RecommendTypeId,RecommendTime,RecommendedIdentifier,CustomerServiceTime,ExtSourceId,RegChannel,RegIdentifier) values (
+1,'2016-12-13 11:49:04','2016-12-13 11:49:04','13427585548','Î¤¹úÈñ','11F76D602DDCEECAFEAF8C5143334A56','13427585548','67c17c72-0f0b-4e64-a0ee-9c753d8296d6','11F76D602DDCEECAFEAF8C5143334A56','67c17c72-0f0b-4e64-a0ee-9c753d8296d6','','','',0,1,0,1,1,'',0,1,'2016-12-13 11:49:04','f613f7','','',819,'a765')
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 639 ms / want 500 ms¡¿ 2016/12/13 11:50:06 ====
+select * from God where  IsValid=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 787 ms / want 500 ms¡¿ 2016/12/13 11:53:06 ====
+select A.* FROM god A LEFT JOIN godsummary B ON A.Id=B.Id WHERE B.Id IS NULL
+
+==== ¡¾instanceDefault¡¿¡¾actual 945 ms / want 500 ms¡¿ 2016/12/13 11:54:23 ====
+select God.*,FreeAmount,(WaitPrincipal+WaitInterest) as WaitAmount,(FreezeBid+FreezeWithdrawal+ExFloat01) as FreezeAmount,RecommName,RecommCount  from God inner join GodSummary on God.id=GodSummary.id
+ where GodType <> 4 and GodType <> 3
+ order by god.createtime desc
+
+==== ¡¾instanceDefault¡¿¡¾actual 959 ms / want 500 ms¡¿ 2016/12/13 14:19:52 ====
+select God.*,FreeAmount,(WaitPrincipal+WaitInterest) as WaitAmount,(FreezeBid+FreezeWithdrawal+ExFloat01) as FreezeAmount,RecommName,RecommCount  from God inner join GodSummary on God.id=GodSummary.id
+ where GodType <> 4 and GodType <> 3
+ order by god.createtime desc
+
+==== ¡¾instanceDefault¡¿¡¾actual 895 ms / want 500 ms¡¿ 2016/12/13 14:22:06 ====
+select God.*,FreeAmount,(WaitPrincipal+WaitInterest) as WaitAmount,(FreezeBid+FreezeWithdrawal+ExFloat01) as FreezeAmount,RecommName,RecommCount  from God inner join GodSummary on God.id=GodSummary.id
+ where GodType <> 4 and GodType <> 3
+ order by god.createtime desc
+
+==== ¡¾instanceDefault¡¿¡¾actual 1014 ms / want 500 ms¡¿ 2016/12/13 14:27:51 ====
+select God.*,FreeAmount,(WaitPrincipal+WaitInterest) as WaitAmount,(FreezeBid+FreezeWithdrawal+ExFloat01) as FreezeAmount,RecommName,RecommCount  from God inner join GodSummary on God.id=GodSummary.id
+ where GodType <> 4 and GodType <> 3
+ order by god.createtime desc
+
+==== ¡¾instanceDefault¡¿¡¾actual 868 ms / want 500 ms¡¿ 2016/12/13 14:28:37 ====
+select God.*,FreeAmount,(WaitPrincipal+WaitInterest) as WaitAmount,(FreezeBid+FreezeWithdrawal+ExFloat01) as FreezeAmount,RecommName,RecommCount  from God inner join GodSummary on God.id=GodSummary.id
+ where GodType <> 4 and GodType <> 3
+ order by god.createtime desc
+
+==== ¡¾instanceDefault¡¿¡¾actual 929 ms / want 500 ms¡¿ 2016/12/13 14:31:33 ====
+select God.*,FreeAmount,(WaitPrincipal+WaitInterest) as WaitAmount,(FreezeBid+FreezeWithdrawal+ExFloat01) as FreezeAmount,RecommName,RecommCount  from God inner join GodSummary on God.id=GodSummary.id
+ where GodType <> 4 and GodType <> 3
+ order by god.createtime desc
+

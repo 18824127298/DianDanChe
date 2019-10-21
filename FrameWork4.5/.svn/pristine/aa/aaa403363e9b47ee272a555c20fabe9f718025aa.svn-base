@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configRoot>
+  <instanceDefault>
+    <dbType value="mysql" />
+    <connectString value="Data Source=sigbit_infobus_dns;Password=;User ID=root;Location=localhost;Port=3306;Extended Properties=''" />
+    <minPoolSize value="5" />
+    <maxPoolSize value="12" />
+  </instanceDefault>
+
+  <sqlPerfLogConfig>
+    <!-- 数据库日志的记录方式，logNone-不记录(缺省)、logAll-全记录、logWanted-记录超时 -->
+    <logMethod value="logWanted" />
+
+    <!-- 短SQL语句的超时时长，建议为100 ms -->
+    <quickSQLTime value="100" />
+
+    <!-- 普通SQL语句的超时时长，建议为1000 ms -->
+    <normalSQLTime value="1000" />
+
+    <!-- 长SQL语句的超时时长，建议为3000 ms -->
+    <slowSQLTime value="3000" />
+  </sqlPerfLogConfig>
+</configRoot>

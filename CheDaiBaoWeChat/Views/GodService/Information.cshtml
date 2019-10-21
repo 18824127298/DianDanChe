@@ -1,0 +1,127 @@
+﻿@{
+    ViewBag.Title = "证件照信息";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width">
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+    <style type="text/css">
+        .myUl5 li {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body class="bodybg">
+    @using (Html.BeginForm("InformationSubmit", "GodService", FormMethod.Post, new { id = "InformationSubmit" }))
+    {                          
+
+        <div class="qbCon2" id="qd1">
+            <ul class="myUl5">
+                <li>&nbsp;商户名称 <span>
+                    <select id="BusinessName" name="BusinessName">
+                        <option value="广州众宇">广州众宇</option>
+                        <option value="东莞宙斯">东莞宙斯</option>
+                        <option value="广州骑士之家">广州骑士之家</option>
+                        <option value="广州松吉电动车">广州松吉电动车</option>
+                        <option value="东莞盈立宝">东莞盈立宝</option>
+                        <option value="梓龙">梓龙</option>
+                        <option value="东莞佳佳自行车行">东莞佳佳自行车行</option>
+                        <option value="百信车行">百信车行</option>
+                    </select></span></li>
+                <li>&nbsp;招聘点名称 <span>
+                    <select id="RecruitmentName" name="RecruitmentName">
+                        <option value="广州众宇305">广州众宇305</option>
+                        <option value="广州骑士之家">广州骑士之家</option>
+                        <option value="广州丰兴广场">丰兴广场</option>
+                        <option value="广州优才">广州优才</option>
+                        <option value="广州邦忙体育西">广州邦忙体育西</option>
+                        <option value="广州东盛广场">广州东盛广场</option>
+                        <option value="东莞邦忙南城">东莞邦忙南城</option>
+                        <option value="东莞盈立宝寮步">东莞盈立宝寮步</option>
+                        <option value="广州瑞祥尚雅小区">广州瑞祥尚雅小区</option>
+                        <option value="广州亿博燕塘">广州亿博燕塘</option>
+                        <option value="广州正方江夏">广州正方江夏</option>
+                        <option value="广州众宇东山广场">广州众宇东山广场</option>
+                        <option value="东莞优才">东莞优才</option>
+                        <option value="正方厦滘">正方厦滘</option>
+                        <option value="佛山优才">佛山优才</option>
+                        <option value="正方人力鱼珠站点">正方人力鱼珠站点</option>
+                        <option value="嘉禾望岗">嘉禾望岗</option>
+                        <option value="广州昌岗优才">广州昌岗优才</option>
+                        <option value="巨业天河客运站">巨业天河客运站</option>
+                        <option value="东莞巨业">东莞巨业</option>
+                    </select></span></li>
+
+                <li>&nbsp;姓名 <span>
+                    <input type="text" name="Name" id="Name" value="@ViewBag.Name" class="fxf gx" style="border: 0px" datatype="*" placeholder="姓名"></span> </li>
+
+                <li>&nbsp;出生 <span>
+                    <input type="text" name="Birth" id="Birth" value="@ViewBag.Birth" class="fxf gx" style="border: 0px" datatype="m" placeholder="出生"></span> </li>
+
+                <li>&nbsp;住址 <span style="width: 80%;">
+                    <input type="text" name="Address" id="Address" value="@ViewBag.Address" style="border: 0px; width:100%; text-align:right;" placeholder="住址"></span> </li>
+
+                <li>&nbsp;公民身份号码 <span>
+                    <input type="text" name="IdCardNumber" id="IdCardNumber" value="@ViewBag.IdCardNumber" class="fxf gx" style="border: 0px" datatype="m" placeholder="公民身份号码"></span> </li>
+
+                <li>&nbsp;性别 <span>
+                    <input type="text" name="Sex" id="Sex" value="@ViewBag.Sex" class="fxf gx" style="border: 0px" datatype="m" placeholder="性别"></span> </li>
+
+                <li>&nbsp;民族 <span>
+                    <input type="text" name="Nation" id="Nation" value="@ViewBag.Nation" class="fxf gx" style="border: 0px" datatype="m" placeholder="民族"></span> </li>
+
+                <li>&nbsp;签发机关 <span>
+                    <input type="text" name="SigningOrganization" id="SigningOrganization" value="@ViewBag.SigningOrganization" class="fxf gx" style="border: 0px" datatype="m" placeholder="签发机关"></span> </li>
+
+                <li>&nbsp;签发日期 <span>
+                    <input type="text" name="IssuanceDate" id="IssuanceDate" value="@ViewBag.IssuanceDate" class="fxf gx" style="border: 0px" datatype="m" placeholder="签发日期"></span> </li>
+
+                <li>&nbsp;失效日期 <span>
+                    <input type="text" name="ExpirationDate" id="ExpirationDate" value="@ViewBag.ExpirationDate" class="fxf gx" style="border: 0px" datatype="m" placeholder="失效日期"></span> </li>
+
+                <li>&nbsp;银行卡号码 <span>
+                    <input type="text" name="Number" id="Number" value="@ViewBag.BankCardNumbe" class="fxf gx" style="border: 0px" datatype="*" placeholder="银行卡号码"></span> </li>
+
+                <li>&nbsp;银行名 <span>
+                    <input type="text" name="BankCardName" id="BankCardName" value="@ViewBag.BankName" class="fxf gx" style="border: 0px" datatype="*" placeholder="银行名"></span> </li>
+
+                <li>&nbsp;银行卡类型 <span>
+                    <input type="text" name="BankCardType" id="BankCardType" value="@ViewBag.BankCardType" class="fxf gx" style="border: 0px" datatype="*" placeholder="银行卡类型"></span> </li>
+
+                @if (ViewBag.Company == CheDaiBaoWeChatModel.Company.翼速 && ViewBag.SalesmanId == "1")
+                {
+                    <li>&nbsp;客户分类<span>
+                        <select id="CustomerClassification" name="CustomerClassification">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                    </span></li>
+                }
+            </ul>
+            <div class="qbCon2">
+                <textarea name="Remark" id="Remark" cols="" rows="" style="width: 100%; height: 6rem; border: none; padding: 0.2rem" placeholder="备注"></textarea>
+            </div>
+        </div>
+
+        <input type="button" onclick="fn_tijiao()" class="userbtn" id="tijiao" value="提交">
+
+    }
+</body>
+<script type="text/javascript">
+    function fn_tijiao() {
+        if ($("#CustomerClassification").val() == "B" && $("#Remark").val() == "") {
+            alert("备注不能为空！");
+            return false;
+        }
+        $("#tijiao").attr('disabled', true);
+        $("#InformationSubmit").submit();
+    }
+</script>
+</html>

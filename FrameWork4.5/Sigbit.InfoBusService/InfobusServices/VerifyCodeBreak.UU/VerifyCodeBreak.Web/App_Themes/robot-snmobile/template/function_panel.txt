@@ -1,0 +1,9 @@
+<frameset rows="74,*,0,0,0,58"  cols="*" frameborder="NO" border="0" framespacing="0" id="frame1">
+ <frame name="menu_info" scrolling="no" noresize src="function_panel/menu_info.aspx" frameborder="0">
+
+    <frame name="menu_main" scrolling="auto" noresize src="function_panel/menu.aspx" frameborder="0">
+    <frame name="user_online" scrolling="auto" noresize src="#" frameborder="0">
+    <frame name="user_all" scrolling="auto" noresize src="function_panel/user_all.aspx" frameborder="0">
+    <frame name="menu_page" scrolling="auto" noresize src="" frameborder="0">
+    <frame name="menu_operation" scrolling="no" noresize src="function_panel/menu_operation.aspx" frameborder="0">
+</frameset>

@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "银行卡信息";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width">
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+
+    <style type="text/css">
+        .myUl5 li {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body class="bodybg">
+    @using (Html.BeginForm("BankCardSubmit", "GodService", FormMethod.Post, new { id = "BankCardSubmit" }))
+    {                          
+
+        <div class="qbCon2" id="qd1">
+            <ul class="myUl5">
+                <li>&nbsp;银行卡号码 <span>
+                    <input type="text" name="Number" id="Number" value="@ViewBag.BankCardNumbe" class="fxf gx" style="border: 0px" datatype="*" placeholder="银行卡号码"></span> </li>
+            </ul>
+
+            <ul class="myUl5">
+                <li>&nbsp;银行名 <span>
+                    <input type="text" name="Name" id="Name" value="@ViewBag.BankName" class="fxf gx" style="border: 0px" datatype="*" placeholder="银行名"></span> </li>
+            </ul>
+
+            <ul class="myUl5">
+                <li>&nbsp;银行卡类型 <span>
+                    <input type="text" name="BankCardType" id="BankCardType" value="@ViewBag.BankCardType" class="fxf gx" style="border: 0px" datatype="*" placeholder="银行卡类型"></span> </li>
+            </ul>
+
+
+        </div>
+
+        <input type="button" onclick="fn_tijiao()" class="userbtn" id="tijiao" value="提交">
+
+    }
+</body>
+<script type="text/javascript">
+    function fn_tijiao() {
+        $("#tijiao").attr('disabled', true);
+        $("#BankCardSubmit").submit();
+    }
+</script>
+</html>

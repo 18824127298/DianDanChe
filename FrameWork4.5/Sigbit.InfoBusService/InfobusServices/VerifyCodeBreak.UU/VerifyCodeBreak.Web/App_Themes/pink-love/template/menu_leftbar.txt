@@ -1,0 +1,19 @@
+
+  <style type=text/css>body {
+	margin: 0px; background-color: #ffdeee
+}
+</style>
+
+<body>
+<table height="100%" cellspacing=0 cellpadding=0 width=14 border=0>
+  <tr>
+    <td valign=top align=left width=5 height=85>
+		<img height=100 alt="" src="../../App_Themes/pink-love/template/menu_leftbar/index_09.jpg" width=14 align=absbottom></td></tr>
+  <tr>
+    <td>&nbsp;</td></tr>
+  <tr>
+    <td valign=bottom align=left height=203>
+		<img height=215 alt="" src="../../App_Themes/pink-love/template/menu_leftbar/index_17.jpg" width=14 align=absbottom></td>
+  </tr>
+</table>
+</body>

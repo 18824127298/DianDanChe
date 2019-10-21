@@ -1,0 +1,21 @@
+==== 【SqlDapper_QueryInternal】【actual 2555 ms / want 500 ms】 2017/11/15 17:41:42 ====
+select * from CurrentInterest where  IsValid=@IsValid
+
+==== (instanceDefault)【SQL语句运行错误】2017/11/15 17:47:45 ====
+select b.Amount, c.Name, g.FullName, g.Phone, b.CreateTime, b.RelationId from Bid b join Credit c on b.CreditId = c.Id join God g on g.Id= b.GodId
+ where b.IsValid= 1 and c.IsValid= 1 and c.CreditMode= 5 and b.CreateTime>='2017-11-09'
+-------- 错误信息 --------
+列名 'RelationId' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/11/15 17:47:45 ====
+select b.Amount, c.Name, g.FullName, g.Phone, b.CreateTime, b.RelationId from Bid b join Credit c on b.CreditId = c.Id join God g on g.Id= b.GodId
+ where b.IsValid= 1 and c.IsValid= 1 and c.CreditMode= 5 and b.CreateTime>='2017-11-09'
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/11/15 17:47:45 ====
+select b.Amount, c.Name, g.FullName, g.Phone, b.CreateTime, b.RelationId from Bid b join Credit c on b.CreditId = c.Id join God g on g.Id= b.GodId
+ where b.IsValid= 1 and c.IsValid= 1 and c.CreditMode= 5 and b.CreateTime>='2017-11-09'
+-------- 错误信息 --------
+列名 'RelationId' 无效。
+

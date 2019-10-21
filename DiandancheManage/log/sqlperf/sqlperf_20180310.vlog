@@ -1,0 +1,22 @@
+==== ¡¾instanceDefault¡¿¡¾actual 805 ms / want 500 ms¡¿ 2018/3/10 17:13:56 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 651 ms / want 500 ms¡¿ 2018/3/10 17:37:11 ====
+select * from sbt_log_user_login where last_heartbeat_time <= '2018-03-10 17:36:10' and has_logout = 'N'  and login_time <= '2018-03-10 17:36:10'
+
+==== ¡¾instanceDefault¡¿¡¾actual 642 ms / want 500 ms¡¿ 2018/3/10 17:44:40 ====
+select * from Credit 
+ where IsValid = '1' and CreditStatus = 1 and AuditStep = 'end' and AuditResult = 'agree'
+ order by bidstarttime
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 962 ms / want 500 ms¡¿ 2018/3/10 17:46:01 ====
+select * from credit where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 749 ms / want 500 ms¡¿ 2018/3/10 19:16:53 ====
+select * from BankCard where  IsValid=@IsValid
+

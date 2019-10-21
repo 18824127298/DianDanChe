@@ -1,0 +1,3 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 828 ms / want 500 ms¡¿ 2017/6/21 17:02:01 ====
+select * from CreditLoan where  IsValid=@IsValid
+

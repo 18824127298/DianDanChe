@@ -1,0 +1,7 @@
+==== ¡¾SqlDapper_MultiMapImpl¡¿¡¾actual 595 ms / want 500 ms¡¿ 2018/10/30 10:45:24 ====
+select * FROM [Bid] b join [God] g on b.[GodId] = g.[Id] where g.[IsValid] = 1 and b.[IsValid] = 1 
+                 and b.[CreateTime] > convert(NVARCHAR(10), getdate(), 120)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1426 ms / want 500 ms¡¿ 2018/10/30 17:35:45 ====
+select * from BankCard where  IsValid=@IsValid
+

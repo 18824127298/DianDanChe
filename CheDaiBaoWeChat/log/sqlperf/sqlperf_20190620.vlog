@@ -1,0 +1,9 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1267 ms / want 500 ms¡¿ 2019/6/20 9:48:06 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 917 ms / want 500 ms¡¿ 2019/6/20 9:48:46 ====
+insert into opera ([OperaType],[Remark],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1219 ms / want 500 ms¡¿ 2019/6/20 16:28:23 ====
+select * from Borrower where  IsValid=@IsValid
+

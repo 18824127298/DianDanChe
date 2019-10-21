@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+***********************************************************************************************
+website.publishproj
+
+警告: 请勿修改此文件，它将用于 Web 发布过程。
+
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+***********************************************************************************************
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5c3e232f-1530-4f88-8454-1322e2943ecf}</ProjectGuid>
+    <SourceWebPhysicalPath>$(MSBuildThisFileDirectory)</SourceWebPhysicalPath>
+    <SourceWebVirtualPath>/iMoney.PTP.Manage</SourceWebVirtualPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SourceWebProject>
+    </SourceWebProject>
+    <SourceWebMetabasePath>
+    </SourceWebMetabasePath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- for VS2010 we need to use 10.5 but for VS2012+ we should use VisualStudioVersion -->
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)' =='' and '$(VisualStudioVersion)' == 10.0 ">10.5</WebPublishTargetsVersion>
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)'=='' ">$(VisualStudioVersion)</WebPublishTargetsVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(WebPublishTargetsVersion)</VSToolsPath>
+    <_WebPublishTargetsPath Condition=" '$(_WebPublishTargetsPath)'=='' ">$(VSToolsPath)</_WebPublishTargetsPath>
+    <AssemblyFileVersion Condition="'$(AssemblyFileVersion)' == ''">1.0.0.0</AssemblyFileVersion>
+    <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">1.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttributes Include="AssemblyFileVersion">
+      <Value>$(AssemblyFileVersion)</Value>
+    </AssemblyAttributes>
+    <AssemblyAttributes Include="AssemblyVersion">
+      <Value>$(AssemblyVersion)</Value>
+    </AssemblyAttributes>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FrameWork4.5\Sigbit.InfoBusService\Foundation\Sigbit.App.Net.IBXService\Sigbit.App.Net.IBXService.csproj">
+      <Project>{B6C839FB-917C-46B4-957C-FDA5DA3E6789}</Project>
+      <Name>Sigbit.App.Net.IBXService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common.WordProcess.Excel\Sigbit.Common.WordProcess.Excel.csproj">
+      <Project>{2F832160-BC46-4CE8-972A-5C65FD434B49}</Project>
+      <Name>Sigbit.Common.WordProcess.Excel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common\Sigbit.Common.csproj">
+      <Project>{5B852150-D9C3-4AB3-BDC0-DAD16B819059}</Project>
+      <Name>Sigbit.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\Sigbit.Data.csproj">
+      <Project>{8F07A089-A32D-4B31-B62E-4BAF9017AF34}</Project>
+      <Name>Sigbit.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FrameWork4.5\SigbitCommonSolutions\Sigbit.Framework\Sigbit.Framework.csproj">
+      <Project>{2546D49B-7219-4683-89F1-8B3C424D4C6C}</Project>
+      <Name>Sigbit.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FrameWork4.5\SigbitCommonSolutions\Sigbit.Net\Sigbit.Net.csproj">
+      <Project>{E88A6389-F6DF-4CC7-B31B-6C3183AAFE51}</Project>
+      <Name>Sigbit.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FrameWork4.5\SigbitCommonSolutions\Sigbit.Web\Sigbit.Web.csproj">
+      <Project>{6BC93636-7FE9-4511-AFF7-38BBE002966C}</Project>
+      <Name>Sigbit.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonCore\CommonCore.csproj">
+      <Project>{BD0F7370-0A03-40BD-8116-FF8E471C03A0}</Project>
+      <Name>CommonCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonModel\CommonModel.csproj">
+      <Project>{1D28959F-E3AE-48BA-9965-E86B269F0941}</Project>
+      <Name>CommonModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonService\CommonService.csproj">
+      <Project>{52304059-BC8E-440E-845F-EB76C944D9D8}</Project>
+      <Name>CommonService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sigbit.App.Net.IBXService.PTP\Sigbit.App.Net.IBXService.PTP.csproj">
+      <Project>{9A0458C3-413D-4D31-9ADF-C921745F9437}</Project>
+      <Name>Sigbit.App.Net.IBXService.PTP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sigbit.App.PTP.Notify\Sigbit.App.PTP.Notify.csproj">
+      <Project>{17E0CC20-F21C-495C-9D2A-81B432A33CD3}</Project>
+      <Name>Sigbit.App.PTP.Notify</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sigbit.App.PTP.Service\Sigbit.App.PTP.Service.csproj">
+      <Project>{06FF8B32-874A-4DCE-91E5-5C1D080D5AF6}</Project>
+      <Name>Sigbit.App.PTP.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sigbit.App.PTP\Sigbit.App.PTP.csproj">
+      <Project>{DFD94E5F-F941-4682-A014-1680BE27C53B}</Project>
+      <Name>Sigbit.App.PTP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WangDaiModel\WangDaiModel.csproj">
+      <Project>{F220133A-CCBF-4527-B271-FA88FD49D0C4}</Project>
+      <Name>WangDaiModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WangDaiService\WangDaiService.csproj">
+      <Project>{6DB42A03-C903-4D26-886A-0FBC0E6F2253}</Project>
+      <Name>WangDaiService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(_WebPublishTargetsPath)\Web\Microsoft.WebSite.Publishing.targets" />
+</Project>

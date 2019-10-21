@@ -1,0 +1,57 @@
+==== ¡¾instanceDefault¡¿¡¾actual 867 ms / want 500 ms¡¿ 2019/08/03 3:38:29 ====
+select * from sbt_log_user_login where last_heartbeat_time <= '2019-08-03 03:37:29' and has_logout = 'N'  and login_time <= '2019-08-03 03:37:29'
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 588 ms / want 500 ms¡¿ 2019/08/03 3:38:36 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 832 ms / want 500 ms¡¿ 2019/08/03 3:44:03 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 833 ms / want 500 ms¡¿ 2019/08/03 3:44:03 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 663 ms / want 500 ms¡¿ 2019/08/03 3:44:23 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 1421 ms / want 500 ms¡¿ 2019/08/03 5:25:56 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 746 ms / want 500 ms¡¿ 2019/08/03 6:24:41 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 745 ms / want 500 ms¡¿ 2019/08/03 6:24:41 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 887 ms / want 500 ms¡¿ 2019/08/03 7:48:27 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+

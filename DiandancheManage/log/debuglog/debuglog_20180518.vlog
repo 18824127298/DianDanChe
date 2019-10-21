@@ -1,0 +1,7 @@
+========== 2018-05-18 16:21:33 ==========
+   在 Sigbit.Data.DataHelper.ExecuteNonQuery__Once(String sSQL) 位置 e:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\DataHelper.cs:行号 283
+   在 Sigbit.Data.DataHelper.ExecuteNonQuery(String sSQL) 位置 e:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\DataHelper.cs:行号 252
+   在 Sigbit.App.PTP.Notify.DBDefine.TbSendMessageBase.Insert(String sTableName) 位置 e:\codes\phonelee\LanceNetFinance\PhoneLee\Sigbit.App.PTP.Notify\DBDefine\TableDef\TbSendMessage.cs:行号 802
+   在 Sigbit.App.PTP.Notify.DBDefine.TbSendMessageBase.Insert(TbSendMessageType tableType) 位置 e:\codes\phonelee\LanceNetFinance\PhoneLee\Sigbit.App.PTP.Notify\DBDefine\TableDef\TbSendMessage.cs:行号 768
+   在 Sigbit.App.PTP.Notify.Sms.ChuangRui.HongXinBaoSmSSend.NewSendSms(String sPhone, String sContent, String sSendTime) 位置 e:\codes\phonelee\LanceNetFinance\PhoneLee\Sigbit.App.PTP.Notify\Sms\ChuangRui\HongXinBaoSmSSend.cs:行号 72
+

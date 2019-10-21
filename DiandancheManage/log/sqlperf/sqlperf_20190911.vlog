@@ -1,0 +1,296 @@
+==== ¡¾instanceDefault¡¿¡¾actual 1583 ms / want 500 ms¡¿ 2019/09/11 9:54:25 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 1950 ms / want 500 ms¡¿ 2019/09/11 9:56:47 ====
+select * from sbt_log_user_login where last_heartbeat_time <= '2019-09-11 09:55:45' and has_logout = 'N'  and login_time <= '2019-09-11 09:55:45'
+
+==== ¡¾instanceDefault¡¿¡¾actual 509 ms / want 500 ms¡¿ 2019/09/11 9:56:47 ====
+update sbt_log_user_login set 
+ login_log_uid = '6b44a7c9-1a8f-4375-a8a0-c74045552cab',
+ application_name = '',
+ user_uid = '8fdf1f59-7942-43bc-8db7-0228e66bd814',
+ user_name = 'admin',
+ login_time = '2019-09-10 17:01:21',
+ login_ip_address = '::1',
+ is_login_success = 'Y',
+ login_fail_type = '',
+ login_fail_desc = '',
+ lock_operation = '',
+ last_heartbeat_time = '',
+ has_logout = 'Y',
+ logout_time = '2019-09-10 17:01:51',
+ logout_cause = 'heartbeat_lost',
+ in_system_duration = 30,
+ remarks = ''
+  where login_log_uid = '6b44a7c9-1a8f-4375-a8a0-c74045552cab'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 806 ms / want 500 ms¡¿ 2019/09/11 9:56:48 ====
+select * from sbt_user where user_name = 'admin'
+
+==== ¡¾instanceDefault¡¿¡¾actual 1554 ms / want 500 ms¡¿ 2019/09/11 9:57:14 ====
+select * from Borrower where IsValid = 1
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1509 ms / want 500 ms¡¿ 2019/09/11 9:57:20 ====
+select * from Borrower where id=@Id and IsValid=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 531 ms / want 500 ms¡¿ 2019/09/11 10:14:36 ====
+select * from BusinessFile where IsValid = 1 and (Sort = 1 or Sort is null) and BusinessType=2 and RelationId=22
+
+==== ¡¾instanceDefault¡¿¡¾actual 511 ms / want 500 ms¡¿ 2019/09/11 15:37:46 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 511 ms / want 500 ms¡¿ 2019/09/11 15:37:46 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 511 ms / want 500 ms¡¿ 2019/09/11 15:37:46 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 732 ms / want 500 ms¡¿ 2019/09/11 15:39:56 ====
+select l.Auditor, l.CreditPhone, i.Name, b.FullName,l.BusinessName, l.RecruitmentName,
+         l.TotalAmountStage, l.Deadline, l.CustomerClassification, l.AuditTime,l.Id,l.MonthlyPayment,l.LoanType from LoanApply l join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id = l.SalesmanId
+ where l.IsValid= 1 and l.RepaymentStatus = 5 and i.IsValid= 1
+ order by l.createtime desc
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 762 ms / want 500 ms¡¿ 2019/09/11 15:40:04 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 5801 ms / want 500 ms¡¿ 2019/09/11 15:47:30 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 5801 ms / want 500 ms¡¿ 2019/09/11 15:47:30 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 793 ms / want 500 ms¡¿ 2019/09/11 15:51:35 ====
+select * from sbt_log_user_login where last_heartbeat_time <= '2019-09-11 15:50:34' and has_logout = 'N'  and login_time <= '2019-09-11 15:50:34'
+
+==== ¡¾instanceDefault¡¿¡¾actual 1027 ms / want 500 ms¡¿ 2019/09/11 15:51:36 ====
+update sbt_log_user_login set 
+ login_log_uid = '2a16a0d6-4419-430d-9fc3-b1c379f0746f',
+ application_name = '',
+ user_uid = '8fdf1f59-7942-43bc-8db7-0228e66bd814',
+ user_name = 'admin',
+ login_time = '2019-09-11 15:37:59',
+ login_ip_address = '::1',
+ is_login_success = 'Y',
+ login_fail_type = '',
+ login_fail_desc = '',
+ lock_operation = '',
+ last_heartbeat_time = '',
+ has_logout = 'Y',
+ logout_time = '2019-09-11 15:38:29',
+ logout_cause = 'heartbeat_lost',
+ in_system_duration = 30,
+ remarks = ''
+  where login_log_uid = '2a16a0d6-4419-430d-9fc3-b1c379f0746f'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 521 ms / want 500 ms¡¿ 2019/09/11 15:51:37 ====
+select * from sbt_user where user_name = 'admin'
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 4620 ms / want 500 ms¡¿ 2019/09/11 15:52:13 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 542 ms / want 500 ms¡¿ 2019/09/11 15:52:14 ====
+select * from idcardinformation where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 869 ms / want 500 ms¡¿ 2019/09/11 15:52:18 ====
+select * from Contacts where IsValid = 1 and BorrowerId =18 and LoanapplyId=22
+
+==== ¡¾instanceDefault¡¿¡¾actual 2118 ms / want 500 ms¡¿ 2019/09/11 16:08:13 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 529 ms / want 500 ms¡¿ 2019/09/11 16:08:24 ====
+update sbt_log_user_login set 
+ login_log_uid = '40f3397a-b8ae-47e6-9bc4-5ffc2ab758ce',
+ application_name = '',
+ user_uid = '8fdf1f59-7942-43bc-8db7-0228e66bd814',
+ user_name = 'admin',
+ login_time = '2019-09-11 15:51:37',
+ login_ip_address = '::1',
+ is_login_success = 'Y',
+ login_fail_type = '',
+ login_fail_desc = '',
+ lock_operation = '',
+ last_heartbeat_time = '',
+ has_logout = 'Y',
+ logout_time = '2019-09-11 15:52:07',
+ logout_cause = 'heartbeat_lost',
+ in_system_duration = 30,
+ remarks = ''
+  where login_log_uid = '40f3397a-b8ae-47e6-9bc4-5ffc2ab758ce'
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1189 ms / want 500 ms¡¿ 2019/09/11 16:10:41 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 1169 ms / want 500 ms¡¿ 2019/09/11 16:13:50 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 778 ms / want 500 ms¡¿ 2019/09/11 16:20:29 ====
+update sbt_log_user_login set 
+ login_log_uid = 'f4a48f1d-0d75-4db3-8af2-0d46f2d59709',
+ application_name = '',
+ user_uid = '8fdf1f59-7942-43bc-8db7-0228e66bd814',
+ user_name = 'admin',
+ login_time = '2019-09-11 16:08:24',
+ login_ip_address = '::1',
+ is_login_success = 'Y',
+ login_fail_type = '',
+ login_fail_desc = '',
+ lock_operation = '',
+ last_heartbeat_time = '',
+ has_logout = 'Y',
+ logout_time = '2019-09-11 16:08:54',
+ logout_cause = 'heartbeat_lost',
+ in_system_duration = 30,
+ remarks = ''
+  where login_log_uid = 'f4a48f1d-0d75-4db3-8af2-0d46f2d59709'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 1118 ms / want 500 ms¡¿ 2019/09/11 16:20:46 ====
+select l.CreditPhone, i.Name, b.FullName,l.BusinessName, l.RecruitmentName,
+         l.TotalAmountStage, l.Deadline, l.CustomerClassification, l.CreateTime,l.Id, l.LoanType from LoanApply l join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id = l.SalesmanId
+ where l.IsValid= 1 and l.RepaymentStatus = 1 and i.IsValid= 1
+ order by l.createtime desc
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2664 ms / want 500 ms¡¿ 2019/09/11 16:20:58 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 877 ms / want 500 ms¡¿ 2019/09/11 16:43:32 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 877 ms / want 500 ms¡¿ 2019/09/11 16:43:32 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 3990 ms / want 500 ms¡¿ 2019/09/11 16:49:04 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 2442 ms / want 500 ms¡¿ 2019/09/11 16:49:04 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 3989 ms / want 500 ms¡¿ 2019/09/11 16:49:04 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 628 ms / want 500 ms¡¿ 2019/09/11 16:49:54 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 4374 ms / want 500 ms¡¿ 2019/09/11 17:33:31 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 4374 ms / want 500 ms¡¿ 2019/09/11 17:33:31 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 590 ms / want 500 ms¡¿ 2019/09/11 17:33:33 ====
+select * from sbt_sys_sub_system_define order by display_order
+
+==== ¡¾instanceDefault¡¿¡¾actual 590 ms / want 500 ms¡¿ 2019/09/11 17:33:33 ====
+select * from sbt_sys_sub_system_define order by display_order
+
+==== ¡¾instanceDefault¡¿¡¾actual 3223 ms / want 500 ms¡¿ 2019/09/11 18:09:52 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 593 ms / want 500 ms¡¿ 2019/09/11 18:10:19 ====
+update sbt_log_user_login set 
+ login_log_uid = 'cb2a2f78-072f-4e1c-abb7-2a3f5bfbf5c2',
+ application_name = '',
+ user_uid = '8fdf1f59-7942-43bc-8db7-0228e66bd814',
+ user_name = 'admin',
+ login_time = '2019-09-11 17:33:45',
+ login_ip_address = '::1',
+ is_login_success = 'Y',
+ login_fail_type = '',
+ login_fail_desc = '',
+ lock_operation = '',
+ last_heartbeat_time = '',
+ has_logout = 'Y',
+ logout_time = '2019-09-11 17:34:15',
+ logout_cause = 'heartbeat_lost',
+ in_system_duration = 30,
+ remarks = ''
+  where login_log_uid = 'cb2a2f78-072f-4e1c-abb7-2a3f5bfbf5c2'
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 631 ms / want 500 ms¡¿ 2019/09/11 18:10:36 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+

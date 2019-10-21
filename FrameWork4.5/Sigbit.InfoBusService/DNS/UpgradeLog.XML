@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SigbitInfobusDnsWeb">
+</Property><Property Name="解决方案文件" Value="D:\Sigbit\Project\FrameWork\Sigbit.InfoBusService\DNS\SigbitInfobusDnsWeb.sln">
+</Property><Property Name="Date" Value="2013年4月9日">
+</Property><Property Name="Time" Value="15:33">
+</Property></Properties><Event ErrorLevel="0" Project="Sigbit.App.Net.IBXService" Source="..\Foundation\Sigbit.App.Net.IBXService\Sigbit.App.Net.IBXService.csproj" Description="项目文件不需要转换。">
+</Event><Event ErrorLevel="3" Project="Sigbit.App.Net.IBXService" Source="..\Foundation\Sigbit.App.Net.IBXService\Sigbit.App.Net.IBXService.csproj" Description="无需转换">
+</Event><Event ErrorLevel="0" Project="Sigbit.App.Net.IBXService.DNS.Service" Source="Sigbit.App.Net.IBXService.DNS.Service\Sigbit.App.Net.IBXService.DNS.Service.csproj" Description="项目文件不需要转换。">
+</Event><Event ErrorLevel="3" Project="Sigbit.App.Net.IBXService.DNS.Service" Source="Sigbit.App.Net.IBXService.DNS.Service\Sigbit.App.Net.IBXService.DNS.Service.csproj" Description="无需转换">
+</Event><Event ErrorLevel="0" Project="Sigbit.Common" Source="..\..\SigbitCommonSolutions\Sigbit.Common\Sigbit.Common.csproj" Description="项目文件不需要转换。">
+</Event><Event ErrorLevel="3" Project="Sigbit.Common" Source="..\..\SigbitCommonSolutions\Sigbit.Common\Sigbit.Common.csproj" Description="无需转换">
+</Event><Event ErrorLevel="0" Project="Sigbit.Net" Source="..\..\SigbitCommonSolutions\Sigbit.Net\Sigbit.Net.csproj" Description="项目文件不需要转换。">
+</Event><Event ErrorLevel="3" Project="Sigbit.Net" Source="..\..\SigbitCommonSolutions\Sigbit.Net\Sigbit.Net.csproj" Description="无需转换">
+</Event><Event ErrorLevel="0" Project="Sigbit.Data" Source="..\..\SigbitCommonSolutions\Sigbit.Data\Sigbit.Data.csproj" Description="项目文件不需要转换。">
+</Event><Event ErrorLevel="3" Project="Sigbit.Data" Source="..\..\SigbitCommonSolutions\Sigbit.Data\Sigbit.Data.csproj" Description="无需转换">
+</Event><Event ErrorLevel="0" Project="Sigbit.Web" Source="..\..\SigbitCommonSolutions\Sigbit.Web\Sigbit.Web.csproj" Description="项目文件不需要转换。">
+</Event><Event ErrorLevel="3" Project="Sigbit.Web" Source="..\..\SigbitCommonSolutions\Sigbit.Web\Sigbit.Web.csproj" Description="无需转换">
+</Event><Event ErrorLevel="0" Project="Sigbit.Framework" Source="..\..\SigbitCommonSolutions\Sigbit.Framework\Sigbit.Framework.csproj" Description="项目文件不需要转换。">
+</Event><Event ErrorLevel="3" Project="Sigbit.Framework" Source="..\..\SigbitCommonSolutions\Sigbit.Framework\Sigbit.Framework.csproj" Description="无需转换">
+</Event><Event ErrorLevel="0" Project="" Source="SigbitInfobusDnsWeb.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="SigbitInfobusDnsWeb.sln" Description="Converted">
+</Event></UpgradeLog>

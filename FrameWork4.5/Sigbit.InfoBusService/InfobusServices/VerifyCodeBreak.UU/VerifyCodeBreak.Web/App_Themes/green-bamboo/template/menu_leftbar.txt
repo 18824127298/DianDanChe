@@ -1,0 +1,10 @@
+<body bgcolor="#DBE0D9">
+<table width="2" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="270" align="left"><img src="../../App_Themes/green-bamboo/template/menu_leftbar/index_25.jpg" alt="" width="2" height="270" align="absbottom" /></td>
+  </tr>
+</table>
+</body>

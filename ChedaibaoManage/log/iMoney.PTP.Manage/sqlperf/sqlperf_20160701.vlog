@@ -1,0 +1,3 @@
+==== ¡¾instanceDefault¡¿¡¾actual 777 ms / want 500 ms¡¿ 2016/7/1 15:14:53 ====
+select * from FundsFlow where IsValid=1 
+

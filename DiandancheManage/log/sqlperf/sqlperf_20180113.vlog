@@ -1,0 +1,21 @@
+==== 【instanceDefault】【actual 658 ms / want 500 ms】 2018/1/13 21:03:12 ====
+insert into sbt_log_operation_audit 
+( log_uid,          user_uid,         
+  user_name,        proc_time,        
+  proc_class_id,    proc_class_name,  
+  proc_subclass_id, proc_subclass_name, 
+  action_code,      action_name,      
+  action_description, ip_address,       
+  process_data,     sql_statement,    
+  modify_time,      remarks           
+) values (          
+'d0803cf1-c98c-4f2b-a56d-9057d15bf04c','8fdf1f59-7942-43bc-8db7-0228e66bd814',
+'admin','2018-01-13 21:03:12.054',
+'bsi-credit','借贷标的管理',
+'bsi-credit_online_repay','正在还款标的',
+'','上传咨信文件',
+'银行垫资赎契再贷款类业务001:银行垫资赎契再贷款类业务001,123','',
+'','',
+'2018-01-13 21:03:12','')
+
+

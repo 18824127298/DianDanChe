@@ -1,0 +1,6 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1680 ms / want 500 ms¡¿ 2019/8/13 14:50:23 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 560 ms / want 500 ms¡¿ 2019/8/13 14:52:39 ====
+insert into businessfile ([BusinessType],[FileName],[RelationId],[BorrowerId],[FilePath],[Sort],[WeChatPath],[IsValid],[CreateTime],[UpdateTime]) values (@BusinessType,@FileName,@RelationId,@BorrowerId,@FilePath,@Sort,@WeChatPath,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+

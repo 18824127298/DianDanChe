@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3C6FF48D-2895-45B0-8918-0A63A966CFF5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sigbit.App.Net.WeiXinService</RootNamespace>
+    <AssemblyName>Sigbit.App.Net.WeiXinService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\ZXDaLearning\WCU.WebUI.YAB\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\TWXWeiXinClient.cs" />
+    <Compile Include="Client\TWXWeiXinClientConfig.cs" />
+    <Compile Include="Event\TWXClickEvent.cs" />
+    <Compile Include="Event\TWXEventBase.cs" />
+    <Compile Include="Event\TWXLocationEvent.cs" />
+    <Compile Include="Event\TWXScanEvent.cs" />
+    <Compile Include="Event\TWXSubscribeEvent.cs" />
+    <Compile Include="Event\TWXUnsubscribeEvent.cs" />
+    <Compile Include="Event\TWXViewEvent.cs" />
+    <Compile Include="JSON\TWJAccessTokenReq.cs" />
+    <Compile Include="JSON\TWJAccessTokenResp.cs" />
+    <Compile Include="JSON\TWJJsApiTicketReq.cs" />
+    <Compile Include="JSON\TWJJsApiTicketResp.cs" />
+    <Compile Include="JSON\TWJReqBase.cs" />
+    <Compile Include="JSON\TWJRespBase.cs" />
+    <Compile Include="JSON\TWJGetCallbackIpReq.cs" />
+    <Compile Include="JSON\TWJGetCallbackIpResp.cs" />
+    <Compile Include="JSON\TWJMenuCreateReq.cs" />
+    <Compile Include="Message\DateTimeStampUtil.cs" />
+    <Compile Include="Message\TWXImageMessageReq.cs" />
+    <Compile Include="Message\TWXImageMessageResp.cs" />
+    <Compile Include="Message\TWXLinkMessageReq.cs" />
+    <Compile Include="Message\TWXLocationMessageReq.cs" />
+    <Compile Include="Message\TWXMessageBase.cs" />
+    <Compile Include="Message\TWXMessageBaseReq.cs" />
+    <Compile Include="Message\TWXMessageBaseResp.cs" />
+    <Compile Include="Message\TWXMessageConvert.cs" />
+    <Compile Include="Message\TWXMusicMessageResp.cs" />
+    <Compile Include="Message\TWXNewsMessageResp.cs" />
+    <Compile Include="Message\TWXNode.cs" />
+    <Compile Include="Message\TWXTextMessageReq.cs" />
+    <Compile Include="Message\TWXTextMessageResp.cs" />
+    <Compile Include="Message\TWXVideoMessageReq.cs" />
+    <Compile Include="Message\TWXVideoMessageResp.cs" />
+    <Compile Include="Message\TWXVoiceMessageReq.cs" />
+    <Compile Include="Message\TWXVoiceMessageResp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\TWJOAuth2RedirectReq.cs" />
+    <Compile Include="User\TWJOAuth2ResultReq.cs" />
+    <Compile Include="User\TWJOAuth2ResultResp.cs" />
+    <Compile Include="WeiXinEngineBase.cs" />
+    <Compile Include="WeiXinReturnCode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SigbitCommonSolutions\Sigbit.Common\Sigbit.Common.csproj">
+      <Project>{5B852150-D9C3-4AB3-BDC0-DAD16B819059}</Project>
+      <Name>Sigbit.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,3 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1113 ms / want 500 ms¡¿ 2017/9/8 14:32:12 ====
+select * from borrower where 1=1  and [IsValid]=@IsValid
+

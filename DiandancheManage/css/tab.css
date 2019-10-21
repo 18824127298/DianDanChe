@@ -1,0 +1,88 @@
+﻿
+.TabCssClass
+{
+	color: black;
+}
+
+.TabItemCssClass 
+{
+	color: black; 
+	background-image:url(../images/tab/tab_normal_2.gif);
+	padding-top: 4px;
+}
+
+.TabItemCssClassLeft
+{
+	background-image:url(../images/tab/tab_normal_1.gif);
+	width: 12px;
+}
+
+.TabItemCssClassRight
+{
+	background-image:url(../images/tab/tab_normal_3.gif);
+	width: 12px;
+}
+
+.HoverTabItemCssClassLeft
+{	
+	color: black;
+	background-image:url(../images/tab/tab_hover_1.gif);
+	width: 12px;	
+}
+
+.HoverTabItemCssClass
+{
+	color: black; 
+	background-image:url(../images/tab/tab_hover_2.gif);
+	padding-top: 4px;
+}
+
+.HoverTabItemCssClassRight
+{	
+	color: black;
+	background-image:url(../images/tab/tab_hover_3.gif);
+	width: 12px;
+	padding-top: 4px;
+}
+
+.SelectedTabItemCssClassLeft
+{	
+	color: black;
+	background-image:url(../images/tab/tab_select_1.gif);
+	width: 12px;
+}
+
+.SelectedTabItemCssClass
+{	
+	color: black;
+	background-image:url(../images/tab/tab_select_2.gif);
+	padding-top: 4px;
+}
+
+.SelectedTabItemCssClassRight
+{	
+	color: black;
+	background-image:url(../images/tab/tab_select_3.gif);
+	width: 12px;
+	padding-top: 4px;
+}
+
+/*缺省面版风格设置*/
+.TabPanelCssClass
+{
+	color: black;
+	background-color: White; 
+	
+	/*边距设置*/
+	margin-left: 10px;
+	padding-left: 10px; 
+	margin-top: 3px;
+	padding-top: 3px; 
+	
+	/*外框设置*/
+	border-top: #A1D4F2 5px solid;
+	border-left: #A1D4F2 thin solid;
+	border-bottom: #A1D4F2 thin solid;
+	border-right: #A1D4F2 thin solid;
+}
+

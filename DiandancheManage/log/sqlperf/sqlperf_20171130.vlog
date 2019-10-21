@@ -1,0 +1,4 @@
+==== ¡¾instanceDefault¡¿¡¾actual 510 ms / want 500 ms¡¿ 2017/11/30 16:36:44 ====
+select b.Amount, c.Name, g.FullName, g.Phone, b.CreateTime, b.Id from Bid b join Credit c on b.CreditId = c.Id join God g on g.Id= b.GodId join [FundsFlow] f on f.[RelationId] = b.[Id]
+ where b.IsValid= 1 and c.IsValid= 1 and (c.CreditMode= 4 or c.CreditMode= 5) and b.CreateTime>='2017-11-17' and f.[CreditId] = b.[CreditId] and (f.[AnarchyFfId] = 0 or f.[AnarchyFfId] = 3)
+

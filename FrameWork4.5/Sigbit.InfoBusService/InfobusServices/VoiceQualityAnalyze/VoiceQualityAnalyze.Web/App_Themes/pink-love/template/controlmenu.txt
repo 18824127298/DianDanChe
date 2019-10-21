@@ -1,0 +1,87 @@
+
+<script language="javascript">
+  var AUTO_HIDE_MENU=0;
+
+  var arrowpic1="../../App_Themes/pink-love/template/controlmenu/index_15-1.gif";
+  var arrowpic2="../../App_Themes/pink-love/template/controlmenu/index_15-2.gif";
+
+
+//--------------------- 状态初始 ----------------------
+var MENU_SWITCH;
+function panel_menu_open()
+{
+ MENU_SWITCH=AUTO_HIDE_MENU;
+ panel_menu_ctrl();
+}
+
+
+//------------------ 面板状态切换 ---------------------
+function panel_menu_ctrl()
+{
+   if(MENU_SWITCH==0)
+   {
+      parent.frame2.cols="14,186,10,*";
+      MENU_SWITCH=1;
+      arrow.src=arrowpic1;
+   }
+   else
+   {
+      parent.frame2.cols="0,0,10,*";
+      MENU_SWITCH=0;
+      arrow.src=arrowpic2;
+   }
+}
+
+
+//------------------ 面板状态切换 ---------------------
+function enter_menu_ctrl()
+{
+   if(AUTO_HIDE_MENU==1)    // 判断面板是否允许自动隐藏
+   {
+     if(MENU_SWITCH==0)
+     {
+        parent.frame2.cols="14,186,10,*";
+        MENU_SWITCH=1;
+        arrow.src=arrowpic1;
+     }
+     else
+     {
+        parent.frame2.cols="0,0,10,*";
+        MENU_SWITCH=0;
+        arrow.src=arrowpic2;
+     }
+   }
+}
+
+
+//--------------- 上下框架页显示控制 -----------------
+var DB_VIEW=0;                          // 状态值初始
+var DB_rows=parent.parent.frame1.rows;  // 保存原始值
+function DB_Display() 
+{
+   if (DB_VIEW==0)     // 未隐藏
+   {
+    parent.parent.frame1.rows="0,*,0";
+	DB_VIEW=1;
+   }
+   else                // 已隐藏
+   {
+    parent.parent.frame1.rows=DB_rows;   
+    DB_VIEW=0;
+   }
+}
+
+</script>
+
+<body onContextMenu="DB_Display();return false;" onselectstart="return false" leftmargin=0 topmargin=0 onload=panel_menu_open()>
+<table onMouseMove=enter_menu_ctrl() height="100%" cellspacing=0 cellpadding=0 
+width=10 border=0>
+  <tbody>
+  <tr>
+    <td valign=top>&nbsp;</td></tr>
+  <tr style="cursor: hand" onclick=panel_menu_ctrl()>
+    <td height=100><img id=arrow height=100 alt=左键点击控制菜单栏面板，右键点击控制上下状态栏。 
+      src="../../App_Themes/pink-love/template/controlmenu/index_15-1.gif" width=10 name=arrow 
+    GALLERYIMG="no"></td></tr>
+  <tr style="cursor: hand" onclick=panel_menu_ctrl()>
+    <td>&nbsp;</td></tr></tbody></table></body>

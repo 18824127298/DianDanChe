@@ -1,0 +1,4 @@
+D:\code\diandanche\DiandancheCommonController\bin\Debug\DiandancheCommonController.dll
+D:\code\diandanche\DiandancheCommonController\bin\Debug\DiandancheCommonController.pdb
+D:\code\diandanche\DiandancheCommonController\obj\Debug\DiandancheCommonController.dll
+D:\code\diandanche\DiandancheCommonController\obj\Debug\DiandancheCommonController.pdb

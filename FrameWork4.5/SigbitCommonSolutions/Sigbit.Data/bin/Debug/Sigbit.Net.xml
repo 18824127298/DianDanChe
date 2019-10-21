@@ -1,0 +1,2121 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sigbit.Net</name>
+    </assembly>
+    <members>
+        <member name="T:Sigbit.Net.BIPPacket.BIPCustomPacket">
+            <summary>
+            该类封装一个数据包。实现数据包的读、写、更新操作。
+            </summary>
+            <remarks>
+            数据包一般包括两个DataSet，序号为0的存放单条记录，序号为1的存放
+            结果集。
+            </remarks>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPCustomPacket._bipDataSetList">
+            <summary>
+            BIP数据集列表
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetSubTransCode(System.Int32)">
+            <summary>
+            得到交易码双字节组 
+            </summary>
+            <param name="nSeq">双字节组序号（从0开始）</param>
+            <returns>交易码双字节组</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.SetSubTransCode(System.Int32,System.String)">
+            <summary>
+            按序号设置交易码双字节组
+            </summary>
+            <param name="nSeq">序号</param>
+            <param name="sSubTransCode">双字节组</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.Init">
+            <summary>
+            初始化私有变量，在构造函数中调用
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.#ctor">
+            <summary>
+            构造函数
+            </summary>
+            <remarks>
+             缺省创建两个DataSet
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.#ctor(System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="nDataSetInitCount">初始创建的DataSet的个数</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.NewDataSet(System.String,System.Int32)">
+            <summary>
+            创建新的DataSet
+            </summary>
+            <param name="sDataSetName">DataSet的名称（缺省时为""）</param>
+            <param name="nSeq">序号（缺省时加到DataSet列表的最后）</param>
+            <returns>新创建的DataSet</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.NewDataSet(System.String)">
+            <summary>
+            创建新的DataSet
+            </summary>
+            <param name="sDataSetName">DataSet的名称（缺省时为""）</param>
+            <returns>新创建的DataSet</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.NewDataSet">
+            <summary>
+            创建新的DataSet
+            </summary>
+            <returns>新创建的DataSet</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetDataSet">
+            <summary>
+            返回序号为1的DataSet
+            </summary>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetDataSet(System.Int32)">
+            <summary>
+            返回指定序号的DataSet
+            </summary>
+            <param name="nSeq">DataSet序号</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetDataSet(System.String)">
+            <summary>
+            返回指定名称的DataSet
+            </summary>
+            <param name="sDataSetName">DataSet名称</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.DeleteDataSet(System.Int32)">
+            <summary>
+            删除指定序号的DataSet
+            </summary>
+            <param name="nSeq">DataSet序号</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.DeleteAllDataSet">
+            <summary>
+            删除所有的序号大于1的DataSet（保留前两个DataSet）, 并清除前两
+            个DataSet的内容。
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetItemString(System.Int32,System.Int32)">
+            <summary>
+            获得结果集中的一项数据
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <param name="nFieldSeq">字段序号</param>
+            <returns>数据的字符串值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetItemStringDefault(System.Int32,System.Int32,System.String)">
+            <summary>
+            根据域字段序号获取指定项的字符串返回值，无值则返回默认值
+            </summary>
+            <param name="nRecordNum"></param>
+            <param name="nFieldSeq"></param>
+            <param name="sDefault"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetItemString(System.Int32,System.String)">
+            <summary>
+            获得结果集中的一项数据
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <param name="sFieldName">字段序号</param>
+            <returns>数据的字符串值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetItemStringDefault(System.Int32,System.String,System.String)">
+            <summary>
+            根据域名获取指定项的字符串返回值，无值则返回默认值
+            </summary>
+            <param name="nRecordNum"></param>
+            <param name="sFieldName"></param>
+            <param name="sDefault"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetAStringValue(System.Int32)">
+            <summary>
+            得到一项离散数据
+            </summary>
+            <param name="nFieldSeq">字段序号</param>
+            <returns>字符串值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetAStringValueDefault(System.Int32,System.String)">
+            <summary>
+            按照域序号获取字符串返回值，无则返回默认值
+            </summary>
+            <param name="nFieldSeq"></param>
+            <param name="sDefault"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetAStringValue(System.String)">
+            <summary>
+            得到一项离散数据
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <returns>字符串值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetAStringValueDefault(System.String,System.String)">
+            <summary>
+            按域名获取返回值，无值返回默认值
+            </summary>
+            <param name="sFieldName"></param>
+            <param name="sDefault"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.SetItemString(System.Int32,System.Int32,System.String)">
+            <summary>
+            设置结果集中的数据
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <param name="nFieldSeq">字段序号</param>
+            <param name="sItemValue">数据值</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.SetItemString(System.Int32,System.String,System.String)">
+            <summary>
+            设置结果集中的数据
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <param name="sFieldName">字段名</param>
+            <param name="sItemValue">数据值</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.SetAStringValue(System.Int32,System.String)">
+            <summary>
+            设置一项离散数据
+            </summary>
+            <param name="nFieldSeq">字段序号</param>
+            <param name="sItemValue">数据值</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.SetAStringValue(System.String,System.String)">
+            <summary>
+            设置一项离散数据
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="sItemValue">数据值</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.AddAStringValue(System.String,System.String)">
+            <summary>
+            增加一项离散数据
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="sItemValue">数据值</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetFieldCount">
+            <summary>
+            得到字段数
+            </summary>
+            <returns>字段数</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.GetRecordCount">
+            <summary>
+            得到记录数
+            </summary>
+            <returns>记录数</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.AddField(System.String,Sigbit.Net.BIPPacket.BIPFieldType,System.Int32,System.Int32)">
+            <summary>
+            增加一个字段
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="fieldType">字段类型</param>
+            <param name="nFieldLength">字段长度</param>
+            <param name="nFieldPrecision">字段精度</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.AddField(System.String,Sigbit.Net.BIPPacket.BIPFieldType,System.Int32)">
+            <summary>
+            增加一个字段
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="fieldType">字段类型</param>
+            <param name="nFieldLength">字段长度</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.AddField(System.String,Sigbit.Net.BIPPacket.BIPFieldType)">
+            <summary>
+            增加一个字段
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="fieldType">字段类型</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.AddField(System.String)">
+            <summary>
+            增加一个字段
+            </summary>
+            <param name="sFieldName">字段名</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCustomPacket.AddFields(System.Int32)">
+            <summary>
+            增加指定数据的字段
+            </summary>
+            <param name="nFieldCount"></param>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPCustomPacket.DataSetCount">
+            <summary>
+            数据集总数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPCustomPacket.PacketFormat">
+            <summary>
+            包格式
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPCustomPacket.PacketType">
+            <summary>
+            包类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPCustomPacket.TransCode">
+            <summary>
+            完整的交易码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPCustomPacket.ShortPacketData">
+            <summary>
+            短包数据(字符串)
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPCustomPacket.ShortPacketBuffer">
+            <summary>
+            短包数据(字节数组)
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPCustomPacket.PacketId">
+            <summary>
+            包标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPCustomPacket.PacketStatus">
+            <summary>
+            包状态
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPCustomPacket.PacketResendCount">
+            <summary>
+            包重发次数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPCustomPacket.PacketSyncMeth">
+            <summary>
+            同步方式
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPCustomPacket.IgnoreCase">
+            <summary>
+            忽略大小写
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPDataSet">
+            <summary>
+            结果集
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.AssignBy(Sigbit.Net.BIPPacket.BIPDataSet)">
+            <summary>
+            2012赋值
+            </summary>
+            <param name="dsSrc">源数据集</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.Clear">
+            <summary>
+            清除DataSet中的所有字段及值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetRecordCount">
+            <summary>
+            得到记录数
+            </summary>
+            <returns>记录数</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetFieldCount">
+            <summary>
+            得到字段数
+            </summary>
+            <returns>字段数</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.AddField(System.String,Sigbit.Net.BIPPacket.BIPFieldType,System.Int32,System.Int32)">
+            <summary>
+            增加字段
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="fieldType">字段类型</param>
+            <param name="nFieldLength">字段长度</param>
+            <param name="nFieldPrecision">字段精度</param>
+            <remarks>
+            缺省情况下，fieldType为字符型，字段长度不定义。如果字段名称
+            已经存在，则抛出例外。指定精度的情况下，如果fieldType不是数
+            字类型，则抛出例外。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.AddField(System.String,Sigbit.Net.BIPPacket.BIPFieldType,System.Int32)">
+            <summary>
+            增加字段
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="fieldType">字段类型</param>
+            <param name="nFieldLength">字段长度</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.AddField(System.String,Sigbit.Net.BIPPacket.BIPFieldType)">
+            <summary>
+            增加字段
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="fieldType">字段类型</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.AddField(System.String)">
+            <summary>
+            增加字段
+            </summary>
+            <param name="sFieldName">字段名</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.AddFields(System.Int32)">
+            <summary>
+            以空名称的方式增加指定数量的字段
+            </summary>
+            <param name="nFieldCount">字段数量</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetFieldName(System.Int32)">
+            <summary>
+            得到指定字段的名称
+            </summary>
+            <param name="nSeq">字段序号</param>
+            <returns>字段的名称</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetFieldType(System.Int32)">
+            <summary>
+            得到指定字段的类型
+            </summary>
+            <param name="nSeq">字段序号</param>
+            <returns>字段类型</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetFieldLength(System.Int32)">
+            <summary>
+            得到指定字段的长度
+            </summary>
+            <param name="nSeq">字段序号</param>
+            <returns>字段长度</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetFieldPrecision(System.Int32)">
+            <summary>
+            得到指定字段的精度
+            </summary>
+            <param name="nSeq">字段序号</param>
+            <returns>字段精度</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetFieldSeq(System.String)">
+            <summary>
+            得到指定名称的字段序号
+            </summary>
+            <param name="sFieldName">字段名称</param>
+            <returns>字段序号</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetItemString(System.Int32,System.Int32)">
+            <summary>
+            按指定记录序号，字段序号来获取字段字符串值
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <param name="nFieldSeq">字段序号</param>
+            <returns>字段字符串值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetItemString(System.Int32,System.String)">
+            <summary>
+            按指定记录序号，字段名来获取字段字符串值
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <param name="sFieldName">字段名</param>
+            <returns>字段字符串值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetItemInteger(System.Int32,System.Int32)">
+            <summary>
+            按指定记录序号，字段序号来获取字段整型值
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <param name="nFieldSeq">字段序号</param>
+            <returns>字段整型值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetItemInteger(System.Int32,System.String)">
+            <summary>
+            按指定记录序号，字段名来获取字段整型值
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <param name="sFieldName">字段名</param>
+            <returns>字段整型值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetItemDouble(System.Int32,System.Int32)">
+            <summary>
+            按指定记录序号，字段序号来获取字段双精度值
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <param name="nFieldSeq">字段序号</param>
+            <returns>字段双精度值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetItemDouble(System.Int32,System.String)">
+            <summary>
+            按指定记录序号，字段名来获取字段双精度值
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <param name="sFieldName">字段名</param>
+            <returns>字段双精度值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetAStringValue(System.Int32)">
+            <summary>
+            得到第一条记录的字段字符串值
+            </summary>
+            <param name="nFieldSeq">字段序号</param>
+            <returns>字段字符串值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetAStringValue(System.String)">
+            <summary>
+            得到第一条记录的字段字符串值
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <returns>字段字符串值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetAIntegerValue(System.Int32)">
+            <summary>
+            得到第一条记录的字段整型值
+            </summary>
+            <param name="nFieldSeq">字段序号</param>
+            <returns>字段整型值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetAIntegerValue(System.String)">
+            <summary>
+            得到第一条记录的字段整型值
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <returns>字段整型值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetADoubleValue(System.Int32)">
+            <summary>
+            得到第一条记录的字段双精度值
+            </summary>
+            <param name="nFieldSeq">字段序号</param>
+            <returns>字段双精度值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetADoubleValue(System.String)">
+            <summary>
+            得到第一条记录的字段双精度值
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <returns>字段双精度值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.SetItemString(System.Int32,System.Int32,System.String)">
+            <summary>
+            按指定记录序号，字段序号来设置字段值
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <param name="nFieldSeq">字段序号</param>
+            <param name="sItemValue">字段值</param>
+            <remarks>
+            按指定记录序号，字段序号来设置字段值。如果字段序号越界，则
+            抛出例外。如果记录号超过记录总数，则自动增加记录；但如果指
+            定的记录号大于(记录总数+1)，则抛出例外。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.SetItemString(System.Int32,System.String,System.String)">
+            <summary>
+            按指定记录序号，字段名来设置字段值
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <param name="sFieldName">字段名</param>
+            <param name="sItemValue">字段值</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.SetAStringValue(System.Int32,System.String)">
+            <summary>
+            按字段序号设置第一条记录的字段值
+            </summary>
+            <param name="nFieldSeq">字段序号</param>
+            <param name="sItemValue">字段值</param>
+            <remarks>
+            如果字段序号越界，则增加字段。该方法仅能用于一条记录的情况，
+            如果记录数不足一条，则增加之，如果记录数大于一条，则抛出例外。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.SetAStringValue(System.String,System.String)">
+            <summary>
+            按字段名设置第一条记录的字段值
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="sItemValue">字段值</param>
+            <remarks>如果字段名不存在，则增加一个为指定字段名的字段。</remarks>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.AddAStringValue(System.String,System.String)">
+            <summary>
+            增加字段值
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="sItemValue">字段值</param>
+            说明 : 在最后增加一个字段，并记录该字段的值。如果字段名称与
+            已经存在的相重，则抛出例外。该方法仅能用于一条记录的情况，
+            如果记录数不足一条，则增加之，如果记录数大于一条，则抛出例外。
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.DeleteRecord(System.Int32)">
+            <summary>
+            删除一条记录
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetDisplayStruct">
+            <summary>
+            得到显示结构的字符串
+            </summary>
+            <returns>显示结构的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.GetDisplayContentText">
+            <summary>
+            获取显示的文本内容
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.ReadFrom(System.Byte[],System.Int32@)">
+            <summary>
+            从字节数组中读取DataSet
+            </summary>
+            <param name="bsDataSet">字节数组</param>
+            <param name="nPos">起始位置</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.RXNUnpackData(System.Byte[])">
+            <summary>
+            读取去掉头尾标记的字符串到DataSet
+            </summary>
+            <param name="bsPureData">去掉头尾标记的字符串</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.RXNFieldSection(System.Byte[],System.Int32)">
+            <summary>
+            读取字段区
+            </summary>
+            <param name="bsFieldSectionData">字段区</param>
+            <param name="nFieldCount">字段数量</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.RXNRecordSection(System.Byte[],System.Int32)">
+            <summary>
+            读取记录区
+            </summary>
+            <param name="bsRecordSectionData">记录区</param>
+            <param name="nRecordCount">记录数量</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.RXNRecordSection__OneRecord(System.Byte[],System.Int32@,System.Int32)">
+            <summary>
+            读取记录区的一条记录
+            </summary>
+            <param name="bsRecordSectionData">记录区</param>
+            <param name="nPos">当前位置</param>
+            <param name="nRecordNum">记录序号</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.ToBytes">
+            <summary>
+            得到数据集的字节数组
+            </summary>
+            <returns>数据集的字节数组</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.WXNData">
+            <summary>
+            得到数据集中的数据内容
+            </summary>
+            <returns>数据集数据的字节数组</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.WXNFieldData">
+            <summary>
+            得到字段区数据
+            </summary>
+            <returns>字段区数据</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.WXNRecordData">
+            <summary>
+            得到记录区数据
+            </summary>
+            <returns>记录区数据</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSet.WXNRecordData_OneRecord(System.Int32)">
+            <summary>
+            得到一条记录的BIP数据表示
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <returns>一条记录的BIP数据表示</returns>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPDataSet.DataSetName">
+            <summary>
+            结果集名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPDataSet.DataSetSeq">
+            <summary>
+            结果集的顺序号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPDataSet.IgnoreCase">
+            <summary>
+            忽略项
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPDataSetList">
+            <summary>
+            BIP数据集列表类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSetList.AddDataSet">
+            <summary>
+            添加数据集
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPDataSetList.GetDataSet(System.Int32)">
+            <summary>
+            按索引获取数据集
+            </summary>
+            <param name="nIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPFieldType">
+            <summary>
+            字段类型
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPFieldType.Number">
+            <summary>
+            数据型
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPFieldType.Char">
+            <summary>
+            字符型
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPField">
+            <summary>
+            字段
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPField.AssignBy(Sigbit.Net.BIPPacket.BIPField)">
+            <summary>
+            按域指派
+            </summary>
+            <param name="srcField"></param>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPField.FieldName">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPField.FieldType">
+            <summary>
+            字段类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPField.FieldLength">
+            <summary>
+            字段长度
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPField.FieldPrecision">
+            <summary>
+            字段精度
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPFieldList">
+            <summary>
+            字段列表
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPFieldList.AddField(Sigbit.Net.BIPPacket.BIPField)">
+            <summary>
+            向列表中增加一个字段
+            </summary>
+            <param name="bipField">字段</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPFieldList.LocateFieldName(System.String)">
+            <summary>
+            根据字段名定位字段的序号
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <returns>字段序号(从0开始)</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPFieldList.GetField(System.Int32)">
+            <summary>
+            根据字段索引(位置)得到字段
+            </summary>
+            <param name="nIndex">字段索引</param>
+            <returns>字段</returns>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPFieldList.IgnoreCase">
+            <summary>
+            忽略大小写
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPPacket">
+            <summary>
+            消息包
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPPacket.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPPacket.GetDisplayContentText">
+            <summary>
+            得到显示Packet内容的文本
+            </summary>
+            <returns>Packet内容文本</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPPacket.ReadFromFile(System.String)">
+            <summary>
+            从文件中产生包的内容
+            </summary>
+            <param name="sFileName">文件名</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPPacket.ReadFrom(System.IO.FileStream)">
+            <summary>
+            从文件流中产生包的内容
+            </summary>
+            <param name="fileStream">文件名</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPPacket.ReadFrom(System.Byte[])">
+            <summary>
+            从字节数组中产生包的内容
+            </summary>
+            <param name="bsPacket">字节数组</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPPacket.ReadFrom(System.Byte[],System.Boolean)">
+            <summary>
+            从字节数组中产生包的内容
+            </summary>
+            <param name="bsPacket">字节数组</param>
+            <param name="bOneDataSet">是否只读每1个结果集</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPPacket.RXNUnpackData(System.Byte[],System.Boolean)">
+            <summary>
+            读取包数据的内容
+            </summary>
+            <param name="bsData">包数据</param>
+            <param name="bOneDataset">是否只读每个结果集</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPPacket.WriteToFile(System.String)">
+            <summary>
+            写入到文件
+            </summary>
+            <param name="sFileName">文件名</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPPacket.WriteTo(System.IO.FileStream)">
+            <summary>
+            写入到文件流
+            </summary>
+            <param name="fs">文件流</param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPPacket.ToBytes">
+            <summary>
+            得到包的字节数组
+            </summary>
+            <returns>包的字节数组</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPPacket.WXNContent">
+            <summary>
+            得到包内容数据
+            </summary>
+            <returns>包内容数据</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPPacket.WXNPacketData">
+            <summary>
+            得到包数据
+            </summary>
+            <returns>包数据</returns>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPPacket.PacketOrgFormat">
+            <summary>
+            数据包的组织形式
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.BIPPacket.BIPPacket.PacketOrgVersion">
+            <summary>
+            数据包组织的版本号
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPPacketFormat">
+            <summary>
+            表示数据包的格式
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPPacketFormat.LongFormat">
+            <summary>
+            长包
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPPacketFormat.ShortFormat">
+            <summary>
+            短包
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPPacketType">
+            <summary>
+             数据包的类型
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPPacketType.Request">
+            <summary>
+            请求包
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPPacketType.Answer">
+            <summary>
+            回应包
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPPacketType.Inform">
+            <summary>
+            通知包
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPPacketType.Callback">
+            <summary>
+            回调包
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPPacketSyncMeth">
+            <summary>
+            同步方式
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPPacketSyncMeth.LocalCall">
+            <summary>
+            本地调用返回
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPPacketSyncMeth.ArriveDest">
+            <summary>
+            发送到目标地址返回
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPPacketSyncMeth.DestFetched">
+            <summary>
+            目标服务取出返回
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPPacketSyncMeth.DestDone">
+            <summary>
+            目标服务完成返回（同步方式）
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPPacketOrgFormat">
+            <summary>
+            表示数据包的组织形式，目前仅有一种形式，之后可能可以扩充XML、
+            ANSI等
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.BIPPacket.BIPPacketOrgFormat.Standard">
+            <summary>
+            目前定义的包组织形式
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPCallException">
+            <summary>
+            调用操作方法产生的例外
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPCallException.#ctor(System.String)">
+            <summary>
+            调用操作方法产生的例外
+            </summary>
+            <param name="sMsg"></param>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPFormatException">
+            <summary>
+            数据包格式错产生的例外
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPFormatException.#ctor(System.String)">
+            <summary>
+            数据包格式错产生的例外
+            </summary>
+            <param name="sMsg"></param>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPRecordList">
+            <summary>
+            记录集
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPRecordList.AddRecord">
+            <summary>
+            添加记录
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPRecordList.SetItemString(System.Int32,System.Int32,System.String)">
+            <summary>
+            设置数据集中的一个值
+            </summary>
+            <param name="nRecordNum">记录序号（从1开始）</param>
+            <param name="nFieldSeq">字段号（从0开始）</param>
+            <param name="sItemValue">值</param>
+            <remarks>
+            1)记录序号必须在列表大小的范围之内<br/>
+            2)如果字段序号超过当前大小，则自动扩展相应的字段空间<br/>
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPRecordList.GetItemString(System.Int32,System.Int32)">
+            <summary>
+            得到数据集中的一个值
+            </summary>
+            <param name="nRecordNum">记录序号</param>
+            <param name="nFieldSeq">字段号</param>
+            <returns>得到的值</returns>
+            <remarks>如果字段序号超过当前大小，则返回""</remarks>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPUtil">
+            <summary>
+            BIP工具类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPUtil.RXNByLength(System.Byte[],System.Int32@,System.Int32)">
+            <summary>
+            从源字节数组中取出指定长度的字节数组
+            </summary>
+            <param name="bsSrc">源字节数组</param>
+            <param name="nPos">当前位置</param>
+            <param name="nLength">取出的长度</param>
+            <returns>取出的字节数组</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPUtil.RXNStringByLength(System.Byte[],System.Int32@,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="bsSrc"></param>
+            <param name="nPos"></param>
+            <param name="nLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPUtil.RXNByte(System.Byte[],System.Int32@)">
+            <summary>
+            取出一个字节
+            </summary>
+            <param name="bsSrc">源字节数组</param>
+            <param name="nPos">当前位置</param>
+            <returns>取出的字节</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPUtil.RXNNumber__Do(System.Byte[],System.Int32@,System.Int32)">
+            <summary>
+            取出一定长度的整型数值
+            </summary>
+            <param name="bsSrc">源字节数组</param>
+            <param name="nPos">当前位置</param>
+            <param name="nLength">取出长度</param>
+            <returns>整型数值</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPUtil.RXNLongNumber(System.Byte[],System.Int32@)">
+            <summary>
+            取出四字节的长整型
+            </summary>
+            <param name="bsSrc">源字节数组</param>
+            <param name="nPos">当前位置</param>
+            <returns>取出的长整型</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPUtil.RXNShortNumber(System.Byte[],System.Int32@)">
+            <summary>
+            取出二字节的短整型
+            </summary>
+            <param name="bsSrc">源字节数组</param>
+            <param name="nPos">当前位置</param>
+            <returns>取出的短整型</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPUtil.RXNByteNumber(System.Byte[],System.Int32@)">
+            <summary>
+            取出单字节的整型
+            </summary>
+            <param name="bsSrc">源字节数组</param>
+            <param name="nPos">当前位置</param>
+            <returns>取出的整型</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPUtil.RXNString(System.Byte[],System.Int32@)">
+            <summary>
+            从字节数组中取出字符串
+            </summary>
+            <param name="bsSrc">字节数组</param>
+            <param name="nPos">当前位置</param>
+            <returns>取出的字符串</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPUtil.BIPLongNumberBytes(System.Int32)">
+            <summary>
+             将一个整数转成四字节的BIP数字表示
+            </summary>
+            <param name="nNumber">整数</param>
+            <returns>BIP数字表示</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPUtil.BIPShortNumberBytes(System.Int32)">
+            <summary>
+             将一个整数转成二字节的BIP数字表示
+            </summary>
+            <param name="nNumber">整数</param>
+            <returns>BIP数字表示</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPUtil.BIPByteNumberBytes(System.Int32)">
+            <summary>
+             将一个整数转成单字节的BIP数字表示
+            </summary>
+            <param name="nNumber">整数</param>
+            <returns>BIP数字表示</returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPUtil.BIPStringBytes(System.String)">
+            <summary>
+            将一个字符串转为BIP字符串表示
+            </summary>
+            <param name="sString">字符串</param>
+            <returns>BIP字符串表示</returns>
+        </member>
+        <member name="T:Sigbit.Net.BIPPacket.BIPBytesBuilder">
+            <summary>
+            BIP字节生成类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPBytesBuilder.AddByte(System.Byte)">
+            <summary>
+            添加字节
+            </summary>
+            <param name="ch"></param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPBytesBuilder.AddLongNumber(System.Int32)">
+            <summary>
+            添加长整形
+            </summary>
+            <param name="nNumber"></param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPBytesBuilder.AddShortNumber(System.Int32)">
+            <summary>
+            添加短整形
+            </summary>
+            <param name="nNumber"></param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPBytesBuilder.AddByteNumber(System.Int32)">
+            <summary>
+            添加字节
+            </summary>
+            <param name="nNumber"></param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPBytesBuilder.AddPureString(System.String)">
+            <summary>
+            添加字符串
+            </summary>
+            <param name="sString"></param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPBytesBuilder.AddString(System.String)">
+            <summary>
+            添加字符串
+            </summary>
+            <param name="sString"></param>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPBytesBuilder.ToBytes">
+            <summary>
+            到字节数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Net.BIPPacket.BIPBytesBuilder.FetchOutPacketBytes">
+            <summary>
+            获取输出字节数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket.SynchronizeFromProperties">
+            <summary>
+            从属性同步到DataSet中
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.CsvPacket.CsvPacket._bHasSynchronizedFromProperties">
+            <summary>
+            已从属性同步
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket.MaySynchronizeFromProperties">
+            <summary>
+            判断从属性同步，并同步
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket.SynchronizeToProperties">
+            <summary>
+            从DataSet中同步到属性
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.CsvPacket.CsvPacket._bHasSynchronizedToProperties">
+            <summary>
+            已同步到属性
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket.MaySynchronizeToProperties">
+            <summary>
+            判断同步属性，并同步
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket.GetDisplayContentText">
+            <summary>
+            得到显示Packet内容的文本
+            </summary>
+            <returns>Packet内容文本</returns>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket.ReadFromFile(System.String)">
+            <summary>
+            从文件中产生包的内容（第二个结果集）
+            </summary>
+            <param name="sFileName">文件名</param>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket.WriteToFile(System.String)">
+            <summary>
+            将包的内容写入文件（第二个结果集）
+            </summary>
+            <param name="sFileName">文件名</param>
+        </member>
+        <member name="P:Sigbit.Net.CsvPacket.CsvPacket.InPlainFormat">
+            <summary>
+            是否存为平面格式
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.CsvPacket.CsvPacket___Util">
+            <summary>
+            CSV读写的应用类。在BIPDataSet和CSV文件之间进行转换。
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket___Util.FileToDataSet(System.String,Sigbit.Net.BIPPacket.BIPDataSet)">
+            <summary>
+            读取文件到BIPDataSet中
+            </summary>
+            <param name="sFileName">文件名</param>
+            <param name="ds">数据集</param>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket___Util.FileToDataSet_AddDataLine(System.String,Sigbit.Net.BIPPacket.BIPDataSet)">
+            <summary>
+            插入CSV的一行到数据集中
+            </summary>
+            <param name="sCSVDataLine">CSV的一行</param>
+            <param name="ds">数据集</param>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket___Util.FileToDataSet_SplitToMultiValue(System.String)">
+            <summary>
+            将CSV的一行分割成若干单元
+            </summary>
+            <param name="sCSVDataLine">CSV的行</param>
+            <returns>若干单元的数组</returns>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket___Util.FileToDataSet_RegulateCellData(System.String)">
+            <summary>
+            规整单元的数据信息
+            </summary>
+            <param name="sCellData">单元的数据信息</param>
+            <returns>规整后的数据。主要是规整引号的内容。</returns>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket___Util.DataSetToFile(Sigbit.Net.BIPPacket.BIPDataSet,System.String,System.Boolean)">
+            <summary>
+            将数据集写入文件
+            </summary>
+            <param name="ds">数据集</param>
+            <param name="sFileName">文件名</param>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket___Util.DataSetToFile_GetFieldLine(Sigbit.Net.BIPPacket.BIPDataSet,System.Boolean)">
+            <summary>
+            得到字段定义的一行
+            </summary>
+            <param name="ds">数据集</param>
+            <returns>字段定义行</returns>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket___Util.DataSetToFile_GetDataLine(Sigbit.Net.BIPPacket.BIPDataSet,System.Int32,System.Boolean)">
+            <summary>
+            得到一行数据
+            </summary>
+            <param name="ds">数据集</param>
+            <param name="nRecordNo">记录号</param>
+            <returns>数据行</returns>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket___Util.DataSetToFile_GetLineOfItems(System.Collections.ArrayList,System.Boolean)">
+            <summary>
+            由各个数据项，得到一行数据
+            </summary>
+            <param name="arrItems">数据项的数组</param>
+            <returns>一行数据</returns>
+        </member>
+        <member name="M:Sigbit.Net.CsvPacket.CsvPacket___Util.DataSetToFile_RegulateItemValue(System.String,System.Boolean)">
+            <summary>
+            规整一个数据项
+            </summary>
+            <param name="sItemValue">数据项</param>
+            <returns>规整结果</returns>
+        </member>
+        <member name="P:Sigbit.Net.CsvPacket.CsvPacket___Util.FileEncoding">
+            <summary>
+            文件编码
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.HtmlParser.HtmlTagType">
+            <summary>
+            HTML当前标志的类型，用于解析的过程
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.HtmlParser.ParserSkipType">
+            <summary>
+            当前解析需要跳过的类型，用于解析的过程
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.HtmlParser.HtmlParser">
+            <summary>
+            Html解析类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParser.EndWith(System.String,System.String)">
+            <summary>
+            判断字符串是否以指定的字符串结尾
+            </summary>
+            <param name="sStr">全字符串</param>
+            <param name="sSubStr">结尾子串</param>
+            <returns>是否以指定的字符串结尾</returns>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParser.StartWith(System.String,System.String)">
+            <summary>
+            判断字符串是否以指定的字符串开头
+            </summary>
+            <param name="sStr">全字符串</param>
+            <param name="sSubStr">开头子串</param>
+            <returns>是否以指定的字符串开头</returns>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParser.CutLeadingTrailingChar(System.String@)">
+            <summary>
+            去除字符串的前导和后缀空格
+            </summary>
+            <param name="sStr">字符串</param>
+            <remarks>空格包括CR、LF、TAB和SPACE</remarks>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParser.ParseCommentThenAdd(System.String)">
+            <summary>
+            解析注释并添加函数
+            </summary>
+            <param name="sTagBuffer"></param>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParser.Parse(System.String)">
+            <summary>
+            解析html文本内容
+            </summary>
+            <param name="sContent">HTML文本内容</param>
+            <remarks>
+            查找html标志，建立一个平面的信息列表来表示标志和其它内容
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParser.ParseAttributes(System.String)">
+            <summary>
+            解析某一元素的属性
+            </summary>
+            <param name="sTagAttributes">属性字串</param>
+            <returns>属性的“关键字-值”对</returns>
+        </member>
+        <member name="T:Sigbit.Net.HtmlParser.HtmlElement">
+            <summary>
+            Html元素
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.HtmlParser.HtmlElement.IsStartEndElement">
+            <summary>
+            是否起始和结束合为一个标记
+            </summary>
+            <remarks>以尾部是否有'/'进行判断</remarks>
+        </member>
+        <member name="T:Sigbit.Net.HtmlParser.HtmlElementType">
+            <summary>
+            Html元素的类型
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.HtmlParser.HtmlParserTool">
+            <summary>
+            基于HtmlParser的工具
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParserTool.HtmlContentToTextArray(System.String)">
+            <summary>
+            将网页的内容整理到文本的数组中
+            </summary>
+            <param name="sHtmlContent">网页的内容</param>
+            <returns>文本的数组</returns>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParserTool.HtmlContentToTextFile(System.String,System.String)">
+            <summary>
+            将网页内容整理到文本文件中
+            </summary>
+            <param name="sHtmlContent">网页内容</param>
+            <param name="sFileName">文本文件名</param>
+        </member>
+        <member name="P:Sigbit.Net.HtmlParser.HtmlParserTool.GenEmptyLineBeforeParagraph">
+            <summary>
+            在段落前生成一个空行
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParserUtil.EnterNestingTag(Sigbit.Net.HtmlParser.HtmlParser,System.Int32,System.String)">
+            <summary>
+            进入一个嵌套的单元
+            </summary>
+            <param name="parser">解析结果实例</param>
+            <param name="nCurrentSeq">当前位置</param>
+            <param name="sTagName">嵌套单元标识</param>
+            <returns>进入后的位置</returns>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParserUtil.FetchText(Sigbit.Net.HtmlParser.HtmlParser,System.Int32)">
+            <summary>
+            得到后面的文本
+            </summary>
+            <param name="parser">解析结果实例</param>
+            <param name="nCurrentSeq">当前位置</param>
+            <returns>得到的文本。一直取到遇到文本为止。</returns>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParserUtil.FetchText(Sigbit.Net.HtmlParser.HtmlParser,System.Int32,System.Int32)">
+            <summary>
+            得到后面的文本
+            </summary>
+            <param name="parser">解析结果实例</param>
+            <param name="nCurrentSeq">当前位置</param>
+            <param name="nUntilSeq">一直取到的位置。</param>
+            <returns>得到的文本</returns>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParserUtil.SkipNestingTag(Sigbit.Net.HtmlParser.HtmlParser,System.Int32,System.String,System.Int32)">
+            <summary>
+             跳过指定个数的标记
+            </summary>
+            <param name="parser">解析结果实例</param>
+            <param name="nCurrentSeq">当前位置</param>
+            <param name="sTagName">嵌套单元标识</param>
+            <param name="nNeedSkipNum">跳过的数量</param>
+            <returns>跳过标记后的位置，如果无法完成则返回-1</returns>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParserUtil.GetEndOfTagPos(Sigbit.Net.HtmlParser.HtmlParser,System.Int32)">
+            <summary>
+            得到相应的结束位置
+            </summary>
+            <param name="parser">网页解析实例</param>
+            <param name="nThisPos">当前位置</param>
+            <returns>结束位置</returns>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParserUtil.GetLargestNonNestingTable(Sigbit.Net.HtmlParser.HtmlParser,System.Int32@,System.Int32@)">
+            <summary>
+            得到最大的无嵌套表位置
+            </summary>
+            <param name="parser">网页解析实例</param>
+            <param name="nStartTableSeq">起始位置</param>
+            <param name="nEndTableSeq">终止位置</param>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlParserUtil.GetLargestTextTableSection(Sigbit.Net.HtmlParser.HtmlParser,System.Int32@,System.Int32@)">
+            <summary>
+            得到包含最多文本的无嵌套表位置
+            </summary>
+            <param name="parser">网页解析实例</param>
+            <param name="nStartTableSeq">起始位置</param>
+            <param name="nEndTableSeq">终止位置</param>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlUrl.IsAbsolutePathName(System.String)">
+            <summary>
+             判断一个路径名是否是绝对路径名
+            </summary>
+            <param name="s">路径名</param>
+            <returns>是否绝对路径</returns>
+        </member>
+        <member name="M:Sigbit.Net.HtmlParser.HtmlUrl.RegulateToAbsoluteURL(System.String,System.String)">
+            <summary>
+            将URL格式化为绝对路径的URL
+            </summary>
+            <param name="sUrl">待格式化的URL引用</param>
+            <param name="sRefUrl">参考URL，该URL必须为绝对路径</param>
+            <returns>格式化过的绝对路径URL</returns>
+        </member>
+        <member name="T:Sigbit.Net.SBTTcpServer.SBTTcpServer">
+            <summary>
+            实现TCP服务的封装，封装了线程池。
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.SBTTcpServer.SBTTcpServer._listenSock">
+            <summary>
+            侦听连接的Socket
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.SBTTcpServer.SBTTcpServer._taskThreadList">
+            <summary>
+            线程池
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.SBTTcpServer.SBTTcpServer.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.SBTTcpServer.SBTTcpServer.Start">
+            <summary>
+            线程的主运行函数，创建线程池启动服务
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.SBTTcpServer.SBTTcpServer.Stop">
+            <summary>
+            停止服务，停止所有线程
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.SBTTcpServer.SBTTcpServer.HostName">
+            <summary>
+            主机名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.SBTTcpServer.SBTTcpServer.Service">
+            <summary>
+            服务名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.SBTTcpServer.SBTTcpServer.Port">
+            <summary>
+            端口号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.SBTTcpServer.SBTTcpServer.QueueSize">
+            <summary>
+            Listen的队列长度
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.SBTTcpServer.SBTTcpServer.MinThread">
+            <summary>
+            最少线程数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.SBTTcpServer.SBTTcpServer.MaxThread">
+            <summary>
+            最大线程数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.SBTTcpServer.SBTTcpTask.Terminate">
+            <summary>
+            退出应用
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.SBTTcpServer.SBTTcpTask.Start">
+            <summary>
+            启动运行线程
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.SBTTcpServer.SBTTcpTask.TaskThread">
+            <summary>
+            客户端处理线程
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.SBTTcpServer.SBTTcpTask.ClientExecute">
+            <summary>
+            数据交换处理，继承类中重载该方法。
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.SBTTcpServer.SBTTcpTask.TaskThreadSeq">
+            <summary>
+            任务顺序号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.SBTTcpServer.SBTTcpTask.ListenSocket">
+            <summary>
+            监听Socket，用于接受连接
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.SBTTcpServer.SBTTcpTask.TcpClient">
+            <summary>
+            提供客户端连接
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.SBTTcpServer.SBTTcpTask.IsTerminated">
+            <summary>
+            是否已退出
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.WebTinyServer.WebTinyServerLogKind">
+            <summary>
+            the various levels of logging possible
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.WebTinyServer.WebTinyServer">
+            <summary>
+            TinyServer
+            Copyright (c) 2004 Stephan Meyn
+            
+            A tiny web server that an application can host (e.g. a news aggregator)
+            This tiny web server only understands HTTP GET commands, nothing else - 
+            no PUT of forms.
+            However it is ideal for building your own specialised web server. 
+            You can subclass TinyServer and override the function doGet() to 
+            implement special services.
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.WebTinyServer.WebTinyServer.ia">
+            <summary>
+            ip address of client
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.WebTinyServer.WebTinyServer.parameters">
+            <summary>
+            parameters provided in last call
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.WebTinyServer.WebTinyServer.hname">
+            <summary>
+            hostname for current connection
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.WebTinyServer.WebTinyServer.templatePath">
+            <summary>
+            configured item where all templates are stored
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.WebTinyServer.WebTinyServer.webRootPath">
+            <summary>
+            path to the web directory
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.checkCanRun">
+            <summary>
+            check if we can actually run. If not throw an exception
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.Run">
+            <summary>
+            listen to port and get HTTP calls
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.Stop">
+            <summary>
+            stop web server
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.runThread">
+            <summary>
+            the threadstart of the web server. called by Run()
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.loop">
+            <summary>
+             loop listening to commands. 
+             </summary>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.doGet(System.String)">
+            <summary>
+            handle a get command. Override this method for your own implementation
+            </summary>
+            <param name="argument">the argument of the get command</param>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.doUnknownCommand(System.String)">
+            <summary>
+            handle http commands other than GET.
+            Override this function to implement extra commands.
+            This demonstrates how to use templates
+            </summary>
+            <param name="command"></param>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.getUrl(System.String)">
+            <summary>
+            take an argument starting with a URL 
+            and retrieve the URL in a form usable for System.IO
+            </summary>
+            <param name="argument"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.urlArgs(System.String)">
+            <summary>
+            determine the arguments in a command
+            </summary>
+            <param name="command"></param>
+            <returns>array of arguments</returns>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.acceptConnection">
+            <summary>
+            accept a connection and return a TCPClient
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.getCommand">
+            <summary>
+            get a command from a connection, return the first line
+            and store the rest as parameters
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.sendfile(System.String)">
+            <summary>
+            method sendfile(s, fname) sends the contents of file fname through 
+            the connection on socket s.
+            </summary>
+            <param name="path">full path to file</param>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.sendTemplate(System.String)">
+            <summary>
+            send a template to the connection. This may contain html fragments
+            </summary>
+            <param name="name">filename of template</param>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.sendString(System.String)">
+            <summary>
+            sends the contents of String name back to the browser 
+            </summary>
+            <param name="msg">content of the message</param>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.sendHTTPString(System.String)">
+            <summary>
+            sends the contents of String name back to the browser 
+            </summary>
+            <param name="msg">content of the message</param>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.sendError(System.Int32,System.String)">
+            <summary>
+            return an error to the web browser
+            </summary>
+            <param name="errno"></param>
+            <param name="errString"></param>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.log(Sigbit.Net.WebTinyServer.WebTinyServerLogKind,System.String)">
+            <summary>
+            log a message
+            </summary>
+            <param name="s"></param>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.template(System.String)">
+            <summary>
+            get the path for the required template
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Net.WebTinyServer.WebTinyServer.CommandArg(System.String)">
+            <summary>
+            return the command argument part of an HTTP command. That is the bit after the GET. That include a URL 
+            and optional arguments
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Sigbit.Net.WebTinyServer.WebTinyServer.HostName">
+            <summary>
+            name of host from last call
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebTinyServer.WebTinyServer.CurrentAddress">
+            <summary>
+            ip address for current call
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebTinyServer.WebTinyServer.Port">
+            <summary>
+            the port the webserver will run on.
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebTinyServer.WebTinyServer.WebRootPath">
+            <summary>
+            path to the web pages
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebTinyServer.WebTinyServer.DefaultPage">
+            <summary>
+            default web page name
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebTinyServer.WebTinyServer.Templates">
+            <summary>
+            path to templates used by the server
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebTinyServer.WebTinyServer.LogFile">
+            <summary>
+            logfile name. set to empty string to log to console
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebTinyServer.WebTinyServer.LogLevel">
+            <summary>
+            level of logging. set to None to stop logging
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebTinyServer.WebTinyServer.Running">
+            <summary>
+            informational, is the web server running
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.WebTinyServer.TinyServerException">
+            <summary>
+            Exceptions the MicroServer can throw
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebTinyServer.WebTinyServerConfig.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.WebVisitor.WVT__RequestList.PopRequest">
+            <summary>
+            取出一个事件。
+            </summary>
+            <returns>取中的事件。如池中无事件，则返回null。</returns>
+        </member>
+        <member name="M:Sigbit.Net.WebVisitor.WVT__RequestList.PushRequest(Sigbit.Net.WebVisitor.WVWebRequest)">
+            <summary>
+            放入一个事件
+            </summary>
+            <param name="ev">事件</param>
+        </member>
+        <member name="M:Sigbit.Net.WebVisitor.WVT__ResponseList.PopResponse">
+            <summary>
+            取出一个事件。
+            </summary>
+            <returns>取中的事件。如池中无事件，则返回null。</returns>
+        </member>
+        <member name="M:Sigbit.Net.WebVisitor.WVT__ResponseList.PushResponse(Sigbit.Net.WebVisitor.WVWebResponse)">
+            <summary>
+            放入一个事件
+            </summary>
+            <param name="ev">事件</param>
+        </member>
+        <member name="M:Sigbit.Net.WebVisitor.WVT__Task.Terminate">
+            <summary>
+            退出应用
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.WebVisitor.WVT__Task.Start">
+            <summary>
+            启动运行线程
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.WebVisitor.WVT__Task.VisitorThread">
+            <summary>
+            客户端处理线程
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.WebVisitor.WVT__Task.FetchAndVisitOnePage">
+            <summary>
+            取出一个页面，并进行访问
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVT__Task.RequestList">
+            <summary>
+            请求队列
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVT__Task.ResponseList">
+            <summary>
+            响应队列
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVT__Task.VisitorTaskSeq">
+            <summary>
+            访问线程的顺序号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVT__Task.IsTerminated">
+            <summary>
+            是否已退出
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.WebVisitor.WVWebRequest">
+            <summary>
+            网页访问请求
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebRequest.RequestId">
+            <summary>
+            请求的标识串
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebRequest.RequestObjectData">
+            <summary>
+            请求附带的对象
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebRequest.VisitUrl">
+            <summary>
+            访问的网页地址
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebRequest.PageCharset">
+            <summary>
+            页面字符集
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.WebVisitor.WVWebResponse">
+            <summary>
+            网页访问结果
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebResponse.RequestId">
+            <summary>
+            请求的标识串
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebResponse.RequestObjectData">
+            <summary>
+            请求附带的对象
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebResponse.PageContentString">
+            <summary>
+            页面的正文。若请求中未定义编码，则该属性为""。
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebResponse.PageBytes">
+            <summary>
+            页面的二进制结果
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebResponse.HasSuccess">
+            <summary>
+            是否成功访问网页
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebResponse.ErrorString">
+            <summary>
+            网页访问的错误信息
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebResponse.BeginVisitTime">
+            <summary>
+            开始访问的时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebResponse.EndVisitTime">
+            <summary>
+            结束访问（获取网页）的时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebResponse.TotalVisitMilliseconds">
+            <summary>
+            总共用去的毫秒数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebResponse.ExecuteThreadNo">
+            <summary>
+            执行的线程号
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.WebVisitor.WVWebVisitor">
+            <summary>
+            网站多线程访问
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.WebVisitor.WVWebVisitor._visitorTaskList">
+            <summary>
+            访问线程池
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.WebVisitor.WVWebVisitor._bVisitorHasStarted">
+            <summary>
+            是否已启动
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.WebVisitor.WVWebVisitor._requestList">
+            <summary>
+            请求队列
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.WebVisitor.WVWebVisitor._responseList">
+            <summary>
+            响应队列
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.WebVisitor.WVWebVisitor.StartVisitor">
+            <summary>
+            启动多线程网页访问
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.WebVisitor.WVWebVisitor.StopVisitor">
+            <summary>
+            停止多线程网页访问
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.WebVisitor.WVWebVisitor.PushRequest(Sigbit.Net.WebVisitor.WVWebRequest)">
+            <summary>
+            压入新的访问请求
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:Sigbit.Net.WebVisitor.WVWebVisitor.PopResponse">
+            <summary>
+            得到访问结果。需要在外部循环或定时调用，如没有结果则返回null。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebVisitor.Instance">
+            <summary>
+            唯一实例。根据应用的情况，应用也可以不用这个唯一实例，或创建新的实例。
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.WebVisitor.WVPageCharset">
+            <summary>
+            网页字符集
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.WebVisitor.WVPageCharset.Undefine">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.WebVisitor.WVPageCharset.GB2312">
+            <summary>
+            GB2312编码
+            </summary>
+        </member>
+        <member name="F:Sigbit.Net.WebVisitor.WVPageCharset.UTF8">
+            <summary>
+            UTF8编码
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.WebVisitor.WVWebVisitorConfig">
+            <summary>
+            网页访问配置
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebVisitorConfig.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebVisitorConfig.VisitThreadCount">
+            <summary>
+            线程数量（缺省为10个）
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebVisitorConfig.LogEventEnabled">
+            <summary>
+            是否记录事件日志。以一天一个文件记录网页的地址和访问结果等。
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebVisitorConfig.LogDataEnabled">
+            <summary>
+            是否记录详细的交互数据。详细的交互数据包括详细的请求、获取的页面等。
+            </summary>
+        </member>
+        <member name="P:Sigbit.Net.WebVisitor.WVWebVisitorConfig.DefaultCharset">
+            <summary>
+            缺省的字符集
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.XmlPacket.XmlPacket">
+            <summary>
+            XMLPacket类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacket.SynchronizeFromProperties">
+            <summary>
+            从属性同步到DataSet中
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacket.SynchronizeToProperties">
+            <summary>
+            从DataSet中同步到属性
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacket.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacket.GetDisplayContentText">
+            <summary>
+            得到显示Packet内容的文本
+            </summary>
+            <returns>Packet内容文本</returns>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacket.ReadFromFile(System.String)">
+            <summary>
+            从文件中产生包的内容
+            </summary>
+            <param name="sFileName">文件名</param>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacket.FromXmlDocument(System.Xml.XmlDocument)">
+            <summary>
+            从XmlDocument读取
+            </summary>
+            <param name="xmlDoc">XmlDocument实例</param>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacket.AddDataSetByNode(System.Xml.XmlNode)">
+            <summary>
+            通过结果集的节点创建一个结果集
+            </summary>
+            <param name="dataSetNode">结果集节点</param>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacket.WriteToFile(System.String)">
+            <summary>
+            写入到文件
+            </summary>
+            <param name="sFileName">文件名</param>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacket.GetDataRowElement(System.Xml.XmlDocument,Sigbit.Net.BIPPacket.BIPDataSet,System.Int32)">
+            <summary>
+            得到一行的Xml元素
+            </summary>
+            <param name="xmlDoc">xmlDocument文档</param>
+            <param name="dataSet">结果集</param>
+            <param name="nRowNum">记录号</param>
+            <returns>Xml元素</returns>
+        </member>
+        <member name="P:Sigbit.Net.XmlPacket.XmlPacket.PacketOrgVersion">
+            <summary>
+            数据包组织的版本号
+            </summary>
+        </member>
+        <member name="T:Sigbit.Net.XmlPacket.XmlPacketLight">
+            <summary>
+            轻量级的XMLPacket，从XmlPacket继承，实现文本文件的读写。
+            </summary>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacketLight.ReadFrom(System.Byte[])">
+            <summary>
+            从字节数组读取
+            </summary>
+            <param name="bsPacket">字节数组</param>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacketLight.ReadFrom(System.String)">
+            <summary>
+            从字符串读取
+            </summary>
+            <param name="sPacketString">字符串</param>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacketLight.ReadFromString__Light__DataSet(System.String[],System.Int32)">
+            <summary>
+            DataSet(第二个结果集)的转换
+            </summary>
+            <param name="arrLines">每行的数组</param>
+            <param name="nDataSetBeginLineSeq">结果集开始的行序号</param>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacketLight.ReadFromFile(System.String)">
+            <summary>
+            从文件中读取
+            </summary>
+            <param name="sFileName">文件名</param>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacketLight.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>去掉最前面的那个签名</returns>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacketLight.ToString__LightDataSet(Sigbit.Net.BIPPacket.BIPDataSet)">
+            <summary>
+            将结果集转换成"|"分割的表示
+            </summary>
+            <param name="dataSet">结果集</param>
+            <returns>结果集的简约文本输出</returns>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacketLight.WriteToFile(System.String)">
+            <summary>
+            写出到文件
+            </summary>
+            <param name="sFileName">文件名</param>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacketLight.ToBytes">
+            <summary>
+            写出到字节数组
+            </summary>
+            <returns>字节数组</returns>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacketLight.WriteVerify__CanWriteNonXMLFormat">
+            <summary>
+            校验数据包，判断能否写成非XML的格式，以节省空间
+            </summary>
+            <returns>是否能写成非XML格式</returns>
+        </member>
+        <member name="M:Sigbit.Net.XmlPacket.XmlPacketLight.WriteVerify__CanWriteNonXMLFormat__AValue(System.String)">
+            <summary>
+            校验一个值，判断能否写成非XML的格式
+            </summary>
+            <param name="sValue">一个值</param>
+            <returns>能否写成非XML格式</returns>
+        </member>
+    </members>
+</doc>

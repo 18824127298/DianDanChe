@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "分期的金额";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width">
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+    <style type="text/css">
+        .myUl5 li {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body class="bodybg">
+    @using (Html.BeginForm("LoanStagesSubmit", "Loan", FormMethod.Post, new { id = "LoanStagesSubmit" }))
+    {                          
+
+        <div class="qbCon2" id="qd1">
+            <ul class="myUl5">
+                <li>&nbsp;融资租赁额度 <span>
+                    <input type="hidden" value="@ViewBag.Phone" id="CreditPhone" name="CreditPhone">
+                    <input type="tel" name="TotalAmountStage" id="TotalAmountStage" value="" onblur="fn_DownPayments()" class="fxf gx" style="border: 0px" datatype="m" placeholder="融资租赁额度"></span> </li>
+
+                <li>&nbsp;自付 <span>
+                    <input type="tel" name="DownPayments" id="DownPayments" value="" onblur="fn_DownPayments()" class="fxf gx" style="border: 0px" datatype="m" placeholder="自付"></span> </li>
+
+                <li>&nbsp;期数 <span>
+                    <input type="tel" name="Deadline" id="Deadline" value="" class="fxf gx" onblur="fn_DownPayments()" style="border: 0px" datatype="m" placeholder="期数"></span> </li>
+
+                <li>&nbsp;价格 <span>
+                    <input type="tel" name="CreditAmount" id="CreditAmount" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="价格" readonly="readonly"></span> </li>
+
+                <li>&nbsp;费率<span>
+                    <select id="RentRate" name="RentRate">
+                        <option value="0">请选择</option>
+                        <option value="4.5">东莞</option>
+                        <option value="4.1">广州</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;月供 <span>
+                    <input type="tel" name="MonthlyPayment" id="MonthlyPayment" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="月供" readonly="readonly"></span> </li>
+            </ul>
+        </div>
+        <input type="button" onclick="fn_tijiao()" class="userbtn" id="tijiao" value="提交">
+
+    }
+</body>
+<script type="text/javascript">
+    function fn_tijiao() {
+        $("#tijiao").attr('disabled', true);
+        $("#LoanStagesSubmit").submit();
+    }
+
+    $("#RentRate").change(function () {
+        var RentRateValue = $("#RentRate").val();
+        if ($("#TotalAmountStage").val() == "") {
+            alert("分期总额不能为空！");
+            $("#TotalAmountStage").focus();
+            return false;
+        }
+        if ($("#Deadline").val() == "") {
+            alert("期数不能为空！");
+            $("#Deadline").focus();
+            return false;
+        }
+        var MonthlyPayment = $("#TotalAmountStage").val() * RentRateValue / 100 + $("#TotalAmountStage").val() / $("#Deadline").val();
+        $("#MonthlyPayment").val(Math.ceil(MonthlyPayment));
+    });
+
+    function fn_DownPayments() {
+        if ($("#TotalAmountStage").val() != "" && $("#DownPayments").val() != "") {
+            CreditAmount = Number($("#TotalAmountStage").val()) + Number($("#DownPayments").val());
+            $("#CreditAmount").val(CreditAmount);
+        }
+        if ($("#TotalAmountStage").val() != "" && $("#Deadline").val() != "") {
+            var RentRateValue = $("#RentRate").val();
+            var MonthlyPayment = $("#TotalAmountStage").val() * RentRateValue / 100 + $("#TotalAmountStage").val() / $("#Deadline").val();
+            $("#MonthlyPayment").val(Math.ceil(MonthlyPayment));
+        }
+    }
+</script>
+</html>

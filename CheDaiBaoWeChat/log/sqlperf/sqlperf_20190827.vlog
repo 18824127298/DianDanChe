@@ -1,0 +1,3 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1943 ms / want 500 ms¡¿ 2019/8/27 16:15:01 ====
+insert into loanapply ([BorrowerId],[CreditPhone],[RepaymentStatus],[SalesmanId],[Step],[Company],[IsValid],[CreateTime],[UpdateTime]) values (@BorrowerId,@CreditPhone,@RepaymentStatus,@SalesmanId,@Step,@Company,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+

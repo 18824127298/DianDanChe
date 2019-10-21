@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width">
+    <title>电单车</title>
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+</head>
+
+<body class="bodybg">
+    <header style="display: none">
+        <a class="back" href="javascript:history.go(-1)"></a>
+        <h1 class="h01">用户中心</h1>
+    </header>
+    <div class="myban">
+        <div class="myPic">
+            <a href="http://wx.che01.com/files.php">
+                <img src="@ViewBag.HeadImgurl"></a>
+        </div>
+        <div class="myTxt">
+            <p>@ViewBag.NickName</p>
+            <p>@ViewBag.Phone</p>
+        </div>
+
+        @* <div class="btntj" style="top: 1.5rem; border-left: groove 2px #11284c">
+        </div>*@
+    </div>
+    @*   <ul class="menu3">
+
+        <li>
+            <p><a href="~/Loan/LoanIndex" class="ico4"></a></p>
+            <a href="~/Loan/LoanIndex">车贷</a>
+        </li>
+
+        <li>
+            <p><a href="#" class="ico1"></a></p>
+            <a href="#">加油管理</a>
+        </li>
+
+        <li>
+            <p><a href="~/GodService/CarIllegal" class="ico2"></a></p>
+            <a href="~/GodService/CarIllegal">违章</a>
+        </li>
+
+        <li>
+            <p><a href="#" class="ico3"></a></p>
+            <a href="#">车险</a>
+        </li>
+
+    </ul>*@
+    @* <div class="qbCon">
+        <div class="qb1">
+            <h3><i></i>我的钱包</h3>
+            <div class="qbg">
+                <p>现金： <span>￥0</span></p>
+                <a href="http://wx.che01.com/point.php">
+                    <p>积分： <span></span></p>
+                </a>
+            </div>
+        </div>
+        <div class="qb2">
+            <div class="qblist">
+                <div class="qbicon"></div>
+                <div class="qbtxt">
+                    <p><a href="http://wx.che01.com/voucher.php">优惠券</a></p>
+
+
+                    <p class="p1">0张可用</p>
+                </div>
+            </div>
+            <div class="qblist" style="border: none;">
+                <div class="qbicon qbicn2"></div>
+                <div class="qbtxt">
+                    <a href="http://wx.che01.com/mall.php">
+                        <p class="p1">积分</p>
+                        <p class="p1">商城</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+    <div class="qbCon2">
+        <ul class="myUl">
+            <li><a href="~/God/Files">客户资料<i></i></a></li>
+@*            @if (ViewBag.IsSalesman != true)
+            {
+                <li><a href="~/Loan/LoanList">融资租赁记录<i></i></a></li>
+            }*@
+            @if (ViewBag.IsSalesman == true)
+            {
+                <li><a href="~/God/LoanApplyList">当天融资租赁情况<i></i></a></li>
+                <li><a href="~/God/AllLoanList">全部融资租赁情况<i></i></a></li>
+                <li><a href="~/GodService/GetPhone?returnUrl=../God/IDPhoto">查看客户身份证照片<i></i></a></li>
+                <li><a href="~/GodService/GetPhone?returnUrl=../God/BankCardPhoto">查看客户银行卡照片<i></i></a></li>
+                <li><a href="~/GodService/GetPhone?returnUrl=../God/MaterialPhoto">查看客户资料照片<i></i></a></li>
+            }
+            else
+            {
+                if (ViewBag.Amount > 0)
+                {
+                <li><a onclick="fn_Refund()">申请退押金<i></i></a></li>
+                }
+                <li><a href="~/God/IDPhoto">身份证照片<i></i></a></li>
+                <li><a href="~/God/BankCardPhoto">银行卡照片<i></i></a></li>
+                <li><a href="~/God/MaterialPhoto">补充资料照片<i></i></a></li>
+            }
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        ShowMenu(1); 
+    });
+
+    function fn_Refund() {
+        $.post("Refund",
+            {
+                rn: Math.random()
+            }, function (json) {
+                if (json = "1") {
+                    alert("您已提交成功！");
+                    location.reload();
+                }
+                else {
+                    alert("请您耐心等待！");
+                }
+            });
+    }
+</script>

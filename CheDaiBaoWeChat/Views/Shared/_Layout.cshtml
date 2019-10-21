@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi,width=640, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    @RenderBody()
+
+    @Html.Partial("_Notifications")
+    @RenderSection("scripts", required: false)
+</body>
+<footer></footer>
+
+<nav>
+    <ul id="menu">
+        @*        <li class="active">
+            <p class="p1"><a href="~/CdbIndex/Index"></a></p>
+            <a href="~/CdbIndex/Index"></a></li>*@
+        <li>
+            <p class="p1"><a href="~/Loan/LoanIndex"></a></p>
+            <a href="~/Loan/LoanIndex">首页</a></li>
+        @*        <li>
+            <p class="p3"><a href="~/GodService/DriverApplicationCreate"></a></p>
+            <a href="~/GodService/DriverApplicationCreate">司机招募</a></li>
+        <li>
+            <p class="p4"><a href="~/GodService/CarIllegal"></a></p>
+            <a href="~/GodService/CarIllegal">违章</a></li>*@
+        <li>
+            <p class="p2"><a href="~/God/Index"></a></p>
+            <a href="~/God/Index">我的</a></li>
+    </ul>
+</nav>
+</html>
+<script type="text/javascript">
+    function ShowMenu(index) {
+        $("#menu>li").removeClass("active");
+        $("#menu>li").eq(index).addClass("active");
+    }
+</script>

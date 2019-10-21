@@ -1,0 +1,10 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 952 ms / want 500 ms¡¿ 2017/5/19 16:57:08 ====
+select * from BasicInformation where  IsValid=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 669 ms / want 500 ms¡¿ 2017/5/19 16:57:08 ====
+select l.*, f.ZhengFilePath, f.FanFilePath, f.ZXName, f.ZXPassword, f.ZXCode from LoanApply l left join LoanFile f on l.Id = f.LoanApplyId where l.IsValid = true and l.SecondAuditResult is null
+ order by createtime desc
+
+==== ¡¾instanceDefault¡¿¡¾actual 535 ms / want 500 ms¡¿ 2017/5/19 17:06:30 ====
+select Id as id , Aliases+'('+FullName+')' as text from god where CHARINDEX('',Aliases)>0 union select Id as id , Aliases+'('+FullName+')' as text from God where CHARINDEX('', FullName)>0
+

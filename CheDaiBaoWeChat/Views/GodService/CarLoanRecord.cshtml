@@ -1,0 +1,102 @@
+﻿@using CheDaiBaoWeChatModel.Models;
+@model List<Borrow>
+@{
+    ViewBag.Title = "杰运好车";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi,width=640, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no" />
+    <title>账单明细</title>
+    <style type="text/css">
+        .zdlist {
+            width: 100%;
+            border: 1px solid #ebf0f2;
+            border-left: none;
+            border-right: none;
+        }
+
+            .zdlist ul {
+                margin-top: 1rem;
+                width: 100%;
+                background: #f0f0f0;
+            }
+
+                .zdlist ul li {
+                    padding: 1rem 1.5rem;
+                    border-bottom: 1px solid #dedede;
+                }
+
+                    .zdlist ul li .item {
+                        position: relative;
+                        height: 2.2rem;
+                    }
+
+                    .zdlist ul li .i1 span:first-child {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        font-size: 1.6rem;
+                        color: #2f2f2f;
+                    }
+
+                    .zdlist ul li .i1 span:last-child {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        font-size: 1.6rem;
+                        color: #2f2f2f;
+                    }
+
+                    .zdlist ul li .i2 span:first-child {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        font-size: 1.4rem;
+                        color: #8d8d8d;
+                    }
+
+                    .zdlist ul li .i2 span:last-child {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        font-size: 1.4rem;
+                        color: #1e1e1e;
+                    }
+    </style>
+</head>
+<body class="bodybg">
+    @if (Model.Count == 0)
+    {
+        <p class="bq003" style="font-size: 2rem; line-height: 12rem; text-align: center">您没有贷款记录</p>}
+    else
+    {
+        <div class="zdlist">
+            <ul>
+                @foreach (Borrow brw in Model)
+                {
+                    <li>
+                        <div class="item i1">
+                            <span>@brw.Stages/@brw.TotalPeriod 期</span>
+                            <span>@((brw.ExpectedInterest).Value.ToString("N2"))</span>
+                        </div>
+                        <div class="item i2">
+                            <span>还款日 @brw.RepaymentDate.Value.ToString("yyyy/MM/dd")</span>
+                            @if (brw.RepaymentPlanMode == 0)
+                            {
+                                <span style="color: #0078e7">未还清</span>
+                            }
+                            else if (brw.RepaymentPlanMode > 0)
+                            {
+                                <span>已还清</span>
+                            }
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</body>

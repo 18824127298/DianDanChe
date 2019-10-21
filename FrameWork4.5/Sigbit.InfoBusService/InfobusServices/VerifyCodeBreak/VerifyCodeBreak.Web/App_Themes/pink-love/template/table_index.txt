@@ -1,0 +1,4 @@
+<frameset rows="0,*"  cols="*" frameborder="no" border="0" framespacing="0">
+  <!--  --> <frame name="table_top" scrolling="no" noresize src="about:blank" frameborder="0"> 
+    <frame name="table_main" scrolling="auto" noresize src="table_index/intel_view.aspx" frameborder="0">
+</frameset>

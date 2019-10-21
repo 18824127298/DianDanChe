@@ -1,0 +1,3 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 522 ms / want 500 ms¡¿ 2016/11/3 11:42:47 ====
+select * from receiptaddress where 1=1  and [IsValid]=@IsValid
+

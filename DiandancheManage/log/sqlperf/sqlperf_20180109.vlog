@@ -1,0 +1,14 @@
+==== ¡¾instanceDefault¡¿¡¾actual 823 ms / want 500 ms¡¿ 2018/1/9 19:34:29 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 9306 ms / want 500 ms¡¿ 2018/1/9 19:43:04 ====
+update loaninformation set [Number]=@Number,[LoanType]=@LoanType,[ApplyTime]=@ApplyTime,[UsageOfLoan]=@UsageOfLoan,[TotalAmount]=@TotalAmount,[Payment]=@Payment,[Age]=@Age,[Marriage]=@Marriage,[Sex]=@Sex,[OverdueHistory]=@OverdueHistory,[LitigationCase]=@LitigationCase,[CurrentOverdue]=@CurrentOverdue,[HistoricalLoans]=@HistoricalLoans,[CardAccountNumber]=@CardAccountNumber,[OverdueLoan]=@OverdueLoan,[CardOverdueAccounts]=@CardOverdueAccounts,[LongestOverdueLoan]=@LongestOverdueLoan,[LongestOverdueNumber]=@LongestOverdueNumber,[OutstandingLoan]=@OutstandingLoan,[CardTotalCredit]=@CardTotalCredit,[OutstandingAmount]=@OutstandingAmount,[SingleBankMax]=@SingleBankMax,[AveragePayableAmount]=@AveragePayableAmount,[HouseProperty]=@HouseProperty,[CardQuotaRate]=@CardQuotaRate,[CarProperty]=@CarProperty,[Brand]=@Brand,[Model]=@Model,[GuidingPrice]=@GuidingPrice,[SignTime]=@SignTime,[FundUsage]=@FundUsage,[GodId]=@GodId,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1254 ms / want 500 ms¡¿ 2018/1/9 19:55:26 ====
+select * from god where 1=1  and [IsValid]=@IsValid
+

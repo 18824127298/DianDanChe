@@ -1,0 +1,33 @@
+BODY {
+	
+}
+.xtree {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BEHAVIOR: url(/include/xtree.htc); MARGIN-LEFT: 0px; PADDING-TOP: 0px
+}
+.TreeNode {
+	HEIGHT: 20px
+}
+.TreeNode INPUT {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; POSITION: relative; TOP: -2px
+}
+.TreeNode IMG {
+	CURSOR: hand
+}
+.TreeNode SPAN {
+	BORDER-RIGHT: #e0e0e0 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #e0e0e0 1px solid; PADDING-LEFT: 3px; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; MARGIN-LEFT: 0px; BORDER-LEFT: #e0e0e0 1px solid; CURSOR: default; PADDING-TOP: 2px; BORDER-BOTTOM: #e0e0e0 1px solid; FONT-FAMILY: Verdana Arial ËÎÌו; HEIGHT: 17px
+}
+.TreeNode SPAN A {
+	TEXT-DECORATION: none
+}
+SPAN.MouseOver1 {
+	BORDER-RIGHT: #888888 1px solid; BORDER-TOP: #888888 1px solid; BORDER-LEFT: #888888 1px solid; BORDER-BOTTOM: #888888 1px solid; BACKGROUND-COLOR: #b3d1ff
+}
+SPAN.HighLight {
+	BORDER-RIGHT: #888888 1px solid; BORDER-TOP: #888888 1px solid; BORDER-LEFT: #888888 1px solid; BORDER-BOTTOM: #888888 1px solid; BACKGROUND-COLOR: #ffffff
+}
+SPAN.loading {
+	MARGIN: -3px -4px; COLOR: #888888
+}
+.container {
+	PADDING-LEFT: 13px; HEIGHT: 22px
+}

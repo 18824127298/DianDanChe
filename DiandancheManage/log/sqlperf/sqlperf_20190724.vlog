@@ -1,0 +1,27 @@
+==== ¡¾instanceDefault¡¿¡¾actual 1375 ms / want 500 ms¡¿ 2019/07/24 9:57:12 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 703 ms / want 500 ms¡¿ 2019/07/24 9:58:09 ====
+select *, UnPrincipal+UnTotalInterest as sumuntotal from Borrow b join LoanApply l on b.LoanApplyId = l.Id where b.IsValid= 1 and b.OverDay > 0
+
+==== ¡¾instanceDefault¡¿¡¾actual 1392 ms / want 500 ms¡¿ 2019/07/24 19:38:45 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 708 ms / want 500 ms¡¿ 2019/07/24 19:39:07 ====
+select l.CreditPhone, i.Name, b.FullName,l.BusinessName, l.RecruitmentName,
+         l.TotalAmountStage, l.Deadline, l.CustomerClassification, l.CreateTime,l.Id from LoanApply l join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id = l.SalesmanId
+ where l.IsValid= 1 and l.RepaymentStatus = 1 and i.IsValid= 1
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 1209 ms / want 500 ms¡¿ 2019/07/24 19:39:37 ====
+update loanapply set [BorrowerId]=@BorrowerId,[CreditPhone]=@CreditPhone,[CreditAmount]=@CreditAmount,[Deadline]=@Deadline,[CreditDescription]=@CreditDescription,[BusinessName]=@BusinessName,[RecruitmentName]=@RecruitmentName,[Brand]=@Brand,[CheType]=@CheType,[TotalAmountStage]=@TotalAmountStage,[DownPayments]=@DownPayments,[EducationLevel]=@EducationLevel,[MaritalStatus]=@MaritalStatus,[LivingConditions]=@LivingConditions,[CustomerClassification]=@CustomerClassification,[FengKongRemark]=@FengKongRemark,[AuditTime]=@AuditTime,[Auditor]=@Auditor,[AuditorRemark]=@AuditorRemark,[RepaymentStatus]=@RepaymentStatus,[SalesmanId]=@SalesmanId,[WithinMonth]=@WithinMonth,[MonthlyPayment]=@MonthlyPayment,[TongDunWang]=@TongDunWang,[ElectricCore]=@ElectricCore,[VisitRecord]=@VisitRecord,[RentRate]=@RentRate,[IsValid]=@IsValid,[CreateTime]=@CreateTime,[UpdateTime]=@UpdateTime where id=@Id
+

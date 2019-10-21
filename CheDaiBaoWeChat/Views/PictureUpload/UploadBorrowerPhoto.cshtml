@@ -1,0 +1,223 @@
+﻿@{
+    ViewBag.Title = "上传用户信息";
+}
+<meta charset="UTF-8">
+<meta name="viewport" content="target-densitydpi=device-dpi,width=640, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no" />
+<link href="~/Content/css/common.css" rel="stylesheet" />
+<script src="~/Content/js/jquery-1.11.1.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<style>
+    .header .head-a02 {
+        color: #999999;
+        padding-top: 30px;
+    }
+
+        .header .head-a02 span {
+            position: relative;
+            display: block;
+            width: 425px;
+            height: 40px;
+            line-height: 40px;
+            margin: 0 auto;
+            padding-left: 36px;
+            text-align: center;
+        }
+
+            .header .head-a02 span i {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                margin-top: -13px;
+                background: url(../Content/img/icon_01.png) no-repeat center center;
+                width: 26px;
+                height: 26px;
+                -webkit-background-size: 100% 100%;
+                background-size: 100% 100%;
+            }
+
+    .fz25 {
+        font-size: 25px;
+    }
+
+    .p-b30 {
+        padding-bottom: 30px!important;
+    }
+
+    .content .confirm {
+        display: block;
+        margin: 0 32px;
+        width: 572px;
+        height: 72px;
+        background: #b31f23;
+        color: #fff;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .m-t50 {
+        margin-top: 50px!important;
+    }
+
+    .fz20 {
+        font-size: 20px;
+    }
+</style>
+<body bgcolor="#f5f5f9">
+    <section class="header">
+        <div class="head-a02 fz25 p-b30">
+            <span><i></i>我们注重信息保护，不授权不对外提供</span>
+        </div>
+    </section>
+    <section class="content">
+
+        <div class="uploadFile p-b70">
+            <h3 class="fz25 p-t20" style="text-align: center; color: #b41f23; margin-top: 30px;">身份证正面</h3>
+            <div class="p-t10">
+                <a href="#" id="zhengmian">
+                    <input type="button" onclick="fn_chooseImage('zhengmian')" />
+                </a>
+            </div>
+            <h3 class="fz25 p-t35" style="text-align: center; color: #b41f23">身份证反面</h3>
+            <div class="p-t10">
+                <a href="#" id="fanmian">
+                    <input type="button" onclick="fn_chooseImage('fanmian')" />
+                </a>
+            </div>
+            <div class="uploadFile p-b70">
+                <h3 class="fz25 p-t20" style="text-align: center; color: #b41f23; margin-top: 30px;">银行卡带卡号页面</h3>
+                <div class="p-t10">
+                    <a href="#" id="yinhangka">
+                        <input type="button" onclick="fn_chooseImage('yinhangka')" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="tip fz25">
+            <p>请确保您本人的信息真实有效</p>
+            <p>上传虚假信息将对您的信用产生负面影响</p>
+        </div>
+        <button class="confirm m-t50 fz20" id="shangchuang" onclick="fn_shangchuang()">立即上传</button>
+    </section>
+    <input hidden="hidden" id="zhengmianimg" value="">
+    <input hidden="hidden" id="fanmianimg" value="">
+    <input hidden="hidden" id="yinhangkaimg" value="">
+</body>
+<script type="text/javascript">
+
+
+    $(function () {
+        @*        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: "@ViewBag.appId", // 必填，公众号的唯一标识
+            timestamp: "@ViewBag.timestamp", // 必填，生成签名的时间戳
+            nonceStr: "@ViewBag.nonceStr", // 必填，生成签名的随机串
+            signature: "@ViewBag.signature",// 必填，签名，见附录1
+            //menuItem: 'addContact',
+            jsApiList: [
+                'chooseImage',
+                'uploadImage'
+            ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });*@
+        var url = location.href.split('#')[0];
+        //从后端请求参数
+        $.post("GetWXSharedParam", { url: url, rn: Math.random() }, function (json) {
+            var data = $.parseJSON(json);
+            if (data.result === true) {
+                wx.config({
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: data.appId, // 必填，公众号的唯一标识
+                    timestamp: data.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                    signature: data.signature,// 必填，签名，见附录1
+                    //menuItem: 'addContact',
+                    jsApiList: [
+                        'uploadImage',
+                        'chooseImage'
+                    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+            }
+        });
+    });
+
+
+    wx.ready(function () {
+
+    });
+    wx.error(function (res) {
+    });
+    function fn_chooseImage(Type) {
+        //document.querySelector('#chooseImage').onclick = function () {
+        wx.chooseImage({
+            count: 1, // 默认9
+            sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+            sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+            success: function (res) {
+                localIds = res.localIds;
+                // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                // localId 可以用于微信手机版图片显示（目前PC版不可用）
+                var idCardPositive = localIds[0].toString();
+                uploadImage(idCardPositive, Type);
+            },
+            fail: function (res) {
+                location.reload();
+            }
+        });
+    }
+
+    function uploadImage(idCardPositive, Type) {
+        wx.uploadImage({
+            localId: idCardPositive, // 需要上传的图片的本地ID，由chooseImage接口获得
+            isShowProgressTips: 1, // 默认为1，显示进度提示
+            success: function (res) {
+                serverId = res.serverId; // 返回图片的服务器端ID
+                $.post("GetMultimedia", { MEDIA_ID: serverId, rn: Math.random() }, function (json) {
+                    $('#' + Type + '').css({ "background-image": "url(" + json + ")", "border": "none" });
+                    $('#' + Type + 'img').val(json);
+                });
+            },
+            fail: function (res) {
+                location.reload();
+            }
+        });
+    }
+
+
+    function fn_shangchuang() {
+        $("#shangchuang").attr('disabled', true);
+        if ($("#zhengmianimg").val() == "" || $("#fanmianimg").val() == "") {
+            alert("请先上传身份证");
+            return false;
+        }
+        $.post("UploadBorrowerPhoto",
+            {
+                Zhengmianimg: $("#zhengmianimg").val(),
+                Fanmianimg: $("#fanmianimg").val(),
+                yinhangka: $("#yinhangkaimg").val(),
+                rn: Math.random()
+            }, function (json) {
+                $("#shangchuang").attr('disabled', false);
+                if (json.Result == true) {
+                    window.location.href = "../GodService/Information";
+                }
+                else {
+                    alert(json.Message);
+                    if (json.Message == "手机号信息过期，请重新填写！") {
+                        window.location.href = "../GodService/GetPhone?returnUrl=" + json.ReturnUrl;
+                    }
+                }
+            });
+    }
+
+
+    window.alert = function (name) {
+        var iframe = document.createElement("IFRAME");
+        iframe.style.display = "none";
+        iframe.setAttribute("src", 'data:text/plain,');
+        document.documentElement.appendChild(iframe);
+        window.frames[0].window.alert(name);
+        iframe.parentNode.removeChild(iframe);
+    };
+</script>

@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "捷运好车";
+}
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://wx.che01.com/files.php -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width">
+
+
+    <link href="~/Content/css/common.css" rel="stylesheet" />
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+</head>
+
+<body class="bodybg">
+    <header>
+        <a class="back" href="javascript:history.go(-1)"></a>
+        <h1 class="h01">我的资料</h1>
+    </header>
+  @*  @using (Html.BeginForm("GodFileUpdate", "God", FormMethod.Post, new { id = "GodFileUpdate" }))
+    {   
+        *@<input type="hidden" name="act" id="act" value="post">
+        <div class="qbCon2">
+            <ul class="myUl5">
+                <li class="pic uploadbtn"><a>头像<i></i><p>
+                    <img src="@ViewBag.HeadImgurl">
+                </p>
+                </a>
+                </li>
+                <li><a>呢称<i></i> <span>
+                    @ViewBag.NickName</span></a></li>
+            </ul>
+        </div>
+        <div class="qbCon2">
+            <ul class="myUl5">
+                <li><a>姓名<i></i><span>@ViewBag.FullName</span></a></li>
+                <li><a>身份证号码<i></i><span>@ViewBag.IDNumber</span></a></li>
+                <li><a>手机号码&nbsp;&nbsp;&nbsp;<i></i><span>@ViewBag.Phone</span></a></li>
+            </ul>
+        </div>@*
+        <div class="box">
+            <input name="提交" type="button" onclick="fn_tijiao()" class="userbtn rwbtn" value="资料更新">
+        </div>*@
+    @*}*@
+
+  @*  <script type="text/javascript">
+        function fn_tijiao() {
+            if ($("#FullName").val() == "") {
+                alert("请填写姓名!");
+                return false;
+            }
+            if ($("#IDNumber").val() == "") {
+                alert("请填写身份证!");
+                return false;
+            }
+            $("#GodFileUpdate").submit();
+        }
+    </script>*@
+</body>

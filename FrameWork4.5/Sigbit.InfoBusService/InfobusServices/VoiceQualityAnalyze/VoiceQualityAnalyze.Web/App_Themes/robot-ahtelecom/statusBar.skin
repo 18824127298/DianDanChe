@@ -1,0 +1,2 @@
+﻿<asp:Image runat="server" SkinID="statusBarLeftImage"
+Height="20" Width="6" ImageUrl="images/status_bar/sb_bg.gif" />

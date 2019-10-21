@@ -1,0 +1,500 @@
+﻿@using CheDaiBaoWeChatModel.Models;
+@model LoanApply
+@{
+    ViewBag.Title = "修改用户基本资料";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width">
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+    <style type="text/css">
+        .myUl5 li {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body class="bodybg">
+    @using (Html.BeginForm("ModifyContactMode", "Loan", FormMethod.Post, new { id = "ModifyContactMode" }))
+    {                       
+        <div class="qbCon2" id="qd1">
+            <ul class="myUl5">
+                <li>&nbsp;融资租赁额度 <span>
+                    <input type="tel" name="TotalAmountStage" id="TotalAmountStage" value="@Model.TotalAmountStage" onblur="fn_DownPayments()" class="fxf gx" style="border: 0px" datatype="m" placeholder="融资租赁额度"></span> </li>
+
+                <li>&nbsp;自付 <span>
+                    <input type="tel" name="DownPayments" id="DownPayments" value="@Model.DownPayments" onblur="fn_DownPayments()" class="fxf gx" style="border: 0px" datatype="m" placeholder="自付"></span> </li>
+
+                <li>&nbsp;期数 <span>
+                    <input type="tel" name="Deadline" id="Deadline" value="@Model.Deadline" onblur="fn_DownPayments()" class="fxf gx" style="border: 0px" datatype="m" placeholder="期数"></span> </li>
+
+                <li>&nbsp;价格 <span>
+                    <input type="tel" name="CreditAmount" id="CreditAmount" value="@Model.CreditAmount" class="fxf gx" style="border: 0px" datatype="m" placeholder="价格" readonly="readonly"></span> </li>
+
+                <li>&nbsp;费率<span>
+                    <select id="RentRate" name="RentRate">
+                        <option value="0">请选择</option>
+                        <option value="4.5">东莞</option>
+                        <option value="4.1">广州</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;月供 <span>
+                    <input type="tel" name="MonthlyPayment" id="MonthlyPayment" value="@Model.MonthlyPayment" class="fxf gx" style="border: 0px" datatype="m" placeholder="月供" readonly="readonly"></span> </li>
+            </ul>
+
+
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_xiayibu()" class="userbtn" style="width: 50%;" value="下一步">
+            </ul>
+        </div>
+
+        <div class="qbCon2" style="display: none" id="qd2">
+            <ul class="myUl5">
+                <li>&nbsp;上个工作单位名称<span>
+                    <input type="text" name="LastWorkName" id="LastWorkName" value="@Model.LastWorkName" class="fxf gx" style="border: 0px" datatype="m" placeholder="上一份工作单位名称"></span> </li>
+
+                <li>&nbsp;工作内容<span>
+                    <input type="text" name="JobContent" id="JobContent" value="@Model.JobContent" class="fxf gx" style="border: 0px" datatype="m" placeholder="工作内容"></span> </li>
+
+                <li>&nbsp;月工资<span>
+                    <input type="tel" name="MonthlyWage" id="MonthlyWage" value="@Model.MonthlyWage" class="fxf gx" style="border: 0px" datatype="m" placeholder="月工资"></span> </li>
+
+                <li>&nbsp;工作时间<span>
+                    <input type="tel" name="WorkingYear" id="WorkingYear" value="@Model.WorkingYear" class="fxf gx" style="border: 0px" datatype="m" placeholder="以月为单位"></span></li>
+
+                <li>&nbsp;总工作年限<span>
+                    <input type="tel" name="WorkingSeniority" id="WorkingSeniority" value="@Model.WorkingSeniority" class="fxf gx" style="border: 0px" datatype="m" placeholder="以月为单位"></span></li>
+
+                <li>&nbsp;支出<span>
+                    <input type="tel" name="Expenditure" id="Expenditure" value="@Model.Expenditure" class="fxf gx" style="border: 0px" datatype="m" placeholder="支出"></span> </li>
+
+                <li>&nbsp;生活费用<span>
+                    <input type="tel" name="LivingCost" id="LivingCost" value="@Model.LivingCost" class="fxf gx" style="border: 0px" datatype="m" placeholder="生活费用"></span> </li>
+
+                <li>&nbsp;房租<span>
+                    <input type="tel" name="Rent" id="Rent" value="@Model.Rent" class="fxf gx" style="border: 0px" datatype="m" placeholder="房租"></span> </li>
+
+            </ul>
+
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_fanhui()" class="userbtn" style="width: 35%;" value="返回">
+                <input type="button" onclick="fn_xiayibu1()" class="userbtn" style="width: 35%;" value="下一步">
+            </ul>
+        </div>
+        
+
+        <div class="qbCon2" style="display: none" id="qd3">
+            <ul class="myUl5">
+                <li style="text-align: center; background-color: #ADD8E6">支付宝</li>
+
+                <li>&nbsp;芝麻信用<span>
+                    <input type="tel" name="SesameCredit" id="SesameCredit" value="@Model.SesameCredit" class="fxf gx" style="border: 0px" datatype="m" placeholder="芝麻信用"></span> </li>
+
+                <li>&nbsp;是否花呗逾期<span>
+                    <select id="IsFlowersOverdue" name="IsFlowersOverdue">
+                        <option value="0" @(Model.IsFlowersOverdue == 0 ? "selected = \"selected\"" : "")>否</option>
+                        <option value="1" @(Model.IsFlowersOverdue == 1 ? "selected = \"selected\"" : "")>是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;花呗逾期金额<span>
+                    <input type="tel" name="FlowersOverdueAmount" id="FlowersOverdueAmount" value="@Model.FlowersOverdueAmount" class="fxf gx" style="border: 0px" datatype="m" placeholder="花呗逾期金额"></span> </li>
+
+                <li>&nbsp;是否借呗逾期<span>
+                    <select id="IsBorrowOverdue" name="IsBorrowOverdue">
+                        <option value="0" @(Model.IsBorrowOverdue == 0 ? "selected = \"selected\"" : "")>否</option>
+                        <option value="1" @(Model.IsBorrowOverdue == 1 ? "selected = \"selected\"" : "")>是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;借呗逾期金额<span>
+                    <input type="tel" name="BorrowOverdueAmount" id="BorrowOverdueAmount" value="@Model.BorrowOverdueAmount" class="fxf gx" style="border: 0px" datatype="m" placeholder="借呗逾期金额"></span> </li>
+            </ul>
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_fanhui1()" class="userbtn" style="width: 35%;" value="返回">
+                <input type="button" onclick="fn_xiayibu2()" class="userbtn" style="width: 35%;" value="下一步">
+            </ul>
+        </div>
+        
+        
+        <div class="qbCon2" style="display: none" id="qd4">
+            <ul class="myUl5">
+                <li style="text-align: center; background-color: #ADD8E6">银行</li>
+                <li>&nbsp;是否在银行贷款<span>
+                    <select id="IsBankLoan" name="IsBankLoan">
+                        <option value="0" @(Model.IsBankLoan == 0 ? "selected = \"selected\"" : "")>否</option>
+                        <option value="1" @(Model.IsBankLoan == 1 ? "selected = \"selected\"" : "")>是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;银行贷款余额<span>
+                    <input type="tel" name="BankLoanBalance" id="BankLoanBalance" value="@Model.BankLoanBalance" class="fxf gx" style="border: 0px" datatype="m" placeholder="银行贷款余额"></span> </li>
+
+
+                <li>&nbsp;是否银行逾期<span>
+                    <select id="IsBorrowOverdueAmount" name="IsBorrowOverdueAmount">
+                        <option value="0" @(Model.IsBorrowOverdueAmount == 0 ? "selected = \"selected\"" : "")>否</option>
+                        <option value="1" @(Model.IsBorrowOverdueAmount == 1 ? "selected = \"selected\"" : "")>是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;银行逾期金额<span>
+                    <input type="tel" name="BankOverdueAmount" id="BankOverdueAmount" value="@Model.BankOverdueAmount" class="fxf gx" style="border: 0px" datatype="m" placeholder="银行逾期金额"></span> </li>
+
+            </ul>
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_fanhui2()" class="userbtn" style="width: 35%;" value="返回">
+                <input type="button" onclick="fn_xiayibu3()" class="userbtn" style="width: 35%;" value="下一步">
+            </ul>
+        </div>
+        
+        <div class="qbCon2" style="display: none" id="qd5">
+            <ul class="myUl5">
+                <li style="text-align: center; background-color: #ADD8E6">P2P/小贷</li>
+                <li>&nbsp;是否在P2P/小贷借款<span>
+                    <select id="IsPtpLoan" name="IsPtpLoan">
+                        <option value="0" @(Model.IsPtpLoan == 0 ? "selected = \"selected\"" : "")>否</option>
+                        <option value="1" @(Model.IsPtpLoan == 1 ? "selected = \"selected\"" : "")>是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;P2P/小贷贷款余额<span>
+                    <input type="tel" name="PtpLoanBalance" id="PtpLoanBalance" value="@Model.PtpLoanBalance" class="fxf gx" style="border: 0px" datatype="m" placeholder="P2P贷款余额"></span> </li>
+
+
+                <li>&nbsp;是否P2P/小贷逾期<span>
+                    <select id="IsPtpOverdueAmount" name="IsPtpOverdueAmount">
+                        <option value="0" @(Model.IsPtpOverdueAmount == 0 ? "selected = \"selected\"" : "")>否</option>
+                        <option value="1" @(Model.IsPtpOverdueAmount == 1 ? "selected = \"selected\"" : "")>是</option>
+                    </select>
+                </span></li>
+
+
+                <li>&nbsp;P2P/小贷逾期金额<span>
+                    <input type="tel" name="PtpOverdueAmount" id="PtpOverdueAmount" value="@Model.PtpOverdueAmount" class="fxf gx" style="border: 0px" datatype="m" placeholder="银行P2P逾期金额"></span> </li>
+
+                <li>&nbsp;贷款未通过说明<span>
+                    <input type="text" name="FailurePassReason" id="FailurePassReason" value="@Model.FailurePassReason" class="fxf gx" style="border: 0px" datatype="m" placeholder="贷款未通过说明"></span> </li>
+
+
+            </ul>
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_fanhui3()" class="userbtn" style="width: 35%;" value="返回">
+                <input type="button" onclick="fn_xiayibu4()" class="userbtn" style="width: 35%;" value="下一步">
+            </ul>
+        </div>
+        
+        <div class="qbCon2" style="display: none" id="qd6">
+            <ul class="myUl5">
+                <li style="text-align: center; background-color: #ADD8E6">银行信用卡</li>
+                <li>&nbsp;是否办理银行信用卡<span>
+                    <select id="IsCreditcardLoan" name="IsCreditcardLoan">
+                        <option value="0" @(Model.IsCreditcardLoan == 0 ? "selected = \"selected\"" : "")>否</option>
+                        <option value="1" @(Model.IsCreditcardLoan == 1 ? "selected = \"selected\"" : "")>是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;信用卡已用金额<span>
+                    <input type="tel" name="CreditcardLoanBalance" id="CreditcardLoanBalance" value="@Model.CreditcardLoanBalance" class="fxf gx" style="border: 0px" datatype="m" placeholder="信用卡已用金额"></span> </li>
+
+                <li>&nbsp;是否信用卡逾期<span>
+                    <select id="IsCreditcardOverdueAmount" name="IsCreditcardOverdueAmount">
+                        <option value="0" @(Model.IsCreditcardOverdueAmount == 0 ? "selected = \"selected\"" : "")>否</option>
+                        <option value="1" @(Model.IsCreditcardOverdueAmount == 1 ? "selected = \"selected\"" : "")>是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;信用卡逾期金额<span>
+                    <input type="tel" name="CreditcardOverdueAmount" id="CreditcardOverdueAmount" value="@Model.CreditcardOverdueAmount" class="fxf gx" style="border: 0px" datatype="m" placeholder="信用卡逾期金额"></span> </li>
+
+                <div class="qbCon2" style="border: 1px solid #ebf0f2">
+                    <textarea name="OtherLoan" id="OtherLoan" cols="" rows="" style="width: 100%; height: 6rem; border: none; padding: 0.2rem" placeholder="其他贷款说明"></textarea>
+                </div>
+
+                <ul style="text-align: center;">
+                    <input type="button" onclick="fn_fanhui4()" class="userbtn" style="width: 35%;" value="返回">
+                    <input type="button" onclick="fn_xiayibu5()" class="userbtn" style="width: 50%;" value="下一步">
+                </ul>
+            </ul>
+        </div>
+        
+        
+        <div class="qbCon2" id="qd7" style="display: none">
+            <ul class="myUl5">
+                <li>&nbsp;商户名称 <span>
+                    <select id="BusinessName" name="BusinessName">
+                        <option value="广州众宇" @(Model.BusinessName == "广州众宇" ? "selected = \"selected\"" : "")>广州众宇</option>
+                        <option value="东莞宙斯" @(Model.BusinessName == "东莞宙斯" ? "selected = \"selected\"" : "")>东莞宙斯</option>
+                        <option value="广州骑士之家" @(Model.BusinessName == "广州骑士之家" ? "selected = \"selected\"" : "")>广州骑士之家</option>
+                        <option value="广州松吉电动车" @(Model.BusinessName == "广州松吉电动车" ? "selected = \"selected\"" : "")>广州松吉电动车</option>
+                        <option value="东莞盈立宝" @(Model.BusinessName == "东莞盈立宝" ? "selected = \"selected\"" : "")>东莞盈立宝</option>
+                        <option value="梓龙" @(Model.BusinessName == "梓龙" ? "selected = \"selected\"" : "")>梓龙</option>
+                        <option value="东莞佳佳自行车行" @(Model.BusinessName == "东莞佳佳自行车行" ? "selected = \"selected\"" : "")>东莞佳佳自行车行</option>
+                        <option value="百信车行" @(Model.BusinessName == "百信车行" ? "selected = \"selected\"" : "")>百信车行</option>
+                    </select></span></li>
+                <li>&nbsp;招聘点名称 <span>
+                    <select id="RecruitmentName" name="RecruitmentName">
+                        <option value="广州众宇305" @(Model.RecruitmentName == "广州众宇305" ? "selected = \"selected\"" : "")>广州众宇305</option>
+                        <option value="广州骑士之家" @(Model.RecruitmentName == "广州骑士之家" ? "selected = \"selected\"" : "")>广州骑士之家</option>
+                        <option value="广州丰兴广场" @(Model.RecruitmentName == "广州丰兴广场" ? "selected = \"selected\"" : "")>丰兴广场</option>
+                        <option value="广州梓龙大石" @(Model.RecruitmentName == "广州梓龙大石" ? "selected = \"selected\"" : "")>广州梓龙大石</option>
+                        <option value="广州优才" @(Model.RecruitmentName == "广州优才" ? "selected = \"selected\"" : "")>广州优才</option>
+                        <option value="广州邦忙体育西" @(Model.RecruitmentName == "广州邦忙体育西" ? "selected = \"selected\"" : "")>广州邦忙体育西</option>
+                        <option value="广州东盛广场" @(Model.RecruitmentName == "广州东盛广场" ? "selected = \"selected\"" : "")>广州东盛广场</option>
+                        <option value="东莞邦忙南城" @(Model.RecruitmentName == "东莞邦忙南城" ? "selected = \"selected\"" : "")>东莞邦忙南城</option>
+                        <option value="东莞盈立宝寮步" @(Model.RecruitmentName == "东莞盈立宝寮步" ? "selected = \"selected\"" : "")>东莞盈立宝寮步</option>
+                        <option value="广州瑞祥尚雅小区" @(Model.RecruitmentName == "广州瑞祥尚雅小区" ? "selected = \"selected\"" : "")>广州瑞祥尚雅小区</option>
+                        <option value="广州亿博燕塘" @(Model.RecruitmentName == "广州亿博燕塘" ? "selected = \"selected\"" : "")>广州亿博燕塘</option>
+                        <option value="广州正方江夏" @(Model.RecruitmentName == "广州正方江夏" ? "selected = \"selected\"" : "")>广州正方江夏</option>
+                        <option value="广州众宇东山广场" @(Model.RecruitmentName == "广州众宇东山广场" ? "selected = \"selected\"" : "")>广州众宇东山广场</option>
+                        <option value="东莞优才" @(Model.RecruitmentName == "东莞优才" ? "selected = \"selected\"" : "")>东莞优才</option>
+                        <option value="正方厦滘" @(Model.RecruitmentName == "正方厦滘" ? "selected = \"selected\"" : "")>正方厦滘</option>
+                        <option value="佛山优才" @(Model.RecruitmentName == "佛山优才" ? "selected = \"selected\"" : "")>佛山优才</option>
+                        <option value="正方人力鱼珠站点" @(Model.RecruitmentName == "正方人力鱼珠站点" ? "selected = \"selected\"" : "")>正方人力鱼珠站点</option>
+                        <option value="嘉禾望岗" @(Model.RecruitmentName == "嘉禾望岗" ? "selected = \"selected\"" : "")>嘉禾望岗</option>
+                        <option value="广州昌岗优才" @(Model.RecruitmentName == "广州昌岗优才" ? "selected = \"selected\"" : "")>广州昌岗优才</option>
+                        <option value="巨业天河客运站" @(Model.RecruitmentName == "巨业天河客运站" ? "selected = \"selected\"" : "")>巨业天河客运站</option>
+                        <option value="东莞巨业" @(Model.RecruitmentName == "东莞巨业" ? "selected = \"selected\"" : "")>东莞巨业</option>
+                    </select></span></li>
+                <li>&nbsp;入职站点名称 <span>
+                    <input type="text" name="EntrySiteName" id="EntrySiteName" value="@Model.EntrySiteName" class="fxf gx" style="border: 0px" datatype="m" placeholder="入职站点名称"></span> </li>
+
+                <li>&nbsp;站点地址 <span>
+                    <input type="text" name="SiteAddress" id="SiteAddress" value="@Model.SiteAddress" class="fxf gx" style="border: 0px" datatype="m" placeholder="站点地址"></span> </li>
+
+                <li>&nbsp;站长电话 <span>
+                    <input type="tel" name="StationMasterPhone" id="StationMasterPhone" value="@Model.StationMasterPhone" class="fxf gx" style="border: 0px" datatype="m" placeholder="站长电话"></span> </li>
+
+                <li>&nbsp;品牌 <span>
+                    <select id="Brand" name="Brand">
+                        <option value="康景" @(Model.Brand == "康景" ? "selected = \"selected\"" : "")>康景</option>
+                        <option value="愉途" @(Model.Brand == "愉途" ? "selected = \"selected\"" : "")>愉途</option>
+                        <option value="巨高" @(Model.Brand == "巨高" ? "selected = \"selected\"" : "")>巨高</option>
+                        <option value="雅迪" @(Model.Brand == "雅迪" ? "selected = \"selected\"" : "")>雅迪</option>
+                        <option value="相悦" @(Model.Brand == "相悦" ? "selected = \"selected\"" : "")>相悦</option>
+                        <option value="豪晨" @(Model.Brand == "豪晨" ? "selected = \"selected\"" : "")>豪晨</option>
+                        <option value="深远" @(Model.Brand == "深远" ? "selected = \"selected\"" : "")>深远</option>
+                        <option value="鑫泽" @(Model.Brand == "鑫泽" ? "selected = \"selected\"" : "")>鑫泽</option>
+                        <option value="东方澳玛" @(Model.Brand == "东方澳玛" ? "selected = \"selected\"" : "")>东方澳玛</option>
+                        <option value="巨高电动车" @(Model.Brand == "巨高电动车" ? "selected = \"selected\"" : "")>巨高电动车</option>
+                        <option value="踏迪" @(Model.Brand == "踏迪" ? "selected = \"selected\"" : "")>踏迪</option>
+                        <option value="台铃" @(Model.Brand == "台铃" ? "selected = \"selected\"" : "")>台铃</option>
+                    </select></span></li>
+                <li>&nbsp;型号 <span> 
+                    <select id="CheType" name="CheType">
+                        <option value="依兰公主" @(Model.CheType == "依兰公主" ? "selected = \"selected\"" : "")>依兰公主</option>
+                        <option value="TDT071Z" @(Model.CheType == "TDT071Z" ? "selected = \"selected\"" : "")>TDT071Z</option>
+                        <option value="TDR1033Z" @(Model.CheType == "TDR1033Z" ? "selected = \"selected\"" : "")>TDR1033Z</option>
+                        <option value="外卖车" @(Model.CheType == "外卖车" ? "selected = \"selected\"" : "")>外卖车</option>
+                        <option value="金犬" @(Model.CheType == "金犬" ? "selected = \"selected\"" : "")>金犬</option>
+                        <option value="TDT-108Z" @(Model.CheType == "TDT-108Z" ? "selected = \"selected\"" : "")>TDT-108Z</option>
+                        <option value="TDT02Z" @(Model.CheType == "TDT02Z" ? "selected = \"selected\"" : "")>TDT02Z</option>
+                        <option value="飞力普" @(Model.CheType == "飞力普" ? "selected = \"selected\"" : "")>飞力普</option>
+                        <option value="TDT128Z" @(Model.CheType == "TDT128Z" ? "selected = \"selected\"" : "")>TDT128Z</option>
+                        <option value="TDT1097Z" @(Model.CheType == "TDT1097Z" ? "selected = \"selected\"" : "")>TDT1097Z</option>
+                        <option value="万马奔腾" @(Model.CheType == "万马奔腾" ? "selected = \"selected\"" : "")>万马奔腾</option>
+                        <option value="深友" @(Model.CheType == "深友" ? "selected = \"selected\"" : "")>深友</option>
+                        <option value="百团二号" @(Model.CheType == "百团二号" ? "selected = \"selected\"" : "")>百团二号</option>
+                        <option value="tdt118Z" @(Model.CheType == "tdt118Z" ? "selected = \"selected\"" : "")>tdt118Z</option> 
+                        <option value="小酷跑" @(Model.CheType == "小酷跑" ? "selected = \"selected\"" : "")>小酷跑</option> 
+                    </select></span></li>
+            </ul>
+
+
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_fanhui5()" class="userbtn" style="width: 35%;" value="返回">
+                <input type="button" onclick="fn_xiayibu6()" class="userbtn" style="width: 50%;" value="下一步">
+            </ul>
+        </div>
+
+        <div class="qbCon2" style="display: none" id="qd8">
+            <ul class="myUl5">
+                <li>&nbsp;住宅电话<span>
+                    <input type="tel" name="ResidentialPhone" id="ResidentialPhone" value="@Model.ResidentialPhone" class="fxf gx" style="border: 0px" datatype="m" placeholder="住宅电话"></span> </li>
+
+                <li>&nbsp;邮箱<span>
+                    <input type="text" name="Email" id="Email" value="@Model.Email" class="fxf gx" style="border: 0px" datatype="m" placeholder="邮箱"></span> </li>
+
+                <li>&nbsp;教育程度<span>
+                    <select id="EducationLevel" name="EducationLevel">
+                        <option value="小学" @(Model.EducationLevel == "小学" ? "selected = \"selected\"" : "")>小学</option>
+                        <option value="初中" @(Model.EducationLevel == "初中" ? "selected = \"selected\"" : "")>初中</option>
+                        <option value="中专" @(Model.EducationLevel == "中专" ? "selected = \"selected\"" : "")>中专</option>
+                        <option value="高中" @(Model.EducationLevel == "高中" ? "selected = \"selected\"" : "")>高中</option>
+                        <option value="大专" @(Model.EducationLevel == "大专" ? "selected = \"selected\"" : "")>大专</option>
+                        <option value="本科" @(Model.EducationLevel == "本科" ? "selected = \"selected\"" : "")>本科</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;婚姻状况<span>
+                    <select id="MaritalStatus" name="MaritalStatus">
+                        <option value="否" @(Model.MaritalStatus == "否" ? "selected = \"selected\"" : "")>否</option>
+                        <option value="是" @(Model.MaritalStatus == "是" ? "selected = \"selected\"" : "")>是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;子女数目<span>
+                    <input type="tel" name="ChildrenNumber" id="ChildrenNumber" value="@Model.ChildrenNumber" class="fxf gx" style="border: 0px" datatype="m" placeholder="子女数目"></span> </li>
+
+                <li>&nbsp;来市时间<span>
+                    <input type="tel" name="ComingTime" id="ComingTime" value="@Model.ComingTime" class="fxf gx" style="border: 0px" datatype="m" placeholder="来市时间"></span> </li>
+
+                <li>&nbsp;居住状况<span>
+                    <select id="LivingConditions" name="LivingConditions">
+                        <option value="自有" @(Model.LivingConditions == "自有" ? "selected = \"selected\"" : "")>自有</option>
+                        <option value="按揭" @(Model.LivingConditions == "按揭" ? "selected = \"selected\"" : "")>按揭</option>
+                        <option value="租赁" @(Model.LivingConditions == "租赁" ? "selected = \"selected\"" : "")>租赁</option>
+                        <option value="公司宿舍" @(Model.LivingConditions == "公司宿舍" ? "selected = \"selected\"" : "")>公司宿舍</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;现居住地址<span>
+                    <input type="text" name="ResidenceAddress" id="ResidenceAddress" value="@Model.ResidenceAddress" class="fxf gx" style="border: 0px" datatype="m" placeholder="现居住地址"></span> </li>
+            </ul>
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_fanhui6()" class="userbtn" style="width: 35%;" value="返回">
+            </ul>
+        </div>
+        <div class="qbCon2">
+            <textarea name="Remark" id="Remark" cols="" rows="" style="width: 100%; height: 6rem; border: none; padding: 0.2rem" placeholder="备注"></textarea>
+        </div>
+        <input type="button" onclick="fn_tijiao()" class="userbtn" id="tijiao" value="提交">
+    }
+
+    <script src="~/Content/js/Validform_v5.3.2_min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            if ("@Model" != null) {
+                $("#OtherLoan").val("@Model.OtherLoan");
+                $("#Remark").val("@Model.Remark");
+            }
+
+        });
+
+        function fn_tijiao() {
+            if ($("#RentRate").val() == "0") {
+                alert("请选择费率");
+                return false;
+            }
+
+            $("#ModifyContactMode").submit();
+        }
+
+        function fn_xiayibu() {
+            $("#qd2").show();
+            $("#qd1").hide();
+        }
+
+        function fn_fanhui() {
+            $("#qd2").hide();
+            $("#qd1").show();
+        }
+
+        function fn_xiayibu1() {
+            $("#qd3").show();
+            $("#qd2").hide();
+        }
+
+        function fn_fanhui1() {
+            $("#qd3").hide();
+            $("#qd2").show();
+        }
+
+        function fn_xiayibu2() {
+            $("#qd4").show();
+            $("#qd3").hide();
+        }
+
+        function fn_fanhui2() {
+            $("#qd4").hide();
+            $("#qd3").show();
+        }
+
+        function fn_xiayibu3() {
+            $("#qd5").show();
+            $("#qd4").hide();
+        }
+
+        function fn_fanhui3() {
+            $("#qd5").hide();
+            $("#qd4").show();
+        }
+
+        function fn_xiayibu4() {
+            $("#qd6").show();
+            $("#qd5").hide();
+        }
+
+        function fn_fanhui4() {
+            $("#qd6").hide();
+            $("#qd5").show();
+        }
+
+        function fn_xiayibu5() {
+            $("#qd7").show();
+            $("#qd6").hide();
+        }
+
+        function fn_fanhui5() {
+            $("#qd7").hide();
+            $("#qd6").show();
+        }
+
+        function fn_xiayibu6() {
+            $("#qd8").show();
+            $("#qd7").hide();
+            $("#tijiao").show();
+        }
+
+        function fn_fanhui6() {
+            $("#qd8").hide();
+            $("#qd7").show();
+            $("#tijiao").hide();
+        }
+
+        $("#RentRate").change(function () {
+            var RentRateValue = $("#RentRate").val();
+            if ($("#TotalAmountStage").val() == "") {
+                alert("分期总额不能为空！");
+                $("#TotalAmountStage").focus();
+                return false;
+            }
+            if ($("#Deadline").val() == "") {
+                alert("期数不能为空！");
+                $("#Deadline").focus();
+                return false;
+            }
+            var MonthlyPayment = $("#TotalAmountStage").val() * RentRateValue / 100 + $("#TotalAmountStage").val() / $("#Deadline").val();
+            $("#MonthlyPayment").val(Math.ceil(MonthlyPayment));
+        });
+
+        function fn_DownPayments() {
+            if ($("#TotalAmountStage").val() != "" && $("#DownPayments").val() != "") {
+                CreditAmount = Number($("#TotalAmountStage").val()) + Number($("#DownPayments").val());
+                $("#CreditAmount").val(CreditAmount);
+            }
+            if ($("#TotalAmountStage").val() != "" && $("#Deadline").val() != "") {
+                var RentRateValue = $("#RentRate").val();
+                var MonthlyPayment = $("#TotalAmountStage").val() * RentRateValue / 100 + $("#TotalAmountStage").val() / $("#Deadline").val();
+                $("#MonthlyPayment").val(Math.ceil(MonthlyPayment));
+            }
+        }
+
+        window.alert = function (name) {
+            var iframe = document.createElement("IFRAME");
+            iframe.style.display = "none";
+            iframe.setAttribute("src", 'data:text/plain,');
+            document.documentElement.appendChild(iframe);
+            window.frames[0].window.alert(name);
+            iframe.parentNode.removeChild(iframe);
+        };
+    </script>
+
+
+</body>
+</html>

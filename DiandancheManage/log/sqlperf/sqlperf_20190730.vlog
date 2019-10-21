@@ -1,0 +1,27 @@
+==== ¡¾instanceDefault¡¿¡¾actual 957 ms / want 500 ms¡¿ 2019/07/30 9:51:32 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 5460 ms / want 500 ms¡¿ 2019/07/30 17:35:01 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 737 ms / want 500 ms¡¿ 2019/07/30 17:35:15 ====
+select * from sbt_log_user_login where last_heartbeat_time <= '2019-07-30 17:34:14' and has_logout = 'N'  and login_time <= '2019-07-30 17:34:14'
+
+==== ¡¾instanceDefault¡¿¡¾actual 1782 ms / want 500 ms¡¿ 2019/07/30 17:35:24 ====
+select l.CreditPhone, l.BorrowerId, br.FullName, (b.UnPrincipal + b.UnTotalInterest) as unSumAmount, Stages, TotalPeriod,
+b.Principal, b.Interest from Borrow b join LoanApply l on b.LoanApplyId= l.Id join Borrower br on br.Id = b.BorrowerId
+ and l.RepaymentStatus= 5and CONVERT(varchar(50), b.RepaymentDate, 111)= CONVERT(varchar(50), GETDATE(), 111)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1303 ms / want 500 ms¡¿ 2019/07/30 17:36:14 ====
+select * from Borrower where id=@Id and IsValid=@IsValid
+

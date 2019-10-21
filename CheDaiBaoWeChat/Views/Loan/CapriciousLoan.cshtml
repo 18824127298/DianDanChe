@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "申请任性贷";
+    Boolean? IsSalesan = ViewBag.IsSalesan as Boolean?;
+}
+
+<body class="bodybg">
+    <meta name="viewport" content="width=device-width">
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.1.min.js"></script>
+    <header>
+        <a class="back" href="javascript:history.go(-1)"></a>
+    </header>
+    <div class="banner">
+    </div>
+    <form action="CapriciousLoan" class="registerform" method="post">
+        <div class="box">
+            <input name="Phone" id="Phone" type="text" class="user" value="" datatype="m" nullmsg="请输入业务员或商户手机号！" placeholder="请输入业务员或商户手机号">
+
+            <input name="LoginKey" id="LoginKey" type="text" class="user" value="" datatype="m" nullmsg="请输入秘钥！" placeholder="请输入秘钥">
+
+            <input name="KeHuPhone" id="KeHuPhone" type="tel" class="user" value="" datatype="m" nullmsg="请输入客户手机号！" placeholder="请输入客户手机号">
+
+            <input name="下一步" type="submit" class="userbtn">
+            <br>
+        </div>
+    </form>
+</body>

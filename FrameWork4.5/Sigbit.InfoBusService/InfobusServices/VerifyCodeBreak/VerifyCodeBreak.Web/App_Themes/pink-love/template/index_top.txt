@@ -1,0 +1,34 @@
+<body onselectstart="return false" leftmargin=0 topmargin=0 onload=timeview();>
+<table height=84 cellspacing=0 cellpadding=0 width="100%" border=0>
+
+  <tr>
+    <td nowrap align=left width=239 rowspan=3>
+		<img height=84 alt="" src="../../App_Themes/pink-love/template/index_top/index_01.gif" width=239 align=middle>
+    </td>
+    <td rowspan=2>
+      <table height=84 cellspacing=0 cellpadding=0 width="100%" border=0>
+        <tr>
+          <td align=left width=147 height=64><img height=64 alt=sdf 
+            src="../../App_Themes/pink-love/template/index_top/index_02.gif" width=147></td>
+          <td background=../../App_Themes/pink-love/template/index_top/index_03.gif></td>
+          <td align=right width=243 height=64><img style="cursor: hand" 
+            onclick=javascript:gotable(); height=64 alt=返回桌面 
+            src="../../App_Themes/pink-love/template/index_top/index_04.gif" width=243 border=0></td>
+        </tr>
+        <tr>
+          <td class=small style="color: #d278a6" align=left 
+            colspan=3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在时刻：<b><span 
+            id=time_area></span></b>&nbsp;&nbsp;
+            </td>
+            </tr>
+      </table>
+    </td>
+    <td width=71 rowspan=2>
+		<img style="cursor: hand" onclick=javascript:gotable(); height=84 alt=返回桌面 src="../../app_themes/pink-love/template/index_top/index_05.gif" width=71 border=0></td>
+    <td width=45 rowspan=2>
+		<img style="cursor: hand" onclick=javascript:iflogout() height=84 alt=注销[%login_user_id%] src="../../app_themes/pink-love/template/index_top/index_06.gif" width=45 border=0></td>
+    <td width=47 rowspan=2>
+		<img style="cursor: hand" onclick=javascript:ifexit() height=84 alt=退出系统 src="../../app_themes/pink-love/template/index_top/index_07.gif" width=47 border=0></td>
+	</tr>
+</table>
+</body>

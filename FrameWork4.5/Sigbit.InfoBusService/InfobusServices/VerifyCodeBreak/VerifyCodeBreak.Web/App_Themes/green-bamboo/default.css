@@ -1,0 +1,183 @@
+﻿/* ---------- 文字链接 － 链接的普通状态 ---------- */
+A:link 
+{ 
+	color: black; 
+	TEXT-DECORATION: none;
+}           
+
+/* ---------- 文字链接 － 已被访问链接 ---------- */
+A:visited 
+{ 
+	COLOR: black; 
+	TEXT-DECORATION: none
+}       
+
+/* ---------- 文字链接 － 处于活动状态链接 ---------- */
+A:active 
+{ 
+	COLOR: black; 
+	TEXT-DECORATION: none
+}        
+
+/* ---------- 文字链接 － 指针在链接上 ---------- */
+A:hover 
+{ 
+	COLOR: blue; 
+	text-decoration: underline;
+} 
+
+
+/* ---------- 页面样式定义 ---------- */
+body 
+{ 
+	font-size: 9pt;                             /* 字体大小                  */
+	font-family:Verdana;                         /* 字体名称                  */
+	BACKGROUND: #F0F9F0;                                            /*  背景演示 */
+	background-repeat: no-repeat;                                   /*  不重复   */ 
+	background-position:right bottom;                               /*  右对齐，底部*/ 
+	background-attachment: fixed;                                  /*  不滚动 */
+	scrollbar-face-color: #8DA468;               /* 滚动条凸出部分的颜色      */
+	scrollbar-highlight-color: #E6E6E6;          /* 滚动条空白部分的颜色      */ 
+	scrollbar-shadow-color: #C8D2B8;             /* 立体滚动条阴影的颜色      */
+	scrollbar-3dlight-color: #D1D7DC;            /* 滚动条亮边的颜色          */
+	scrollbar-arrow-color: #3E5630;              /* 上下按钮上三角箭头的颜色  */
+	scrollbar-track-color: #E6ECDD;              /* 滚动条的背景颜色          */
+	scrollbar-darkshadow-color: #BDC5AF;        /* 滚动条强阴影的颜色        */
+}
+
+body *
+{
+	font-size:9pt;
+}
+
+/* ---------- 标题样式定义 ---------- */
+.titleTable
+{
+	font-size: 9pt;
+}
+	
+.titleTable td
+{
+	FONT-WEIGHT: bold;
+	font-size: 9pt;
+	COLOR: #202E17;
+}
+
+.titleTable hr
+{
+	color: #D1D8C6;                              /* 线颜色               */
+	width: 99%;                                  /* 线宽度               */
+	text-align:left;                             /* 线位置               */
+	height:3px;                                  /* 线厚度（高度）       */
+}
+
+/* ---------- 内容样式定义 ---------- */
+.contentTable tbody
+{
+	BACKGROUND: #EBF3E6; 
+	FONT-SIZE: 10pt;
+}
+
+.contentTable thead
+{
+	BACKGROUND: #F0ECD5; 
+	color: #FFFFFF; 
+	font-weight: bold; 
+	font-size:9pt;
+	background-image: url("images/content_table/header_bg.jpg"); 
+}
+
+.contentTable tfoot
+{
+	BACKGROUND: #F0EEDB;
+	FONT-SIZE: 10pt;
+}
+
+.contentTable .ctFoot
+{
+	BACKGROUND: #F0EEDB;
+	font-weight:normal;
+	color:#000000;
+}
+
+.controlPanel
+{
+	BACKGROUND:#F0EEDB;
+}
+
+table.contentTable
+{
+	background-color:#000000;
+}
+
+.contentTable table
+{
+	background-color:#000000;
+}
+
+/* ---------- 按钮 ---------- */
+input.normalButton
+{ 
+	BORDER-RIGHT: #666666 1px solid; 
+	BORDER-TOP: #666666 1px solid; 
+	FONT-SIZE: 12px; 
+	BACKGROUND-IMAGE: url("images/button/button_bg.gif"); 
+	BORDER-LEFT: #666666 1px solid; 
+	BORDER-BOTTOM: #666666 1px solid; 
+	HEIGHT: 20px; 
+	BACKGROUND-COLOR: #ffffff 
+}
+
+/* ---------- 消息框 ---------- */
+.messageBox
+{ 
+	font-size:10pt;                                 /* 字体大小   */
+	COLOR:#487242;                                  /* 字颜色颜色 */
+	BACKGROUND:#F0EEDB;                             /*  背景颜色  */
+	margin:10px; 
+	border:1px                                      /* 周围虚线宽度 */
+	dotted #374C2C;                                 /* 周围虚线颜色 */
+	font-weight:bold; 
+	padding:9px; 
+} 
+
+/* ---------- 面板背景样式 ---------- */
+.menuPanel 
+{ 
+	BACKGROUND: #DBE0D9; 
+	background-image: url("images/menu_panel/index_26.jpg");     /*  背景图片 */
+	background-repeat: no-repeat;                                   /*  不重复   */ 
+	background-position:left bottom;                                /*  右对齐，底部*/ 
+	background-attachment: fixed;                                  /*  不滚动 */
+}
+
+
+
+
+.gridHeader
+{
+	/*	BACKGROUND: #D3E5FA; */
+	BACKGROUND: #F0ECD5; 
+	color: #FFFFFF; 
+	font-weight: bold; 
+	font-size:9pt;
+	background-image: url("images/content_table/header_bg.jpg"); 
+}
+
+.gridHeader A:link { 
+color: #FFFFFF; 
+TEXT-DECORATION: none;}           
+
+.gridHeader A:visited { 
+COLOR: #FFFFFF; 
+TEXT-DECORATION: none}       
+
+.gridHeader A:active { 
+COLOR: #FFFFFF; 
+TEXT-DECORATION: none}        
+
+.gridHeader A:hover { 
+COLOR: yellow; 
+text-decoration: underline;}   
+
+

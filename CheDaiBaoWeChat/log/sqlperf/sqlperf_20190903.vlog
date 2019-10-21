@@ -1,0 +1,15 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 968 ms / want 500 ms¡¿ 2019/9/3 11:20:10 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 841 ms / want 500 ms¡¿ 2019/9/3 11:23:21 ====
+insert into contacts ([Contact],[Phone],[BorrowerId],[LoanapplyId],[IsKnowStages],[IsValid],[CreateTime],[UpdateTime]) values (@Contact,@Phone,@BorrowerId,@LoanapplyId,@IsKnowStages,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 549 ms / want 500 ms¡¿ 2019/9/3 11:23:22 ====
+update loanapply set [BorrowerId]=@BorrowerId,[CreditPhone]=@CreditPhone,[CreditAmount]=@CreditAmount,[CreditDescription]=@CreditDescription,[BusinessName]=@BusinessName,[RecruitmentName]=@RecruitmentName,[CustomerClassification]=@CustomerClassification,[AuditTime]=@AuditTime,[Auditor]=@Auditor,[AuditorRemark]=@AuditorRemark,[RepaymentStatus]=@RepaymentStatus,[SalesmanId]=@SalesmanId,[Step]=@Step,[Company]=@Company,[IsValid]=@IsValid,[CreateTime]=@CreateTime,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 549 ms / want 500 ms¡¿ 2019/9/3 11:23:22 ====
+update loanapply set [BorrowerId]=@BorrowerId,[CreditPhone]=@CreditPhone,[CreditAmount]=@CreditAmount,[CreditDescription]=@CreditDescription,[BusinessName]=@BusinessName,[RecruitmentName]=@RecruitmentName,[CustomerClassification]=@CustomerClassification,[AuditTime]=@AuditTime,[Auditor]=@Auditor,[AuditorRemark]=@AuditorRemark,[RepaymentStatus]=@RepaymentStatus,[SalesmanId]=@SalesmanId,[Step]=@Step,[Company]=@Company,[IsValid]=@IsValid,[CreateTime]=@CreateTime,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 816 ms / want 500 ms¡¿ 2019/9/3 17:57:24 ====
+select * from Borrower where  IsValid=@IsValid
+

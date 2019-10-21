@@ -1,0 +1,15 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1199 ms / want 500 ms¡¿ 2019/8/21 11:14:01 ====
+insert into recharge ([Amount],[BorrowerId],[RechargeMode],[OrderNumber],[Remark],[ActualRechargeFee],[RechargeTime],[IsValid],[CreateTime],[UpdateTime]) values (@Amount,@BorrowerId,@RechargeMode,@OrderNumber,@Remark,@ActualRechargeFee,@RechargeTime,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1594 ms / want 500 ms¡¿ 2019/8/21 14:42:44 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1053 ms / want 500 ms¡¿ 2019/8/21 16:08:28 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 904 ms / want 500 ms¡¿ 2019/8/21 17:00:17 ====
+update loanapply set [CreditPhone]=@CreditPhone,[CreditAmount]=@CreditAmount,[Deadline]=@Deadline,[TotalAmountStage]=@TotalAmountStage,[DownPayments]=@DownPayments,[MonthlyPayment]=@MonthlyPayment,[RentRate]=@RentRate,[Step]=@Step,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 904 ms / want 500 ms¡¿ 2019/8/21 17:00:17 ====
+update loanapply set [CreditPhone]=@CreditPhone,[CreditAmount]=@CreditAmount,[Deadline]=@Deadline,[TotalAmountStage]=@TotalAmountStage,[DownPayments]=@DownPayments,[MonthlyPayment]=@MonthlyPayment,[RentRate]=@RentRate,[Step]=@Step,[UpdateTime]=@UpdateTime where id=@Id
+

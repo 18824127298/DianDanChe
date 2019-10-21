@@ -1,0 +1,162 @@
+﻿@using CheDaiBaoWeChatModel.Models;
+@{
+    ViewBag.Title = "新增联系人";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width">
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+    <style type="text/css">
+        .myUl5 li {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body class="bodybg">
+    @using (Html.BeginForm("InsertContacts", "Loan", FormMethod.Post, new { id = "InsertContacts" }))
+    {
+        <div class="qbCon2">
+            <ul class="myUl5" id="btnhtml">
+                <li style="background-color: #ADD8E6">&nbsp;&nbsp;&nbsp;关系&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    手机号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是否知晓分期</li>
+                <li>&nbsp;
+                    <select id="Contacts" name="Contacts">
+                        <option value="配偶">配偶</option>
+                        <option value="父亲">父亲</option>
+                        <option value="母亲">母亲</option>
+                        <option value="哥哥">哥哥</option>
+                        <option value="姐姐">姐姐</option>
+                        <option value="弟弟">弟弟</option>
+                        <option value="妹妹">妹妹</option>
+                        <option value="同事">同事</option>
+                        <option value="朋友">朋友</option>
+                        <option value="亲戚">亲戚</option>
+                        <option value="其他">其他</option>
+                    </select>&nbsp;
+                    <input type="text" name="Phone" id="Phone" value="" style="border: 0px; width: 125px;" datatype="m" placeholder="手机号">
+                    <select id="IsKnowStages" name="IsKnowStages">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                    <span>&nbsp;<input type="button" value="+" id="AddBtn" style="width: 30px; height: 30px; cursor: pointer;" /></span></li>
+            </ul>
+        </div>
+
+        <input type="button" onclick="fn_tijiao()" class="userbtn" id="tijiao" value="提交">
+
+    }
+
+    <script src="~/Content/js/Validform_v5.3.2_min.js"></script>
+    <script type="text/javascript">
+        function fn_tijiao() {
+            if ($("#CreditPhone").val() == "") {
+                alert("请填写手机号");
+                return false;
+            }
+            var mobile = $.trim($("#CreditPhone").val());
+            var regmobile = /^1\d{10}$/;
+            if (regmobile.test(mobile) == false) {
+                alert("手机号码错误，请重新输入");
+                return false;
+            }
+            if ($("#CustomerClassification").val() == "B" && $("#Remark").val() == "") {
+                alert("备注不能为空！");
+                return false;
+            }
+
+            $("#InsertContacts").submit();
+        }
+
+        //新增元素
+        $("#AddBtn").click(function () {
+            var $table = $("#btnhtml li");
+            var len = $table.length;
+            var button = "<li id=\"li" + (len + 1) + "\">&nbsp;&nbsp;<select id=\"Contacts" + (len + 1) + "\" name=\"Contacts\">";
+            button += "<option value=\"配偶\">配偶</option>";
+            button += "<option value=\"父亲\">父亲</option>";
+            button += "<option value=\"母亲\">母亲</option>";
+            button += "<option value=\"哥哥\">哥哥</option>";
+            button += "<option value=\"姐姐\">姐姐</option>";
+            button += "<option value=\"弟弟\">弟弟</option>";
+            button += "<option value=\"妹妹\">妹妹</option>";
+            button += "<option value=\"同事\">同事</option>";
+            button += "<option value=\"朋友\">朋友</option>";
+            button += "<option value=\"亲戚\">亲戚</option>";
+            button += "<option value=\"其他\">其他</option>";
+            button += "</select>&nbsp; <input type=\"text\" name=\"Phone\" id=\"Phone" + (len + 1) + "\" value=\"\" style=\"border: 0px; width: 125px;\" datatype=\"m\" placeholder=\"手机号\">";
+            button += "<select id=\"IsKnowStages" + (len + 1) + "\" name=\"IsKnowStages\"><option value=\"0\">否</option><option value=\"1\">是</option></select>";
+            button += "<span><input type=\"button\" value=\"-\" onclick=\"deltr(" + (len + 1) + ")\" style=\"width: 30px; height: 30px; cursor: pointer;\" /></span></li>";
+            $("#btnhtml").append(button);
+        });
+
+        //删除元素
+        function deltr(len) {
+            var $table = $("#btnhtml li");
+            if (len == 0) {
+                return false;
+            }
+            $("#li" + len).remove();
+        }
+
+
+
+        function fn_tijiao() {
+            var namegx_value = [];
+            $('select[name="Contacts"]').each(function () {
+                namegx_value.push($(this).val());
+            });
+            var nameph_value = [];
+            $('input[name="Phone"]').each(function () {
+                nameph_value.push($(this).val());
+            });
+            var namens_value = []
+            $('select[name="IsKnowStages"]').each(function () {
+                namens_value.push($(this).val());
+            });
+            if (namegx_value.toString().split(",").length != nameph_value.toString().split(",").length) {
+                alert("不能出现逗号！");
+                return false;
+            }
+            $.post("InsertContacts",
+                {
+                    sContacts: namegx_value.toString(),
+                    Phones: nameph_value.toString(),
+                    IsKnowStages: namens_value.toString(),
+                    rn: Math.random()
+                }, function (json) {
+                    if (json.Result == "0") {
+                        alert(json.Message);
+                        window.location.href = "../GodService/GetPhone";
+                    }
+                    if (json.Result == "1") {
+                        alert(json.Message);
+                        window.location.href = "../Loan/LoanIndex";
+                    }
+                    if (json.Result == "2") {
+                        alert(json.Message);
+                    }
+                    if (json.Result == "3") {
+                        alert(json.Message);
+                        window.location.href = "../Loan/EssentialInformation";
+                    }
+                });
+        }
+
+        window.alert = function (name) {
+            var iframe = document.createElement("IFRAME");
+            iframe.style.display = "none";
+            iframe.setAttribute("src", 'data:text/plain,');
+            document.documentElement.appendChild(iframe);
+            window.frames[0].window.alert(name);
+            iframe.parentNode.removeChild(iframe);
+        };
+    </script>
+
+
+</body>
+</html>

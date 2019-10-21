@@ -1,0 +1,3 @@
+==== ¡¾instanceDefault¡¿¡¾actual 694 ms / want 500 ms¡¿ 2018/1/12 19:05:44 ====
+select g.FullName, g.Phone ,l.* from LoanInformation l join God g on l.GodId= g.Id where g.Isvalid= 1 and l.IsValid= 1
+

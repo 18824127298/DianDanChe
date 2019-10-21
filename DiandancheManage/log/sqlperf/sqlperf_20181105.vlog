@@ -1,0 +1,12 @@
+==== ¡¾instanceDefault¡¿¡¾actual 2324 ms / want 500 ms¡¿ 2018/11/5 17:38:41 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1249 ms / want 500 ms¡¿ 2018/11/5 17:40:00 ====
+select SUM(r.[UnPrincipal])as unprincipal, SUM(r.[EstimationOfInterest]) as untotalinterest,  c.[Id] FROM [RepaymentPlan] r JOIN [Credit] c on r.[CreditId] = c.[Id] WHERE r.[IsValid] = 1 and c.[IsValid] = 1
+and r.[RepaymentDate] = convert(NVARCHAR (10), dateadd(day,2,getdate()),120) and c.[CreditStatus] = 5 GROUP BY c.[Id]
+

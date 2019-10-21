@@ -1,0 +1,45 @@
+==== (instanceDefault)【SQL语句运行错误】2016/8/22 10:36:03 ====
+select g.Id, g.Aliases, g.FullName, SUM(gb.RelationValue) as TouZiAmount, COUNT(gb.GodId) as BounsCount from God g join GodBouns gb on g.Id= gb.GodId  and gb.BounsType = 7 and gb.IsValid=1 and g.CreateTime>=2016-08-01 and g.CreateTime<=2016-08-23 00:00:00 group by g.Id, g.Aliases,g.FullName
+-------- 错误信息 --------
+'00' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/8/22 10:36:03 ====
+select g.Id, g.Aliases, g.FullName, SUM(gb.RelationValue) as TouZiAmount, COUNT(gb.GodId) as BounsCount from God g join GodBouns gb on g.Id= gb.GodId  and gb.BounsType = 7 and gb.IsValid=1 and g.CreateTime>=2016-08-01 and g.CreateTime<=2016-08-23 00:00:00 group by g.Id, g.Aliases,g.FullName
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/8/22 10:36:03 ====
+select g.Id, g.Aliases, g.FullName, SUM(gb.RelationValue) as TouZiAmount, COUNT(gb.GodId) as BounsCount from God g join GodBouns gb on g.Id= gb.GodId  and gb.BounsType = 7 and gb.IsValid=1 and g.CreateTime>=2016-08-01 and g.CreateTime<=2016-08-23 00:00:00 group by g.Id, g.Aliases,g.FullName
+-------- 错误信息 --------
+'00' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/8/22 22:40:07 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+
+==== (instanceDefault)【SQL语句运行错误】2016/8/22 22:40:07 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/8/22 22:40:07 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+

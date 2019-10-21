@@ -1,0 +1,961 @@
+==== 【instanceDefault】【actual 503 ms / want 500 ms】 2018/11/9 11:21:51 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 11:25:34 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'92d2c5a5-b712-40e2-b700-88420070e1a1','',
+'','18824127298',
+0,'123',
+'','25795',
+0,'',
+'','',
+'2018-11-09 11:25:34','',
+'','提交失败：错误信息="msg":"签名格式错误，签名必须以''【''开头，以''】''结束，如：【XX】"',
+'','',
+'','2018-11-09 11:25:34',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 11:25:34 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'92d2c5a5-b712-40e2-b700-88420070e1a1','',
+'','18824127298',
+0,'123',
+'','25795',
+0,'',
+'','',
+'2018-11-09 11:25:34','',
+'','提交失败：错误信息="msg":"签名格式错误，签名必须以''【''开头，以''】''结束，如：【XX】"',
+'','',
+'','2018-11-09 11:25:34',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 11:25:35 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'92d2c5a5-b712-40e2-b700-88420070e1a1','',
+'','18824127298',
+0,'123',
+'','25795',
+0,'',
+'','',
+'2018-11-09 11:25:34','',
+'','提交失败：错误信息="msg":"签名格式错误，签名必须以''【''开头，以''】''结束，如：【XX】"',
+'','',
+'','2018-11-09 11:25:34',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 11:27:17 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'9b083998-90e7-4e47-ab6e-24f0f4dd0099','',
+'','18824127298',
+0,'123',
+'','25795',
+0,'',
+'','',
+'2018-11-09 11:27:16','',
+'','提交失败：错误信息="msg":"签名格式错误，签名必须以''【''开头，以''】''结束，如：【XX】"',
+'','',
+'','2018-11-09 11:27:16',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 11:27:17 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'9b083998-90e7-4e47-ab6e-24f0f4dd0099','',
+'','18824127298',
+0,'123',
+'','25795',
+0,'',
+'','',
+'2018-11-09 11:27:16','',
+'','提交失败：错误信息="msg":"签名格式错误，签名必须以''【''开头，以''】''结束，如：【XX】"',
+'','',
+'','2018-11-09 11:27:16',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 11:27:17 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'9b083998-90e7-4e47-ab6e-24f0f4dd0099','',
+'','18824127298',
+0,'123',
+'','25795',
+0,'',
+'','',
+'2018-11-09 11:27:16','',
+'','提交失败：错误信息="msg":"签名格式错误，签名必须以''【''开头，以''】''结束，如：【XX】"',
+'','',
+'','2018-11-09 11:27:16',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 11:38:06 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'784ac7e1-2573-4f4a-b0ce-5ce797d33654','',
+'','18824127298',
+0,'123666',
+'','25795',
+0,'',
+'','',
+'2018-11-09 11:38:06','',
+'','提交失败：错误信息="msg":"余额不足"',
+'','',
+'','2018-11-09 11:38:06',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 11:38:07 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'784ac7e1-2573-4f4a-b0ce-5ce797d33654','',
+'','18824127298',
+0,'123666',
+'','25795',
+0,'',
+'','',
+'2018-11-09 11:38:06','',
+'','提交失败：错误信息="msg":"余额不足"',
+'','',
+'','2018-11-09 11:38:06',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 11:38:07 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'784ac7e1-2573-4f4a-b0ce-5ce797d33654','',
+'','18824127298',
+0,'123666',
+'','25795',
+0,'',
+'','',
+'2018-11-09 11:38:06','',
+'','提交失败：错误信息="msg":"余额不足"',
+'','',
+'','2018-11-09 11:38:06',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:00:14 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'aa46d7ae-3e80-48ba-9405-4308d6fa5c67','',
+'','18824127298',
+0,'666',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:00:13','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:00:13',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:00:14 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'aa46d7ae-3e80-48ba-9405-4308d6fa5c67','',
+'','18824127298',
+0,'666',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:00:13','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:00:13',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:00:14 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'aa46d7ae-3e80-48ba-9405-4308d6fa5c67','',
+'','18824127298',
+0,'666',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:00:13','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:00:13',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:45:19 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6be9cbea-4f0e-4259-b64a-35553839f231','',
+'','18824127298',
+0,'888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:44:53','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:44:54',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:45:19 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6be9cbea-4f0e-4259-b64a-35553839f231','',
+'','18824127298',
+0,'888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:44:53','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:44:54',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:45:19 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6be9cbea-4f0e-4259-b64a-35553839f231','',
+'','18824127298',
+0,'888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:44:53','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:44:54',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:46:39 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6be9cbea-4f0e-4259-b64a-35553839f231','',
+'','18824127298',
+0,'888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:44:53','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:44:54',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:46:39 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6be9cbea-4f0e-4259-b64a-35553839f231','',
+'','18824127298',
+0,'888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:44:53','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:44:54',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:46:39 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6be9cbea-4f0e-4259-b64a-35553839f231','',
+'','18824127298',
+0,'888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:44:53','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:44:54',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:46:50 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6be9cbea-4f0e-4259-b64a-35553839f231','',
+'','18824127298',
+0,'888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:44:53','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:44:54',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:46:50 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6be9cbea-4f0e-4259-b64a-35553839f231','',
+'','18824127298',
+0,'888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:44:53','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:44:54',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:46:50 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6be9cbea-4f0e-4259-b64a-35553839f231','',
+'','18824127298',
+0,'888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:44:53','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:44:54',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:47:16 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6be9cbea-4f0e-4259-b64a-35553839f231','',
+'','18824127298',
+0,'888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:44:53','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:44:54',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:47:16 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6be9cbea-4f0e-4259-b64a-35553839f231','',
+'','18824127298',
+0,'888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:44:53','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:44:54',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 15:47:16 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6be9cbea-4f0e-4259-b64a-35553839f231','',
+'','18824127298',
+0,'888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 15:44:53','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 15:44:54',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 16:04:26 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6aa31a09-3959-4fed-b7db-a3f853425619','',
+'','18824127298',
+0,'666',
+'','25795',
+0,'',
+'','',
+'2018-11-09 16:04:26','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 16:04:26',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 16:04:26 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6aa31a09-3959-4fed-b7db-a3f853425619','',
+'','18824127298',
+0,'666',
+'','25795',
+0,'',
+'','',
+'2018-11-09 16:04:26','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 16:04:26',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 16:04:26 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'6aa31a09-3959-4fed-b7db-a3f853425619','',
+'','18824127298',
+0,'666',
+'','25795',
+0,'',
+'','',
+'2018-11-09 16:04:26','',
+'','提交失败：错误信息="msg":"SUCCESS"',
+'','',
+'','2018-11-09 16:04:26',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== 【SqlDapper_QueryInternal】【actual 1505 ms / want 500 ms】 2018/11/9 16:19:30 ====
+select * from credit where 1=1  and [IsValid]=@IsValid
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 17:53:21 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'8f95e814-030e-489d-9870-576dc0bd5982','',
+'','18824127298',
+0,'123#321#666#888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 17:53:17','',
+'','提交失败：错误信息=无效的模板ID',
+'','',
+'','2018-11-09 17:53:18',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 17:53:21 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'8f95e814-030e-489d-9870-576dc0bd5982','',
+'','18824127298',
+0,'123#321#666#888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 17:53:17','',
+'','提交失败：错误信息=无效的模板ID',
+'','',
+'','2018-11-09 17:53:18',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceWps)【SQL语句运行错误】2018/11/9 17:53:22 ====
+insert into wps_send_message_history 
+( message_uid,      from_system,      
+  from_system_uid,  msisdn,           
+  send_priority,    sms_content,      
+  send_port,        service_code,     
+  sms_charge,       return_dn,        
+  is_month_cdr,     creator,          
+  create_time,      sys_flow_id,      
+  smsc_flow_id,     send_status,      
+  send_fail_msg,    report_status,    
+  report_fail_msg,  send_time,        
+  report_time,      send_delay,       
+  report_delay,     remarks           
+) values (          
+'8f95e814-030e-489d-9870-576dc0bd5982','',
+'','18824127298',
+0,'123#321#666#888',
+'','25795',
+0,'',
+'','',
+'2018-11-09 17:53:17','',
+'','提交失败：错误信息=无效的模板ID',
+'','',
+'','2018-11-09 17:53:18',
+'',0,
+0,'')
+
+-------- 错误信息 --------
+将截断字符串或二进制数据。
+语句已终止。
+

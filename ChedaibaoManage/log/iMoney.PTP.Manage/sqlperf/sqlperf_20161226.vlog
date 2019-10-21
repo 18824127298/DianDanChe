@@ -1,0 +1,618 @@
+==== 【instanceDefault】【actual 586 ms / want 500 ms】 2016/12/26 10:59:52 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== 【instanceDefault】【actual 1123 ms / want 500 ms】 2016/12/26 11:03:43 ====
+select * from god
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 14:34:10 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 14:34:11 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 14:34:11 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 14:45:27 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 14:45:27 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 14:45:27 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+
+==== 【instanceDefault】【actual 676 ms / want 500 ms】 2016/12/26 14:48:23 ====
+select * from Credit 
+ where CreditStatus = 1 and AuditStep = 'first' and AuditResult <> 'agree'
+
+==== 【instanceDefault】【actual 1339 ms / want 500 ms】 2016/12/26 14:48:27 ====
+select * from god
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 14:48:35 ====
+insert into Credit 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  Name,             Number,           
+  Amount,           CreditGodId,      
+  BorrowName,       Deadline,         
+  DateType,         Usefulness,       
+  Photo,            CreditLimit,      
+  PublishTime,      BidStartTime,     
+  BidEndTime,       Remark,           
+  GuaranteeGodId,   GainsRate,        
+  AutomaticBid,     CreditStatus,     
+  CreditTime,       RepaymentDate,    
+  CreditType,       CreditMode,       
+  BidFeeRate,       ActualRaymentTime, 
+  GuaranteeRemark,  GuaranteeOverTimeFee, 
+  UnGuaranteeOverTimeFee, CreditCaps,       
+  IsNowInterest,    PrepaymentRate,   
+  IsAssignment,     CreditAssignmentOfClaimsOfDay, 
+  CreditAssignmentOfClaimsRate, GuaranteeOverTimeRate, 
+  OverTimeCreditRate, MinAssignmentAmount, 
+  BatchDate,        CommissionRate,   
+  CommissionFee,    UnCommissionFee,  
+  Creator,          AuditStep,        
+  AuditResult,      AuditRemark,      
+  Auditor,          AuditTime,        
+  ExclusivePwd) values (          
+1,
+'2016-12-26 14:48:35','2016-12-26 14:48:35',
+'新手活动标','DZ-20161209',
+100000,53442,
+'张云强',7,
+1,2,
+'',100,
+'','2016/12/9 14:22:01',
+'2017/3/9 2 23:59:59','tttttttt',
+53441,0.035,
+0,1,
+'','',
+1,1,
+0,'',
+'tyttt',0,
+0,0,
+0,0,
+0,0,
+0,0,
+0,0,
+'2016-12-25 14:48:35',0,
+0,0,
+'admin','first',
+'un_audit','',
+'','2016-12-26 14:48:35',
+'')
+ SELECT CAST(SCOPE_IDENTITY() as int)
+-------- 错误信息 --------
+从 varchar 数据类型到 datetime 数据类型的转换产生一个超出范围的值。
+语句已终止。
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 14:48:35 ====
+insert into Credit 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  Name,             Number,           
+  Amount,           CreditGodId,      
+  BorrowName,       Deadline,         
+  DateType,         Usefulness,       
+  Photo,            CreditLimit,      
+  PublishTime,      BidStartTime,     
+  BidEndTime,       Remark,           
+  GuaranteeGodId,   GainsRate,        
+  AutomaticBid,     CreditStatus,     
+  CreditTime,       RepaymentDate,    
+  CreditType,       CreditMode,       
+  BidFeeRate,       ActualRaymentTime, 
+  GuaranteeRemark,  GuaranteeOverTimeFee, 
+  UnGuaranteeOverTimeFee, CreditCaps,       
+  IsNowInterest,    PrepaymentRate,   
+  IsAssignment,     CreditAssignmentOfClaimsOfDay, 
+  CreditAssignmentOfClaimsRate, GuaranteeOverTimeRate, 
+  OverTimeCreditRate, MinAssignmentAmount, 
+  BatchDate,        CommissionRate,   
+  CommissionFee,    UnCommissionFee,  
+  Creator,          AuditStep,        
+  AuditResult,      AuditRemark,      
+  Auditor,          AuditTime,        
+  ExclusivePwd) values (          
+1,
+'2016-12-26 14:48:35','2016-12-26 14:48:35',
+'新手活动标','DZ-20161209',
+100000,53442,
+'张云强',7,
+1,2,
+'',100,
+'','2016/12/9 14:22:01',
+'2017/3/9 2 23:59:59','tttttttt',
+53441,0.035,
+0,1,
+'','',
+1,1,
+0,'',
+'tyttt',0,
+0,0,
+0,0,
+0,0,
+0,0,
+0,0,
+'2016-12-25 14:48:35',0,
+0,0,
+'admin','first',
+'un_audit','',
+'','2016-12-26 14:48:35',
+'')
+ SELECT CAST(SCOPE_IDENTITY() as int)
+-------- 错误信息 --------
+【重试一次(ExecuteScalar)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 14:48:35 ====
+insert into Credit 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  Name,             Number,           
+  Amount,           CreditGodId,      
+  BorrowName,       Deadline,         
+  DateType,         Usefulness,       
+  Photo,            CreditLimit,      
+  PublishTime,      BidStartTime,     
+  BidEndTime,       Remark,           
+  GuaranteeGodId,   GainsRate,        
+  AutomaticBid,     CreditStatus,     
+  CreditTime,       RepaymentDate,    
+  CreditType,       CreditMode,       
+  BidFeeRate,       ActualRaymentTime, 
+  GuaranteeRemark,  GuaranteeOverTimeFee, 
+  UnGuaranteeOverTimeFee, CreditCaps,       
+  IsNowInterest,    PrepaymentRate,   
+  IsAssignment,     CreditAssignmentOfClaimsOfDay, 
+  CreditAssignmentOfClaimsRate, GuaranteeOverTimeRate, 
+  OverTimeCreditRate, MinAssignmentAmount, 
+  BatchDate,        CommissionRate,   
+  CommissionFee,    UnCommissionFee,  
+  Creator,          AuditStep,        
+  AuditResult,      AuditRemark,      
+  Auditor,          AuditTime,        
+  ExclusivePwd) values (          
+1,
+'2016-12-26 14:48:35','2016-12-26 14:48:35',
+'新手活动标','DZ-20161209',
+100000,53442,
+'张云强',7,
+1,2,
+'',100,
+'','2016/12/9 14:22:01',
+'2017/3/9 2 23:59:59','tttttttt',
+53441,0.035,
+0,1,
+'','',
+1,1,
+0,'',
+'tyttt',0,
+0,0,
+0,0,
+0,0,
+0,0,
+0,0,
+'2016-12-25 14:48:35',0,
+0,0,
+'admin','first',
+'un_audit','',
+'','2016-12-26 14:48:35',
+'')
+ SELECT CAST(SCOPE_IDENTITY() as int)
+-------- 错误信息 --------
+从 varchar 数据类型到 datetime 数据类型的转换产生一个超出范围的值。
+语句已终止。
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 14:49:05 ====
+insert into Credit 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  Name,             Number,           
+  Amount,           CreditGodId,      
+  BorrowName,       Deadline,         
+  DateType,         Usefulness,       
+  Photo,            CreditLimit,      
+  PublishTime,      BidStartTime,     
+  BidEndTime,       Remark,           
+  GuaranteeGodId,   GainsRate,        
+  AutomaticBid,     CreditStatus,     
+  CreditTime,       RepaymentDate,    
+  CreditType,       CreditMode,       
+  BidFeeRate,       ActualRaymentTime, 
+  GuaranteeRemark,  GuaranteeOverTimeFee, 
+  UnGuaranteeOverTimeFee, CreditCaps,       
+  IsNowInterest,    PrepaymentRate,   
+  IsAssignment,     CreditAssignmentOfClaimsOfDay, 
+  CreditAssignmentOfClaimsRate, GuaranteeOverTimeRate, 
+  OverTimeCreditRate, MinAssignmentAmount, 
+  BatchDate,        CommissionRate,   
+  CommissionFee,    UnCommissionFee,  
+  Creator,          AuditStep,        
+  AuditResult,      AuditRemark,      
+  Auditor,          AuditTime,        
+  ExclusivePwd) values (          
+1,
+'2016-12-26 14:49:05','2016-12-26 14:49:05',
+'新手活动标','DZ-20161209',
+100000,53442,
+'张云强',7,
+1,2,
+'',100,
+'','2016/12/9  23:59:59',
+'2017/3/9 2 23:59:59','tttttttt',
+53441,0.035,
+0,1,
+'','',
+1,1,
+0,'',
+'tyttt',0,
+0,0,
+0,0,
+0,0,
+0,0,
+0,0,
+'2016-12-25 14:49:05',0,
+0,0,
+'admin','first',
+'un_audit','',
+'','2016-12-26 14:49:05',
+'')
+ SELECT CAST(SCOPE_IDENTITY() as int)
+-------- 错误信息 --------
+从 varchar 数据类型到 datetime 数据类型的转换产生一个超出范围的值。
+语句已终止。
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 14:49:05 ====
+insert into Credit 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  Name,             Number,           
+  Amount,           CreditGodId,      
+  BorrowName,       Deadline,         
+  DateType,         Usefulness,       
+  Photo,            CreditLimit,      
+  PublishTime,      BidStartTime,     
+  BidEndTime,       Remark,           
+  GuaranteeGodId,   GainsRate,        
+  AutomaticBid,     CreditStatus,     
+  CreditTime,       RepaymentDate,    
+  CreditType,       CreditMode,       
+  BidFeeRate,       ActualRaymentTime, 
+  GuaranteeRemark,  GuaranteeOverTimeFee, 
+  UnGuaranteeOverTimeFee, CreditCaps,       
+  IsNowInterest,    PrepaymentRate,   
+  IsAssignment,     CreditAssignmentOfClaimsOfDay, 
+  CreditAssignmentOfClaimsRate, GuaranteeOverTimeRate, 
+  OverTimeCreditRate, MinAssignmentAmount, 
+  BatchDate,        CommissionRate,   
+  CommissionFee,    UnCommissionFee,  
+  Creator,          AuditStep,        
+  AuditResult,      AuditRemark,      
+  Auditor,          AuditTime,        
+  ExclusivePwd) values (          
+1,
+'2016-12-26 14:49:05','2016-12-26 14:49:05',
+'新手活动标','DZ-20161209',
+100000,53442,
+'张云强',7,
+1,2,
+'',100,
+'','2016/12/9  23:59:59',
+'2017/3/9 2 23:59:59','tttttttt',
+53441,0.035,
+0,1,
+'','',
+1,1,
+0,'',
+'tyttt',0,
+0,0,
+0,0,
+0,0,
+0,0,
+0,0,
+'2016-12-25 14:49:05',0,
+0,0,
+'admin','first',
+'un_audit','',
+'','2016-12-26 14:49:05',
+'')
+ SELECT CAST(SCOPE_IDENTITY() as int)
+-------- 错误信息 --------
+【重试一次(ExecuteScalar)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 14:49:05 ====
+insert into Credit 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  Name,             Number,           
+  Amount,           CreditGodId,      
+  BorrowName,       Deadline,         
+  DateType,         Usefulness,       
+  Photo,            CreditLimit,      
+  PublishTime,      BidStartTime,     
+  BidEndTime,       Remark,           
+  GuaranteeGodId,   GainsRate,        
+  AutomaticBid,     CreditStatus,     
+  CreditTime,       RepaymentDate,    
+  CreditType,       CreditMode,       
+  BidFeeRate,       ActualRaymentTime, 
+  GuaranteeRemark,  GuaranteeOverTimeFee, 
+  UnGuaranteeOverTimeFee, CreditCaps,       
+  IsNowInterest,    PrepaymentRate,   
+  IsAssignment,     CreditAssignmentOfClaimsOfDay, 
+  CreditAssignmentOfClaimsRate, GuaranteeOverTimeRate, 
+  OverTimeCreditRate, MinAssignmentAmount, 
+  BatchDate,        CommissionRate,   
+  CommissionFee,    UnCommissionFee,  
+  Creator,          AuditStep,        
+  AuditResult,      AuditRemark,      
+  Auditor,          AuditTime,        
+  ExclusivePwd) values (          
+1,
+'2016-12-26 14:49:05','2016-12-26 14:49:05',
+'新手活动标','DZ-20161209',
+100000,53442,
+'张云强',7,
+1,2,
+'',100,
+'','2016/12/9  23:59:59',
+'2017/3/9 2 23:59:59','tttttttt',
+53441,0.035,
+0,1,
+'','',
+1,1,
+0,'',
+'tyttt',0,
+0,0,
+0,0,
+0,0,
+0,0,
+0,0,
+'2016-12-25 14:49:05',0,
+0,0,
+'admin','first',
+'un_audit','',
+'','2016-12-26 14:49:05',
+'')
+ SELECT CAST(SCOPE_IDENTITY() as int)
+-------- 错误信息 --------
+从 varchar 数据类型到 datetime 数据类型的转换产生一个超出范围的值。
+语句已终止。
+
+==== 【instanceDefault】【actual 749 ms / want 500 ms】 2016/12/26 15:00:08 ====
+select * from god
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 15:00:20 ====
+insert into Credit 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  Name,             Number,           
+  Amount,           CreditGodId,      
+  BorrowName,       Deadline,         
+  DateType,         Usefulness,       
+  Photo,            CreditLimit,      
+  PublishTime,      BidStartTime,     
+  BidEndTime,       Remark,           
+  GuaranteeGodId,   GainsRate,        
+  AutomaticBid,     CreditStatus,     
+  CreditTime,       RepaymentDate,    
+  CreditType,       CreditMode,       
+  BidFeeRate,       ActualRaymentTime, 
+  GuaranteeRemark,  GuaranteeOverTimeFee, 
+  UnGuaranteeOverTimeFee, CreditCaps,       
+  IsNowInterest,    PrepaymentRate,   
+  IsAssignment,     CreditAssignmentOfClaimsOfDay, 
+  CreditAssignmentOfClaimsRate, GuaranteeOverTimeRate, 
+  OverTimeCreditRate, MinAssignmentAmount, 
+  BatchDate,        CommissionRate,   
+  CommissionFee,    UnCommissionFee,  
+  Creator,          AuditStep,        
+  AuditResult,      AuditRemark,      
+  Auditor,          AuditTime,        
+  ExclusivePwd) values (          
+1,
+'2016-12-26 15:00:17','2016-12-26 15:00:17',
+'新手活动标','DZ-20161209',
+100000,53442,
+'张云强',7,
+1,2,
+'',100,
+'','2016/12/9  23:59:59',
+'2017/3/9 2 23:59:59','tttttttt',
+53441,0.035,
+0,1,
+'','',
+1,1,
+0,'',
+'tyttt',0,
+0,0,
+0,0,
+0,0,
+0,0,
+0,0,
+'2016-12-25 15:00:20',0,
+0,0,
+'admin','first',
+'un_audit','',
+'','2016-12-26 15:00:20',
+'')
+ SELECT CAST(SCOPE_IDENTITY() as int)
+-------- 错误信息 --------
+从 varchar 数据类型到 datetime 数据类型的转换产生一个超出范围的值。
+语句已终止。
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 15:00:21 ====
+insert into Credit 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  Name,             Number,           
+  Amount,           CreditGodId,      
+  BorrowName,       Deadline,         
+  DateType,         Usefulness,       
+  Photo,            CreditLimit,      
+  PublishTime,      BidStartTime,     
+  BidEndTime,       Remark,           
+  GuaranteeGodId,   GainsRate,        
+  AutomaticBid,     CreditStatus,     
+  CreditTime,       RepaymentDate,    
+  CreditType,       CreditMode,       
+  BidFeeRate,       ActualRaymentTime, 
+  GuaranteeRemark,  GuaranteeOverTimeFee, 
+  UnGuaranteeOverTimeFee, CreditCaps,       
+  IsNowInterest,    PrepaymentRate,   
+  IsAssignment,     CreditAssignmentOfClaimsOfDay, 
+  CreditAssignmentOfClaimsRate, GuaranteeOverTimeRate, 
+  OverTimeCreditRate, MinAssignmentAmount, 
+  BatchDate,        CommissionRate,   
+  CommissionFee,    UnCommissionFee,  
+  Creator,          AuditStep,        
+  AuditResult,      AuditRemark,      
+  Auditor,          AuditTime,        
+  ExclusivePwd) values (          
+1,
+'2016-12-26 15:00:17','2016-12-26 15:00:17',
+'新手活动标','DZ-20161209',
+100000,53442,
+'张云强',7,
+1,2,
+'',100,
+'','2016/12/9  23:59:59',
+'2017/3/9 2 23:59:59','tttttttt',
+53441,0.035,
+0,1,
+'','',
+1,1,
+0,'',
+'tyttt',0,
+0,0,
+0,0,
+0,0,
+0,0,
+0,0,
+'2016-12-25 15:00:20',0,
+0,0,
+'admin','first',
+'un_audit','',
+'','2016-12-26 15:00:20',
+'')
+ SELECT CAST(SCOPE_IDENTITY() as int)
+-------- 错误信息 --------
+【重试一次(ExecuteScalar)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/12/26 15:00:21 ====
+insert into Credit 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  Name,             Number,           
+  Amount,           CreditGodId,      
+  BorrowName,       Deadline,         
+  DateType,         Usefulness,       
+  Photo,            CreditLimit,      
+  PublishTime,      BidStartTime,     
+  BidEndTime,       Remark,           
+  GuaranteeGodId,   GainsRate,        
+  AutomaticBid,     CreditStatus,     
+  CreditTime,       RepaymentDate,    
+  CreditType,       CreditMode,       
+  BidFeeRate,       ActualRaymentTime, 
+  GuaranteeRemark,  GuaranteeOverTimeFee, 
+  UnGuaranteeOverTimeFee, CreditCaps,       
+  IsNowInterest,    PrepaymentRate,   
+  IsAssignment,     CreditAssignmentOfClaimsOfDay, 
+  CreditAssignmentOfClaimsRate, GuaranteeOverTimeRate, 
+  OverTimeCreditRate, MinAssignmentAmount, 
+  BatchDate,        CommissionRate,   
+  CommissionFee,    UnCommissionFee,  
+  Creator,          AuditStep,        
+  AuditResult,      AuditRemark,      
+  Auditor,          AuditTime,        
+  ExclusivePwd) values (          
+1,
+'2016-12-26 15:00:17','2016-12-26 15:00:17',
+'新手活动标','DZ-20161209',
+100000,53442,
+'张云强',7,
+1,2,
+'',100,
+'','2016/12/9  23:59:59',
+'2017/3/9 2 23:59:59','tttttttt',
+53441,0.035,
+0,1,
+'','',
+1,1,
+0,'',
+'tyttt',0,
+0,0,
+0,0,
+0,0,
+0,0,
+0,0,
+'2016-12-25 15:00:20',0,
+0,0,
+'admin','first',
+'un_audit','',
+'','2016-12-26 15:00:20',
+'')
+ SELECT CAST(SCOPE_IDENTITY() as int)
+-------- 错误信息 --------
+从 varchar 数据类型到 datetime 数据类型的转换产生一个超出范围的值。
+语句已终止。
+
+==== 【instanceDefault】【actual 714 ms / want 500 ms】 2016/12/26 15:12:40 ====
+select * from god
+
+==== 【instanceDefault】【actual 718 ms / want 500 ms】 2016/12/26 15:12:48 ====
+select * from god
+
+==== 【instanceDefault】【actual 857 ms / want 500 ms】 2016/12/26 15:12:55 ====
+select * from god
+

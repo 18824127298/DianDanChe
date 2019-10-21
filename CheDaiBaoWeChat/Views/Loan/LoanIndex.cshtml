@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "申请融资租赁";
+    string sPhone = ViewBag.Phone as string;
+    string sLoanType = ViewBag.LoanType as string;
+}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width">
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+    <script type="text/javascript">
+        //function getQueryString() {
+        //    var result = {}, queryString = location.search.substring(1),
+        //        re = /([^&=]+)=([^&]*)/g, m;
+        //    while (m = re.exec(queryString)) {
+        //        result[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+        //    }
+        //    return result;
+        //}
+
+        $(function () {
+            //var stype = getQueryString()["stype"];
+            //if (stype == "1") {
+            //    location.href = "~/Loan/CapriciousLoan";
+            //}
+
+            now = new Date(), hour = now.getHours()
+            if (hour < 6) { $("#lblTime").text("凌晨好！") }
+            else if (hour < 9) { $("#lblTime").text("早上好！") }
+            else if (hour < 12) { $("#lblTime").text("上午好！") }
+            else if (hour < 14) { $("#lblTime").text("中午好！") }
+            else if (hour < 17) { $("#lblTime").text("下午好！") }
+            else if (hour < 19) { $("#lblTime").text("傍晚好！") }
+            else if (hour < 22) { $("#lblTime").text("晚上好！") }
+            else { $("#lblTime").text("夜里好！") }
+
+            $(".pays").click(function () {
+                var url = $(this).attr("val");
+                if (url != "") {
+                    window.location.href = url;
+                }
+            });
+
+            ShowMenu(0);
+        })
+
+
+    </script>
+</head>
+
+<body class="bodybg">
+
+    <div class="nav5" style="margin-top: 0; padding-top: 0.8rem; height: 4.2rem">
+        <div>
+            <span>尊敬的客户，<label id="lblTime"></label></span>
+        </div>
+    </div>
+    <div class="qbCon2 qb02">
+        <ul class="myUl myUl6">
+            <li class="li001" style="@(ViewBag.IsSalesman == true ? "" : "display:none")"><a href="~/GodService/InputPhone">融资租赁<i></i></a></li>
+            @*<li class="li001" style="@(ViewBag.IsSalesman == true ? "display:none" : "")"><a href="~/PictureUpload/SelfRentPhoto">我要融资租赁<i></i></a></li>*@
+            @*<li class="li003" style="@(ViewBag.IsSalesman == true ? "display:none" : "")"><a href="~/Loan/LoanList">融资租赁记录<i></i></a></li>*@
+            @if (sLoanType == "1")
+            {
+                <li class="li003" style="@(ViewBag.IsSalesman == true ? "display:none" : "")"><a href="~/GodService/RentPayment">支付<i></i></a></li>
+            }
+            else
+            {
+                <li class="li003" style="@(ViewBag.IsSalesman == true ? "display:none" : "")"><a href="~/GodService/Amortizationloan">支付融资租赁费用<i></i></a></li>
+            }
+            @*<li class="li003" style="@(ViewBag.IsSalesman == true ? "display:none" : "")"><a href="~/GodService/Amortizationloan">我要还款<i></i></a></li>*@
+        </ul>
+    </div>
+
+    <div class="qbCon2 qb02" style="@(ViewBag.IsSalesman == true ? "" : "display:none")">
+        <ul class="myUl myUl6">
+            <li class="li003"><a href="~/GodService/GetPhone?returnUrl=../Loan/ModifyContactMode">修改融资租赁信息<i></i></a></li>
+            <li class="li003"><a href="~/GodService/GetPhone?returnUrl=../Loan/UpdateContacts">修改联系人信息<i></i></a></li>
+            <li class="li004"><a href="~/GodService/GetPhone?returnUrl=../PictureUpload/UploadID">修改身份证<i></i></a></li>
+            <li class="li005"><a href="~/GodService/GetPhone?returnUrl=../PictureUpload/UploadBankCard">修改银行卡<i></i></a></li>
+            <li class="li005"><a href="~/GodService/GetPhone?returnUrl=../PictureUpload/NewUploadMultipleSheets">补充其他资料<i></i></a></li>
+            <li class="li003"><a href="~/GodService/GetPhone?returnUrl=../Loan/ModifyRecruitmentMaterials">审核后修改基本信息<i></i></a></li>
+            <li class="li003"><a href="~/GodService/GetPhone?returnUrl=../PictureUpload/FollowUp">跟进客户情况<i></i></a></li>
+        </ul>
+    </div>
+
+    <div class="qbCon2 qb02">
+        <ul class="myUl myUl6">
+            <li class="li001" style="@(ViewBag.IsSalesman == true ? "" : "display:none")"><a href="~/GodService/RentPhone">租车<i></i></a></li>
+        </ul>
+    </div>
+
+</body>

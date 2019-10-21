@@ -1,0 +1,30 @@
+﻿@using CheDaiBaoWeChatModel.Models;
+@{
+    Layout = null;
+    ViewBag.Title = "全部融资租赁情况";
+    List<LoanApply> LoanapplyList = ViewBag.LoanapplyList as List<LoanApply>;
+}
+<meta charset="UTF-8">
+<meta name="viewport" content="target-densitydpi=device-dpi,width=640, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no" />
+<link href="~/Content/newcss/common.css" rel="stylesheet" />
+<body bgcolor="#f5f5f9">
+    <section class="page">
+        <div class="content" style="padding-top: 55px; background: #fff;">
+            <div class="all" style="font-size:30px;">全部融资租赁情况</div>
+            <ul class="list2 fz30">
+                @foreach (LoanApply item in LoanapplyList)
+                {
+                    <li style="background-color: #E9C2A6">
+                        <span>@item.CreditPhone (@item.borrower.FullName)</span>
+                        <span><a style="color: @(item.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.审核未通过 ? "#FF0033" : item.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.未审核 ? "111111" : "#0000FF")">
+                            @(item.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.审核未通过 ? "拒绝" : item.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.未审核 ? "审核中" : "通过")</a></span>
+                        <span>@(item.CreateTime.Value.ToString("yyyy/MM/dd"))</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    </section>
+</body>

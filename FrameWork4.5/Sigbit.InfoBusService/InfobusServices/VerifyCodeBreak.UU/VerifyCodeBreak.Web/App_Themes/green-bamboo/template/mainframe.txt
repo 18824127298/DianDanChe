@@ -1,0 +1,13 @@
+<frameset rows="70,*,20" cols="*" frameborder="NO" border="0" framespacing="0" id="frame1">
+    <frame src="index_top.aspx" name="topFrame" scrolling="no" noresize>
+
+    <frameset runat="server" rows="*" cols="2,186,20,*,8" id="frame2" framespacing="0" frameborder="NO" border="0">
+        <frame src="menu_leftbar.aspx" name="menu_leftbar" scrolling="no" noresize>
+        <frame src="function_panel.aspx" name="function_panel" scrolling="no" noresize>
+        <frame src="controlmenu.aspx" name="controlmenu" scrolling="no" frameborder="0" noresize>
+        <frame src="table_index.aspx" name="table_index" scrolling="no" frameborder="0" noresize>
+        <frame src="table_right.aspx" name="table_right" scrolling="no" frameborder="0" noresize>
+    </frameset>
+
+    <frame src="status_bar.aspx" name="status_bar" scrolling="no" noresize>
+</frameset>

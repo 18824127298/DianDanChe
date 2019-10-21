@@ -1,0 +1,53 @@
+==== (instanceDefault)【SQL语句运行错误】2017/10/11 10:26:52 ====
+insert into Opera 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  OperaType,        Remark,           
+  RelationId,       GodId,            
+  ClientAddress,    ClientDevices     
+) values (          
+1,
+'2017-10-11 10:26:52','2017-10-11 10:26:52',
+202,'后台线下充值，充值会员：3cb35de179aae55c198fc88688dc242d，充值金额：1000000，操作人ID：1',
+5,1,
+'::1',1)
+
+-------- 错误信息 --------
+列名 'GodId' 无效。
+列名 'ClientDevices' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/10/11 10:26:52 ====
+insert into Opera 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  OperaType,        Remark,           
+  RelationId,       GodId,            
+  ClientAddress,    ClientDevices     
+) values (          
+1,
+'2017-10-11 10:26:52','2017-10-11 10:26:52',
+202,'后台线下充值，充值会员：3cb35de179aae55c198fc88688dc242d，充值金额：1000000，操作人ID：1',
+5,1,
+'::1',1)
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/10/11 10:26:52 ====
+insert into Opera 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  OperaType,        Remark,           
+  RelationId,       GodId,            
+  ClientAddress,    ClientDevices     
+) values (          
+1,
+'2017-10-11 10:26:52','2017-10-11 10:26:52',
+202,'后台线下充值，充值会员：3cb35de179aae55c198fc88688dc242d，充值金额：1000000，操作人ID：1',
+5,1,
+'::1',1)
+
+-------- 错误信息 --------
+列名 'GodId' 无效。
+列名 'ClientDevices' 无效。
+

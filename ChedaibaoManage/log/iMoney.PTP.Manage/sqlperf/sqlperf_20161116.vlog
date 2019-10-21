@@ -1,0 +1,18 @@
+==== (instanceDefault)【SQL语句运行错误】2016/11/16 16:50:54 ====
+select g.createtime as GodCreatetime  g.* from God as g where [Id] IN (select distinct([GodId]) from [Bid] where [CreateTime] >= '2015-9-01' and [CreateTime] <='2016-11-16 16:50:52')
+-------- 错误信息 --------
+'g' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2016/11/16 16:50:54 ====
+select g.createtime as GodCreatetime  g.* from God as g where [Id] IN (select distinct([GodId]) from [Bid] where [CreateTime] >= '2015-9-01' and [CreateTime] <='2016-11-16 16:50:52')
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/11/16 16:50:54 ====
+select g.createtime as GodCreatetime  g.* from God as g where [Id] IN (select distinct([GodId]) from [Bid] where [CreateTime] >= '2015-9-01' and [CreateTime] <='2016-11-16 16:50:52')
+-------- 错误信息 --------
+'g' 附近有语法错误。
+
+==== 【instanceDefault】【actual 690 ms / want 500 ms】 2016/11/16 16:51:17 ====
+select g.createtime as GodCreatetime, g.* from God as g where [Id] IN (select distinct([GodId]) from [Bid] where [CreateTime] >= '2015-9-01' and [CreateTime] <='2016-11-16 16:51:15')
+

@@ -1,0 +1,46 @@
+==== 【instanceDefault】【actual 561 ms / want 500 ms】 2018/3/25 19:28:34 ====
+select * from sbt_log_user_login where last_heartbeat_time <= '2018-03-25 19:27:33' and has_logout = 'N'  and login_time <= '2018-03-25 19:27:33'
+
+==== 【instanceDefault】【actual 1392 ms / want 500 ms】 2018/3/25 19:30:36 ====
+select * from Credit 
+ where CreditStatus = 3
+ order by publishtime desc
+
+==== 【instanceDefault】【actual 734 ms / want 500 ms】 2018/3/25 20:14:12 ====
+select GodId as id,sum(Principal) as 'Principal',sum(UnPrincipal) as 'UnPrincipal',sum(Interest) as 'Interest', sum(OverInterest) as 'OverInterest',sum(BreachAmount) as 'BreachAmount',sum(ExpectedInterest) as 'ExpectedInterest', sum(UnTotalInterest) as 'UnTotalInterest',sum(EstimationOfInterest) as 'EstimationOfInterest'  from RepaymentPlan repayment inner join Credit credit on repayment.CreditId=credit.id  where GodId in(select GodId from  RepaymentPlan where CreditId=65) group by GodId 
+
+==== 【instanceDefault】【actual 523 ms / want 500 ms】 2018/3/25 20:14:13 ====
+SELECT creditid as id,count(BidId) as BidCount,count(distinct godid) as GodCount, 
+                     sum(Principal) Principal,sum(UnPrincipal) UnPrincipal,sum(Interest) Interest,
+                     sum(OverInterest) OverInterest,sum(BreachAmount) BreachAmount,sum(ExpectedInterest) ExpectedInterest,
+                     sum(UnTotalInterest) UnTotalInterest,sum(EstimationOfInterest) EstimationOfInterest from RepaymentPlan 
+                     where CreditId=65 group by CreditId
+
+==== 【instanceDefault】【actual 565 ms / want 500 ms】 2018/3/25 20:14:15 ====
+SELECT creditid as id,count(BidId) as BidCount,count(distinct godid) as GodCount, 
+                     sum(Principal) Principal,sum(UnPrincipal) UnPrincipal,sum(Interest) Interest,
+                     sum(OverInterest) OverInterest,sum(BreachAmount) BreachAmount,sum(ExpectedInterest) ExpectedInterest,
+                     sum(UnTotalInterest) UnTotalInterest,sum(EstimationOfInterest) EstimationOfInterest from RepaymentPlan 
+                     where CreditId=65 group by CreditId
+
+==== 【SqlDapper_QueryInternal】【actual 1650 ms / want 500 ms】 2018/3/25 20:47:38 ====
+select * from BankCard where  IsValid=@IsValid
+
+==== 【instanceDefault】【actual 3194 ms / want 500 ms】 2018/3/25 20:48:07 ====
+select * from sbt_log_user_login where last_heartbeat_time <= '2018-03-25 20:47:04' and has_logout = 'N'  and login_time <= '2018-03-25 20:47:04'
+
+==== 【instanceDefault】【actual 620 ms / want 500 ms】 2018/3/25 21:10:16 ====
+insert into ptp_credit_audit 
+( audit_uid,        credit_id,        
+  step_before,      step_after,       
+  status_before,    status_after,     
+  auditor,          audit_time,       
+  audit_remark,     remarks           
+) values (          
+'c7f6e251-a7a9-4c25-b03f-c67bf84d6609',80,
+'first','end',
+'un_audit','agree',
+'admin','2018-03-25 21:10:15',
+'同意审核通过','')
+
+

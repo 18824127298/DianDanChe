@@ -1,0 +1,66 @@
+==== (instanceDefault)【SQL语句运行错误】2017/2/15 17:55:51 ====
+insert into Opera 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  OperaType,        Remark,           
+  RelationId,       GodId,            
+  ClientAddress,    ClientDevices     
+) values (          
+0,
+'2017-02-15 17:55:51','2017-02-15 17:55:51',
+0,'立即投标',
+8,1,
+'::1',1)
+
+-------- 错误信息 --------
+对象名 'Opera' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/15 17:55:51 ====
+insert into Opera 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  OperaType,        Remark,           
+  RelationId,       GodId,            
+  ClientAddress,    ClientDevices     
+) values (          
+0,
+'2017-02-15 17:55:51','2017-02-15 17:55:51',
+0,'立即投标',
+8,1,
+'::1',1)
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/15 17:55:51 ====
+insert into Opera 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  OperaType,        Remark,           
+  RelationId,       GodId,            
+  ClientAddress,    ClientDevices     
+) values (          
+0,
+'2017-02-15 17:55:51','2017-02-15 17:55:51',
+0,'立即投标',
+8,1,
+'::1',1)
+
+-------- 错误信息 --------
+对象名 'Opera' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/15 17:56:50 ====
+select c.CommissionRate, c.Id, c.Name,c.Amount,c.Number,c.BidStartTime, p.RepaymentDate,c.GainsRate,c.CommissionRate, c.CreditType,p.Stages,g.FullName,c.DateType,c.Deadline, c.CommissionFee,SUM(p.EstimationOfInterest) as EstimationOfInterest, SUM(p.Principal) as Principal from RepaymentPlan p join Credit c on p.CreditId = c.Id join God g on c.CreditGodId=g.Id where c.CreditStatus=5 group by c.CommissionRate, c.Id, p.CreditId ,c.BidStartTime, c.Name,c.Amount,c.Number, p.RepaymentDate,c.GainsRate,c.CreditType,c.DateType,c.Deadline,c.CommissionRate,p.Stages,g.FullName,c.CommissionFee order by p.RepaymentDate
+-------- 错误信息 --------
+对象名 'RepaymentPlan' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/15 17:56:50 ====
+select c.CommissionRate, c.Id, c.Name,c.Amount,c.Number,c.BidStartTime, p.RepaymentDate,c.GainsRate,c.CommissionRate, c.CreditType,p.Stages,g.FullName,c.DateType,c.Deadline, c.CommissionFee,SUM(p.EstimationOfInterest) as EstimationOfInterest, SUM(p.Principal) as Principal from RepaymentPlan p join Credit c on p.CreditId = c.Id join God g on c.CreditGodId=g.Id where c.CreditStatus=5 group by c.CommissionRate, c.Id, p.CreditId ,c.BidStartTime, c.Name,c.Amount,c.Number, p.RepaymentDate,c.GainsRate,c.CreditType,c.DateType,c.Deadline,c.CommissionRate,p.Stages,g.FullName,c.CommissionFee order by p.RepaymentDate
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/15 17:56:50 ====
+select c.CommissionRate, c.Id, c.Name,c.Amount,c.Number,c.BidStartTime, p.RepaymentDate,c.GainsRate,c.CommissionRate, c.CreditType,p.Stages,g.FullName,c.DateType,c.Deadline, c.CommissionFee,SUM(p.EstimationOfInterest) as EstimationOfInterest, SUM(p.Principal) as Principal from RepaymentPlan p join Credit c on p.CreditId = c.Id join God g on c.CreditGodId=g.Id where c.CreditStatus=5 group by c.CommissionRate, c.Id, p.CreditId ,c.BidStartTime, c.Name,c.Amount,c.Number, p.RepaymentDate,c.GainsRate,c.CreditType,c.DateType,c.Deadline,c.CommissionRate,p.Stages,g.FullName,c.CommissionFee order by p.RepaymentDate
+-------- 错误信息 --------
+对象名 'RepaymentPlan' 无效。
+

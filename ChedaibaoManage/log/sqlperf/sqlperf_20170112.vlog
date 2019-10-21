@@ -1,0 +1,134 @@
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 14:45:23 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+对象名 'sbt_sys_parameter' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 14:45:23 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 14:45:23 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+-------- 错误信息 --------
+对象名 'sbt_sys_parameter' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 14:59:53 ====
+select * from sbt_sys_sub_system_define order by display_order
+-------- 错误信息 --------
+对象名 'sbt_sys_sub_system_define' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 14:59:53 ====
+select * from sbt_sys_sub_system_define order by display_order
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 14:59:53 ====
+select * from sbt_sys_sub_system_define order by display_order
+-------- 错误信息 --------
+对象名 'sbt_sys_sub_system_define' 无效。
+
+==== 【instanceDefault】【actual 931 ms / want 500 ms】 2017/1/12 15:51:18 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 16:07:32 ====
+select * from sbt_sys_menu order by list_order, menu_name
+-------- 错误信息 --------
+对象名 'sbt_sys_menu' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 16:07:32 ====
+select * from sbt_sys_menu order by list_order, menu_name
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 16:07:32 ====
+select * from sbt_sys_menu order by list_order, menu_name
+-------- 错误信息 --------
+对象名 'sbt_sys_menu' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 16:08:57 ====
+select dept_name,           third_pary_code,     full_dept_name,       
+       dept_level,          has_child,           create_time,          
+       creator,             is_active,           list_order,           
+       remarks              
+  from sbt_user_dept    
+  where dept_id = 'jbm'
+
+-------- 错误信息 --------
+对象名 'sbt_user_dept' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 16:08:57 ====
+select dept_name,           third_pary_code,     full_dept_name,       
+       dept_level,          has_child,           create_time,          
+       creator,             is_active,           list_order,           
+       remarks              
+  from sbt_user_dept    
+  where dept_id = 'jbm'
+
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 16:08:58 ====
+select dept_name,           third_pary_code,     full_dept_name,       
+       dept_level,          has_child,           create_time,          
+       creator,             is_active,           list_order,           
+       remarks              
+  from sbt_user_dept    
+  where dept_id = 'jbm'
+
+-------- 错误信息 --------
+对象名 'sbt_user_dept' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 16:09:06 ====
+select dept_name,           third_pary_code,     full_dept_name,       
+       dept_level,          has_child,           create_time,          
+       creator,             is_active,           list_order,           
+       remarks              
+  from sbt_user_dept    
+  where dept_id = 'jbm'
+
+-------- 错误信息 --------
+对象名 'sbt_user_dept' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 16:09:06 ====
+select dept_name,           third_pary_code,     full_dept_name,       
+       dept_level,          has_child,           create_time,          
+       creator,             is_active,           list_order,           
+       remarks              
+  from sbt_user_dept    
+  where dept_id = 'jbm'
+
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/1/12 16:09:06 ====
+select dept_name,           third_pary_code,     full_dept_name,       
+       dept_level,          has_child,           create_time,          
+       creator,             is_active,           list_order,           
+       remarks              
+  from sbt_user_dept    
+  where dept_id = 'jbm'
+
+-------- 错误信息 --------
+对象名 'sbt_user_dept' 无效。
+

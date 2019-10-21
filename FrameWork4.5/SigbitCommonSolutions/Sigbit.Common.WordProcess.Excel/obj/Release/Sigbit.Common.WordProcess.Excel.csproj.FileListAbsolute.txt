@@ -1,0 +1,8 @@
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common.WordProcess.Excel\bin\Release\Sigbit.Common.WordProcess.Excel.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common.WordProcess.Excel\bin\Release\Sigbit.Common.WordProcess.Excel.pdb
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common.WordProcess.Excel\bin\Release\GemBox.Spreadsheet.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common.WordProcess.Excel\bin\Release\Sigbit.Common.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common.WordProcess.Excel\bin\Release\Sigbit.Common.pdb
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common.WordProcess.Excel\obj\Release\Sigbit.Common.WordProcess.Excel.csprojResolveAssemblyReference.cache
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common.WordProcess.Excel\obj\Release\Sigbit.Common.WordProcess.Excel.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common.WordProcess.Excel\obj\Release\Sigbit.Common.WordProcess.Excel.pdb

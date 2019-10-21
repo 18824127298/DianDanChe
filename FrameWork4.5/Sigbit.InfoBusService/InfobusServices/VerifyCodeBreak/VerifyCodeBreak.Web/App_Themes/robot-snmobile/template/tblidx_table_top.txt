@@ -1,0 +1,10 @@
+<body>
+
+<table width="100%" height="9" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td nowrap  background="../../../App_Themes/robot-snmobile/template/tblidx_table_top/index7_12.gif"> 
+		<img src="../../../App_Themes/robot-snmobile/template/tblidx_table_top/index7_12.gif" width="20" height="9"></td>
+  </tr>
+</table>
+
+</body>

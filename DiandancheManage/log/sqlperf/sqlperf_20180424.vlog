@@ -1,0 +1,188 @@
+==== 【SqlDapper_QueryInternal】【actual 2417 ms / want 500 ms】 2018/4/24 22:55:40 ====
+select * from BankCard where  IsValid=@IsValid
+
+==== 【instanceDefault】【actual 743 ms / want 500 ms】 2018/4/24 22:55:51 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== 【SqlDapper_QueryInternal】【actual 642 ms / want 500 ms】 2018/4/24 23:13:11 ====
+select * from BankCard where  IsValid=@IsValid
+
+==== (instanceDefault)【SQL语句运行错误】2018/4/24 23:56:48 ====
+update Credit set 
+ IsValid = true,
+ CreateTime = '2018/4/24 23:26:31',
+ UpdateTime = '2018-04-24 23:56:47',
+ Name = '银行垫资赎契再贷款类业务666888',
+ Number = 'DZ-20180424',
+ Amount = 100000,
+ CreditGodId = 115084,
+ BorrowName = '李琳',
+ Deadline = 30,
+ DateType = 1,
+ Usefulness = 2,
+ Photo = '/credit/photo/5orm038oue.png',
+ CreditLimit = 100,
+ PublishTime = '',
+ BidStartTime = '2018/4/24 23:18:04',
+ BidEndTime = '2018/4/27 23:59:59',
+ Remark = '123',
+ GuaranteeGodId = 0,
+ GainsRate = 0.11,
+ AutomaticBid = 1,
+ CreditStatus = 1,
+ CreditTime = '1900/1/1 0:00:00',
+ RepaymentDate = '1900/1/1 0:00:00',
+ CreditType = 1,
+ CreditMode = 1,
+ BidFeeRate = 0,
+ ActualRaymentTime = '1900/1/1 0:00:00',
+ GuaranteeRemark = '213',
+ GuaranteeOverTimeFee = 0,
+ UnGuaranteeOverTimeFee = 0,
+ CreditCaps = 0,
+ IsNowInterest = 0,
+ PrepaymentRate = 0,
+ IsAssignment = 0,
+ CreditAssignmentOfClaimsOfDay = 0,
+ CreditAssignmentOfClaimsRate = 0,
+ GuaranteeOverTimeRate = 0,
+ OverTimeCreditRate = 0,
+ MinAssignmentAmount = 0,
+ BatchDate = '2018/4/23 0:00:00',
+ CommissionRate = 0.09,
+ CommissionFee = 0,
+ UnCommissionFee = 0,
+ Creator = 'admin',
+ AuditStep = 'first',
+ AuditResult = 'un_audit',
+ AuditRemark = '',
+ Auditor = '',
+ AuditTime = '2018-04-24 23:56:47',
+ ExclusivePwd = ''
+ RiskGrade = 3
+  where Id = 9
+
+-------- 错误信息 --------
+'RiskGrade' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2018/4/24 23:56:48 ====
+update Credit set 
+ IsValid = true,
+ CreateTime = '2018/4/24 23:26:31',
+ UpdateTime = '2018-04-24 23:56:47',
+ Name = '银行垫资赎契再贷款类业务666888',
+ Number = 'DZ-20180424',
+ Amount = 100000,
+ CreditGodId = 115084,
+ BorrowName = '李琳',
+ Deadline = 30,
+ DateType = 1,
+ Usefulness = 2,
+ Photo = '/credit/photo/5orm038oue.png',
+ CreditLimit = 100,
+ PublishTime = '',
+ BidStartTime = '2018/4/24 23:18:04',
+ BidEndTime = '2018/4/27 23:59:59',
+ Remark = '123',
+ GuaranteeGodId = 0,
+ GainsRate = 0.11,
+ AutomaticBid = 1,
+ CreditStatus = 1,
+ CreditTime = '1900/1/1 0:00:00',
+ RepaymentDate = '1900/1/1 0:00:00',
+ CreditType = 1,
+ CreditMode = 1,
+ BidFeeRate = 0,
+ ActualRaymentTime = '1900/1/1 0:00:00',
+ GuaranteeRemark = '213',
+ GuaranteeOverTimeFee = 0,
+ UnGuaranteeOverTimeFee = 0,
+ CreditCaps = 0,
+ IsNowInterest = 0,
+ PrepaymentRate = 0,
+ IsAssignment = 0,
+ CreditAssignmentOfClaimsOfDay = 0,
+ CreditAssignmentOfClaimsRate = 0,
+ GuaranteeOverTimeRate = 0,
+ OverTimeCreditRate = 0,
+ MinAssignmentAmount = 0,
+ BatchDate = '2018/4/23 0:00:00',
+ CommissionRate = 0.09,
+ CommissionFee = 0,
+ UnCommissionFee = 0,
+ Creator = 'admin',
+ AuditStep = 'first',
+ AuditResult = 'un_audit',
+ AuditRemark = '',
+ Auditor = '',
+ AuditTime = '2018-04-24 23:56:47',
+ ExclusivePwd = ''
+ RiskGrade = 3
+  where Id = 9
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceDefault)【SQL语句运行错误】2018/4/24 23:56:48 ====
+update Credit set 
+ IsValid = true,
+ CreateTime = '2018/4/24 23:26:31',
+ UpdateTime = '2018-04-24 23:56:47',
+ Name = '银行垫资赎契再贷款类业务666888',
+ Number = 'DZ-20180424',
+ Amount = 100000,
+ CreditGodId = 115084,
+ BorrowName = '李琳',
+ Deadline = 30,
+ DateType = 1,
+ Usefulness = 2,
+ Photo = '/credit/photo/5orm038oue.png',
+ CreditLimit = 100,
+ PublishTime = '',
+ BidStartTime = '2018/4/24 23:18:04',
+ BidEndTime = '2018/4/27 23:59:59',
+ Remark = '123',
+ GuaranteeGodId = 0,
+ GainsRate = 0.11,
+ AutomaticBid = 1,
+ CreditStatus = 1,
+ CreditTime = '1900/1/1 0:00:00',
+ RepaymentDate = '1900/1/1 0:00:00',
+ CreditType = 1,
+ CreditMode = 1,
+ BidFeeRate = 0,
+ ActualRaymentTime = '1900/1/1 0:00:00',
+ GuaranteeRemark = '213',
+ GuaranteeOverTimeFee = 0,
+ UnGuaranteeOverTimeFee = 0,
+ CreditCaps = 0,
+ IsNowInterest = 0,
+ PrepaymentRate = 0,
+ IsAssignment = 0,
+ CreditAssignmentOfClaimsOfDay = 0,
+ CreditAssignmentOfClaimsRate = 0,
+ GuaranteeOverTimeRate = 0,
+ OverTimeCreditRate = 0,
+ MinAssignmentAmount = 0,
+ BatchDate = '2018/4/23 0:00:00',
+ CommissionRate = 0.09,
+ CommissionFee = 0,
+ UnCommissionFee = 0,
+ Creator = 'admin',
+ AuditStep = 'first',
+ AuditResult = 'un_audit',
+ AuditRemark = '',
+ Auditor = '',
+ AuditTime = '2018-04-24 23:56:47',
+ ExclusivePwd = ''
+ RiskGrade = 3
+  where Id = 9
+
+-------- 错误信息 --------
+'RiskGrade' 附近有语法错误。
+

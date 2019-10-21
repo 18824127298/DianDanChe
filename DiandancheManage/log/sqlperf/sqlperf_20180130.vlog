@@ -1,0 +1,35 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 829 ms / want 500 ms¡¿ 2018/1/30 11:21:15 ====
+select * from GodSummary where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 656 ms / want 500 ms¡¿ 2018/1/30 11:29:33 ====
+select * from GodSummary where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1460 ms / want 500 ms¡¿ 2018/1/30 11:37:43 ====
+select * from GodSummary where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 656 ms / want 500 ms¡¿ 2018/1/30 11:39:40 ====
+select * from GodSummary where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 594 ms / want 500 ms¡¿ 2018/1/30 11:46:14 ====
+select * from GodSummary where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 687 ms / want 500 ms¡¿ 2018/1/30 14:17:04 ====
+select * from GodSummary where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 649 ms / want 500 ms¡¿ 2018/1/30 14:17:26 ====
+select * from GodSummary where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 688 ms / want 500 ms¡¿ 2018/1/30 14:17:39 ====
+select * from GodSummary where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 625 ms / want 500 ms¡¿ 2018/1/30 14:18:00 ====
+select * from GodSummary where  IsValid=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 780 ms / want 500 ms¡¿ 2018/1/30 18:42:43 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+

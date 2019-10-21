@@ -1,0 +1,7 @@
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Net\bin\Release\Sigbit.Net.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Net\bin\Release\Sigbit.Net.pdb
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Net\bin\Release\Sigbit.Common.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Net\bin\Release\Sigbit.Common.pdb
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Net\obj\Release\Sigbit.Net.csprojResolveAssemblyReference.cache
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Net\obj\Release\Sigbit.Net.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Net\obj\Release\Sigbit.Net.pdb

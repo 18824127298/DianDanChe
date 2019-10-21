@@ -1,0 +1,6 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 670 ms / want 500 ms¡¿ 2018/4/16 12:46:10 ====
+select * from lmwithdraw where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1321 ms / want 500 ms¡¿ 2018/4/16 15:42:46 ====
+select * from BankCard where  IsValid=@IsValid
+

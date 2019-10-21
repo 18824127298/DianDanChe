@@ -1,0 +1,36 @@
+==== (instanceDefault)【SQL语句运行错误】2017/5/27 10:33:35 ====
+select * from Credit where (CreditMode=8 || CreditMode=9) and CreditStatus != 11 and IsValid = true
+ order by createtime desc
+-------- 错误信息 --------
+'|' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2017/5/27 10:33:35 ====
+select * from Credit where (CreditMode=8 || CreditMode=9) and CreditStatus != 11 and IsValid = true
+ order by createtime desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/5/27 10:33:35 ====
+select * from Credit where (CreditMode=8 || CreditMode=9) and CreditStatus != 11 and IsValid = true
+ order by createtime desc
+-------- 错误信息 --------
+'|' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2017/5/27 10:34:16 ====
+select * from Credit where (CreditMode=8 || CreditMode=9) and CreditStatus != 11 and IsValid = true
+ order by createtime desc
+-------- 错误信息 --------
+'|' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2017/5/27 10:34:16 ====
+select * from Credit where (CreditMode=8 || CreditMode=9) and CreditStatus != 11 and IsValid = true
+ order by createtime desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/5/27 10:34:16 ====
+select * from Credit where (CreditMode=8 || CreditMode=9) and CreditStatus != 11 and IsValid = true
+ order by createtime desc
+-------- 错误信息 --------
+'|' 附近有语法错误。
+

@@ -1,0 +1,130 @@
+﻿@using CheDaiBaoWeChatModel.Models;
+@{
+    Layout = null;
+    ViewBag.Title = "逾期未回款";
+    List<Borrow> borrowlist = ViewBag.Borrowlist as List<Borrow>;
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi,width=640, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no" />
+    <link href="~/Content/newcss/common.css" rel="stylesheet" />
+</head>
+<body bgcolor="#f5f5f9">
+    <section class="page">
+        <div class="content">
+            <div class="all fz25">请按期次顺序依次还款</div>
+            <ul class="bill">
+                @if (borrowlist.Count > 0)
+                {
+                    foreach (Borrow item in borrowlist)
+                    {
+                    <li onclick="fn_huikuan(@item.Stages,@item.Id)">
+                        <div class="msg">
+                            <span class="fz25">@item.Stages/@item.TotalPeriod 期</span>
+                            <span class="fz25">@((item.Principal + item.Interest + item.OverInterest).Value.ToString("N2"))元</span>
+                        </div>
+                        <div class="status">
+                            <span >还款日 @item.RepaymentDate.Value.ToString("yyyy/MM/dd")</span>
+                            <span >剩余应还@((item.UnPrincipal + item.UnTotalInterest).Value.ToString("N2"))元</span>
+
+                        </div>
+                        <div class="status">
+                            <span>逾期天数</span>
+                            <span style="color:#0000ff">@(item.OverDay)天</span>
+                        </div>
+                    </li>
+                    }
+                }
+            </ul>
+            @* <div style="padding: 100px 78px 10px 143px; @(borrowlist.Count == 0 ? "display: block" : "display:none")">
+                <img src="../Content/images/nodata.png" alt="" />
+            </div>*@
+        </div>
+    </section>
+</body>
+<script src="~/Content/js/jquery-1.11.1.min.js"></script>
+<script src="~/Content/js/jquery.similar.msgbox.js"></script>
+<script type="text/javascript">
+
+    function jsApiCall(json) {
+        var data = $.parseJSON(json);
+        console.log(WeixinJSBridge.invoke(
+        'getBrandWCPayRequest',
+         {
+             "appId": data.appId.toString(), //公众号名称，由商户传入
+             "timeStamp": data.timeStamp.toString(), //时间戳 这里随意使用了一个值
+             "nonceStr": data.nonceStr.toString(), //随机串
+             "package": data.package.toString(),
+             "signType": data.signType.toString(), //微信签名方式:sha1
+             "paySign": data.paySign.toString().toUpperCase() //微信签名
+         },//josn串
+         function (res) {
+             if (res.err_msg == "get_brand_wcpay_request:ok") {
+                 alert("温馨提示", "恭喜您，本次交易成功");
+                 window.location.reload();
+             }
+             else {
+                 $.MsgBox.Alert("温馨提示", "本次交易失败，如有问题请联系客服");
+             }
+         }));
+    }
+
+
+    function callpay(Id) {
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+            }
+            else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+            }
+        }
+        else {
+            $.ajax({
+                async: false,
+                type: 'post',
+                url: "GetYqPayment?r=" + Math.random(),
+                data: {
+                    nId: Id
+                },
+                success: function (json) {
+                    jsApiCall(json);
+                }
+            });
+        }
+    }
+
+    function fn_huikuan(Stages, bId) {
+        $.ajax({
+            type: 'post',
+            url: "IsFirstOverdue?r=" + Math.random(),
+            data: {
+                Stages: Stages,
+                bId: bId,
+            },
+            success: function (json) {
+                if (json.Result == true) {
+                    $.MsgBox.Confirm("温馨提示", "<span>本次还款金额为" + json.SumAmount + "元，是否确定还款？</span>", function () {
+                        callpay(bId);
+                    });
+                }
+                else {
+                    alert("请先结清上期账单！");
+                }
+            }
+        });
+    }
+
+    window.alert = function (name) {
+        var iframe = document.createElement("IFRAME");
+        iframe.style.display = "none";
+        iframe.setAttribute("src", 'data:text/plain,');
+        document.documentElement.appendChild(iframe);
+        window.frames[0].window.alert(name);
+        iframe.parentNode.removeChild(iframe);
+    };
+</script>

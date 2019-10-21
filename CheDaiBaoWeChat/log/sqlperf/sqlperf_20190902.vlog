@@ -1,0 +1,30 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2641 ms / want 500 ms¡¿ 2019/9/2 15:25:14 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2046 ms / want 500 ms¡¿ 2019/9/2 17:05:18 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 778 ms / want 500 ms¡¿ 2019/9/2 17:05:59 ====
+select * from borrower where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 666 ms / want 500 ms¡¿ 2019/9/2 17:05:59 ====
+insert into borrower ([Aliases],[Guid],[Phone],[IsValidatePhone],[IsSalesman],[LoanType],[IsValid],[CreateTime],[UpdateTime]) values (@Aliases,@Guid,@Phone,@IsValidatePhone,@IsSalesman,@LoanType,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 616 ms / want 500 ms¡¿ 2019/9/2 17:06:00 ====
+insert into loanapply ([BorrowerId],[CreditPhone],[RepaymentStatus],[SalesmanId],[Step],[Company],[LoanType],[IsValid],[CreateTime],[UpdateTime]) values (@BorrowerId,@CreditPhone,@RepaymentStatus,@SalesmanId,@Step,@Company,@LoanType,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1303 ms / want 500 ms¡¿ 2019/9/2 17:07:38 ====
+select * from loanapply where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 957 ms / want 500 ms¡¿ 2019/9/2 17:08:05 ====
+select mobilephone from sbt_user where dept_id = 'izm'
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2994 ms / want 500 ms¡¿ 2019/9/2 17:48:26 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2221 ms / want 500 ms¡¿ 2019/9/2 17:49:01 ====
+select * from loanapply where 1=1  and [CreditPhone]=@CreditPhone  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 641 ms / want 500 ms¡¿ 2019/9/2 17:50:16 ====
+insert into businessfile ([BusinessType],[FileName],[RelationId],[BorrowerId],[FilePath],[Sort],[WeChatPath],[IsValid],[CreateTime],[UpdateTime]) values (@BusinessType,@FileName,@RelationId,@BorrowerId,@FilePath,@Sort,@WeChatPath,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+

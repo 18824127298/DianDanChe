@@ -1,0 +1,30 @@
+==== ¡¾instanceDefault¡¿¡¾actual 3765 ms / want 500 ms¡¿ 2018/4/17 11:00:59 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 744 ms / want 500 ms¡¿ 2018/4/17 17:14:18 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 595 ms / want 500 ms¡¿ 2018/4/17 18:27:28 ====
+select * from BankCard where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 841 ms / want 500 ms¡¿ 2018/4/17 20:01:46 ====
+insert into opera ([OperaType],[Remark],[ClientAddress],[ClientDevices],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@ClientAddress,@ClientDevices,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾instanceDefault¡¿¡¾actual 1459 ms / want 500 ms¡¿ 2018/4/17 20:02:44 ====
+select * from opera where OperaType=2
+ and IsValid = '1' and CreateTime >= '2018-04-17 00:00:00'
+ order by createtime desc
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1063 ms / want 500 ms¡¿ 2018/4/17 22:48:44 ====
+select * from BasicInformation where  IsValid=@IsValid
+

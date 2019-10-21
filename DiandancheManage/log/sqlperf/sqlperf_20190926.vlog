@@ -1,0 +1,35 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3380 ms / want 500 ms¡¿ 2019/09/26 9:59:08 ====
+
+            select SUM(TotalAmountStage) as DownPayments,convert(varchar(7),AuditTime,120) AS syear, Month(AuditTime) AS nmonth from LoanApply
+ where IsValid= 1 and (RepaymentStatus = 5 or RepaymentStatus = 6) group by convert(varchar(7),AuditTime,120),Month(AuditTime)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2461 ms / want 500 ms¡¿ 2019/09/26 10:36:24 ====
+
+            select SUM(TotalAmountStage) as TotalAmountStage,convert(varchar(7),AuditTime,120) AS syear, Month(AuditTime) AS nmonth from LoanApply
+ where IsValid= 1 and (RepaymentStatus = 5 or RepaymentStatus = 6) group by convert(varchar(7),AuditTime,120),Month(AuditTime)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1627 ms / want 500 ms¡¿ 2019/09/26 11:41:03 ====
+
+            select SUM(TotalAmountStage) as TotalAmountStage,convert(varchar(7),AuditTime,120) AS syear, Month(AuditTime) AS nmonth from LoanApply
+ where IsValid= 1 and (RepaymentStatus = 5 or RepaymentStatus = 6) group by convert(varchar(7),AuditTime,120),Month(AuditTime)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1737 ms / want 500 ms¡¿ 2019/09/26 11:56:52 ====
+
+            select SUM(TotalAmountStage) as TotalAmountStage,convert(varchar(7),AuditTime,120) AS syear, Month(AuditTime) AS nmonth from LoanApply
+ where IsValid= 1 and (RepaymentStatus = 5 or RepaymentStatus = 6) group by convert(varchar(7),AuditTime,120),Month(AuditTime)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 12264 ms / want 500 ms¡¿ 2019/09/26 14:04:02 ====
+
+            select SUM(TotalAmountStage) as TotalAmountStage,convert(varchar(7),AuditTime,120) AS syear, Month(AuditTime) AS nmonth from LoanApply
+ where IsValid= 1 and (RepaymentStatus = 5 or RepaymentStatus = 6) group by convert(varchar(7),AuditTime,120),Month(AuditTime)
+
+==== ¡¾instanceDefault¡¿¡¾actual 603 ms / want 500 ms¡¿ 2019/09/26 14:04:04 ====
+select COUNT(*) as value,b.FullName as name  from LoanApply l join Borrower b on l.SalesmanId = b.Id where l.IsValid= 1 
+and (l.RepaymentStatus = 5 or l.RepaymentStatus = 6) and convert(varchar(7),AuditTime ,120) = convert(varchar(7),GETDATE(),120)
+  group by  b.FullName order by value desc
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 633 ms / want 500 ms¡¿ 2019/09/26 14:54:52 ====
+
+            select SUM(TotalAmountStage) as TotalAmountStage,convert(varchar(7),AuditTime,120) AS syear, Month(AuditTime) AS nmonth from LoanApply
+ where IsValid= 1 and (RepaymentStatus = 5 or RepaymentStatus = 6) group by convert(varchar(7),AuditTime,120),Month(AuditTime)
+

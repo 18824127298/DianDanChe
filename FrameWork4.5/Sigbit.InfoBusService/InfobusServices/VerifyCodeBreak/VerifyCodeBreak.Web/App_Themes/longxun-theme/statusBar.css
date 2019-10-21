@@ -1,0 +1,34 @@
+﻿.statusBar table
+{
+	background-image: url("images/status_bar/sb_bg.gif"); 
+	font-size: 9pt;
+}
+
+/* ---------- 状态栏 在线人数文字 ---------- */
+.statusBarOnlineText 
+{ 
+	color: #0066CC;
+	WIDTH: 100%; 
+	text-decoration: none; 
+} 
+
+/* ---------- 状态栏 在线人数数字 ---------- */
+.statusBarOnlineNum 
+{ 
+	border:0;
+	width:24pt;
+	height:12pt;
+	color:#0066CC;
+	cursor:hand;
+	text-align:center;
+	FONT-WEIGHT: bold;
+	background-color:transparent; 
+} 
+
+/* ---------- 状态栏 中间文字 ---------- */
+.statusBarCenterText 
+{ 
+	cursor:hand; 
+	color:#000000; 
+} 
+

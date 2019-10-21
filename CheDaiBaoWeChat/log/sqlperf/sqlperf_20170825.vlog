@@ -1,0 +1,3 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1950 ms / want 500 ms¡¿ 2017/8/25 17:05:48 ====
+insert into opera ([OperaType],[Remark],[RelationId],[GodId],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@RelationId,@GodId,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+

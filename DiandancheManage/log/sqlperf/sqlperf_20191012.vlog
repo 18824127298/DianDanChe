@@ -1,0 +1,11 @@
+==== ¡¾instanceDefault¡¿¡¾actual 20109 ms / want 500 ms¡¿ 2019/10/12 17:50:47 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 920 ms / want 500 ms¡¿ 2019/10/12 17:50:49 ====
+select * from sbt_sys_sub_system_define order by display_order
+

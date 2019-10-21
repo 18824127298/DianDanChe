@@ -1,0 +1,6 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1664 ms / want 500 ms¡¿ 2017/8/11 14:40:52 ====
+select * from CarType where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1398 ms / want 500 ms¡¿ 2017/8/11 15:57:14 ====
+select * from CarType where  IsValid=@IsValid
+

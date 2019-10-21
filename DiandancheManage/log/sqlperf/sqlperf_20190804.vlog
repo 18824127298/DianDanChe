@@ -1,0 +1,3 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2349 ms / want 500 ms¡¿ 2019/08/04 2:41:58 ====
+select * from businessfile where 1=1  and [IsValid]=@IsValid
+

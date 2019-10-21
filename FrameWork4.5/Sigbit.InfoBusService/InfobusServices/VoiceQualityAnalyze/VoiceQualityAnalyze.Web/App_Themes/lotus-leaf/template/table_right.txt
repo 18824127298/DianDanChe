@@ -1,0 +1,16 @@
+<body>
+<table width="8" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="9"><img src="../../App_Themes/lotus-leaf/template/table_right/index3_13.gif" width="8" height="9" alt="" /></td>
+  </tr>
+  <tr>
+    <td background="../../App_Themes/lotus-leaf/template/table_right/index3_16.jpg">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="70"><img src="../../App_Themes/lotus-leaf/template/table_right/index_26.jpg" width="8" height="70" alt="" /></td>
+  </tr>
+  <tr>
+    <td height="9"><img src="../../App_Themes/lotus-leaf/template/table_right/index3_25.jpg" width="8" height="9" alt="" /></td>
+  </tr>
+</table>
+</body>

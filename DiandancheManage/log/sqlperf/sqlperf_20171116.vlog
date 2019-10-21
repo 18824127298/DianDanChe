@@ -1,0 +1,18 @@
+==== 【SqlDapper_QueryInternal】【actual 2047 ms / want 500 ms】 2017/11/16 11:42:08 ====
+select * from Credit where  IsValid=@IsValid
+
+==== (instanceDefault)【SQL语句运行错误】2017/11/16 17:01:38 ====
+select SUM(b.Amount) from Bid b join Credit c on b.CreditId= c.Id where b.IsValid= 1 and c.IsValid= 1 and CONVERT(varchar(100),b.CreateTime, 23) = CONVERT(varchar(100), GETDATE(), 23) and c.CreditMode= Activity
+-------- 错误信息 --------
+列名 'Activity' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/11/16 17:01:38 ====
+select SUM(b.Amount) from Bid b join Credit c on b.CreditId= c.Id where b.IsValid= 1 and c.IsValid= 1 and CONVERT(varchar(100),b.CreateTime, 23) = CONVERT(varchar(100), GETDATE(), 23) and c.CreditMode= Activity
+-------- 错误信息 --------
+【重试一次(ExecuteScalar)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/11/16 17:01:38 ====
+select SUM(b.Amount) from Bid b join Credit c on b.CreditId= c.Id where b.IsValid= 1 and c.IsValid= 1 and CONVERT(varchar(100),b.CreateTime, 23) = CONVERT(varchar(100), GETDATE(), 23) and c.CreditMode= Activity
+-------- 错误信息 --------
+列名 'Activity' 无效。
+

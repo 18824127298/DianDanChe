@@ -1,0 +1,6 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 671 ms / want 500 ms¡¿ 2017/12/12 14:57:14 ====
+select * from god where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1076 ms / want 500 ms¡¿ 2017/12/12 15:01:11 ====
+select * from god where 1=1  and [IsValid]=@IsValid
+

@@ -1,0 +1,4 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2079 ms / want 500 ms¡¿ 2018/10/29 15:57:20 ====
+select * FROM [God] WHERE [IsValid] = 1 and [FullName] not LIKE '%¹«Ë¾%' and [Id] IN 
+           (select DISTINCT([CreditGodId]) FROM [Credit] WHERE [IsValid] = 1 and [CreditStatus] = 5)
+

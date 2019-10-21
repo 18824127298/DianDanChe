@@ -1,0 +1,2188 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sigbit.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Sigbit.Data.ConnectionLocateMethod">
+            <summary>
+            连接的定位方式
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.ConnectionLocateMethod.Fix">
+            <summary>
+            固定段定位
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.ConnectionLocateMethod.Variable">
+            <summary>
+            可变段定位
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.DataConnectionSetion">
+            <summary>
+            数据连接段
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DataConnectionSetion.#ctor(System.Int32,System.String,Sigbit.Data.ConnectionLocateMethod)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="nSize">段大小</param>
+            <param name="sDataInstanceName">数据实例名</param>
+            <param name="locateMeth">空闲连接的定位方式</param>
+        </member>
+        <member name="M:Sigbit.Data.DataConnectionSetion.GetDataHelper(System.Int32)">
+            <summary>
+            按索引定位连接
+            </summary>
+            <param name="nIndex">下标索引</param>
+            <returns>连接</returns>
+        </member>
+        <member name="M:Sigbit.Data.DataConnectionSetion.GetIdleConnection">
+            <summary>
+            得到一个空闲的连接实例
+            </summary>
+            <returns>连接实例</returns>
+        </member>
+        <member name="M:Sigbit.Data.DataConnectionSetion.GetIdleConnection__Fix">
+            <summary>
+            得到固定段的空闲连接实例
+            </summary>
+            <returns>连接实例</returns>
+        </member>
+        <member name="M:Sigbit.Data.DataConnectionSetion.GetIdleConnection__Variable">
+            <summary>
+            得到可变段的空闲连接实例
+            </summary>
+            <returns>连接实例</returns>
+        </member>
+        <member name="M:Sigbit.Data.DataConnectionSetion.ClearConnections">
+            <summary>
+            清除30秒未运行SQL语句的连接
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataConnectionSetion.SectionSize">
+            <summary>
+            池段的大小
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataConnectionSetion.DataInstanceName">
+            <summary>
+            数据连接实例名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataConnectionSetion.ConnectionLocateMeth">
+            <summary>
+            空闲连接的定位方式
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DataConnectionPool._sectionFix">
+            <summary>
+            固定的连接段
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DataConnectionPool._sectionVariable">
+            <summary>
+            可变的连接段
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DataConnectionPool._lastClearConnectionTime">
+            <summary>
+            最后一次清连接的时间
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DataConnectionPool.#ctor(System.Int32,System.Int32,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="nMinSize">最小保证大小</param>
+            <param name="nMaxSize">最大可达大小</param>
+        </member>
+        <member name="M:Sigbit.Data.DataConnectionPool.GetIdleConnection">
+            <summary>
+            得到空闲的连接
+            </summary>
+            <returns>空闲的连接</returns>
+        </member>
+        <member name="M:Sigbit.Data.DataConnectionPool.ClearVariableConnections">
+            <summary>
+            清除可变段的连接
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataConnectionPool.MinPoolSize">
+            <summary>
+            最小的池大小
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataConnectionPool.MaxPoolSize">
+            <summary>
+            最大的池大小
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataConnectionPool.DataInstanceName">
+            <summary>
+            数据连接实例名
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.SQLMaxTimeCostType">
+            <summary>
+            SQL语句的运行时长类型
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.DataHelper">
+            <summary>
+            数据库访问类
+            </summary>
+            <remarks>
+            ======== 待解决的问题 (oldix) ========<br/>
+            目前的数据库的配置放在静态变量中解决，如果是Web应用，可以放在Application变量
+            中，或Cache之中。但如果在一个封装中兼容两个或更多类型的应用？<br/>
+            ======== 待讨论的问题 (oldix) ========<br/>
+            一、配置文件如何记录？文件内容和格式如何组织，如何存放，如何命名？目前是放
+            在“config/”目录下，以“组件dll文件名+.config组成”。<br/>
+            二、DataHelper中采用ConnectString放置所有的连接参数，这种处理方式对于目前的应
+            用差不多。但有的应用需要在应用中指定用户名、密码等信息，那么，此时如何管理
+            配置信息，类如何封装，如何调用？<br/>
+            ======== 不一定正确的解决方法 - MySQL (oldix) ：========<br/>
+            1. MySQL的处理中，原来的mySQLUtils有一处编译不通过，似为编码问题，注释掉了；<br/>
+            2. ExecuteScalar运行后会自动关掉连接。在封装时，采用运行后又打开的方法；<br/>
+            ======== 扩展点 (oldix) :========<br/>
+            1. 存储过程、动态绑定参数的操作；<br/>
+            2. 事务处理相关的封装；<br/>
+            3. Oracle的封装；<br/>
+            </remarks>
+        </member>
+        <member name="F:Sigbit.Data.DataHelper.DEFAULT_INSTANCE_NAME">
+            <summary>
+            缺省的实例名
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DataHelper._dataInstanceName">
+            <summary>
+            数据的实例名称
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DataHelper._dbConn">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DataHelper.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DataHelper.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sDataInstanceName">配置的实例名</param>
+        </member>
+        <member name="M:Sigbit.Data.DataHelper.Dispose">
+            <summary>
+            释放函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DataHelper.Disconnect">
+            <summary>
+            断开连接
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DataHelper.GetDatabase">
+            <summary>
+            得到数据库连接
+            </summary>
+            <returns>数据库连接基类实例</returns>
+            <remarks>如果连接未连上，则连上该连接。</remarks>
+        </member>
+        <member name="M:Sigbit.Data.DataHelper.ExecuteNonQuery(System.String)">
+            <summary>
+            执行数据更新语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>影响到的行数</returns>
+        </member>
+        <member name="M:Sigbit.Data.DataHelper.ExecuteDataSet(System.String)">
+            <summary>
+            运行SQL语句，并得到结果集
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>获得的结果集</returns>
+        </member>
+        <member name="M:Sigbit.Data.DataHelper.ExecuteDataReader(System.String)">
+            <summary>
+            运行SQL语句，并得到DataReader
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>获得的DataReader</returns>
+        </member>
+        <member name="M:Sigbit.Data.DataHelper.ExecuteScalar(System.String)">
+            <summary>
+            运行SQL语句，得到返回的结果
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>返回的结果。该结果为第一行第一列的值</returns>
+        </member>
+        <member name="F:Sigbit.Data.DataHelper._dataHelperPoolList">
+            <summary>
+            连接池列表
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DataHelper.GetInstance(System.String)">
+            <summary>
+            从数据库访问对象池中获取指定实例名的数据库访问实例
+            </summary>
+            <param name="dataInstanceName">实例名</param>
+            <returns>访问类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Data.DataHelper.SQLRunLogWrite(System.String,System.String)">
+            <summary>
+            数据库执行信息写入
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <param name="sRunLog">执行信息</param>
+        </member>
+        <member name="M:Sigbit.Data.DataHelper.SQLPerfLogWrite(System.String,System.Int32)">
+            <summary>
+            记录SQL语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <param name="nEllapsedMS">历时</param>
+        </member>
+        <member name="M:Sigbit.Data.DataHelper.GetMaxSQLTimeCost">
+            <summary>
+            得到SQL语句运行的最大时间
+            </summary>
+            <returns>以毫秒为单位的时间值</returns>
+        </member>
+        <member name="P:Sigbit.Data.DataHelper.IsRunningSQL">
+            <summary>
+            是否正在运行SQL语句
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataHelper.LastRunSQLTime">
+            <summary>
+            最近一次运行SQL语句的时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataHelper.NextSQLMaxTimeCostType">
+            <summary>
+            下一条SQL语句的运行时长类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataHelper.NextSQLMaxTimeCost">
+            <summary>
+            下一条SQL语句的运行时长设定（单位：毫秒）。如果设置了该属性，
+            则忽略时长类型设定。
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataHelper.DataInstanceName">
+            <summary>
+            对数据库访问对象池 指定当前调用默认实例(通过Instance)时的实例名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataHelper.Instance">
+            <summary>
+            从数据库访问对象池中获取默认的数据库访问实例
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.SigbitDBType">
+            <summary>
+            数据库类型
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SigbitDBType.dbMsSql">
+            <summary>
+            Microsoft SQLServer
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SigbitDBType.dbMySql">
+            <summary>
+            MySQL
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SigbitDBType.dbMySql5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SigbitDBType.dbMySql5GBK">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SigbitDBType.dbODBC">
+            <summary>
+            ODBC
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SigbitDBType.dbOracle">
+            <summary>
+            Oracle
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SigbitDBType.dbOleDb">
+            <summary>
+            OleDb
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SigbitDBType.dbSybase">
+            <summary>
+            Sybase
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SigbitDBType.dbPostgreSql">
+            <summary>
+            Postgre
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SigbitDBType.dbRomitSql">
+            <summary>
+            远程数据库
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.SQLPerfLogMethod">
+            <summary>
+            数据库日志文件的记录方式
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SQLPerfLogMethod.UnknownMethod">
+            <summary>
+            未知记录
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SQLPerfLogMethod.LogNone">
+            <summary>
+            不做记录
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SQLPerfLogMethod.LogWanted">
+            <summary>
+            只记录超时SQL语句
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.SQLPerfLogMethod.LogAll">
+            <summary>
+            全记录
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.DataHelperConfig">
+            <summary>
+            数据库访问配置类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DataHelperConfig.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DataHelperConfig.GetDBType(System.String)">
+            <summary>
+            得到数据库类型
+            </summary>
+            <param name="sInstanceName">配置的实例名</param>
+            <returns>配置的数据库类型</returns>
+        </member>
+        <member name="M:Sigbit.Data.DataHelperConfig.GetConnectString(System.String)">
+            <summary>
+            得到数据库连接串
+            </summary>
+            <param name="sInstanceName">配置的实例名</param>
+            <returns>配置的数据库类型</returns>
+        </member>
+        <member name="P:Sigbit.Data.DataHelperConfig.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataHelperConfig.LogMethod">
+            <summary>
+            日志的记录方式
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataHelperConfig.LogDirectory">
+            <summary>
+            数据库日志的目录
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataHelperConfig.LogQuickSQLTime">
+            <summary>
+            短SQL语句的超时时长，建议为100 ms
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataHelperConfig.LogNormalSQLTime">
+            <summary>
+            普通SQL语句的超时时长，建议为1000 ms
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DataHelperConfig.LogSlowSQLTime">
+            <summary>
+            长SQL语句的超时时长，建议为3000 ms
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.DBConnBase">
+            <summary>
+            数据库访问的基类，用于继承出各类数据库访问
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnBase.IsConnected">
+            <summary>
+            判断是否已经连接上
+            </summary>
+            <returns>是否已经创建连接</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnBase.Connect">
+            <summary>
+            连接数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnBase.Disconnect">
+            <summary>
+            断连数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnBase.ExecuteNonQuery(System.String)">
+            <summary>
+            运行更新语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>影响到的行数</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnBase.ExecuteDataSet(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的结果集</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnBase.ExecuteDataReader(System.String)">
+            <summary>
+            运行查询语句，得到DataReader
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>DataReader</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnBase.ExecuteScalar(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的一个数值</returns>
+        </member>
+        <member name="P:Sigbit.Data.DBConnBase.ConnectString">
+            <summary>
+            数据库的连接串
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.DBConnMSSql">
+            <summary>
+            Microsoft SQLServer的数据库访问封装
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMSSql.IsConnected">
+            <summary>
+            判断是否已经连接上
+            </summary>
+            <returns>是否已经创建连接</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMSSql.Connect">
+            <summary>
+            连接数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMSSql.Disconnect">
+            <summary>
+            断连数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMSSql.ExecuteNonQuery(System.String)">
+            <summary>
+            运行更新语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>影响到的行数</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMSSql.ExecuteDataSet(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的结果集</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMSSql.SelectSQLTransFromLimitToTop(System.String)">
+            <summary>
+            将含有Limit的SQL语句换成含有Top的SQL语句
+            </summary>
+            <param name="sLimitSQL">含有Limit的SQL语句</param>
+            <returns>含有Top的SQL语句</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMSSql.ExecuteScalar(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的一个数值</returns>
+        </member>
+        <member name="T:Sigbit.Data.DBConnMySql">
+            <summary>
+            MySQL的数据库访问封装
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql.IsConnected">
+            <summary>
+            判断是否已经连接上
+            </summary>
+            <returns>是否已经创建连接</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql.Connect">
+            <summary>
+            连接数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql.Disconnect">
+            <summary>
+            断连数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql.ExecuteNonQuery(System.String)">
+            <summary>
+            运行更新语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>影响到的行数</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql.ExecuteDataSet(System.String)">
+            <summary>
+            运行查询语句                                                                    
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的结果集</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql.SelectSQLTransFromTopToLimit(System.String)">
+            <summary>
+            将含有Top的SQL语句转为含有Limit的SQL语句
+            </summary>
+            <param name="sTopSQL">含有Top的SQL语句</param>
+            <returns>含有Limit的SQL语句</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql.ExecuteScalar(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的一个数值</returns>
+        </member>
+        <member name="T:Sigbit.Data.DBConnMySql5">
+            <summary>
+            MySQL的数据库访问封装
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5.IsConnected">
+            <summary>
+            判断是否已经连接上
+            </summary>
+            <returns>是否已经创建连接</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5.Connect">
+            <summary>
+            连接数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5.Disconnect">
+            <summary>
+            断连数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5.ExecuteNonQuery(System.String)">
+            <summary>
+            运行更新语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>影响到的行数</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5.ExecuteDataSet(System.String)">
+            <summary>
+            运行查询语句                                                                    
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的结果集</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5.SelectSQLTransFromTopToLimit(System.String)">
+            <summary>
+            将含有Top的SQL语句转为含有Limit的SQL语句
+            </summary>
+            <param name="sTopSQL">含有Top的SQL语句</param>
+            <returns>含有Limit的SQL语句</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5.ExecuteDataReader(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sSQL"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5.ExecuteScalar(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的一个数值</returns>
+        </member>
+        <member name="T:Sigbit.Data.DBConnMySql5GBK">
+            <summary>
+            MySQL的数据库访问封装
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5GBK.IsConnected">
+            <summary>
+            判断是否已经连接上
+            </summary>
+            <returns>是否已经创建连接</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5GBK.Connect">
+            <summary>
+            连接数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5GBK.Disconnect">
+            <summary>
+            断连数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5GBK.ExecuteNonQuery(System.String)">
+            <summary>
+            运行更新语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>影响到的行数</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5GBK.ExecuteDataSet(System.String)">
+            <summary>
+            运行查询语句                                                                    
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的结果集</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5GBK.SelectSQLTransFromTopToLimit(System.String)">
+            <summary>
+            将含有Top的SQL语句转为含有Limit的SQL语句
+            </summary>
+            <param name="sTopSQL">含有Top的SQL语句</param>
+            <returns>含有Limit的SQL语句</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5GBK.ExecuteDataReader(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sSQL"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnMySql5GBK.ExecuteScalar(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的一个数值</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnODBC.IsConnected">
+            <summary>
+            判断是否已经连接上
+            </summary>
+            <returns>是否已经创建连接</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnODBC.Connect">
+            <summary>
+            连接数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnODBC.Disconnect">
+            <summary>
+            断连数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnODBC.ExecuteNonQuery(System.String)">
+            <summary>
+            运行更新语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>影响到的行数</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnODBC.ExecuteDataSet(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的结果集</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnODBC.ExecuteScalar(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的一个数值</returns>
+        </member>
+        <member name="T:Sigbit.Data.DBConnOleDb">
+            <summary>
+            OleDb类型数据库访问封装
+            </summary>
+            <remarks>
+            主要用于Access数据库访问
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOleDb.IsConnected">
+            <summary>
+            判断是否已经连接上
+            </summary>
+            <returns>是否已经创建连接</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOleDb.Connect">
+            <summary>
+            连接数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOleDb.Disconnect">
+            <summary>
+            断连数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOleDb.ExecuteNonQuery(System.String)">
+            <summary>
+            运行更新语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>影响到的行数</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOleDb.ExecuteDataSet(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的结果集</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOleDb.ExecuteScalar(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的一个数值</returns>
+        </member>
+        <member name="T:Sigbit.Data.DBConnOracle">
+            <summary>
+            Oracle数据库访问封装
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOracle.ReguLongTableName(System.String)">
+            <summary>
+            规整长表名
+            </summary>
+            <param name="sSQL"></param>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOracle.ConvertLongTableName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sTableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOracle.IsConnected">
+            <summary>
+            判断是否已经连接上
+            </summary>
+            <returns>是否已经创建连接</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOracle.Connect">
+            <summary>
+            连接数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOracle.Disconnect">
+            <summary>
+            断连数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOracle.ExecuteNonQuery(System.String)">
+            <summary>
+            运行更新语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>影响到的行数</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOracle.ExecuteDataSet(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的结果集</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOracle.SelectSQLTransFromTopLimitToRownum__Top(System.String)">
+            <summary>
+            将含有Top的SQL语句转为含有rownum的SQL语句
+            </summary>
+            <param name="sTopSQL">含有Top的SQL语句</param>
+            <returns>含有Limit的SQL语句</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOracle.SelectSQLTransFromTopLimitToRownum__Limit(System.String)">
+            <summary>
+            将含有Limit的SQL语句换成含有Top的SQL语句
+            </summary>
+            <param name="sLimitSQL">含有Limit的SQL语句</param>
+            <returns>含有Top的SQL语句</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOracle.ExecuteScalar(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的一个数值</returns>
+        </member>
+        <member name="P:Sigbit.Data.DBConnOracle.SKIP_ORACLE_DB_PARASER">
+            <summary>
+            跳过Oracle的SQL语句和DataSet的转换处理
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.DBConnOracle.OracleDBParser">
+            <summary>
+            Oracle  数据库的规整
+            </summary>
+            <remarks>
+            将Sql语句中的 '' 替换为 '#',结果集中的'#'替换为''
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.DBConnOracle.OracleDBParser.DatsSetParser(System.Data.DataSet)">
+            <summary>
+            遍历结果集,替换"#"为""
+            </summary>
+            <param name="ds"></param>
+        </member>
+        <member name="T:Sigbit.Data.DBConnPostgreSql">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnPostgreSql.IsConnected">
+            <summary>
+            判断是否已经连接上
+            </summary>
+            <returns>是否已经创建连接</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnPostgreSql.Connect">
+            <summary>
+            连接数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnPostgreSql.Disconnect">
+            <summary>
+            断连数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnPostgreSql.ExecuteNonQuery(System.String)">
+            <summary>
+            运行更新语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>影响到的行数</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnPostgreSql.ExecuteDataSet(System.String)">
+            <summary>
+            运行查询语句                                                                    
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的结果集</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnPostgreSql.SelectSQLTransFromTopToLimit(System.String)">
+            <summary>
+            将含有Top的SQL语句转为含有Limit的SQL语句
+            </summary>
+            <param name="sTopSQL">含有Top的SQL语句</param>
+            <returns>含有Limit的SQL语句</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnPostgreSql.ExecuteDataReader(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sSQL"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnPostgreSql.ExecuteScalar(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的一个数值</returns>
+        </member>
+        <member name="T:Sigbit.Data.DBConnSybase">
+            <summary>
+            Oracle数据库访问封装
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnSybase.IsConnected">
+            <summary>
+            判断是否已经连接上
+            </summary>
+            <returns>是否已经创建连接</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnSybase.Connect">
+            <summary>
+            连接数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnSybase.Disconnect">
+            <summary>
+            断连数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBConnSybase.ExecuteNonQuery(System.String)">
+            <summary>
+            运行更新语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>影响到的行数</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnSybase.ExecuteDataSet(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的结果集</returns>
+        </member>
+        <member name="M:Sigbit.Data.DBConnSybase.ExecuteScalar(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的一个数值</returns>
+        </member>
+        <member name="T:Sigbit.Data.DBStruct.DataTypeDefine">
+            <summary>
+            字段类型枚举
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DBStruct.DataTypeDefine.Char">
+            <summary>
+            定长字符字段
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DBStruct.DataTypeDefine.Varchar">
+            <summary>
+            变长字符字段
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DBStruct.DataTypeDefine.Int">
+            <summary>
+            整形字段
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DBStruct.DataTypeDefine.Text">
+            <summary>
+            文本字段
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DBStruct.DataTypeDefine.Numeric">
+            <summary>
+            小数字段
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DBStruct.DataTypeDefine.Other">
+            <summary>
+            其它数据类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.ColumnDefine.ColumnName">
+            <summary>
+            列名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.ColumnDefine.ColumnNameChs">
+            <summary>
+            列中文名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.ColumnDefine.DataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.ColumnDefine.DataTypeName">
+            <summary>
+            具体的数据类型名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.ColumnDefine.Length">
+            <summary>
+            数据长度
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.ColumnDefine.LengthPrecision">
+            <summary>
+            小数部分的长度
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.ColumnDefine.CanBeNull">
+            <summary>
+            是否允许为空
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.ColumnDefine.DefaultValue">
+            <summary>
+            默认值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.ColumnDefineList.GetColumnDefine(System.Int32)">
+            <summary>
+            得到一个列定义
+            </summary>
+            <param name="nIndex">序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.ColumnDefineList.AddColumnDefine(Sigbit.Data.DBStruct.ColumnDefine)">
+            <summary>
+            增加一列
+            </summary>
+            <param name="column">增加的列</param>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.ColumnDefineList.ColumnCount">
+            <summary>
+            列数
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.DBStruct.DBStructBuildRuleType">
+            <summary>
+            建立规则类型
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DBStruct.DBStructBuildRuleType.RawTableDrop">
+            <summary>
+            如果原先有表，则删掉并重建这个表。
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DBStruct.DBStructBuildRuleType.RawTableCheck">
+            <summary>
+            如果原先有表，则检查原表的结构和待建规则是否一致，如不一致，则抛出例外。
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DBStruct.DBStructBuildRuleType.RawTableSkip">
+            <summary>
+            如果原先有表，则直接跳过。
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DBStruct.DBStructBuildRuleType.Default">
+            <summary>
+            如果原先有同名表，会抛出例外。
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.DBStruct.DBStructBuildRule">
+            <summary>
+            建立规则
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.DBStructBuildRule.RuleType">
+            <summary>
+            建立规则类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.DBStructBuildRule.ForceLowerTableName">
+            <summary>
+            强制所有表名为小写
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.DBStructBuildRule.ForceLowerColumnName">
+            <summary>
+            强制所有列名为小写
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.DBStructBuildRule.GenerateCreateTableSQLOnly">
+            <summary>
+            仅生成SQL语句
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.DBStructBuildRule.OracleDefaultDataTableSpace">
+            <summary>
+            Oracle默认的数据表空间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.DBStructBuildRule.OracleDefaultIndexTableSpace">
+            <summary>
+            Oracle默认的索引空间
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.DBStructBuilder.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sDBInstanceName"></param>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.DBStructBuilder.BuildTableDefine(Sigbit.Data.DBStruct.TableDefine,Sigbit.Data.DBStruct.DBStructBuildRule)">
+            <summary>
+            建立表
+            </summary>
+            <param name="tableDefine"></param>
+            <param name="buildRule"></param>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.DBStructBuilder.CheckMySQLTableExists(System.String)">
+            <summary>
+            检查Mysql表是否存在
+            </summary>
+            <param name="sTableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.DBStructBuilder._CreateMySQLTable(Sigbit.Data.DBStruct.TableDefine,Sigbit.Data.DBStruct.DBStructBuildRule)">
+            <summary>
+            建立Mysql表
+            </summary>
+            <param name="tableDefine"></param>
+            <param name="buildRule"></param>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.DBStructBuilder._CreateMSSQLTable(Sigbit.Data.DBStruct.TableDefine,Sigbit.Data.DBStruct.DBStructBuildRule)">
+            <summary>
+            建立MSSQL表
+            </summary>
+            <param name="tableDefine"></param>
+            <param name="buildRule"></param>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.DBStructBuilder._CreateOracleTable(Sigbit.Data.DBStruct.TableDefine,Sigbit.Data.DBStruct.DBStructBuildRule)">
+            <summary>
+            建立Oracle表
+            </summary>
+            <param name="tableDefine"></param>
+            <param name="buildRule"></param>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.DBStructExtractor.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sInstanceName">数据库实例名称</param>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.DBStructExtractor.ExtractAllTablesNames">
+            <summary>
+            提取所有的表名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.DBStructExtractor.ExtractTableDefine(System.String)">
+            <summary>
+            提取表结构的定义
+            </summary>
+            <param name="sTableName">表名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.DBStructExtractor.ExtractMysqlTableDefine(System.String)">
+            <summary>
+            取出Mysql表定义
+            </summary>
+            <param name="sTableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.DBStructExtractor.GetMysqlDBName">
+            <summary>
+            获取Mysql数据库名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.DBStructExtractor.ParseMysqlDataType(Sigbit.Data.DBStruct.ColumnDefine@,System.String)">
+            <summary>
+            解析Mysql数据类型及长度
+            </summary>
+            <param name="cluDefine"></param>
+            <param name="sDataTypeString"></param>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.DBStructExtractor.ExtractMSSQLTableDefine(System.String)">
+            <summary>
+            取出SQLServer表定义
+            </summary>
+            <param name="sTableName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TableDefine.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TableDefine.TableNameChs">
+            <summary>
+            表中文名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TableDefine.Columns">
+            <summary>
+            表的所有列定义
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TableDefine.PrimaryKey">
+            <summary>
+            表的主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TableDefine.Indexes">
+            <summary>
+            表的所有索引
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.DBStruct.TableIndexDefine">
+            <summary>
+            索引定义
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TableIndexDefine.IndexName">
+            <summary>
+            索引名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TableIndexDefine.ColumnNames">
+            <summary>
+            索引相关的列名列表
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TableIndexDefine.IsUniqueIndex">
+            <summary>
+            是否唯一索引
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TableIndexDefineItem.KeyName">
+            <summary>
+            键名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TableIndexDefineItem.ColumnName">
+            <summary>
+            列名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TableIndexDefineItem.IsUniqueIndex">
+            <summary>
+            是否唯一索引
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TCXFieldComment.FieldName">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TCXFieldComment.FieldChs">
+            <summary>
+            字段的中文解释
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.DBStruct.TCXTableComment._htFields">
+            <summary>
+            字段库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.TCXTableComment.AddFieldComment(Sigbit.Data.DBStruct.TCXFieldComment)">
+            <summary>
+            加入字段注释
+            </summary>
+            <param name="fieldComment">字段注释</param>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.TCXTableComment.GetFieldComment(System.String)">
+            <summary>
+            得到字段注释
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <returns>字段注释</returns>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TCXTableComment.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TCXTableComment.TableChs">
+            <summary>
+            表的中文解释
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.DBStruct.TCXTableCommentPool">
+            <summary>
+            表及字段的注释库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.DBStruct.TCXTableCommentPool.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.DBStruct.TCXTableCommentPool.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.FoxDBF.DBFCreate">
+            <summary>
+            创建DBF文件
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.DBFCreate._arrFDFieldsDef">
+            <summary>
+            DBF文件的字段定义
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.DBFCreate.#ctor(System.String,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sDBFName">DBF文件的名称</param>
+            <param name="nFieldCount">字段数</param>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.DBFCreate.AddField(System.String,Sigbit.Data.FoxDBF.DBFFieldType,System.Int32,System.Int32)">
+            <summary>
+            加入一个字段
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <param name="fieldType">字段类型</param>
+            <param name="nFieldLen">字段长度</param>
+            <param name="nFieldPoint">字段小数点后的长度</param>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.DBFCreate.CreateDBF">
+            <summary>
+            根据填入的文件名及字段定义创建DBF文件
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.DBFCreate.FieldCount">
+            <summary>
+            字段数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.DBFCreate.FieldCurrentSeq">
+            <summary>
+            当前的字段序号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.DBFCreate.DBFName">
+            <summary>
+            DBF文件名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FoxDBFConfig.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FoxDBFConfig.CurrentEncoding">
+            <summary>
+            当前的字符编码
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.FoxDBF.FoxDBFile">
+            <summary>
+            提供通用存储结构。力图达到方便高效的效果。
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.FoxDBFile._sDBFFileName">
+            <summary>
+            数据库文件名
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.FoxDBFile._bHasAppended">
+            <summary>
+            是否记录条数增加过
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.FoxDBFile._bFileOpened">
+            <summary>
+            文件是否已被打开过
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.FoxDBFile._nCurrentRecordSeq">
+            <summary>
+            当前记录
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.FoxDBFile._fsDBFFile">
+            <summary>
+            文件流
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.FoxDBFile._fhFoxHead">
+            <summary>
+            数据库文件的文件头
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.FoxDBFile._bOpenWithReadOnly">
+            <summary>
+            只读方式打开
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.FoxDBFile._nFieldAmount">
+            <summary>
+            字段总数
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.FoxDBFile._nRecordAddress">
+            <summary>
+            记录开始地址
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.FoxDBFile._fflistFoxFields">
+            <summary>
+            DBF字段信息
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.FoxDBFile._mfxRecordData">
+            <summary>
+            记录数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.WriteFoxHeader">
+            <summary>
+            写入DBF的文件头
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.Flush">
+            <summary>
+            将一些变化情况写入硬盘
+            </summary>
+            <remarks>
+            该函数一般在一个阶段操作完成以后调用，以保证数据的完整性。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.CloseDBF">
+            <summary>
+            进行关闭文件，释放内存等操作
+            </summary>
+            <remarks>
+            如果文件已被增加记录，则重写文件头并在尾部写入结束字符。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.AttachFile(System.String)">
+            <summary>
+            打开DBF文件，并获取文件信息
+            </summary>
+            <param name="sDBFFileName">文件名</param>
+            <remarks>
+            要操作DBF文件前，必须先调用该函数。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.FieldName(System.Int32)">
+            <summary>
+            根据字段序号得到字段名
+            </summary>
+            <param name="nFieldIndex">字段序号</param>
+            <returns>字段名</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.FieldSeq(System.String)">
+            <summary>
+            根据字段名得到字段序号
+            </summary>
+            <param name="sFieldName">字段名</param>
+            <returns>字段序号</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.Append">
+            <summary>
+            增加一条记录
+            </summary>
+            <remarks>
+            为增加速度，在进行Append操作时，不刷新文件头及记录文件尾。而是
+            在关闭文件时进行记录。所以进行Append操作后，要及时关闭文件或运
+            行Flush()函数。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.Delete">
+            <summary>
+            删除当前记录
+            </summary>
+            <remarks>
+            只对记录做上标记，如果要真正删除还要调用Pack()函数。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.Update">
+            <summary>
+            更新记录
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.Insert">
+            <summary>
+            根据绑定的内容插入记录
+            </summary>
+            <remarks>
+            由于插入记录的文件操作过多（插入点之后的文件内容要全部后移），
+            故本函数只是多提供一种选择，一般不推荐使用。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.Insert__Prepare">
+            <summary>
+            将插入点后面的文件内容后移，为插入数据做准备
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.Go(System.Int32)">
+            <summary>
+            移到指定的记录
+            </summary>
+            <param name="nRecNo">记录号</param>
+            <remarks>
+            记录条数从1开始计数
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.ReadRecordToBuffer">
+            <summary>
+            读取一条记录的内容到缓冲区
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.ZAP">
+            <summary>
+            清空DBF文件
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FoxDBFile.Pack">
+            <summary>
+            真正地物理删除记录
+            </summary>
+            <remarks>
+            在做删除记录Delete()时，只是做一下删除标记而并不真正删除该
+            记录。当执行本函数时即进行真正地物理删除。本操作能够节省空
+            间，但如考虑到速度的影响，不推荐频繁使用。
+            </remarks>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FoxDBFile.RecCount">
+            <summary>
+            记录数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FoxDBFile.RecordLength">
+            <summary>
+            记录长度
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FoxDBFile.Deleted">
+            <summary>
+            是否已经被删除了
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FOXFIELD.FieldName">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FOXFIELD.FieldType">
+            <summary>
+            字段类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FOXFIELD.FieldLength">
+            <summary>
+            字段长度
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FOXFIELD.FieldPoint">
+            <summary>
+            小数点后的位数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FOXFIELD.StartOffset">
+            <summary>
+            开始的偏移量
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.FoxDBF.FoxFieldDef">
+            <summary>
+            字段定义
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FoxFieldDef.FieldName">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FoxFieldDef.FieldType">
+            <summary>
+            字段类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FoxFieldDef.FieldLength">
+            <summary>
+            字段长度
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FoxFieldDef.FieldPoint">
+            <summary>
+            字段精度
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FOXHEAD.Year">
+            <summary>
+            年
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FOXHEAD.Month">
+            <summary>
+            月
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FOXHEAD.Day">
+            <summary>
+            日
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FOXHEAD.RecNum">
+            <summary>
+            记录数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FOXHEAD.RecAddr">
+            <summary>
+            记录地址
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.FOXHEAD.RecLen">
+            <summary>
+            记录长度
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FOXUtil.RXNByLength(System.Byte[],System.Int32@,System.Int32)">
+            <summary>
+            从源字节数组中取出指定长度的字节数组
+            </summary>
+            <param name="bsSrc">源字节数组</param>
+            <param name="nPos">当前位置</param>
+            <param name="nLength">取出的长度</param>
+            <returns>取出的字节数组</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FOXUtil.RXNByte(System.Byte[],System.Int32@)">
+            <summary>
+            取出一个字节
+            </summary>
+            <param name="bsSrc">源字节数组</param>
+            <param name="nPos">当前位置</param>
+            <returns>取出的字节</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FOXUtil.RXNNumber__Do(System.Byte[],System.Int32@,System.Int32)">
+            <summary>
+            取出一定长度的整型数值
+            </summary>
+            <param name="bsSrc">源字节数组</param>
+            <param name="nPos">当前位置</param>
+            <param name="nLength">取出长度</param>
+            <returns>整型数值</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FOXUtil.RXNLongNumber(System.Byte[],System.Int32@)">
+            <summary>
+            取出四字节的长整型
+            </summary>
+            <param name="bsSrc">源字节数组</param>
+            <param name="nPos">当前位置</param>
+            <returns>取出的长整型</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FOXUtil.RXNShortNumber(System.Byte[],System.Int32@)">
+            <summary>
+            取出二字节的短整型
+            </summary>
+            <param name="bsSrc">源字节数组</param>
+            <param name="nPos">当前位置</param>
+            <returns>取出的短整型</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FOXUtil.RXNByteNumber(System.Byte[],System.Int32@)">
+            <summary>
+            取出单字节的整型
+            </summary>
+            <param name="bsSrc">源字节数组</param>
+            <param name="nPos">当前位置</param>
+            <returns>取出的整型</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FOXUtil.FOXLongNumberBytes(System.Int32)">
+            <summary>
+             将一个整数转成四字节的FOX数字表示
+            </summary>
+            <param name="nNumber">整数</param>
+            <returns>FOX数字表示</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FOXUtil.FOXShortNumberBytes(System.Int32)">
+            <summary>
+             将一个整数转成二字节的FOX数字表示
+            </summary>
+            <param name="nNumber">整数</param>
+            <returns>FOX数字表示</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FOXUtil.FOXByteNumberBytes(System.Int32)">
+            <summary>
+             将一个整数转成单字节的FOX数字表示
+            </summary>
+            <param name="nNumber">整数</param>
+            <returns>FOX数字表示</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.FOXUtil.FOXStringBytes(System.String)">
+            <summary>
+            将一个字符串转为FOX字符串表示
+            </summary>
+            <param name="sString">字符串</param>
+            <returns>FOX字符串表示</returns>
+        </member>
+        <member name="T:Sigbit.Data.FoxDBF.MFXRecordDataType">
+            <summary>
+            记录的数据类型
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.FoxDBF.MFXRecordDataListItem">
+            <summary>
+            缓冲一个字段的内容
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.MFXRecordDataListItem.ToBytesOfField(Sigbit.Data.FoxDBF.FOXFIELD)">
+            <summary>
+            得到记录的字节数组表示
+            </summary>
+            <param name="foxField">字段定义</param>
+            <returns>字节数组</returns>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.MFXRecordDataListItem.DataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.MFXRecordDataListItem.DataString">
+            <summary>
+            字符串数据
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.MFXRecordDataListItem.DataInt">
+            <summary>
+            整型数据
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.MFXRecordDataListItem.DataDouble">
+            <summary>
+            浮点数据
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.MFXRecordDataListItem.DataBool">
+            <summary>
+            布尔数据
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.MFXRecordDataListItem.DataDateTime">
+            <summary>
+            时间数据
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.MFXRecordDataListItem.DataChar">
+            <summary>
+            字符数据
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.FoxDBF.MFXRecordDataList">
+            <summary>
+            缓冲一条记录的内容
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.MFXRecordDataList._arrDataItems">
+            <summary>
+            各字段的数组
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.MFXRecordDataList.GetItem(System.Int32)">
+            <summary>
+            得到一个字段数据
+            </summary>
+            <param name="nIndex">下标</param>
+            <returns>字段数据</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.MFXRecordDataList.#ctor(System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="nFieldCount">字段数</param>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.MFXRecordDataList.Reset">
+            <summary>
+            清空缓冲内容
+            </summary>
+            <remarks>
+            在数据读取、更新前后调用
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.MFXRecordDataList.ToBytesOfFieldList(Sigbit.Data.FoxDBF.FOXFIELDList)">
+            <summary>
+            转换到字节数组
+            </summary>
+            <param name="fieldList">字段定义信息</param>
+            <returns>字节数组</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.MFXRecordDataList.FromBytesOfFieldList(System.Byte[],Sigbit.Data.FoxDBF.FOXFIELDList)">
+            <summary>
+            由字节数组构建
+            </summary>
+            <param name="bsRecordBuffer">字节数组</param>
+            <param name="fieldList">字段定义信息</param>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.MFXRecordDataList.IsDeletedRecord">
+            <summary>
+            是否已删除记录
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxDBF.MFXRecordDataList.FieldCount">
+            <summary>
+            字段数
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxDBF.TestForm.FormTestFoxDBFClasses.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.TestForm.FormTestFoxDBFClasses.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Sigbit.Data.FoxDBF.TestForm.FormTestFoxDBFClasses.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXCacheItem">
+            <summary>
+            缓冲区项
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXCacheItem.UTF8Code">
+            <summary>
+            UTF8编码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXCacheItem.PinYin">
+            <summary>
+            拼音
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXHanzPinYin.HZ_UTF8_PY_DBF_FILE">
+            <summary>
+            DBF文件的路径
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXHanzPinYin.MAX_CACHE_RECORD_COUNT">
+            <summary>
+            最大的缓冲区大小
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXHanzPinYin._dbfHZPinYin">
+            <summary>
+            保存拼音的DBF
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXHanzPinYin.TerminateProcess">
+            <summary>
+            退出处理
+            </summary>
+            <remarks>
+            如果不调用退出处理，则文件一直打开着。
+            可以在应用退出时，或着用不着拼音的场合调用该函数。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXHanzPinYin.GetUTF8HexString(System.Char)">
+            <summary>
+            得到汉字字符的UTF8编码
+            </summary>
+            <param name="cHZChar">汉字字符</param>
+            <returns>UTF8编码</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXHanzPinYin.GetUTF8HexString__HexStringOfBytes(System.Byte[])">
+            <summary>
+            得到十六进制表示的字符串
+            </summary>
+            <param name="bsPacket">字节数组</param>
+            <returns>十六进制字符串</returns>
+        </member>
+        <member name="M:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXHanzPinYin.GetCacheItemOfDBFRecNo(System.Int32)">
+            <summary>
+            得到DBF文件相应记录号的数据
+            </summary>
+            <param name="nRecNo">记录号</param>
+            <returns>该记录的数据</returns>
+            <remarks>
+            如果缓冲区中有数据，则读取缓冲区中的数据，否则，读数据库中的数据
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXHanzPinYin.GetPinYinOfHZChar(System.Char)">
+            <summary>
+            得到一个汉字的拼音
+            </summary>
+            <param name="cHZChar">一个汉字</param>
+            <returns>拼音</returns>
+            <remarks>
+            如果找不到拼音（如标点符号、特怪汉字、英文数字），就返回空串。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXHanzPinYin.GetPinYinOfHZString(System.String)">
+            <summary>
+            得到汉字串的拼音
+            </summary>
+            <param name="sHZString">汉字串</param>
+            <returns>拼音</returns>
+            <remarks>
+            所有汉字拼音用空格分开，得不到拼音的汉字、数字字母或标点符号，用
+            "[]"括起来。主要是从排序的角色考虑。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXHanzPinYin.GetJianPinOfHZString(System.String)">
+            <summary>
+            得到字符串的简拼
+            </summary>
+            <param name="sHZString">字符串</param>
+            <returns>简拼</returns>
+            <remarks>如果是非汉字，则取第一个字母做为简拼</remarks>
+        </member>
+        <member name="P:Sigbit.Data.FoxUtils.HZUtf8PinYin.FUXHanzPinYin.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="F:Sigbit.Data.FoxUtils.HZUtf8PinYin.TestForm.FormTestUTF8PinYin.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.FoxUtils.HZUtf8PinYin.TestForm.FormTestUTF8PinYin.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Sigbit.Data.FoxUtils.HZUtf8PinYin.TestForm.FormTestUTF8PinYin.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.MySqlUtils.MySqlIndexUtil.IndexExists(System.String,System.String[])">
+            <summary>
+            判断一个索引是否存在
+            </summary>
+            <param name="sTableName">表名</param>
+            <param name="arrColumnNames">索引的各个字段</param>
+            <returns>索引是否存在</returns>
+            <remarks>
+            1. 实现得比较仓促，可读性不好；
+            2. 今后，需要改为先得到一个表的若干索引，再来判断索引是否符合；
+            3. 假定结果按照Column_name和Seq_in_index是按顺序来排列的；
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.RomitSQL.DBConnRomitSql.IsConnected">
+            <summary>
+            判断是否已经连接上
+            </summary>
+            <returns>是否已经创建连接</returns>
+            <remarks>对于RomitSQL并没有连接的概念，一概认为已连接上</remarks>
+        </member>
+        <member name="M:Sigbit.Data.RomitSQL.DBConnRomitSql.Connect">
+            <summary>
+            连接数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.RomitSQL.DBConnRomitSql.Disconnect">
+            <summary>
+            断连数据库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.RomitSQL.DBConnRomitSql.ExecuteNonQuery(System.String)">
+            <summary>
+            运行更新语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>影响到的行数</returns>
+        </member>
+        <member name="M:Sigbit.Data.RomitSQL.DBConnRomitSql.ExecuteDataSet(System.String)">
+            <summary>
+            运行查询语句                                                                    
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的结果集</returns>
+        </member>
+        <member name="M:Sigbit.Data.RomitSQL.DBConnRomitSql.ExecuteScalar(System.String)">
+            <summary>
+            运行查询语句
+            </summary>
+            <param name="sSQL">SQL语句</param>
+            <returns>查得的一个数值</returns>
+        </member>
+        <member name="P:Sigbit.Data.RomitSQL.DBConnRomitSql.RomitConfig">
+            <summary>
+            配置信息
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.RomitSQL.DBConnRomitSql__Config">
+            <summary>
+            RomitSQL的数据连接配置
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.RomitSQL.DBConnRomitSql__Config.ParseDBConnString(System.String)">
+            <summary>
+            解析数据连接串
+            </summary>
+            <param name="DBConnString">数据连接串</param>
+            <remarks>
+            数据链接串的形式示例：
+            <connectString value="ServiceUrl=http://localhost:5985/WebSite/service/romit_sql_server/romit_sql_server.aspx;" />
+            </remarks>
+        </member>
+        <member name="P:Sigbit.Data.RomitSQL.DBConnRomitSql__Config.ServicePageUrl">
+            <summary>
+            服务端页面地址
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.RomitSQL.DBConnRomitSql__Config.ServiceDBInstanceName">
+            <summary>
+            服务端数据库实例名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.RomitSQL.RemoteServiceEngine.RomitRemoteServiceEngine.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.RomitSQL.ROMMBase">
+            <summary>
+            消息的基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.RomitSQL.ROMMBase.GetBIPPacketDataDescription">
+            <summary>
+            得到包的汉字数据描述信息
+            </summary>
+            <returns>包的汉字数据描述信息</returns>
+            <remarks>
+            从BIPPacket中的实际数据中读取，建议在ReadFromBytes()或ToBytes()之后调用
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.RomitSQL.ROMMBase.GetBIPPacketDataDescription__DataSet(Sigbit.Net.BIPPacket.BIPDataSet)">
+            <summary>
+            得到一个结果集的描述信息
+            </summary>
+            <param name="ds">结果集</param>
+            <returns>描述信息</returns>
+        </member>
+        <member name="P:Sigbit.Data.RomitSQL.ROMMBase.MessageID">
+            <summary>
+            消息标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.RomitSQL.ROMMSQLRequest.SQLStatement">
+            <summary>
+            SQL语句
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.RomitSQL.ROMMSQLResult.ResultDataSet">
+            <summary>
+            结果集
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.RomitSQL.ROMMSQLResult.ResultAffectedRowsCount">
+            <summary>
+            结果影响行数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.RomitSQL.ROMMSQLResult.ResultScalarResult">
+            <summary>
+            ExecuteScalar运行的结果
+            </summary>
+        </member>
+        <member name="P:Sigbit.Data.RomitSQL.ROMMSQLResult.ExceptionString">
+            <summary>
+            例外的表示串
+            </summary>
+        </member>
+        <member name="T:Sigbit.Data.TableBase">
+            <summary>
+            所有数据表实体类基类.
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.DumpAllRecordsToFile(System.String)">
+            <summary>
+            把所有记录保存在文件中
+            </summary>
+            <param name="filename">文件名</param>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.DumpToFile(System.String)">
+            <summary>
+            把当前记录保存在文件中
+            </summary>
+            <param name="filename">文件名</param>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            根据数据行初始化实例
+            </summary>
+            <param name="row">数据行</param>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            根据数据集初始化实例
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">数据行数</param>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.Fetch(System.Boolean)">
+            <summary>
+            初始化实例
+            </summary>
+            <param name="allowNoData">是否允许空数据</param>
+            <returns>是否初始化成功</returns>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.ResetData">
+            <summary>
+            清空数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.Update">
+            <summary>
+            更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.Delete">
+            <summary>
+            删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.DbToInt(System.Object)">
+            <summary>
+            转化为int 类型
+            </summary>
+            <param name="obj">待转化的object类型</param>
+            <returns>转化结果</returns>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.DbToDouble(System.Object)">
+            <summary>
+            转化为Double类型
+            </summary>
+            <param name="obj">待转化的object类型</param>
+            <returns>转化结果</returns>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.Quote(System.String)">
+            <summary>
+            给字符串加上单引号
+            </summary>
+            <param name="str">字符串</param>
+            <returns>返回结果</returns>
+            <remarks>
+            20070513:HISTORY:oldix，插入针对'\'的处理
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Data.TableBase.DbToString(System.Object)">
+            <summary>
+            转化为string 类型
+            </summary>
+            <param name="obj">待转化的object类型</param>
+            <returns>转化结果</returns>
+        </member>
+    </members>
+</doc>

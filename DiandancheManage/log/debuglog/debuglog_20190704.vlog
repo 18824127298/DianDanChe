@@ -1,0 +1,102 @@
+========== 2019-07-04 18:36:13 ==========
+WxPayApi.ResultNotifyCheck sign success
+
+========== 2019-07-04 18:36:13 ==========
+OrderQuery request : <xml><appid><![CDATA[wx5142ed3da460173d]]></appid><mch_id><![CDATA[1525907491]]></mch_id><nonce_str><![CDATA[ABC2556947867334524578665]]></nonce_str><sign><![CDATA[B59F11327444B01836236C49C57601F5]]></sign><sign_type><![CDATA[MD5]]></sign_type><transaction_id><![CDATA[4200000315201907031026636707]]></transaction_id></xml>
+
+========== 2019-07-04 18:36:15 ==========
+OrderQuery response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx5142ed3da460173d]]></appid>
+<mch_id><![CDATA[1525907491]]></mch_id>
+<nonce_str><![CDATA[Mh5PbTwtAQ9hI0LG]]></nonce_str>
+<sign><![CDATA[ED0156C8FCCE591BF25D0AFC2CE7C29E]]></sign>
+<result_code><![CDATA[SUCCESS]]></result_code>
+<openid><![CDATA[oAh7kw24ZCfQCZyuHia7IOQ0Nd9A]]></openid>
+<is_subscribe><![CDATA[Y]]></is_subscribe>
+<trade_type><![CDATA[JSAPI]]></trade_type>
+<bank_type><![CDATA[CITIC_CREDIT]]></bank_type>
+<total_fee>1</total_fee>
+<fee_type><![CDATA[CNY]]></fee_type>
+<transaction_id><![CDATA[4200000315201907031026636707]]></transaction_id>
+<out_trade_no><![CDATA[2019070318220558379]]></out_trade_no>
+<attach><![CDATA[广州]]></attach>
+<time_end><![CDATA[20190703182217]]></time_end>
+<trade_state><![CDATA[SUCCESS]]></trade_state>
+<cash_fee>1</cash_fee>
+<trade_state_desc><![CDATA[支付成功]]></trade_state_desc>
+</xml>
+
+========== 2019-07-04 18:36:17 ==========
+WxPayApi.ResultNotifyorder query success : <xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>
+
+========== 2019-07-04 18:36:18 ==========
+WxPayApi.ResultNotifyCheck sign success
+
+========== 2019-07-04 18:36:18 ==========
+OrderQuery request : <xml><appid><![CDATA[wx5142ed3da460173d]]></appid><mch_id><![CDATA[1525907491]]></mch_id><nonce_str><![CDATA[ABC3120296800907105881078]]></nonce_str><sign><![CDATA[610F768611076B4584EF07DE4F9637FC]]></sign><sign_type><![CDATA[MD5]]></sign_type><transaction_id><![CDATA[4200000315201907031026636707]]></transaction_id></xml>
+
+========== 2019-07-04 18:36:18 ==========
+OrderQuery response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx5142ed3da460173d]]></appid>
+<mch_id><![CDATA[1525907491]]></mch_id>
+<nonce_str><![CDATA[hPNCFkvYyTM1iOy5]]></nonce_str>
+<sign><![CDATA[E8810B6EB60281FB86248B684F65C267]]></sign>
+<result_code><![CDATA[SUCCESS]]></result_code>
+<openid><![CDATA[oAh7kw24ZCfQCZyuHia7IOQ0Nd9A]]></openid>
+<is_subscribe><![CDATA[Y]]></is_subscribe>
+<trade_type><![CDATA[JSAPI]]></trade_type>
+<bank_type><![CDATA[CITIC_CREDIT]]></bank_type>
+<total_fee>1</total_fee>
+<fee_type><![CDATA[CNY]]></fee_type>
+<transaction_id><![CDATA[4200000315201907031026636707]]></transaction_id>
+<out_trade_no><![CDATA[2019070318220558379]]></out_trade_no>
+<attach><![CDATA[广州]]></attach>
+<time_end><![CDATA[20190703182217]]></time_end>
+<trade_state><![CDATA[SUCCESS]]></trade_state>
+<cash_fee>1</cash_fee>
+<trade_state_desc><![CDATA[支付成功]]></trade_state_desc>
+</xml>
+
+========== 2019-07-04 18:36:18 ==========
+WxPayApi.ResultNotifyorder query success : <xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>
+
+========== 2019-07-04 18:45:26 ==========
+WxPayApi.WxPayDataWxPayData签名验证错误!
+
+========== 2019-07-04 18:45:41 ==========
+WxPayApi.ResultNotify Sign check error : <xml><return_code><![CDATA[FAIL]]></return_code><return_msg><![CDATA[WxPayData签名验证错误!]]></return_msg></xml>
+
+========== 2019-07-04 18:49:49 ==========
+WxPayApi.ResultNotifyCheck sign success
+
+========== 2019-07-04 18:49:56 ==========
+OrderQuery request : <xml><appid><![CDATA[wx5142ed3da460173d]]></appid><mch_id><![CDATA[1525907491]]></mch_id><nonce_str><![CDATA[ABC1963986563960259295656]]></nonce_str><sign><![CDATA[ECDC97E66148CFE2FCCE8DB7AD05714E]]></sign><sign_type><![CDATA[MD5]]></sign_type><transaction_id><![CDATA[4200000328201907049377851940]]></transaction_id></xml>
+
+========== 2019-07-04 18:49:56 ==========
+OrderQuery response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx5142ed3da460173d]]></appid>
+<mch_id><![CDATA[1525907491]]></mch_id>
+<nonce_str><![CDATA[76IkJj84ZcnKqisd]]></nonce_str>
+<sign><![CDATA[4E4EA99FB464602A24FB1DE7C48275AB]]></sign>
+<result_code><![CDATA[SUCCESS]]></result_code>
+<openid><![CDATA[oAh7kw24ZCfQCZyuHia7IOQ0Nd9A]]></openid>
+<is_subscribe><![CDATA[Y]]></is_subscribe>
+<trade_type><![CDATA[JSAPI]]></trade_type>
+<bank_type><![CDATA[CITIC_CREDIT]]></bank_type>
+<total_fee>1</total_fee>
+<fee_type><![CDATA[CNY]]></fee_type>
+<transaction_id><![CDATA[4200000328201907049377851940]]></transaction_id>
+<out_trade_no><![CDATA[2019070416115216678]]></out_trade_no>
+<attach><![CDATA[提还]]></attach>
+<time_end><![CDATA[20190704161158]]></time_end>
+<trade_state><![CDATA[SUCCESS]]></trade_state>
+<cash_fee>1</cash_fee>
+<trade_state_desc><![CDATA[支付成功]]></trade_state_desc>
+</xml>
+
+========== 2019-07-04 18:50:22 ==========
+WxPayApi.ResultNotifyorder query failure : 无此充值订单号
+

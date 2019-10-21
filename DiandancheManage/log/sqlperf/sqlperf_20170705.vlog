@@ -1,0 +1,11 @@
+==== ¡¾instanceWps¡¿¡¾actual 523 ms / want 500 ms¡¿ 2017/7/5 15:50:18 ====
+select top 1000 * from wps_send_message_history 
+ where send_time >= '2017-07-05 00:00:00' and send_time <= '2017-07-05 23:59:59.999'
+ order by send_time desc
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 590 ms / want 500 ms¡¿ 2017/7/5 17:58:11 ====
+select * from GodSummary where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 896 ms / want 500 ms¡¿ 2017/7/5 18:06:30 ====
+select * from GodSummary where  IsValid=@IsValid
+

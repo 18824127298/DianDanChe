@@ -1,0 +1,5524 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sigbit.Framework</name>
+    </assembly>
+    <members>
+        <member name="T:Sigbit.Framework.License.SbtLicIDFeaturesConfig">
+            <summary>
+            授权 - 标识特性
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.License.SbtLicIDFeaturesConfig.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.License.SbtLicIDFeaturesConfig.CustomerCode">
+            <summary>
+            用户标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.License.SbtLicIDFeaturesConfig.CustomerFullName">
+            <summary>
+            用户全称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.License.SbtLicIDFeaturesConfig.CustomerBriefName">
+            <summary>
+            用户简称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.License.SbtLicIDFeaturesConfig.SystemFullName">
+            <summary>
+            系统全称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.License.SbtLicIDFeaturesConfig.SystemBriefName">
+            <summary>
+            系统简称
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.NaviTab.NVTBarStyle">
+            <summary>
+            Bar样式
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.NaviTab.NVTBarStyle.Default">
+            <summary>
+            默认样式
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.NaviTab.NVTBarStyle.BlueFeeling">
+            <summary>
+            蓝色情怀
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.NaviTab.NVTBarStyle.PinkLove">
+            <summary>
+            粉色爱恋
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.NaviTab.NVTBarStyle.GreenMood">
+            <summary>
+            绿色心情
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.NaviTab.NVTBarStyle.BlackFashion">
+            <summary>
+            黑色时尚
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.NaviTab.NVTBar._htURL">
+            <summary>
+            按URL的哈希
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.NaviTab.NVTBar._arrItem">
+            <summary>
+            按顺序的TAB项
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.GetTabItem(System.Int32)">
+            <summary>
+            根据索引获取TabItem
+            </summary>
+            <param name="nIndex">索引</param>
+            <returns>TabItem</returns>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.GetTabItem(System.String)">
+            <summary>
+            根据链接获取TabItem
+            </summary>
+            <param name="sURL">链接</param>
+            <returns>TabItem</returns>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.GetIndex(System.String)">
+            <summary>
+            获取TAB索引
+            </summary>
+            <param name="sTabURL">TAB链接</param>
+            <returns>存在返回索引，否则返回-1</returns>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.URLExists(System.String)">
+            <summary>
+            链接是否已经存在
+            </summary>
+            <param name="sURL">链接</param>
+            <returns>是否已经存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.AddTabItem(Sigbit.Framework.NaviTab.NVTTabItem)">
+            <summary>
+            增加一个TAB项，
+            如果增加的TAB项的TabCategory已赋值，则清除相同TabCategory的
+            TAB项，并在清除的位置加入TAB项，用于实现Bar条中某些页面只能出现一个TAB的功能。
+            </summary>
+            <param name="tabItemToBeAdded">TAB项</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.RemoveCategory(System.String)">
+            <summary>
+            根据TAB类型删除TabItem
+            </summary>
+            <param name="sTabCategory">TAB类型</param>
+            <returns>最后删除的TabItem的位置</returns>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.RemoveTabItemByURL(System.String)">
+            <summary>
+            根据链接删除TabItem
+            </summary>
+            <param name="sURL">链接</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.RemoveTabItemByURL(System.String,System.Boolean)">
+            <summary>
+            根据链接删除TabItem
+            </summary>
+            <param name="sURL">链接</param>
+            <param name="IsDelSub">是否删除子TabItem</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.RemoveTabItemByIndex(System.Int32)">
+            <summary>
+            根据索引删除TabItem
+            </summary>
+            <param name="nIndex">索引</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.RemoveTabItemByIndex(System.Int32,System.Boolean)">
+            <summary>
+            根据索引删除TabItem
+            </summary>
+            <param name="nIndex">索引</param>
+            <param name="IsDelSub">是否删除子TabItem</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.RemoveAndReturn(System.Int32)">
+            <summary>
+            根据索引删除TabItem并返回当前页地址
+            </summary>
+            <param name="nIndex">要删除的TabItem索引</param>
+            <returns>当前页地址</returns>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.RemoveTabItemByParentURL(System.String)">
+            <summary>
+            根据父级链接删除TabItem
+            </summary>
+            <param name="sURL">父级链接</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.RemoveAllTabs">
+            <summary>
+            删除所有可关闭的TAB
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.RemoveTab(System.String)">
+            <summary>
+            删除链接、名称、类型中包含设定键值的可关闭的TAB
+            </summary>
+            <param name="sRemoveKey">设定键值</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBar.ToHtmlString(System.String)">
+            <summary>
+            生成HTML字符串
+            </summary>
+            <param name="sBarStyleDirPath">Bar样式目录路径</param>
+            <returns>生成的HTML字符串</returns>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTBar.BarName">
+            <summary>
+            Bar名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTBar.CurrentPageURL">
+            <summary>
+            当前页面的链接
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.NaviTab.NVTBarContainer">
+            <summary>
+            装载多个Bar条
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTBarContainer.ClearBar(System.String)">
+            <summary>
+            清空Bar条
+            </summary>
+            <param name="sBarName">Bar条的名称</param>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTBarContainer.CurrentBarName">
+            <summary>
+            当前Bar条的名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTBarContainer.CurrentBar">
+            <summary>
+            当前的Bar条
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.NaviTab.NVTNaviTabController">
+            <summary>
+            TabBar控制类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.PG__ToHtmlString">
+            <summary>
+            生成HTML字符串
+            </summary>
+            <returns>HTML字符串</returns>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.GetAbsoluteURL(System.String)">
+            <summary>
+            得到一个相对地址的绝对地址
+            </summary>
+            <param name="sRelativeURL">相对地址</param>
+            <returns>绝对地址</returns>
+            <remarks>该绝对地址的得到是和当前页面相融合而得的</remarks>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.ShowTabBar">
+            <summary>
+            按本页面的标题显示TAB
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.ShowTabBar(System.String)">
+            <summary>
+            设置本页面的标题并显示TAB
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.AddTab(System.String,System.String)">
+            <summary>
+            增加一个TAB（不能关的TAB）
+            </summary>
+            <param name="sURL">链接</param>
+            <param name="sTitle">标题</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.AddTab(System.String,System.String,System.Boolean)">
+            <summary>
+            增加一个TAB
+            </summary>
+            <param name="sURL">链接</param>
+            <param name="sTitle">标题</param>
+            <param name="IsCanClose">是否可关闭</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.AddTab(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            增加一个TAB
+            </summary>
+            <param name="sURL">链接</param>
+            <param name="sTitle">标题</param>
+            <param name="IsCanClose">是否可关闭</param>
+            <param name="sParentURL">父级链接</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.AddTab(System.String,System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            增加一个TAB
+            </summary>
+            <param name="sURL">链接</param>
+            <param name="sTitle">标题</param>
+            <param name="IsCanClose">是否可关闭</param>
+            <param name="sParentURL">父级链接</param>
+            <param name="sTabCategory">TAB类型</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.OpenInNewTab(System.String,System.String)">
+            <summary>
+            以TAB的形式打开一个新的页面(能关的TAB)
+            </summary>
+            <param name="sURL">链接</param>
+            <param name="sTitle">标题</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.OpenInNewTab(System.String,System.String,System.String)">
+            <summary>
+            以TAB的形式打开一个新的页面(能关的TAB)
+            </summary>
+            <param name="sURL">链接</param>
+            <param name="sTitle">标题</param>
+            <param name="sParentURL">父级链接</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.OpenInNewTab(System.String,System.String,System.String,System.String)">
+            <summary>
+            以TAB的形式打开一个新的页面(能关的TAB)
+            </summary>
+            <param name="sURL">链接</param>
+            <param name="sTitle">标题</param>
+            <param name="sParentURL">父级链接</param>
+            <param name="sTabCategory">TAB类型</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.RemoveAllTabs">
+            <summary>
+            删除所有可关闭的TAB
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.RemoveTab(System.String)">
+            <summary>
+            删除链接、名称、类型中包含设定键值的可关闭的TAB
+            </summary>
+            <param name="sRemoveKey">设定键值</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.RemoveAndReturn(System.Int32)">
+            <summary>
+            根据索引删除TabItem并返回当前页地址
+            </summary>
+            <param name="nIndex">索引</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.AppendSelfToBar">
+            <summary>
+            将本页显示在Bar条中
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.AppendSelfToBar(System.String)">
+            <summary>
+            将本页显示在Bar条中
+            </summary>
+            <param name="sTitle">指定标题</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.AppendSelfToBar(System.String,System.String)">
+            <summary>
+            将本页显示在Bar条中
+            </summary>
+            <param name="sTitle">指定标题</param>
+            <param name="sParentURL">父级链接</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.AppendSelfToBar(System.String,System.String,System.String)">
+            <summary>
+            将本页显示在Bar条中
+            </summary>
+            <param name="sTitle">指定标题</param>
+            <param name="sParentURL">父级链接</param>
+            <param name="sTabCategory">TAB类型</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.RemoveSelfFromBar">
+            <summary>
+            从Bar条中删除自己并跳转到相应页面
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.RemoveSelfFromBar(System.Boolean)">
+            <summary>
+            从Bar条中删除自己
+            </summary>
+            <param name="bRedirect">是否跳转到相应页面</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.SetCurrentPage(System.String)">
+            <summary>
+            设置并跳转到当前页面
+            </summary>
+            <param name="sURL">当前页面的链接</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.SwitchToBar(System.String)">
+            <summary>
+            切换到特定的Bar条
+            </summary>
+            <param name="sBarName">Bar条的名称</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.SwitchToBar">
+            <summary>
+            切换到特定的Bar条
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.ClearBar(System.String)">
+            <summary>
+            清空Bar条
+            </summary>
+            <param name="sBarName">Bar条的名称</param>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTNaviTabController.ClearBar">
+            <summary>
+            清空Bar条
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTNaviTabController.PG__thisPage">
+            <summary>
+            当前页面
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTNaviTabController.BarStyle">
+            <summary>
+            Bar条样式
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTNaviTabController.BarStyleDirPath">
+            <summary>
+            Bar条样式目录路径
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTNaviTabController.BarStyleFilePath">
+            <summary>
+            Bar条样式文件路径
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTNaviTabController.BarContainer">
+            <summary>
+            Bar条的容器
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTNaviTabController.CurrentBar">
+            <summary>
+            当前的Bar条
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.NaviTab.NVTTabItem.IsMatchKey(System.String)">
+            <summary>
+            TAB的链接、名称、类型中是否包含设定键值
+            </summary>
+            <param name="sKey">设定键值</param>
+            <returns>包含返回true，否则返回false</returns>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTTabItem.TabTitle">
+            <summary>
+            TAB标题
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTTabItem.TabURL">
+            <summary>
+            TAB链接
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTTabItem.ParentURL">
+            <summary>
+            父级链接
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTTabItem.CanClose">
+            <summary>
+            能否被关闭
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.NaviTab.NVTTabItem.TabCategory">
+            <summary>
+            TAB类型
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkEUpdateStatus">
+            <summary>
+            枚举字段：更新状态
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Patch.DBDefine.TbSysPatchWork">
+            <summary>
+            系统补丁(sbt_sys_patch_work)的表操作类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase">
+            <summary>
+            系统补丁(sbt_sys_patch_work)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.PatchUid">
+            <summary>
+            补丁标识，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.PatchKeyId">
+            <summary>
+            补丁的ID
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.PatchName">
+            <summary>
+            补丁的名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.PatchDescription">
+            <summary>
+            补丁的说明
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.DistributeTime">
+            <summary>
+            补丁发布时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.InstallTime">
+            <summary>
+            补丁安装时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.UpdateBeginTime">
+            <summary>
+            开始更新时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.UpdateEndTime">
+            <summary>
+            结束更新时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.UpdateDuration">
+            <summary>
+            更新历时
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.UpdateStatus">
+            <summary>
+            更新状态
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.UpdateResultSkip">
+            <summary>
+            是否跳过
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.UpdateResultSucc">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.UpdateResultDetail">
+            <summary>
+            更新详情
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.VesionBeforeUpdate">
+            <summary>
+            更新前的版本号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.VersionAfterUpdate">
+            <summary>
+            更新后的版本号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.EngineCallTimes">
+            <summary>
+            引擎的调用次数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.EngineLastResult">
+            <summary>
+            引擎上一次的结果
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.EngineLastDetail">
+            <summary>
+            引擎上一次的详情
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.EngineLastTime">
+            <summary>
+            引擎上一次的时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.CreateTime">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.Creator">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.ModifyTime">
+            <summary>
+            更新日期
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysPatchWork.UpdateStatusE">
+            <summary>
+            更新状态
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Patch.DBDefine.TbSysPatchWorkF">
+            <summary>
+            系统补丁(sbt_sys_patch_work)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Patch.DBDefine.TbSysWebapp">
+            <summary>
+            系统应用(sbt_sys_webapp)的表操作类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase">
+            <summary>
+            系统应用(sbt_sys_webapp)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.WebappId">
+            <summary>
+            应用标识，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.WebappName">
+            <summary>
+            应用名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.WebappDesc">
+            <summary>
+            应用描述
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.CurrentVersionUid">
+            <summary>
+            当前版本标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.CurrentVersionNum">
+            <summary>
+            当前版本号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.LastPatchUid">
+            <summary>
+            最后一个补丁标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.LastPatchKeyId">
+            <summary>
+            最后一个补丁ID
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.Creator">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Patch.DBDefine.TbSysWebappF">
+            <summary>
+            系统应用(sbt_sys_webapp)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersion">
+            <summary>
+            应用的各个版本 (sbt_sys_webapp_version)的表操作类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase">
+            <summary>
+            应用的各个版本 (sbt_sys_webapp_version)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.VersionUid">
+            <summary>
+            版本标识，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.WebappId">
+            <summary>
+            软件标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.VersionNum">
+            <summary>
+            规整的版本标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.VersionNumDisp">
+            <summary>
+            显示的版本标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.VersionBriefDesc">
+            <summary>
+            版本简短描述
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.VersionDetailDesc">
+            <summary>
+            版本详细说明
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.LastPatchUid">
+            <summary>
+            最后一个补丁标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.LastPatchKeyId">
+            <summary>
+            最后一个补丁ID
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.Creator">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Patch.DBDefine.TbSysWebappVersionF">
+            <summary>
+            应用的各个版本 (sbt_sys_webapp_version)的字段名类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.ScheduleEngine.SbtPatchScheduleEngine.DoPatchEngineWork___ForRePatching">
+            <summary>
+            重打补丁的处理
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.ScheduleEngine.SbtPatchScheduleEngine.DoPatchEngineWork">
+            <summary>
+            扫描补丁并开始打补丁工作
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.ScheduleEngine.SbtPatchScheduleEngine.DoPatchEngineWork___Do">
+            <summary>
+            真正的打补丁工作
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.ScheduleEngine.SbtPatchScheduleEngine.GetPatchRootDirectory">
+            <summary>
+            得到补丁的根目录
+            </summary>
+            <returns>补丁的根目录</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.ScheduleEngine.SbtPatchScheduleEngine.GetPatchUrl(System.String)">
+            <summary>
+            得到补丁的页面链接
+            </summary>
+            <param name="sPatchKeyID">补丁标识</param>
+            <returns>页面链接</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.ScheduleEngine.SbtPatchScheduleEngine.HasBeenPatched(System.String)">
+            <summary>
+            判断补丁是否已安装
+            </summary>
+            <param name="sPatchKeyID">补丁标识</param>
+            <returns>是否已安装</returns>
+            <remarks>如果是新补丁、或正在安装过程中，都视为未安装，可以重新安装。</remarks>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.ScheduleEngine.SbtPatchScheduleEngine.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.WebAppVersion.ATPatchWebAppVersionUpdater.InputPatch">
+            <summary>
+            补丁
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.WebAppVersion.ATPatchWebAppVersionUpdater.InputPatchWorkRec">
+            <summary>
+            补丁记录
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.WebAppVersion.ATPatchWebAppVersionUpdater.OutputVesionBeforeUpdate">
+            <summary>
+            更新前的版本号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.WebAppVersion.ATPatchWebAppVersionUpdater.OutputVersionAfterUpdate">
+            <summary>
+            更新后的版本号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.XPPatchBase.WebAppID">
+            <summary>
+            应用标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.XPPatchBase.PatchKeyID">
+            <summary>
+            补丁标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.XPPatchBase.PatchName">
+            <summary>
+            补丁的名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.XPPatchBase.PatchDesc">
+            <summary>
+            补丁的说明
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.XPPatchBase.PatchDistributeTime">
+            <summary>
+            补丁的发布日期
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.XPPatchBase.PatchLevel">
+            <summary>
+            补丁的级别。缺省为小版本+1。
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.XPPatchBase.PatchVersionForce">
+            <summary>
+            补丁的强制版本号。如果设定了该版本号，则打完补丁后就是这个版本号了。
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Patch.XPPatchWorkEngine.GetPatchWorkRec">
+            <summary>
+            得到补丁的记录。如果不存在，会自动建一条。
+            </summary>
+            <returns>补丁的数据库记录</returns>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.XPPatchWorkEngine.InputPatch">
+            <summary>
+            待更新的补丁
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Patch.XPPatchWorkEngine.OutputMessage">
+            <summary>
+            输出信息
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Role.SbtRoleRightUpdate">
+            <summary>
+            更新角色的权限
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Role.SbtRoleRightUpdate.UpdateRightsOfRole(System.String,System.Collections.ArrayList)">
+            <summary>
+            更新角色的权限列表
+            </summary>
+            <param name="sRoleUid">角色标识</param>
+            <param name="arrPopedomList">权限列表</param>
+        </member>
+        <member name="M:Sigbit.Framework.Role.SbtRoleRightUpdate.IsLeafPopedom(System.String)">
+            <summary>
+            判断是否叶权限
+            </summary>
+            <param name="sPopedom">权限标识</param>
+            <returns>是否叶权限</returns>
+            <remarks>如果其子节点有一个是菜单节点，则认为不是叶权限</remarks>
+        </member>
+        <member name="M:Sigbit.Framework.Role.SbtRoleRightUpdate.GetAllParentsOfPopedom(System.String)">
+            <summary>
+            得到权限节点的所有上级节点
+            </summary>
+            <param name="sPopedom">权限节点标识</param>
+            <returns>所有上级节点列表</returns>
+        </member>
+        <member name="T:Sigbit.Framework.Role.SbtRoleRight__Lib">
+            <summary>
+            角色和权限的对应关系库
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.Role.SbtRoleRight__Lib._htRoleOwnsRight">
+            <summary>
+            哈希表：角色拥有的权限
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.Role.SbtRoleRight__Lib._htRightBelongToRole">
+            <summary>
+            哈希表：权限属于的角色
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Role.SbtRoleRight__Lib.Reset">
+            <summary>
+            清除库的内容，准备重取
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Role.SbtRoleRight__Lib.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Role.SbtRoleRight__Lib.AddRoleRightRecordToLib(Sigbit.Framework.TbRoleRight)">
+            <summary>
+            增加一个角色权限对应关系到库中
+            </summary>
+            <param name="tblRoleRight">角色权限对应关系记录</param>
+        </member>
+        <member name="M:Sigbit.Framework.Role.SbtRoleRight__Lib.RoleHasPopedom(System.String,System.String)">
+            <summary>
+            角色是否拥有权限的判断
+            </summary>
+            <param name="sRoleUid">角色标识</param>
+            <param name="sPopedomUid">权限标识</param>
+            <returns>是否拥有权限</returns>
+        </member>
+        <member name="P:Sigbit.Framework.Role.SbtRoleRight__Lib.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Role.SbtRoleUserUtil">
+            <summary>
+            用户、权限的实用例程
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Role.SbtRoleUserUtil.GetRoleUidOfUser(System.String)">
+            <summary>
+            用户的角色标识
+            </summary>
+            <param name="sUserUid">用户标识</param>
+            <returns>角色标识。如未指定角色，则返回空串。</returns>
+        </member>
+        <member name="P:Sigbit.Framework.SbtAppContextActionInfo.ProcClassId">
+            <summary>
+            处理分类标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtAppContextActionInfo.ProcClassName">
+            <summary>
+            处理分类名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtAppContextActionInfo.ProcSubclassId">
+            <summary>
+            处理子分类标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtAppContextActionInfo.ProcSubclassName">
+            <summary>
+            处理子分类名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtAppContext.CurrentUserLogLoginRec">
+            <summary>
+            当前用户登录日志的数据记录
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtAppLogger.LogAction(System.String,System.String)">
+            <summary>
+            记录动作
+            </summary>
+            <param name="sActionName">动作名称</param>
+            <param name="sActionDescription">动作描述</param>
+        </member>
+        <member name="T:Sigbit.Framework.SbtCodeTables">
+            <summary>
+            框架用到的代码表
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtCodeTables.PreferenceLanguage">
+            <summary>
+            语言偏好代码表
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtCodeTables.PreferenceTheme">
+            <summary>
+            主题偏好代码表
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtFrameworkConfig.Instance">
+            <summary>
+            返回唯一的实例
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtFrameworkConfig.TaskQueryTableTimerInterval">
+            <summary>
+            任务扫表的时间间隔
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SbtMenuStyle">
+            <summary>
+            定义菜单的显示风格
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.SbtMenuStyle.Item">
+            <summary>
+            主要的菜单显示形式。可按OutlookBar或TreeView方式显示
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.SbtMenuStyle.Tab">
+            <summary>
+            Tab页的显示形式
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SbtMenuNaviMeth">
+            <summary>
+            定义菜单的导航方式
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.SbtMenuNaviMeth.UserRightMain">
+            <summary>
+            按用户的权限导航。不包括菜单类型标识非item的各项。可用于用户
+            界面显示左边的菜单树。
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.SbtMenuNaviMeth.UserRightAll">
+            <summary>
+            按用户的权限导航。包括所有类型的菜单项。可用于列举用户的所
+            有菜单。
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.SbtMenuNaviMeth.SystemMain">
+            <summary>
+            列举所有的item菜单
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.SbtMenuNaviMeth.SystemAll">
+            <summary>
+            列举所有的菜单
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.SbtMenuNaviMeth.PopedomOfRole">
+            <summary>
+            按角色拥有的权限导航
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SbtMenuNode">
+            <summary>
+            封装一个菜单节点的相关属性
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtMenuNode.AssignByTbSysMenu(Sigbit.Framework.TbSysMenu)">
+            <summary>
+            通过数据库中的记录进行赋值
+            </summary>
+            <param name="menuRecord">数据库记录</param>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.MenuCode">
+            <summary>
+            菜单编码，菜单的唯一标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.ChineseName">
+            <summary>
+            菜单的中文名，用于链接的文字
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.UrlLink">
+            <summary>
+            菜单的链接，用于链接的目标URL
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.ParentNode">
+            <summary>
+            上一级的菜单节点
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.ChildNodes">
+            <summary>
+            子节点列表，以设定的顺序排序
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.IsMenuItem">
+            <summary>
+            是否菜单项
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.IsRightItem">
+            <summary>
+            是否权限项
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.IsLogItem">
+            <summary>
+            是否日志项
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.MenuStyle">
+            <summary>
+            菜单的显示风格，目前包括item、tab等
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.MenuIcon">
+            <summary>
+            菜单的图像文件名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.MenuLevel">
+            <summary>
+            菜单的级数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.MenuNavigateMethod">
+            <summary>
+            菜单的导航方式
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.CurrentUser">
+            <summary>
+            当前的用户
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMenuNode.MenuSetName">
+            <summary>
+            菜单集。一个系统可能会有多个菜单集。一个集表示同时显示的一组菜单。
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SbtMenuNodeList">
+            <summary>
+            封装菜单的列表
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtMenuNodeList.AddNode(Sigbit.Framework.SbtMenuNode)">
+            <summary>
+            向列表中增加一个菜单节点
+            </summary>
+            <param name="node">菜单节点</param>
+        </member>
+        <member name="M:Sigbit.Framework.SbtMenuNodeList.GetNode(System.Int32)">
+            <summary>
+            按索引得到一个菜单节点
+            </summary>
+            <param name="nIndex">索引</param>
+            <returns>菜单节点</returns>
+        </member>
+        <member name="T:Sigbit.Framework.SbtMessageBoxPage">
+            <summary>
+            通用消息框
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.SbtMessageBoxPage._selfPage">
+            <summary>
+            显示消息框的父页面
+            </summary>
+            <remarks>
+            由于要用到父页面的参数和Response，所以在本设计中，通过构造函
+            数传入父页面
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Framework.SbtMessageBoxPage.#ctor(Sigbit.Framework.SbtPageBase)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="selfPage">调用MessageBox的父页面</param>
+        </member>
+        <member name="M:Sigbit.Framework.SbtMessageBoxPage.Show">
+            <summary>
+            显示消息页面
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMessageBoxPage.MessageText">
+            <summary>
+            显示的消息正文
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtMessageBoxPage.ReturnUrl">
+            <summary>
+            返回的页面
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SbtPageBase">
+            <summary>
+            大多数页面的基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageBase.OnPreInit(System.EventArgs)">
+            <summary>
+            在PreInit事件中动态加载主题
+            </summary>
+            <param name="e">事件</param>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageBase.OnLoad(System.EventArgs)">
+            <summary>
+            在OnLoad事件中进行权限检查
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageBase.GetClientIP">
+            <summary>
+            获得客户端访问IP地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageBase.SavePageData">
+            <summary>
+            保存页面数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageBase.ClearPageData">
+            <summary>
+            清除页面数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageBase.LoadPageData">
+            <summary>
+            加载页面数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Sigbit.Framework.SbtPageBase.CurrentUser">
+            <summary>
+            当前的用户
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtPageBase.PageParameter">
+            <summary>
+            页面之间的参数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtPageBase.NaviTabController">
+            <summary>
+            当前的用户
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SbtPageParameter">
+            <summary>
+            页面间传递参数用的类
+            </summary>
+            <remarks>
+            一般的用法是，在打开新的页面前填入参数，新页面打开后读取参数，
+            以后就再也不用了。（因为所有的页面都会共享这个参数表）
+            </remarks>
+        </member>
+        <member name="F:Sigbit.Framework.SbtPageParameter._htCustomParams">
+            <summary>
+            自定义参数集
+            </summary>
+            <remarks>
+            自定义参数是以任意字符串进行标识和存储的集合
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageParameter.ClearAllCustomParams">
+            <summary>
+            清除自定义的参数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageParameter.ClearCustomParamsStartWith(System.String)">
+            <summary>
+            清除以特定字符串开头的自定义参数
+            </summary>
+            <param name="sHeadString">特定的字符串开头</param>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageParameter.SetCustomParamObject(System.String,System.Object)">
+            <summary>
+            设置自定义参数
+            </summary>
+            <param name="sKey">关键字</param>
+            <param name="objValue">对象值</param>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageParameter.SetCustomParamString(System.String,System.String)">
+            <summary>
+            设置自定义参数
+            </summary>
+            <param name="sKey">关键字</param>
+            <param name="sValue">字符串值</param>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageParameter.AddCustomParamObject(System.String,System.Object)">
+            <summary>
+            增加自定义参数
+            </summary>
+            <param name="sKey">关键字</param>
+            <param name="objValue">对象值</param>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageParameter.AddCustomParamString(System.String,System.String)">
+            <summary>
+            增加自定义参数
+            </summary>
+            <param name="sKey">关键字</param>
+            <param name="sValue">字符串值</param>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageParameter.GetCustomParamObject(System.String)">
+            <summary>
+            获取自定义参数，如未设置，返回null值
+            </summary>
+            <param name="sKey">关键字</param>
+            <returns>对象值</returns>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageParameter.GetCustomParamString(System.String)">
+            <summary>
+            获取自定义参数，如未设置，返回null值
+            </summary>
+            <param name="sKey">关键字</param>
+            <returns>字符串值</returns>
+        </member>
+        <member name="M:Sigbit.Framework.SbtPageParameter.GetCustomParamStringDefault(System.String,System.String)">
+            <summary>
+            获取自定义参数，如未设置，返回缺省值
+            </summary>
+            <param name="sKey">关键字</param>
+            <param name="sDefaultValue">缺省值</param>
+            <returns>字符串值</returns>
+        </member>
+        <member name="T:Sigbit.Framework.SbtPageDataViewStatus">
+            <summary>
+            页面的数据视图状态
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtPageDataViewStatus.CurrentPageIndex">
+            <summary>
+            当前的页号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtPageDataViewStatus.PageSize">
+            <summary>
+            页面的大小
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtPageDataViewStatus.SqlBuilder">
+            <summary>
+            SQL创建器
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SbtPageStatus">
+            <summary>
+            页面的状态
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtPageStatus.DataViewStatus">
+            <summary>
+            页面的数据视图状态
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SbtPageStatusList">
+            <summary>
+            页面状态的列表
+            </summary>
+            <remarks>
+            可以同时记录多个页面的状态。
+            不能无限制的进行记录。以后可以扩充容量限制，并按时间先后进行清除。
+            </remarks>
+        </member>
+        <member name="P:Sigbit.Framework.SbtPatchBase.PatchName">
+            <summary>
+            补丁名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtPatchBase.PatchDistributeTime">
+            <summary>
+            补丁的发布时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtPatchBase.PatchVersionForce">
+            <summary>
+            补丁的强制版本号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtPatchBase.OutputMessage">
+            <summary>
+            输出的供显示信息
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SbtSavePage">
+            <summary>
+            保存数据页
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtSavePage.LoadData(Sigbit.Framework.SbtPageBase)">
+            <summary>
+            加载数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Framework.SbtSavePage.SaveData(Sigbit.Framework.SbtPageBase)">
+            <summary>
+            保存数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtSavePage.ClearData(Sigbit.Framework.SbtPageBase)">
+            <summary>
+            清除数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTheme.GetThemeTemplate(System.String,System.String)">
+            <summary>
+            得到主题的模板内容
+            </summary>
+            <param name="sTheme">主题名</param>
+            <param name="sTemplateName">模板名</param>
+            <returns>模板的内容</returns>
+            <remarks>
+            模板目前存在文件中，存放位置为：
+            ~/App_Themes/[主题名]/template/[模板名].tpl;
+            如果找不到所需主题的模板文件，则定位缺省主题的模板文件
+            </remarks>
+        </member>
+        <member name="P:Sigbit.Framework.SbtUser_Login_LoginResult.ResultType">
+            <summary>
+            结果类型。成功、具体的失败类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtUser_Login_LoginResult.LockOperation">
+            <summary>
+            锁定/解锁操作
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtUser_Login_LoginResult.UserRec">
+            <summary>
+            用户记录
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtUser_CheckHeartBit.TableUpdatePatch">
+            <summary>
+            表结构更新补丁
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SbtUser">
+            <summary>
+            封装用户
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.SbtUser._tbUser">
+            <summary>
+            用户的数据实体
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtUser.CheckUserLogin(System.String,System.String,System.String@)">
+            <summary>
+            判断用户登录信息是否正确
+            </summary>
+            <param name="sUserName">用户名</param>
+            <param name="sPassword">密码</param>
+            <returns>是否正确</returns>
+        </member>
+        <member name="M:Sigbit.Framework.SbtUser.PasswordCheck(System.String,System.String)">
+            <summary>
+            登录密码检查
+            </summary>
+            <param name="sDBPassword">数据库保存密码</param>
+            <param name="sInputPassword">用户输入密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Framework.SbtUser.FetchByUserName(System.String)">
+            <summary>
+            通过用户名取得用户信息
+            </summary>
+            <param name="sUserName">用户名</param>
+            <remarks>用户名在整个系统中是唯一的</remarks>
+        </member>
+        <member name="M:Sigbit.Framework.SbtUser.HasPopedom(System.String)">
+            <summary>
+            是否拥有权限
+            </summary>
+            <param name="sPopedomCode">权限码</param>
+            <returns>是否有权限</returns>
+        </member>
+        <member name="P:Sigbit.Framework.SbtUser.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtUser.RealName">
+            <summary>
+            用户真实姓名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtUser.DeptId">
+            <summary>
+            部门标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtUser.IsAdmin">
+            <summary>
+            是否超级管理员
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtUser.Name">
+            <summary>
+            用户姓名，完成System.Security.Principal.IIdentity接口
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtUser.AuthenticationType">
+            <summary>
+            鉴权类型，完成System.Security.Principal.IIdentity接口
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtUser.IsAuthenticated">
+            <summary>
+            是否通过鉴权，完成System.Security.Principal.IIdentity接口
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtUser.DepartName">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtUser.MainMenuRootNode">
+            <summary>
+            用户主菜单的根节点
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.Security.NLSUserLock._userSecurityRec">
+            <summary>
+            用户安全扩展记录
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Security.NLSUserLock.Fetch">
+            <summary>
+            获取一条用户记录，如果无安全扩展记录，则创建一条。
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Security.NLSUserLock.AccountAutoLocked(System.String@)">
+            <summary>
+            帐户是否已被锁定
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Security.NLSUserLock.AutoUnlockUser">
+            <summary>
+            自动帐户解锁
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Security.NLSUserLock.UserUid">
+            <summary>
+            用户标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Security.NLSUserLock.LockOperation">
+            <summary>
+            锁定解锁操作
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Security.NPSPasswordUtil">
+            <summary>
+            密码安全相关的应用类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Security.NPSPasswordUtil.PasswordStrengthOfPassword(System.String)">
+            <summary>
+            密码的强度
+            </summary>
+            <param name="sPassword">密码</param>
+            <returns>强度</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Security.NPSPasswordUtil.PasswordCombinationCount(System.String)">
+            <summary>
+            密码的组合数量
+            </summary>
+            <param name="sPassword">密码</param>
+            <returns>组合数量</returns>
+        </member>
+        <member name="P:Sigbit.Framework.Security.SbtSecurityConfig.Password">
+            <summary>
+            密码（口令）相关的安全配置
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Security.SbtSecurityConfig.LockUser">
+            <summary>
+            用户锁定设置
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Security.SbtSecurityConfig_LockUser">
+            <summary>
+            密码口令相关的安全配置
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Security.SbtSecurityConfig_LockUser.AutoLockEnabled">
+            <summary>
+            启用自动锁定
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Security.SbtSecurityConfig_LockUser.AutoLockTimes">
+            <summary>
+            超过次数后锁定
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Security.SbtSecurityConfig_LockUser.AutoUnunlockEnabled">
+            <summary>
+            启用自动解锁
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Security.SbtSecurityConfig_LockUser.AutoUnlockMinutes">
+            <summary>
+            超过时长后自动解锁
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Security.SbtSecurityConfig_Password">
+            <summary>
+            密码口令相关的安全配置
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Security.SbtSecurityConfig_Password.PasswordStrength">
+            <summary>
+            密码强度
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Security.SbtSecurityConfig_Password.ModiPasswordIfLowerStrength">
+            <summary>
+            登录后修改低强度的密码
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SubSystem.DBDefine.QDBPoolSubSystem">
+            <summary>
+            子系统的快缓池
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.SubSystem.DBDefine.QDBPoolSubSystem._htSubSystemID">
+            <summary>
+            按子系统标识组织
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.QDBPoolSubSystem.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefine">
+            <summary>
+            子系统定义表(sbt_sys_sub_system_define)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase">
+            <summary>
+            子系统定义表(sbt_sys_sub_system_define)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.SubSystemId">
+            <summary>
+            子系统标识，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.SubSystemName">
+            <summary>
+            子系统名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.SubSystemColor">
+            <summary>
+            代表的颜色值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.FullName">
+            <summary>
+            全名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.AppTheme">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.HomepageGraph">
+            <summary>
+            首页上的图片名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.HomepageCaption">
+            <summary>
+            首页的子系统名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.PageTitleText">
+            <summary>
+            主页标题上的文字
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.PageTitleImage">
+            <summary>
+            主页标题上的图片文件
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.MenuRootText">
+            <summary>
+            菜单根菜单的文字
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.DisplayOrder">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.Creator">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefine.Update">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefine.NewSubSystemId_ForUpdate">
+            <summary>
+            新的系统编码（For Update）
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SubSystem.DBDefine.TbSysSubSystemDefineF">
+            <summary>
+            子系统定义表(sbt_sys_sub_system_define)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SubSystem.SUSMenuChangeSubSystemUtil">
+            <summary>
+            将某个菜单项从根开始移至新的子系统
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.SUSSubSystem.CodeTableOfSubSystem">
+            <summary>
+            子系统表
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SubSystem.SUSSubSystem.PoolSubSystem">
+            <summary>
+            子系统的快缓池
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SupervisorTool.DataAdmin.ExecuteMultiSQL.ExtractSQLList(System.String)">
+            <summary>
+            将一组的SQL语句串解析出分立的SQL语句
+            </summary>
+            <param name="sSQLString">SQL语句串</param>
+            <returns>分立的SQL语句</returns>
+        </member>
+        <member name="T:Sigbit.Framework.SupervisorTool.MenuManage.MBZMenuCodeBatchChange">
+            <summary>
+            批量调整菜单的menu_code，验证调整后父菜单是否存在，本菜单是否重复，同时批量更新相关的子菜单。
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SupervisorTool.MenuManage.MBZMenuCodeBatchChange.OldMenuCode">
+            <summary>
+            原来的菜单编码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SupervisorTool.MenuManage.MBZMenuCodeBatchChange.NewMenuCode">
+            <summary>
+            新的菜单编码
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbLogOperationAudit">
+            <summary>
+            系统操作审计日志表(sbt_log_operation_audit)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbLogOperationAuditBase">
+            <summary>
+            系统操作审计日志表(sbt_log_operation_audit)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbLogOperationAuditBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbLogOperationAuditBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogOperationAuditBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.LogUid">
+            <summary>
+            日志标识，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.UserUid">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.ProcTime">
+            <summary>
+            处理时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.ProcClassId">
+            <summary>
+            处理分类标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.ProcClassName">
+            <summary>
+            处理分类名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.ProcSubclassId">
+            <summary>
+            处理子分类标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.ProcSubclassName">
+            <summary>
+            处理子分类名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.ActionCode">
+            <summary>
+            动作代码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.ActionName">
+            <summary>
+            动作名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.ActionDescription">
+            <summary>
+            操作描述
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.IpAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.ProcessData">
+            <summary>
+            操作数据
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.SqlStatement">
+            <summary>
+            操作SQL
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.ModifyTime">
+            <summary>
+            该条记录的修改时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogOperationAuditBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbLogOperationAuditF">
+            <summary>
+            系统操作审计日志表(sbt_log_operation_audit)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbLogUserLogin">
+            <summary>
+            系统登录日志表(sbt_log_user_login)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbLogUserLoginBase">
+            <summary>
+            系统登录日志表(sbt_log_user_login)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbLogUserLoginBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbLogUserLoginBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbLogUserLoginBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.LoginLogUid">
+            <summary>
+            登录日志标识，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.ApplicationName">
+            <summary>
+            应用程序名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.UserUid">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.LoginTime">
+            <summary>
+            登录时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.LoginIpAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.IsLoginSuccess">
+            <summary>
+            是否登录成功
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.LoginFailType">
+            <summary>
+            登录失败的类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.LoginFailDesc">
+            <summary>
+            登录失败的描述
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.LockOperation">
+            <summary>
+            用户帐号锁定操作
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.LastHeartbeatTime">
+            <summary>
+            最后一次心跳的时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.HasLogout">
+            <summary>
+            是否已退出
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.LogoutTime">
+            <summary>
+            退出时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.LogoutCause">
+            <summary>
+            退出原因
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.InSystemDuration">
+            <summary>
+            使用系统的时间（秒）
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbLogUserLoginBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbLogUserLoginF">
+            <summary>
+            系统登录日志表(sbt_log_user_login)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbRole">
+            <summary>
+            角色表(sbt_role)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbRoleBase">
+            <summary>
+            角色表(sbt_role)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbRoleBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbRoleBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbRoleBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbRoleBase.RoleUid">
+            <summary>
+            角色标识，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbRoleBase.RoleName">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbRoleBase.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbRoleBase.Creator">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbRoleBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbRoleF">
+            <summary>
+            角色表(sbt_role)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbRoleRight">
+            <summary>
+            角色权限表(sbt_role_right)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbRoleRightBase">
+            <summary>
+            角色权限表(sbt_role_right)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.FetchByE(System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.FetchBy(System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.CreateBy(System.String,System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.DeleteBy(System.String,System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbRoleRightBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbRoleRightBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbRoleRightBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleRightBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbRoleRightBase.RoleUid">
+            <summary>
+            角色标识，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbRoleRightBase.MenuCode">
+            <summary>
+            权限，主键
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbRoleRightF">
+            <summary>
+            角色权限表(sbt_role_right)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbRoleUser">
+            <summary>
+            角色用户表(sbt_role_user)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbRoleUserBase">
+            <summary>
+            角色用户表(sbt_role_user)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.FetchByE(System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.FetchBy(System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.CreateBy(System.String,System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.DeleteBy(System.String,System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbRoleUserBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbRoleUserBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbRoleUserBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbRoleUserBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbRoleUserBase.RoleUid">
+            <summary>
+            角色标识，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbRoleUserBase.UserUid">
+            <summary>
+            用户标识，主键
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbRoleUserF">
+            <summary>
+            角色用户表(sbt_role_user)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysMenu">
+            <summary>
+            菜单结构表(sbt_sys_menu)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysMenuBase">
+            <summary>
+            菜单结构表(sbt_sys_menu)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbSysMenuBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbSysMenuBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbSysMenuBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenuBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.MenuCode">
+            <summary>
+            菜单编码，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.MenuName">
+            <summary>
+            菜单中文名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.MenuLink">
+            <summary>
+            页面URL
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.MenuClass">
+            <summary>
+            菜单类别
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.MenuStyle">
+            <summary>
+            菜单风格
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.MenuIcon">
+            <summary>
+            菜单的图像文件
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.ParentMenuCode">
+            <summary>
+            上级菜单编码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.LevelNum">
+            <summary>
+            所处位置(层)，从1始
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.ListOrder">
+            <summary>
+            排序索引
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.IsActive">
+            <summary>
+            是否激活(Y/N)
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.HasChild">
+            <summary>
+            是否有子项(Y/N)
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.IsMenuItem">
+            <summary>
+            是否菜单项
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.IsLogItem">
+            <summary>
+            是否日志项
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.IsRightItem">
+            <summary>
+            是否权限项
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenuBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysMenuF">
+            <summary>
+            菜单结构表(sbt_sys_menu)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysMenu__Lib">
+            <summary>
+            菜单记录库
+            </summary>
+            <remarks>
+            以多种速查库的方式组织全部菜单数据，便于快速查找、定位，并为其
+            它类的实现提供支持。
+            </remarks>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenu__Lib.Reset">
+            <summary>
+            清空菜单记录库
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenu__Lib.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenu__Lib.AddMenuRecordToLib(Sigbit.Framework.TbSysMenu)">
+            <summary>
+            将菜单记录加到库中
+            </summary>
+            <param name="menuRecord">菜单记录</param>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenu__Lib.GetMenuRecordByMenuCode(System.String)">
+            <summary>
+            按照菜单编码获取菜单记录
+            </summary>
+            <param name="sMenuCode">菜单编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysMenu__Lib.GetChildRecordsByMenuCode(System.String)">
+            <summary>
+            按照菜单编码获取子菜单列表
+            </summary>
+            <param name="sMenuCode">菜单编码</param>
+            <returns></returns>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysMenu__Lib.Instance">
+            <summary>
+            唯一实例
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysParameter">
+            <summary>
+            系统设置参数定义表(sbt_sys_parameter)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysParameterBase">
+            <summary>
+            系统设置参数定义表(sbt_sys_parameter)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.FetchByE(System.String,System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.FetchBy(System.String,System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.CreateBy(System.String,System.String,System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.DeleteBy(System.String,System.String,System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbSysParameterBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbSysParameterBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbSysParameterBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameterBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysParameterBase.ApplicationName">
+            <summary>
+            应用程序名，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysParameterBase.ParameterClass">
+            <summary>
+            参数类型，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysParameterBase.ParameterName">
+            <summary>
+            参数名，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysParameterBase.ParameterValue">
+            <summary>
+            参数值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysParameterBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameter.GetParameterValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            得到系统配置的参数值
+            </summary>
+            <param name="sApplicationName">应用程序名</param>
+            <param name="sParameterClass">参数类型</param>
+            <param name="sParameterName">参数名</param>
+            <param name="sDefaultValue">缺省值</param>
+            <returns>参数值</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameter.GetParameterValue(System.String,System.String,System.String)">
+            <summary>
+            得到系统配置的参数值
+            </summary>
+            <param name="sApplicationName">应用程序名</param>
+            <param name="sParameterClass">参数类型</param>
+            <param name="sParameterName">参数名</param>
+            <returns>参数值</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameter.GetParameterValueInt(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            得到系统配置的参数整型值
+            </summary>
+            <param name="sApplicationName">应用程序名</param>
+            <param name="sParameterClass">参数类型</param>
+            <param name="sParameterName">参数名</param>
+            <param name="nDefaultValue">缺省整型值</param>
+            <returns>参数值</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameter.GetParameterValueInt(System.String,System.String,System.String)">
+            <summary>
+            得到系统配置的参数整型值
+            </summary>
+            <param name="sApplicationName">应用程序名</param>
+            <param name="sParameterClass">参数类型</param>
+            <param name="sParameterName">参数名</param>
+            <returns>参数值</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameter.SetParameterValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            设置系统配置参数
+            </summary>
+            <param name="sApplicationName">应用程序名</param>
+            <param name="sParameterClass">参数类型</param>
+            <param name="sParameterName">参数名</param>
+            <param name="sValue">参数值</param>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysParameter.SetParameterValueInt(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            设置系统配置参数（整型值）
+            </summary>
+            <param name="sApplicationName">应用程序名</param>
+            <param name="sParameterClass">参数类型</param>
+            <param name="sParameterName">参数名</param>
+            <param name="nValue">参数值</param>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysParameterF">
+            <summary>
+            系统设置参数定义表(sbt_sys_parameter)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysPreferenceSetting">
+            <summary>
+            偏好设置(sbt_sys_preference_setting)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysPreferenceSettingBase">
+            <summary>
+            偏好设置(sbt_sys_preference_setting)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.FetchByE(System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.FetchBy(System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.CreateBy(System.String,System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.DeleteBy(System.String,System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbSysPreferenceSettingBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbSysPreferenceSettingBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysPreferenceSettingBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysPreferenceSettingBase.PreferenceClass">
+            <summary>
+            偏好的类型，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysPreferenceSettingBase.PreferenceCode">
+            <summary>
+            偏好的取值代码，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysPreferenceSettingBase.PreferenceName">
+            <summary>
+            偏好的名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysPreferenceSettingBase.IsDefault">
+            <summary>
+            是否缺省偏好
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysPreferenceSettingBase.PreferenceData">
+            <summary>
+            可能的相关数据
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysPreferenceSettingBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysPreferenceSettingF">
+            <summary>
+            偏好设置(sbt_sys_preference_setting)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUser">
+            <summary>
+            用户信息表(sbt_user)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserBase">
+            <summary>
+            用户信息表(sbt_user)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbUserBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbUserBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbUserBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.UserUid">
+            <summary>
+            用户ID，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.UserName">
+            <summary>
+            帐户名(uidx)
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.RealName">
+            <summary>
+            实名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.StaffCode">
+            <summary>
+            员工号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.ThirdPartyCode">
+            <summary>
+            第三方员工标识
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.Birthday">
+            <summary>
+            用户生日
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.EduLevelCode">
+            <summary>
+            学历代码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.DeptId">
+            <summary>
+            部门ID
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.OrgName">
+            <summary>
+            单位名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.JobTitleCode">
+            <summary>
+            职务代码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.WorkTypeCode">
+            <summary>
+            工作性质，行业
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.PositionCode">
+            <summary>
+            岗位代码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.IdCardTypeCode">
+            <summary>
+            证件类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.IdCard">
+            <summary>
+            证件号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.Address">
+            <summary>
+            住址
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.ZipCode">
+            <summary>
+            邮编
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.Telephone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.Mobilephone">
+            <summary>
+            移动电话
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.Email">
+            <summary>
+            电子邮箱
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.LoginCount">
+            <summary>
+            登录次数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.LastLoginTime">
+            <summary>
+            最后一次登录时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.Creator">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.IsActive">
+            <summary>
+            是否激活
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.IsAdmin">
+            <summary>
+            是否是超级管理员
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.ExInfo01">
+            <summary>
+            扩展信息一
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.ExInfo02">
+            <summary>
+            扩展信息二
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.ExInfo03">
+            <summary>
+            扩展信息三
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.ExInfo04">
+            <summary>
+            扩展信息四
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.ExInfo05">
+            <summary>
+            扩展信息五
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.ExInfo06">
+            <summary>
+            扩展信息六
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.ExInfo07">
+            <summary>
+            扩展信息七
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.ExInfo08">
+            <summary>
+            扩展信息八
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.ExInfo09">
+            <summary>
+            扩展信息九
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserBase.ExInfo10">
+            <summary>
+            扩展信息十
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUser.FetchByUserName(System.String)">
+            <summary>
+            通过用户名取出记录
+            </summary>
+            <param name="sUserName">用户名</param>
+        </member>
+        <member name="M:Sigbit.Framework.TbUser.FetchByUserName(System.String,System.Boolean)">
+            <summary>
+            通过用户名取出记录
+            </summary>
+            <param name="sUserName">用户名</param>
+            <param name="bAllowNoData">是否允许没有记录</param>
+            <returns>是否取到记录</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUser.Delete">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUser.GetUserCountOfDept(System.String)">
+            <summary>
+            得到一个部门的用户数
+            </summary>
+            <param name="sDeptId">部门标识</param>
+            <returns>用户数</returns>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserF">
+            <summary>
+            用户信息表(sbt_user)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserDept">
+            <summary>
+            部门信息(sbt_user_dept)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserDeptBase">
+            <summary>
+            部门信息(sbt_user_dept)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbUserDeptBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbUserDeptBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbUserDeptBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDeptBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserDeptBase.DeptId">
+            <summary>
+            部门ID，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserDeptBase.DeptName">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserDeptBase.ThirdParyCode">
+            <summary>
+            第三方代码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserDeptBase.FullDeptName">
+            <summary>
+            部门全名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserDeptBase.DeptLevel">
+            <summary>
+            所处位置（层）
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserDeptBase.HasChild">
+            <summary>
+            是否有子
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserDeptBase.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserDeptBase.Creator">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserDeptBase.IsActive">
+            <summary>
+            是否激活
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserDeptBase.ListOrder">
+            <summary>
+            顺序号
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserDeptBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDept.GetChildDepts">
+            <summary>
+            得到子部门的列表
+            </summary>
+            <returns>子部门的列表</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDept.GetParentDeptId(System.String)">
+            <summary>
+            得到部门的父编码
+            </summary>
+            <param name="sDeptId">本部门编码</param>
+            <returns>父部门编码</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDept.Update">
+            <summary>
+            更新部门信息，可能需要更新所有的子部门全称
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserDept.GetNewFullName(System.String,System.String)">
+            <summary>
+            得到新的部门全称
+            </summary>
+            <param name="sRawFullName">原有的全称</param>
+            <param name="sNewParentFullName">新的父节点全称</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserDeptF">
+            <summary>
+            部门信息(sbt_user_dept)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserParameter">
+            <summary>
+            (sbt_user_parameter)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserParameterBase">
+            <summary>
+            (sbt_user_parameter)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.FetchByE(System.String,System.String,System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.FetchBy(System.String,System.String,System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.CreateBy(System.String,System.String,System.String,System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.DeleteBy(System.String,System.String,System.String,System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbUserParameterBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbUserParameterBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbUserParameterBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameterBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserParameterBase.UserUid">
+            <summary>
+            用户标识编码，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserParameterBase.ApplicationName">
+            <summary>
+            应用程序名，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserParameterBase.ParameterClass">
+            <summary>
+            参数类型，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserParameterBase.ParameterName">
+            <summary>
+            参数名，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserParameterBase.ParameterValue">
+            <summary>
+            参数值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserParameterBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameter.GetParameterValue(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            得到系统配置的参数值
+            </summary>
+            <param name="sUserUid">用户编号</param>
+            <param name="sApplicationName">应用程序名</param>
+            <param name="sParameterClass">参数类型</param>
+            <param name="sParameterName">参数名</param>
+            <param name="sDefaultValue">缺省值</param>
+            <returns>参数值</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameter.GetParameterValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            得到系统配置的参数值
+            </summary>
+            <param name="sUserUid">用户编号</param>
+            <param name="sApplicationName">应用程序名</param>
+            <param name="sParameterClass">参数类型</param>
+            <param name="sParameterName">参数名</param>
+            <returns>参数值</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameter.GetParameterValueInt(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            得到系统配置的参数整型值
+            </summary>
+            <param name="sUserUid">用户编号</param>
+            <param name="sApplicationName">应用程序名</param>
+            <param name="sParameterClass">参数类型</param>
+            <param name="sParameterName">参数名</param>
+            <param name="nDefaultValue">缺省整型值</param>
+            <returns>参数值</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameter.GetParameterValueInt(System.String,System.String,System.String,System.String)">
+            <summary>
+            得到系统配置的参数整型值
+            </summary>
+            <param name="sUserUid">用户编号</param>
+            <param name="sApplicationName">应用程序名</param>
+            <param name="sParameterClass">参数类型</param>
+            <param name="sParameterName">参数名</param>
+            <returns>参数值</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameter.SetParameterValue(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            设置系统配置参数
+            </summary>
+            <param name="sUserUid">用户编号</param>
+            <param name="sApplicationName">应用程序名</param>
+            <param name="sParameterClass">参数类型</param>
+            <param name="sParameterName">参数名</param>
+            <param name="sValue">参数值</param>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserParameter.SetParameterValueInt(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            设置系统配置参数（整型值）
+            </summary>
+            <param name="sUserUid">用户编号</param>
+            <param name="sApplicationName">应用程序名</param>
+            <param name="sParameterClass">参数类型</param>
+            <param name="sParameterName">参数名</param>
+            <param name="nValue">参数值</param>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserParameterF">
+            <summary>
+            (sbt_user_parameter)的字段名类
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.TbUserParameterF.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.TbUserParameterF.UserUid">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.TbUserParameterF.ApplicationName">
+            <summary>
+            应用名称
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.TbUserParameterF.ParameterClass">
+            <summary>
+            参数分类
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.TbUserParameterF.ParameterName">
+            <summary>
+            参数名称
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.TbUserParameterF.ParameterValue">
+            <summary>
+            参数值
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.TbUserParameterF.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserPreference">
+            <summary>
+            用户偏好设置表(sbt_user_preference)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserPreferenceBase">
+            <summary>
+            用户偏好设置表(sbt_user_preference)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.FetchByE(System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.FetchBy(System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.CreateBy(System.String,System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.DeleteBy(System.String,System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbUserPreferenceBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbUserPreferenceBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserPreferenceBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserPreferenceBase.UserUid">
+            <summary>
+            用户ID，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserPreferenceBase.PreferenceClass">
+            <summary>
+            偏好的类型，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserPreferenceBase.PreferenceCode">
+            <summary>
+            偏好的取值代码
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserPreferenceBase.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserPreferenceBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserPreferenceF">
+            <summary>
+            用户偏好设置表(sbt_user_preference)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserRight">
+            <summary>
+            (sbt_user_right)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserRightBase">
+            <summary>
+            (sbt_user_right)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.FetchByE(System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.FetchBy(System.String,System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.CreateBy(System.String,System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.DeleteBy(System.String,System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbUserRightBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbUserRightBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbUserRightBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserRightBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserRightBase.UserUid">
+            <summary>
+            用户标识，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserRightBase.MenuCode">
+            <summary>
+            权限，主键
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserRightF">
+            <summary>
+            (sbt_user_right)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserSecurity">
+            <summary>
+            用户信息安全扩展表(sbt_user_security)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserSecurityBase">
+            <summary>
+            用户信息安全扩展表(sbt_user_security)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbUserSecurityBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbUserSecurityBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbUserSecurityBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserSecurityBase.UserUid">
+            <summary>
+            用户ID，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserSecurityBase.LockStatus">
+            <summary>
+            锁定状态
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserSecurityBase.LockStatusTime">
+            <summary>
+            锁定/解锁的时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserSecurityBase.WrongPasswdCnt">
+            <summary>
+            输错密码的次数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserSecurityBase.WrongPasswdLastTime">
+            <summary>
+            上次输错密码的时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserSecurityBase.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbUserSecurityBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbUserSecurityF">
+            <summary>
+            用户信息安全扩展表(sbt_user_security)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Task.PrivateTask">
+            <summary>
+             封装任务的实现，每个实例是一个任务
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Task.PrivateTask.TaskSubject">
+            <summary>
+            任务的主题
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Task.PrivateTask.TaskPrompt">
+            <summary>
+            任务的文本提示
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Task.PrivateTask.LinkUrl">
+            <summary>
+            相应的链接
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Task.PrivateTask.TaskTime">
+            <summary>
+            即将发生的时间
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Task.PrivateTaskListBase">
+            <summary>
+            装载多个任务类（Task）的集合类。
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.Task.PrivateTaskListBase.DumpToFile(System.String)">
+            <summary>
+            保存任务列表到文件中
+            </summary>
+            <param name="sFileName">文件名称</param>
+        </member>
+        <member name="M:Sigbit.Framework.Task.PrivateTaskListBase.MergeTaskList(System.Collections.ArrayList)">
+            <summary>
+            将其它任务列表合并进来
+            </summary>
+            <param name="sTaskList">要合并的任务列表</param>
+        </member>
+        <member name="M:Sigbit.Framework.Task.PrivateTaskListBase.ToDisplayHTML">
+            <summary>
+            得到显示到页面所需的HTML字符串
+            </summary>
+            <returns>HTML字符串</returns>
+        </member>
+        <member name="M:Sigbit.Framework.Task.PrivateTaskListBase.Reorder">
+            <summary>
+             按时间、紧迫度等重新排序，用于显示
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Task.PrivateTaskListBase.ShowIcon">
+            <summary>
+            显示的图标
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Task.PrivateTaskListBase.ShowTitle">
+            <summary>
+            显示的标题
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Task.PrivateTaskListBase.LinkUrl">
+            <summary>
+            链接
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Task.PrivateTaskListBase.ShowContent">
+            <summary>
+            显示内容
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Task.PrivateTaskListBase.TaskList">
+            <summary>
+            任务列表
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.Task.PrivateTaskListBase.ShowTempalte">
+            <summary>
+            显示模板
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.Task.PrivateTaskScannerBase">
+            <summary>
+            抽象类。任务扫描的具体实现，都从这个类派生出来。
+            </summary>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.Task.PrivateTaskScannerBase.ScanTask”忽略有格式错误的 XML 注释 -->
+        <member name="T:Sigbit.Framework.SbtTaskDaemonBase">
+            <summary>
+            所的后台处理类从此类派生
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskDaemonBase.DoProcess">
+            <summary>
+            运行后台处理
+            </summary>
+            <returns>后台处理的结果</returns>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskDaemonBase.DaemonType">
+            <summary>
+            后台处理的类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskDaemonBase.TaskName">
+            <summary>
+            当前任务的名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskDaemonBase.TaskParameter">
+            <summary>
+            当前任务的参数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskDaemonBase.TaskSize">
+            <summary>
+            当前任务的规模
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskDaemonBase.TaskPos">
+            <summary>
+            当前任务的进度
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskDaemonBase.TaskMsg">
+            <summary>
+            当前任务的提示消息
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskDaemonBase.BatchSize">
+            <summary>
+            一个批次处理的规模
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskProcess.DoOneTask">
+            <summary>
+            处理一个任务
+            </summary>
+            <returns>
+            下一个任务需要等待的时间间隔（以毫秒为单位）。
+            如为-1，表示按缺省的配置。
+            </returns>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskProcess.ProcessTaskRecord(Sigbit.Framework.TbSysDaemonTask)">
+            <summary>
+            处理相应的任务
+            </summary>
+            <param name="tblTask">任务记录</param>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskRuleItem.GetNextTaskTime(System.String,System.Boolean)">
+            <summary>
+            根据规则，得到下一个任务的时间
+            </summary>
+            <param name="sBaseTime">基准时间，一般是当前时间或本次任务开始的时间</param>
+            <param name="bIsActive">任务是否处理激活状态</param>
+            <returns>下一个任务的时间</returns>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskRuleItem.GetNextTaskTime__Day(System.String)">
+            <summary>
+            根据"每日"规则，得到下一个任务的时间
+            </summary>
+            <param name="sBaseTime">基准时间</param>
+            <returns>下一个任务的时间</returns>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskRuleItem.GetNextTaskTime__Month(System.String)">
+            <summary>
+            根据"每月"规则，得到下一个任务的时间
+            </summary>
+            <param name="sBaseTime">基准时间</param>
+            <returns>下一个任务的时间</returns>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskRuleItem.GetNextTaskTime__Week(System.String)">
+            <summary>
+            根据"每周"规则，得到下一个任务的时间
+            </summary>
+            <param name="sBaseTime">基准时间</param>
+            <returns>下一个任务的时间</returns>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskRuleItem.GenerateTbTaskRecord(System.String,System.Boolean)">
+            <summary>
+            生成任务表的一条记录数据
+            </summary>
+            <param name="sBaseTime">基准时间</param>
+            <param name="bIsActive">是否激活</param>
+            <returns>任务表的记录数据</returns>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskRuleItem.DaemonType">
+            <summary>
+            后台处理的类型，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskRuleItem.DaemonTypeName">
+            <summary>
+            后台处理类型的名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskRuleItem.DaemonComponent">
+            <summary>
+            实现组件的名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskRuleItem.DaemonClass">
+            <summary>
+            后台处理的类名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskRuleItem.DaemonPriority">
+            <summary>
+            运行优先级，从1至9
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskRuleItem.IntervalType">
+            <summary>
+            后台处理的时间间隔类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskRuleItem.IntervalValue">
+            <summary>
+            具体的间隔值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskRuleItem.ActiveIntervalValue">
+            <summary>
+            当激活时的时间间隔
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskRuleItem.BatchSize">
+            <summary>
+            配置的批次大小（可不配）
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SbtTaskRuleLib">
+            <summary>
+            任务规则库，汇总了所有的规则
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskRuleLib.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskRuleLib.AddRuleItem(Sigbit.Framework.SbtTaskRuleItem)">
+            <summary>
+            增加一个规则项
+            </summary>
+            <param name="item">任务规则项</param>
+            <remarks>在初始化时调用</remarks>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskRuleLib.GetRuleItem(System.String)">
+            <summary>
+            根据任务的类型，得到相关的规则
+            </summary>
+            <param name="sDaemonType">任务的类型</param>
+            <returns>任务的规则</returns>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskRuleLib.InitTaskTableByRule">
+            <summary>
+            初始化任务表
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskRuleLib.Instance">
+            <summary>
+            返回唯一的实例
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.SbtTaskScheduler">
+            <summary>
+            任务调度处理
+            </summary>
+            <remarks>
+            本次完成暂未考虑以下内容：
+            1. 大任务的分批执行，包括BatchSize, 暂停等；
+            2. 任务优先级的判断和处理；
+            </remarks>
+        </member>
+        <member name="F:Sigbit.Framework.SbtTaskScheduler._taskThread">
+            <summary>
+            线程句柄
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskScheduler.DoApplicationStart">
+            <summary>
+            应用启动时的调用处理
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskScheduler.DoApplicationEnd">
+            <summary>
+            应用退出时的调用处理
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskScheduler.TaskThread">
+            <summary>
+            任务线程的处理函数（主函数）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskScheduler.DoOneTask">
+            <summary>
+            处理一个任务
+            </summary>
+            <returns>下一次任务等待的时间间隔</returns>
+        </member>
+        <member name="M:Sigbit.Framework.SbtTaskScheduler.TaskThread__Init">
+            <summary>
+            线程初始化时所做的工作。主要是如果任务表中没有数据，
+            则扫描任务安排表，并安排下一个要完成的任务。用于在仅
+            初始化了定义表后，进行任务的首次调度。
+            </summary>
+            <remarks>
+            以后可能需要做两个工作:
+            1. 维护界面中，在新增或调整了一个任务的定义（调度规则）
+            后，进行任务的重新安排；
+            2. 维护界面中，增加任务的根据规则刷新、查错功能。
+            </remarks>
+        </member>
+        <member name="P:Sigbit.Framework.SbtTaskScheduler.Instance">
+            <summary>
+            返回唯一的实例
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysDaemonLog">
+            <summary>
+            后台处理任务日志(sbt_sys_daemon_log)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysDaemonLogBase">
+            <summary>
+            后台处理任务日志(sbt_sys_daemon_log)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbSysDaemonLogBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbSysDaemonLogBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonLogBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonLogBase.DaemonTaskUid">
+            <summary>
+            后台处理任务标识，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonLogBase.DaemonType">
+            <summary>
+            后台处理的类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonLogBase.StartTime">
+            <summary>
+            后台处理开始时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonLogBase.StopTime">
+            <summary>
+            后台处理结束时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonLogBase.TaskName">
+            <summary>
+            后台处理的任务名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonLogBase.TaskSize">
+            <summary>
+            规模大小
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonLogBase.TaskDuration">
+            <summary>
+            一共运行的时长（秒）
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonLogBase.TaskResult">
+            <summary>
+            运行的结果
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonLogBase.FailReason">
+            <summary>
+            失败原因
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonLogBase.ResultData">
+            <summary>
+            运行过程中的处理结果
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonLogBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysDaemonLogF">
+            <summary>
+            后台处理任务日志(sbt_sys_daemon_log)的字段名类
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.TbSysDaemonTaskFTaskStatus.Idle">
+            <summary>
+            空闲
+            </summary>
+        </member>
+        <member name="F:Sigbit.Framework.TbSysDaemonTaskFTaskStatus.Processing">
+            <summary>
+            正在处理
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysDaemonTask">
+            <summary>
+            后台处理任务(sbt_sys_daemon_task)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysDaemonTaskBase">
+            <summary>
+            后台处理任务(sbt_sys_daemon_task)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbSysDaemonTaskBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbSysDaemonTaskBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTaskBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.DaemonTaskUid">
+            <summary>
+            后台处理任务标识，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.DaemonType">
+            <summary>
+            后台处理的类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.TaskName">
+            <summary>
+            当前任务的名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.TaskParameter">
+            <summary>
+            当前任务的参数
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.PlanTime">
+            <summary>
+            下一次任务的计划运行时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.TaskStatus">
+            <summary>
+            当前的任务状态
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.Paused">
+            <summary>
+            是否暂停
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.TaskPriority">
+            <summary>
+            运行优先级
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.ActiveIntervalValue">
+            <summary>
+            当激活时的时间间隔
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.BatchSize">
+            <summary>
+            配置的批次大小
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.StartTime">
+            <summary>
+            当前任务开始的时间
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.TaskSize">
+            <summary>
+            当前任务的规模
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.TaskPos">
+            <summary>
+            当前任务的进度
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.TaskMsg">
+            <summary>
+            当前任务的提示
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.ResultData">
+            <summary>
+            运行过程中的处理结果
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTaskBase.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTask.TruncateTable">
+            ... Add your code here ... ///
+            void FetchByXXX(...)
+            static DataSet GetDataSetByXXX(...)
+            static void DeleteByXXX(...)
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTask.RecordCount">
+            <summary>
+            得到任务表的任务数
+            </summary>
+            <returns>任务表的任务数</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTask.FetchEarliestRecord">
+            <summary>
+            取出最早的一条记录
+            </summary>
+            <returns>是否找到最早的记录</returns>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysDaemonTaskF">
+            <summary>
+            后台处理任务(sbt_sys_daemon_task)的字段名类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysDaemonType">
+            <summary>
+            后台处理类型配置(sbt_sys_daemon_type)的表操作用户类
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysDaemonTypeBase">
+            <summary>
+            后台处理类型配置(sbt_sys_daemon_type)的表操作基类
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.ToString">
+            <summary>
+            得到数据的HTML显示文本
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.ResetData">
+            <summary>
+            清零本记录的数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.Fetch">
+            <summary>
+            按主键获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.Fetch(System.Boolean)">
+            <summary>
+            按主键获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.Insert">
+            <summary>
+            插入一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.Delete">
+            <summary>
+            按主键删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.Update">
+            <summary>
+            按主键更新一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.RecordExists">
+            <summary>
+            按主键判断记录是否存在
+            </summary>
+            <returns>记录是否存在</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.FetchByE(System.String)">
+            <summary>
+            以主键为参数获取一条数据（如无数据抛例外）
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.FetchBy(System.String)">
+            <summary>
+            以主键为参数获取一条数据
+            </summary>
+            <returns>是否访问到数据</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.CreateBy(System.String)">
+            <summary>
+            以主键为参数获取数据，并创建类的实例
+            </summary>
+            <returns>类的实例</returns>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.DeleteBy(System.String)">
+            <summary>
+            以主键为参数删除一条数据
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.AssignByDataRow(System.Data.DataRow)">
+            <summary>
+            通过DataRow进行赋值
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.AssignByDataRow(System.Data.DataSet,System.Int32)">
+            <summary>
+            通过DataSet进行赋值
+            </summary>
+            <param name="dataSet">数据集</param>
+            <param name="rowNum">行号</param>
+        </member>
+        <!-- 对于成员“M:Sigbit.Framework.TbSysDaemonTypeBase.DumpToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Sigbit.Framework.TbSysDaemonTypeBase.DumpAllRecordsToFile(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.DBTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的数据库类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.CSharpTypeOfFieldName(System.String)">
+            <summary>
+            获取一个字段的CSharp类型
+            </summary>
+        </member>
+        <member name="M:Sigbit.Framework.TbSysDaemonTypeBase.GetFieldValueBy(System.String,System.String,System.String)">
+            <summary>
+            通过一个字段的值访问得到另一个字段的值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTypeBase.DaemonType">
+            <summary>
+            后台处理的类型，主键
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTypeBase.DaemonTypeName">
+            <summary>
+            后台处理类型的名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTypeBase.DaemonComponent">
+            <summary>
+            实现组件的名称
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTypeBase.DaemonClass">
+            <summary>
+            后台处理的类名
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTypeBase.DaemonPriority">
+            <summary>
+            运行优先级，从1至9
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTypeBase.IntervalType">
+            <summary>
+            后台处理的时间间隔类型
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTypeBase.IntervalValue">
+            <summary>
+            具体的间隔值
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTypeBase.ActiveIntervalValue">
+            <summary>
+            当激活时的时间间隔
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTypeBase.Enabled">
+            <summary>
+            是否有效
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.TbSysDaemonTypeBase.BatchSize">
+            <summary>
+            配置的批次大小（可不配）
+            </summary>
+        </member>
+        <member name="T:Sigbit.Framework.TbSysDaemonTypeF">
+            <summary>
+            后台处理类型配置(sbt_sys_daemon_type)的字段名类
+            </summary>
+        </member>
+        <member name="P:Sigbit.Framework.___SbtDBPool.CurrentSystemMenu">
+            <summary>
+            当前系统使用的菜单
+            </summary>  
+        </member>
+    </members>
+</doc>

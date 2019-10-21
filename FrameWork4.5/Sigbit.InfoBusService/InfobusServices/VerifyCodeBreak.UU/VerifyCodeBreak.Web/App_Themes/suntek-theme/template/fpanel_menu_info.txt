@@ -1,0 +1,35 @@
+<body onselectstart="return false">
+
+<table id="__01" width="186" height="74" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td height="9" colspan="2">
+			<img src="../../../App_Themes/suntek-theme/template/fpanel_menu_info/index10_08.gif" 
+				width="186" height="9" alt="" /></td>
+	</tr>
+	<tr>
+		<td background="../../../App_Themes/suntek-theme/template/fpanel_menu_info/index10_14.gif">
+		<table width="100%"  border="0" cellpadding="0" cellspacing="4">
+          <tr>
+            <td>
+				<div align="center" class="small">
+					[%DEPT_NAME%] >> [%USER_PRIV%]
+				</div>
+			</td>
+          </tr>
+          <tr>
+            <td><div align="center" class="small">
+            <img src="../../../images/avatar_face/01.gif"  align="absmiddle">
+            [%USER_NAME%] £¬[%HELLO_STR%]<b></b></div>
+            </td>
+          </tr>
+        </table>
+        </td>
+	</tr>
+	<tr>
+		<td height="13" colspan="2">
+			<img src="../../../App_Themes/suntek-theme/template/fpanel_menu_info/index10_21.gif" 
+				width="186" height="13" /></td>
+	</tr>
+</table>
+
+</body>

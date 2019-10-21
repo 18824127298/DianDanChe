@@ -1,0 +1,19 @@
+==== ¡¾instanceDefault¡¿¡¾actual 6398 ms / want 500 ms¡¿ 2019/08/16 11:28:36 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 739 ms / want 500 ms¡¿ 2019/08/16 15:26:25 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 951 ms / want 500 ms¡¿ 2019/08/16 15:30:44 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BC_YN", "BC_YN\BC_YN.csproj", "{D160868E-E9F2-4030-A5E1-9DCE88B2F12D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigbit.App.Net.IBXService.VCodeBreak.YunNan", "Sigbit.App.Net.IBXService.VCodeBreak.YunNan\Sigbit.App.Net.IBXService.VCodeBreak.YunNan.csproj", "{0062B556-2B44-4331-A9A3-01942DEC8C15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BYNBreak", "BYNBreak\BYNBreak.csproj", "{1B3B2253-A3C9-4B44-B37E-71DAF276ADCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D160868E-E9F2-4030-A5E1-9DCE88B2F12D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D160868E-E9F2-4030-A5E1-9DCE88B2F12D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D160868E-E9F2-4030-A5E1-9DCE88B2F12D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D160868E-E9F2-4030-A5E1-9DCE88B2F12D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0062B556-2B44-4331-A9A3-01942DEC8C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0062B556-2B44-4331-A9A3-01942DEC8C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0062B556-2B44-4331-A9A3-01942DEC8C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0062B556-2B44-4331-A9A3-01942DEC8C15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B3B2253-A3C9-4B44-B37E-71DAF276ADCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B3B2253-A3C9-4B44-B37E-71DAF276ADCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B3B2253-A3C9-4B44-B37E-71DAF276ADCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B3B2253-A3C9-4B44-B37E-71DAF276ADCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "请输入电话号码";
+}
+
+<body class="bodybg">
+    <meta name="viewport" content="width=device-width">
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+    <header>
+        <a class="back" href="javascript:history.go(-1)"></a>
+    </header>
+    <div class="banner">
+    </div>
+    <div class="nav5" style="margin-top: 0; padding-top: 0.8rem; height: 4.2rem">
+        <div>
+            <span>租车</span>
+        </div>
+    </div>
+    <form action="Create" class="registerform" method="post">
+        <div class="box">
+            <input name="Phone" id="Phone" type="tel" class="user" value="" datatype="m" nullmsg="请输入电话号码！" placeholder="请输入申请手机号">
+
+            <input name="提交" type="button" id="btnRegister" class="userbtn" value="下一步">
+            <br>
+        </div>
+    </form>
+</body>
+<script>
+    $("#btnRegister").click(function () {
+        if ($("#Phone").val() == "") {
+            alert("请输入手机号码");
+            return false;
+        }
+        var mobile = $.trim($("#Phone").val());
+        var regmobile = /^1\d{10}$/;
+        if (regmobile.test(mobile) == false) {
+            alert("手机号码错误，请重新输入");
+            return false;
+        }
+        $.post("RentPhone",
+           {
+               Phone: $("#Phone").val(),
+               rn: Math.random()
+           }, function (json) {
+               if (json == "0") {
+                   window.location.href = "../PictureUpload/UploadBorrowerPhoto";
+               } else if (json == "1") {
+                   alert("抱歉，您已经被拒绝审批过，无法进行再次申请");
+               } else if (json == "2") {
+                   alert("您已经申请过了，请耐心等待");
+               } else if (json == "3") {
+                   window.location.href = "../PictureUpload/UploadBorrowerPhoto";
+               } else if (json == "4") {
+                   window.location.href = "../GodService/Information";
+               } else if (json == "5") {
+                   if ("@ViewBag.LoanType" == "@((int)CheDaiBaoWeChatModel.LoanType.租客)") {
+                       window.location.href = "../Loan/RentInformation";
+                   } else {
+                       window.location.href = "../Loan/LoanStages";
+                   }
+               } else if (json == "6") {
+                   window.location.href = "../Loan/InsertContacts";
+               } else if (json == "7") {
+                   window.location.href = "../Loan/EssentialInformation";
+               } else if (json == "8") {
+                   window.location.href = "../PictureUpload/UploadMultipleSheets";
+               } else if (json == "9") {
+                   window.location.href = "../Loan/RecruitmentMaterials";
+               }
+           });
+    });
+</script>

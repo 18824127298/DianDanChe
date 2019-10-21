@@ -1,0 +1,3 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 540 ms / want 500 ms¡¿ 2018/9/5 14:05:09 ====
+select * from god where 1=1  and [IsValid]=@IsValid
+

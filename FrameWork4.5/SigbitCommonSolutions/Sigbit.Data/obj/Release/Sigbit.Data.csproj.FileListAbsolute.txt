@@ -1,0 +1,15 @@
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\bin\Release\Sigbit.Data.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\bin\Release\Sigbit.Data.pdb
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\bin\Release\DbLinq.PostgreSql.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\bin\Release\MySql.Data.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\bin\Release\MySQLDriverCS.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\bin\Release\Sigbit.Common.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\bin\Release\Sigbit.Net.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\bin\Release\Sybase.Data.AseClient.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\bin\Release\Sigbit.Common.pdb
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\bin\Release\Sigbit.Net.pdb
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\obj\Release\Sigbit.Data.csprojResolveAssemblyReference.cache
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\obj\Release\Sigbit.Data.FoxDBF.TestForm.FormTestFoxDBFClasses.resources
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\obj\Release\Sigbit.Data.csproj.GenerateResource.Cache
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\obj\Release\Sigbit.Data.dll
+E:\codes\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Data\obj\Release\Sigbit.Data.pdb

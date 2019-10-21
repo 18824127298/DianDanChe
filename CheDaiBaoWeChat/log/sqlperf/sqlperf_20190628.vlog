@@ -1,0 +1,24 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2949 ms / want 500 ms¡¿ 2019/6/28 9:43:56 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 708 ms / want 500 ms¡¿ 2019/6/28 9:57:22 ====
+select * from Borrow where id=@Id and IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1007 ms / want 500 ms¡¿ 2019/6/28 11:27:12 ====
+select * from loanapply where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1823 ms / want 500 ms¡¿ 2019/6/28 14:04:43 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1380 ms / want 500 ms¡¿ 2019/6/28 14:49:35 ====
+select * from borrow where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3311 ms / want 500 ms¡¿ 2019/6/28 15:51:18 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3542 ms / want 500 ms¡¿ 2019/6/28 16:51:12 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 636 ms / want 500 ms¡¿ 2019/6/28 17:31:28 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+

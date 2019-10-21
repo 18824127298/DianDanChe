@@ -1,0 +1,26 @@
+﻿<asp:TextBox runat="server" BackColor="#F7F6EF" BorderColor="Black"
+            BorderStyle="Solid" BorderWidth="1px" Font-Size="9pt" 
+            ForeColor="#431426" Height="18px"/>
+            
+<asp:TextBox runat="server" BackColor="#F7F6EF" BorderColor="Black"
+            BorderStyle="Solid" BorderWidth="1px" Font-Size="9pt" 
+            ForeColor="#431426" SkinID="multiLine"/>
+            
+<asp:Button runat="server" CssClass="normalButton" />
+
+<asp:DataGrid runat="server" BorderStyle="Solid" BorderWidth="1px" BorderColor="black"
+             AlternatingItemStyle-BackColor="#E7DFBD"
+             AlternatingItemStyle-BorderColor="Black" AlternatingItemStyle-BorderStyle="Solid"
+             AlternatingItemStyle-BorderWidth="1px" 
+             ItemStyle-BackColor="#D6CBC6"
+             ItemStyle-BorderColor="Black" ItemStyle-BorderStyle="Solid" ItemStyle-BorderWidth="1px" 
+             HeaderStyle-Height=25px HeaderStyle-CssClass="gridHeader" 
+              SkinID="datagrid" />
+              
+<asp:GridView runat="server" 
+            BorderStyle="Solid" BorderWidth="1px" BorderColor="Black" 
+            AlternatingRowStyle-BackColor="#E7DFBD" AlternatingRowStyle-BorderColor="Black" 
+            AlternatingRowStyle-BorderStyle="Solid" AlternatingRowStyle-BorderWidth="1px" 
+            RowStyle-BackColor="#D6CBC6" RowStyle-BorderColor="Black" 
+            RowStyle-BorderStyle="Solid" RowStyle-BorderWidth="1px" 
+            HeaderStyle-Height="25px" HeaderStyle-CssClass="gridHeader" />                            

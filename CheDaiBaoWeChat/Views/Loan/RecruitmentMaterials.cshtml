@@ -1,0 +1,165 @@
+﻿@using CheDaiBaoWeChatModel.Models;
+@{
+    ViewBag.Title = "招聘站点信息";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width">
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+    <style type="text/css">
+        .myUl5 li {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body class="bodybg">
+    @using (Html.BeginForm("RecruitmentMaterials", "Loan", FormMethod.Post, new { id = "RecruitmentMaterials" }))
+    {
+        <input type="hidden" value="@ViewBag.Phone" id="CreditPhone" name="CreditPhone">
+        <div class="qbCon2" id="qd1">
+            <ul class="myUl5">
+             
+                <li>&nbsp;入职站点名称 <span>
+                    <input type="text" name="EntrySiteName" id="EntrySiteName" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="入职站点名称"></span> </li>
+
+                <li>&nbsp;站点地址 <span>
+                    <input type="text" name="SiteAddress" id="SiteAddress" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="站点地址"></span> </li>
+
+                <li>&nbsp;站长电话 <span>
+                    <input type="tel" name="StationMasterPhone" id="StationMasterPhone" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="站长电话"></span> </li>
+
+                <li>&nbsp;品牌 <span>
+                    <select id="Brand" name="Brand">
+                        <option value="康景">康景</option>
+                        <option value="愉途">愉途</option>
+                        <option value="巨高">巨高</option>
+                        <option value="雅迪">雅迪</option>
+                        <option value="相悦">相悦</option>
+                        <option value="豪晨">豪晨</option>
+                        <option value="深远">深远</option>
+                        <option value="鑫泽">鑫泽</option>
+                        <option value="东方澳玛">东方澳玛</option>
+                        <option value="巨高电动车">巨高电动车</option>
+                        <option value="踏迪">踏迪</option>
+                        <option value="台铃">台铃</option>
+                    </select></span></li>
+                <li>&nbsp;型号 <span>
+                    <select id="CheType" name="CheType">
+                        <option value="依兰公主">依兰公主</option>
+                        <option value="TDT071Z">TDT071Z</option>
+                        <option value="TDR1033Z">TDR1033Z</option>
+                        <option value="外卖车">外卖车</option>
+                        <option value="金犬">金犬</option>
+                        <option value="TDT-108Z">TDT-108Z</option>
+                        <option value="TDT02Z">TDT02Z</option>
+                        <option value="飞力普">飞力普</option>
+                        <option value="TDT128Z">TDT128Z</option>
+                        <option value="TDT1097Z">TDT1097Z</option>
+                        <option value="万马奔腾">万马奔腾</option>
+                        <option value="深友">深友</option>
+                        <option value="百团二号">百团二号</option>
+                        <option value="tdt118Z">tdt118Z</option>
+                        <option value="小酷跑">小酷跑</option>
+                    </select></span></li>
+            </ul>
+            
+
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_xiayibu()" class="userbtn" style="width: 50%;" value="下一步">
+            </ul>
+        </div>
+
+        <div class="qbCon2" style="display: none" id="qd2">
+            <ul class="myUl5">
+                <li>&nbsp;住宅电话<span>
+                    <input type="tel" name="ResidentialPhone" id="ResidentialPhone" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="住宅电话"></span> </li>
+
+                <li>&nbsp;邮箱<span>
+                    <input type="text" name="Email" id="Email" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="邮箱"></span> </li>
+
+                <li>&nbsp;教育程度<span>
+                    <select id="EducationLevel" name="EducationLevel">
+                        <option value="小学">小学</option>
+                        <option value="初中">初中</option>
+                        <option value="中专">中专</option>
+                        <option value="高中">高中</option>
+                        <option value="大专">大专</option>
+                        <option value="本科">本科</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;婚姻状况<span>
+                    <select id="MaritalStatus" name="MaritalStatus">
+                        <option value="否">否</option>
+                        <option value="是">是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;子女数目<span>
+                    <input type="tel" name="ChildrenNumber" id="ChildrenNumber" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="子女数目"></span> </li>
+
+                <li>&nbsp;来市时间<span>
+                    <input type="tel" name="ComingTime" id="ComingTime" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="来市时间"></span> </li>
+
+                <li>&nbsp;居住状况<span>
+                    <select id="LivingConditions" name="LivingConditions">
+                        <option value="自有">自有</option>
+                        <option value="按揭">按揭</option>
+                        <option value="租赁">租赁</option>
+                        <option value="公司宿舍">公司宿舍</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;现居住地址<span>
+                    <input type="text" name="ResidenceAddress" id="ResidenceAddress" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="现居住地址"></span> </li>
+            </ul>
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_fanhui()" class="userbtn" style="width: 35%;" value="返回">
+            </ul>
+        </div>
+
+        <input type="button" onclick="fn_tijiao()" class="userbtn" id="tijiao" value="提交" style="display: none;">
+
+
+
+
+    }
+
+    <script src="~/Content/js/Validform_v5.3.2_min.js"></script>
+    <script type="text/javascript">
+        function fn_tijiao() {
+            if ($("#CreditPhone").val() == "") {
+                alert("请填写手机号");
+                return false;
+            }
+            var mobile = $.trim($("#CreditPhone").val());
+            var regmobile = /^1\d{10}$/;
+            if (regmobile.test(mobile) == false) {
+                alert("手机号码错误，请重新输入");
+                return false;
+            }
+
+            $("#RecruitmentMaterials").submit();
+        }
+
+        function fn_xiayibu() {
+            $("#qd2").show();
+            $("#qd1").hide();
+            $("#tijiao").show();
+        }
+
+        function fn_fanhui() {
+            $("#qd2").hide();
+            $("#qd1").show();
+            $("#tijiao").hide();
+        }
+    </script>
+
+
+</body>
+</html>

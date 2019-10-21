@@ -1,0 +1,18 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2624 ms / want 500 ms¡¿ 2019/08/14 11:24:42 ====
+select * from businessfile where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 989 ms / want 500 ms¡¿ 2019/08/14 14:25:18 ====
+select * from businessfile where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2867 ms / want 500 ms¡¿ 2019/08/14 14:25:20 ====
+select * from businessfile where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1355 ms / want 500 ms¡¿ 2019/08/14 14:33:17 ====
+select * from businessfile where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3059 ms / want 500 ms¡¿ 2019/08/14 16:40:18 ====
+select * from businessfile where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1226 ms / want 500 ms¡¿ 2019/08/14 16:45:33 ====
+select * from businessfile where 1=1  and [IsValid]=@IsValid
+

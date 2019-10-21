@@ -1,0 +1,112 @@
+﻿@using CheDaiBaoWeChatModel.Models;
+@model Borrow
+@{
+    ViewBag.Title = "支付";
+    decimal? unDeposit = ViewBag.unDeposit;
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi,width=640, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no" />
+    <link href="~/Content/newcss/common.css" rel="stylesheet" />
+</head>
+<body bgcolor="#f5f5f9">
+    <section class="page">
+        <div class="content">
+            <div class="p-t20 p-b40" style="border-bottom: 1px solid #eeedf2; background: #fff;">
+                <div class="odd-ed">
+                    <span class="fz30" style="color: #6e6e6e; padding-top: 105px;">@(unDeposit > 0 ? "租金(含押金)未还金额" : "租金未还金额")</span>
+                    @if (Model != null)
+                    {
+                        <span class="fz40 p-t20" style="color: #b41f23" id="SumAmount">@(Model.UnTotalInterest + unDeposit)</span>
+                        <span class="fz18 p-t30" style="color: #b41f23">最后还款日 @Model.RepaymentDate.Value.Date.ToString("yyyy年MM月dd日")</span>
+                    }
+                    else
+                    {
+                        <span class="fz40 p-t20" style="color: #b41f23">合约期内租金已交完</span>
+                    }
+                </div>
+            </div>
+            @if (Model != null)
+            {
+                if (Model.UnTotalInterest > 0)
+                {
+<div class="p-t55 p-b40">
+                    <button class="confirm m-t25 fz25" onclick="fn_repayment()">确定还款</button>
+                </div>
+                }
+            }
+        </div>
+    </section>
+</body>
+<script src="~/Content/js/jquery-1.11.1.min.js"></script>
+<script src="~/Content/js/jquery.similar.msgbox.js"></script>
+<script type="text/javascript">
+
+    function fn_repayment() {
+        var sumamount = $("#SumAmount").text();
+        if (sumamount <= 0) {
+            alert("金额不能小于等于0");
+            return false;
+        }
+
+        $.ajax({
+            url: '/GodService/RentPayment',
+            type: 'post',
+            async: false,//使用同步的方式,true为异步方式
+            data: {
+                Amount: sumamount,
+                rn: Math.random()
+            },//这里使用json对象
+            success: function (json) {
+                if (json.Result == true) {
+                    var data = $.parseJSON(json.wxJsApiParam);
+                    console.log(WeixinJSBridge.invoke(
+                    'getBrandWCPayRequest',
+                     {
+                         "appId": data.appId.toString(), //公众号名称，由商户传入
+                         "timeStamp": data.timeStamp.toString(), //时间戳 这里随意使用了一个值
+                         "nonceStr": data.nonceStr.toString(), //随机串
+                         "package": data.package.toString(),
+                         "signType": data.signType.toString(), //微信签名方式:sha1
+                         "paySign": data.paySign.toString().toUpperCase() //微信签名
+                     },//josn串
+                     function (res) {
+                         if (res.err_msg == "get_brand_wcpay_request:ok") {
+                             alert("恭喜您，本次交易成功");
+                             window.location.reload();
+                         }
+                         else {
+                             $.MsgBox.Alert("温馨提示", "本次交易失败，如有问题请联系客服");
+                         }
+                     }));
+                } else {
+                    alert(json.wxJsApiParam);
+                }
+            }
+        });
+
+    }
+
+    window.alert = function (name) {
+        var iframe = document.createElement("IFRAME");
+        iframe.style.display = "none";
+        iframe.setAttribute("src", 'data:text/plain,');
+        document.documentElement.appendChild(iframe);
+        window.frames[0].window.alert(name);
+        iframe.parentNode.removeChild(iframe);
+    };
+
+    window.confirm = function (message) {
+        var iframe = document.createElement("IFRAME");
+        iframe.style.display = "none";
+        iframe.setAttribute("src", 'data:text/plain,');
+        document.documentElement.appendChild(iframe);
+        var alertFrame = window.frames[0];
+        var result = alertFrame.window.confirm(message);
+        iframe.parentNode.removeChild(iframe);
+        return result;
+    };
+</script>

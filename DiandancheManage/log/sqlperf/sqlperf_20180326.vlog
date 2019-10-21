@@ -1,0 +1,111 @@
+==== 【instanceDefault】【actual 802 ms / want 500 ms】 2018/3/26 16:46:12 ====
+select * from sbt_log_user_login where last_heartbeat_time <= '2018-03-26 16:45:11' and has_logout = 'N'  and login_time <= '2018-03-26 16:45:11'
+
+==== 【SqlDapper_QueryInternal】【actual 789 ms / want 500 ms】 2018/3/26 16:47:34 ====
+select * from credit where 1=1  and [IsValid]=@IsValid
+
+==== 【instanceDefault】【actual 613 ms / want 500 ms】 2018/3/26 16:48:51 ====
+insert into ptp_credit_audit 
+( audit_uid,        credit_id,        
+  step_before,      step_after,       
+  status_before,    status_after,     
+  auditor,          audit_time,       
+  audit_remark,     remarks           
+) values (          
+'4b787886-1c31-4f7a-89b2-e01bd127c573',81,
+'first','end',
+'un_audit','agree',
+'admin','2018-03-26 16:48:50',
+'同意审核通过','')
+
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/26 19:43:32 ====
+select c.[Name], SUM(f.[Amount]) AS amount , c.[Id]  FROM [FundsFlow] f join [Credit] c on f.[CreditId] = c.[Id]  WHERE f.[IsValid] = 1 and (f.[FeeType] =24 or f.[FeeType] =23)
+and  (c.[CreditMode] = 1 or c.[CreditMode] = 8 or c.[CreditMode] = 9) and CONVERT(nvarchar(12), f.[CreateTime] ,112) = CONVERT(nvarchar(12),GETDATE(),112) group by c.[Name] ,c.[Id]
+ order by repaymentdate
+-------- 错误信息 --------
+ORDER BY 子句中的列 "Credit.RepaymentDate" 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/26 19:43:32 ====
+select c.[Name], SUM(f.[Amount]) AS amount , c.[Id]  FROM [FundsFlow] f join [Credit] c on f.[CreditId] = c.[Id]  WHERE f.[IsValid] = 1 and (f.[FeeType] =24 or f.[FeeType] =23)
+and  (c.[CreditMode] = 1 or c.[CreditMode] = 8 or c.[CreditMode] = 9) and CONVERT(nvarchar(12), f.[CreateTime] ,112) = CONVERT(nvarchar(12),GETDATE(),112) group by c.[Name] ,c.[Id]
+ order by repaymentdate
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/26 19:43:32 ====
+select c.[Name], SUM(f.[Amount]) AS amount , c.[Id]  FROM [FundsFlow] f join [Credit] c on f.[CreditId] = c.[Id]  WHERE f.[IsValid] = 1 and (f.[FeeType] =24 or f.[FeeType] =23)
+and  (c.[CreditMode] = 1 or c.[CreditMode] = 8 or c.[CreditMode] = 9) and CONVERT(nvarchar(12), f.[CreateTime] ,112) = CONVERT(nvarchar(12),GETDATE(),112) group by c.[Name] ,c.[Id]
+ order by repaymentdate
+-------- 错误信息 --------
+ORDER BY 子句中的列 "Credit.RepaymentDate" 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/26 19:43:40 ====
+select c.[Name], SUM(f.[Amount]) AS amount , c.[Id]  FROM [FundsFlow] f join [Credit] c on f.[CreditId] = c.[Id]  WHERE f.[IsValid] = 1 and (f.[FeeType] =24 or f.[FeeType] =23)
+and  (c.[CreditMode] = 1 or c.[CreditMode] = 8 or c.[CreditMode] = 9) and CONVERT(nvarchar(12), f.[CreateTime] ,112) = CONVERT(nvarchar(12),GETDATE(),112) group by c.[Name] ,c.[Id]
+ order by repaymentdate desc
+-------- 错误信息 --------
+ORDER BY 子句中的列 "Credit.RepaymentDate" 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/26 19:43:40 ====
+select c.[Name], SUM(f.[Amount]) AS amount , c.[Id]  FROM [FundsFlow] f join [Credit] c on f.[CreditId] = c.[Id]  WHERE f.[IsValid] = 1 and (f.[FeeType] =24 or f.[FeeType] =23)
+and  (c.[CreditMode] = 1 or c.[CreditMode] = 8 or c.[CreditMode] = 9) and CONVERT(nvarchar(12), f.[CreateTime] ,112) = CONVERT(nvarchar(12),GETDATE(),112) group by c.[Name] ,c.[Id]
+ order by repaymentdate desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/26 19:43:40 ====
+select c.[Name], SUM(f.[Amount]) AS amount , c.[Id]  FROM [FundsFlow] f join [Credit] c on f.[CreditId] = c.[Id]  WHERE f.[IsValid] = 1 and (f.[FeeType] =24 or f.[FeeType] =23)
+and  (c.[CreditMode] = 1 or c.[CreditMode] = 8 or c.[CreditMode] = 9) and CONVERT(nvarchar(12), f.[CreateTime] ,112) = CONVERT(nvarchar(12),GETDATE(),112) group by c.[Name] ,c.[Id]
+ order by repaymentdate desc
+-------- 错误信息 --------
+ORDER BY 子句中的列 "Credit.RepaymentDate" 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/26 19:44:24 ====
+select c.[Name], SUM(f.[Amount]) AS amount , c.[Id]  FROM [FundsFlow] f join [Credit] c on f.[CreditId] = c.[Id]  WHERE f.[IsValid] = 1 and (f.[FeeType] =24 or f.[FeeType] =23)
+and  (c.[CreditMode] = 1 or c.[CreditMode] = 8 or c.[CreditMode] = 9) and CONVERT(nvarchar(12), f.[CreateTime] ,112) = CONVERT(nvarchar(12),GETDATE(),112) group by c.[Name] ,c.[Id]
+ order by repaymentdate desc
+-------- 错误信息 --------
+ORDER BY 子句中的列 "Credit.RepaymentDate" 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/26 19:44:24 ====
+select c.[Name], SUM(f.[Amount]) AS amount , c.[Id]  FROM [FundsFlow] f join [Credit] c on f.[CreditId] = c.[Id]  WHERE f.[IsValid] = 1 and (f.[FeeType] =24 or f.[FeeType] =23)
+and  (c.[CreditMode] = 1 or c.[CreditMode] = 8 or c.[CreditMode] = 9) and CONVERT(nvarchar(12), f.[CreateTime] ,112) = CONVERT(nvarchar(12),GETDATE(),112) group by c.[Name] ,c.[Id]
+ order by repaymentdate desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/26 19:44:24 ====
+select c.[Name], SUM(f.[Amount]) AS amount , c.[Id]  FROM [FundsFlow] f join [Credit] c on f.[CreditId] = c.[Id]  WHERE f.[IsValid] = 1 and (f.[FeeType] =24 or f.[FeeType] =23)
+and  (c.[CreditMode] = 1 or c.[CreditMode] = 8 or c.[CreditMode] = 9) and CONVERT(nvarchar(12), f.[CreateTime] ,112) = CONVERT(nvarchar(12),GETDATE(),112) group by c.[Name] ,c.[Id]
+ order by repaymentdate desc
+-------- 错误信息 --------
+ORDER BY 子句中的列 "Credit.RepaymentDate" 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/26 19:44:54 ====
+select c.[Name], SUM(f.[Amount]) AS amount , c.[Id]  FROM [FundsFlow] f join [Credit] c on f.[CreditId] = c.[Id]  WHERE f.[IsValid] = 1 and (f.[FeeType] =24 or f.[FeeType] =23)
+and  (c.[CreditMode] = 1 or c.[CreditMode] = 8 or c.[CreditMode] = 9) and CONVERT(nvarchar(12), f.[CreateTime] ,112) = CONVERT(nvarchar(12),GETDATE(),112) group by c.[Name] ,c.[Id]
+ order by repaymentdate desc
+-------- 错误信息 --------
+ORDER BY 子句中的列 "Credit.RepaymentDate" 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/26 19:44:54 ====
+select c.[Name], SUM(f.[Amount]) AS amount , c.[Id]  FROM [FundsFlow] f join [Credit] c on f.[CreditId] = c.[Id]  WHERE f.[IsValid] = 1 and (f.[FeeType] =24 or f.[FeeType] =23)
+and  (c.[CreditMode] = 1 or c.[CreditMode] = 8 or c.[CreditMode] = 9) and CONVERT(nvarchar(12), f.[CreateTime] ,112) = CONVERT(nvarchar(12),GETDATE(),112) group by c.[Name] ,c.[Id]
+ order by repaymentdate desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2018/3/26 19:44:54 ====
+select c.[Name], SUM(f.[Amount]) AS amount , c.[Id]  FROM [FundsFlow] f join [Credit] c on f.[CreditId] = c.[Id]  WHERE f.[IsValid] = 1 and (f.[FeeType] =24 or f.[FeeType] =23)
+and  (c.[CreditMode] = 1 or c.[CreditMode] = 8 or c.[CreditMode] = 9) and CONVERT(nvarchar(12), f.[CreateTime] ,112) = CONVERT(nvarchar(12),GETDATE(),112) group by c.[Name] ,c.[Id]
+ order by repaymentdate desc
+-------- 错误信息 --------
+ORDER BY 子句中的列 "Credit.RepaymentDate" 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+
+==== 【SqlDapper_QueryInternal】【actual 604 ms / want 500 ms】 2018/3/26 19:46:27 ====
+select * from BankCard where  IsValid=@IsValid
+
+==== 【SqlDapper_QueryInternal】【actual 866 ms / want 500 ms】 2018/3/26 20:09:13 ====
+select * from BankCard where  IsValid=@IsValid
+

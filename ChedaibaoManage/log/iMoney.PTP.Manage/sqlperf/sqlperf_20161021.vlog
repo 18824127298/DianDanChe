@@ -1,0 +1,18 @@
+==== (instanceDefault)【SQL语句运行错误】2016/10/21 11:32:40 ====
+select * from God where [Id] IN (select distinct([GodId]) from [Bid] where [CreateTime] >= '2015-9-01')
+-------- 错误信息 --------
+在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+
+==== (instanceDefault)【SQL语句运行错误】2016/10/21 11:32:40 ====
+select * from God where [Id] IN (select distinct([GodId]) from [Bid] where [CreateTime] >= '2015-9-01')
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2016/10/21 11:32:40 ====
+select * from God where [Id] IN (select distinct([GodId]) from [Bid] where [CreateTime] >= '2015-9-01')
+-------- 错误信息 --------
+在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+
+==== 【instanceDefault】【actual 527 ms / want 500 ms】 2016/10/21 11:34:17 ====
+select * from God where [Id] IN (select distinct([GodId]) from [Bid] where [CreateTime] >= '2015-9-01')
+

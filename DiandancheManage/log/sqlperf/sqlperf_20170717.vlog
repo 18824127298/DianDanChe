@@ -1,0 +1,36 @@
+==== (instanceDefault)【SQL语句运行错误】2017/7/17 10:10:48 ====
+SELECT cl.[Amount] as CreditAmount, cl.[RemainingMonths], c.[Deadline], c.[DateType], c.[CreditStatus], c.[Amount], g.[FullName] , g.[Aliases] FROM [CreditLoan] cl JOIN [Credit]  c on cl.[CreditId] = c.[Id] JOIN [LoanApply] l ON cl.[LoanApplyId] = l.[Id] JOIN [God] g on l.[GodId] = g.[Id]  WHERE cl.[IsValid] = 1 and c.[IsValid] = 1 and l.[LoanType] = 2
+ order by createtime desc
+-------- 错误信息 --------
+列名 'createtime' 不明确。
+
+==== (instanceDefault)【SQL语句运行错误】2017/7/17 10:10:48 ====
+SELECT cl.[Amount] as CreditAmount, cl.[RemainingMonths], c.[Deadline], c.[DateType], c.[CreditStatus], c.[Amount], g.[FullName] , g.[Aliases] FROM [CreditLoan] cl JOIN [Credit]  c on cl.[CreditId] = c.[Id] JOIN [LoanApply] l ON cl.[LoanApplyId] = l.[Id] JOIN [God] g on l.[GodId] = g.[Id]  WHERE cl.[IsValid] = 1 and c.[IsValid] = 1 and l.[LoanType] = 2
+ order by createtime desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/7/17 10:10:48 ====
+SELECT cl.[Amount] as CreditAmount, cl.[RemainingMonths], c.[Deadline], c.[DateType], c.[CreditStatus], c.[Amount], g.[FullName] , g.[Aliases] FROM [CreditLoan] cl JOIN [Credit]  c on cl.[CreditId] = c.[Id] JOIN [LoanApply] l ON cl.[LoanApplyId] = l.[Id] JOIN [God] g on l.[GodId] = g.[Id]  WHERE cl.[IsValid] = 1 and c.[IsValid] = 1 and l.[LoanType] = 2
+ order by createtime desc
+-------- 错误信息 --------
+列名 'createtime' 不明确。
+
+==== (instanceDefault)【SQL语句运行错误】2017/7/17 10:11:18 ====
+SELECT cl.[Amount] as CreditAmount, cl.[RemainingMonths], c.[Deadline], c.[DateType], c.[CreditStatus], c.[Amount], g.[FullName] , g.[Aliases] FROM [CreditLoan] cl JOIN [Credit]  c on cl.[CreditId] = c.[Id] JOIN [LoanApply] l ON cl.[LoanApplyId] = l.[Id] JOIN [God] g on l.[GodId] = g.[Id]  WHERE cl.[IsValid] = 1 and c.[IsValid] = 1 and l.[LoanType] = 2
+ order by createtime desc
+-------- 错误信息 --------
+列名 'createtime' 不明确。
+
+==== (instanceDefault)【SQL语句运行错误】2017/7/17 10:11:18 ====
+SELECT cl.[Amount] as CreditAmount, cl.[RemainingMonths], c.[Deadline], c.[DateType], c.[CreditStatus], c.[Amount], g.[FullName] , g.[Aliases] FROM [CreditLoan] cl JOIN [Credit]  c on cl.[CreditId] = c.[Id] JOIN [LoanApply] l ON cl.[LoanApplyId] = l.[Id] JOIN [God] g on l.[GodId] = g.[Id]  WHERE cl.[IsValid] = 1 and c.[IsValid] = 1 and l.[LoanType] = 2
+ order by createtime desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/7/17 10:11:18 ====
+SELECT cl.[Amount] as CreditAmount, cl.[RemainingMonths], c.[Deadline], c.[DateType], c.[CreditStatus], c.[Amount], g.[FullName] , g.[Aliases] FROM [CreditLoan] cl JOIN [Credit]  c on cl.[CreditId] = c.[Id] JOIN [LoanApply] l ON cl.[LoanApplyId] = l.[Id] JOIN [God] g on l.[GodId] = g.[Id]  WHERE cl.[IsValid] = 1 and c.[IsValid] = 1 and l.[LoanType] = 2
+ order by createtime desc
+-------- 错误信息 --------
+列名 'createtime' 不明确。
+

@@ -1,0 +1,18 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 669 ms / want 500 ms¡¿ 2019/8/3 3:58:06 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 767 ms / want 500 ms¡¿ 2019/8/3 3:58:51 ====
+insert into loanfile ([LoanApplyId],[ZhengFilePath],[FanFilePath],[BorrowerId],[WeChatZhengFilePath],[WeChatFanFilePath],[IsValid],[CreateTime],[UpdateTime]) values (@LoanApplyId,@ZhengFilePath,@FanFilePath,@BorrowerId,@WeChatZhengFilePath,@WeChatFanFilePath,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 567 ms / want 500 ms¡¿ 2019/8/3 3:59:02 ====
+update idcardinformation set [Name]=@Name,[Birth]=@Birth,[Address]=@Address,[IdCardNumber]=@IdCardNumber,[Sex]=@Sex,[Nation]=@Nation,[SigningOrganization]=@SigningOrganization,[IssuanceDate]=@IssuanceDate,[ExpirationDate]=@ExpirationDate,[BorrowerId]=@BorrowerId,[IsValid]=@IsValid,[CreateTime]=@CreateTime,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 567 ms / want 500 ms¡¿ 2019/8/3 3:59:02 ====
+update idcardinformation set [Name]=@Name,[Birth]=@Birth,[Address]=@Address,[IdCardNumber]=@IdCardNumber,[Sex]=@Sex,[Nation]=@Nation,[SigningOrganization]=@SigningOrganization,[IssuanceDate]=@IssuanceDate,[ExpirationDate]=@ExpirationDate,[BorrowerId]=@BorrowerId,[IsValid]=@IsValid,[CreateTime]=@CreateTime,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1084 ms / want 500 ms¡¿ 2019/8/3 6:21:18 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2857 ms / want 500 ms¡¿ 2019/8/3 7:28:07 ====
+select * from Borrower where  IsValid=@IsValid
+

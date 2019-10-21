@@ -1,0 +1,148 @@
+﻿.TableBar
+{
+	float:left;
+	width:100%;
+	height:auto;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	table-layout:fixed;
+}
+.TDTabLeft
+{
+	width:22px;
+	height:25px;
+	text-align:left;
+	vertical-align:middle;
+}
+.ImgTabLeft
+{
+	float:left; 
+	margin:0;
+	padding:0;
+	cursor:pointer; 
+	width:16px; 
+	height:16px;
+}
+.TDTabRight
+{
+	width:22px;
+	height:25px;
+	text-align:left;
+	vertical-align:middle;
+}
+.ImgTabRight
+{
+	float:left; 
+	margin:0;
+	padding:0;
+	cursor:pointer; 
+	width:16px; 
+	height:16px;
+}
+.DivTab
+{
+	float:left; 
+	margin:0;
+	padding:0;
+	width:100%;
+	height: 22px;
+	overflow:hidden;
+	position:relative;
+	background-image:url("images/tab_bg.gif");
+}
+.TableTab
+{
+	float:left; 
+	margin:0;
+	padding:0;
+	width:0;
+	height: 22px;
+	table-layout:fixed;
+}
+.TDTabStart
+{
+	width:2px;
+}
+.TDTabEnd
+{
+	width:1px;
+}
+.CurrentTab
+{
+	float:left; 
+	height:22px;
+	line-height:22px;
+	width:110px;
+	background-image:url("images/current_tab.gif");
+}
+.CurrentTabSpan
+{
+	float:left;
+	margin-left:8px; 
+}
+.CommonTab
+{
+	float:left; 
+	height:22px;
+	line-height:22px;
+	width:110px;
+	background-image:url("images/common_tab.gif");
+}
+.CommonTab a.TabTitleA
+{
+	float:left; 
+	margin-left:8px;
+	text-decoration:none;
+}
+.CommonTab a.TabTitleA:hover
+{
+	float:left; 
+	margin-left:8px;
+	text-decoration:none;
+}
+.CommonTab a.TabTitleA:active
+{
+	float:left; 
+	margin-left:8px;
+	text-decoration:none;
+}
+.HoverTab
+{
+	float:left; 
+	height:22px;
+	line-height:22px;
+	width:110px;
+	background-image:url("images/hover_tab.gif");
+}
+.HoverTab a.TabTitleA
+{
+	color:#000000;
+	float:left; 
+	margin-left:8px;
+	text-decoration:none;
+}
+.HoverTab a.TabTitleA:hover
+{
+	color:#000000;
+	float:left; 
+	margin-left:8px;
+	text-decoration:none;
+}
+.HoverTab a.TabTitleA:active
+{
+	color:#000000;
+	float:left; 
+	margin-left:8px;
+	text-decoration:none;
+}
+.TabClose
+{
+	float:right; 
+	margin-top:2px;
+	margin-right:4px;
+}
+.TabClose img
+{
+	border:0;
+}

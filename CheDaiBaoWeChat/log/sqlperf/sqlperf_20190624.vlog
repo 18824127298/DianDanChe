@@ -1,0 +1,15 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 871 ms / want 500 ms¡¿ 2019/6/24 15:07:54 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 670 ms / want 500 ms¡¿ 2019/6/24 16:08:44 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 586 ms / want 500 ms¡¿ 2019/6/24 18:31:41 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2048 ms / want 500 ms¡¿ 2019/6/24 19:04:38 ====
+insert into borrower ([Aliases],[Guid],[Phone],[IsValidatePhone],[IsSalesman],[IsValid],[CreateTime],[UpdateTime]) values (@Aliases,@Guid,@Phone,@IsValidatePhone,@IsSalesman,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 938 ms / want 500 ms¡¿ 2019/6/24 19:04:40 ====
+insert into loanapply ([BorrowerId],[CreditPhone],[CreditAmount],[Deadline],[BusinessName],[RecruitmentName],[EntrySiteName],[SiteAddress],[StationMasterPhone],[Brand],[CheType],[TotalAmountStage],[DownPayments],[ResidentialPhone],[Email],[EducationLevel],[MaritalStatus],[WorkingSeniority],[CustomerClassification],[Relative],[RelativeRelationShip],[IsRelativeKnowStages],[RelativeContactPhone],[Remark],[RepaymentStatus],[SalesmanId],[IsValid],[CreateTime],[UpdateTime]) values (@BorrowerId,@CreditPhone,@CreditAmount,@Deadline,@BusinessName,@RecruitmentName,@EntrySiteName,@SiteAddress,@StationMasterPhone,@Brand,@CheType,@TotalAmountStage,@DownPayments,@ResidentialPhone,@Email,@EducationLevel,@MaritalStatus,@WorkingSeniority,@CustomerClassification,@Relative,@RelativeRelationShip,@IsRelativeKnowStages,@RelativeContactPhone,@Remark,@RepaymentStatus,@SalesmanId,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+

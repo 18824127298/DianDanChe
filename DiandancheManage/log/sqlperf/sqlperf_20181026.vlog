@@ -1,0 +1,12 @@
+==== ¡¾instanceDefault¡¿¡¾actual 5406 ms / want 500 ms¡¿ 2018/10/26 9:19:47 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1323 ms / want 500 ms¡¿ 2018/10/26 11:10:36 ====
+select * FROM [Credit] WHERE [IsValid] = 1 and ([CreditStatus] = 5 or [CreditStatus] = 3) 
+             and [BidStartTime] < getdate()
+

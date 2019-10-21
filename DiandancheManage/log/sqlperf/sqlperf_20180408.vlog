@@ -1,0 +1,55 @@
+==== ¡¾instanceDefault¡¿¡¾actual 1083 ms / want 500 ms¡¿ 2018/4/8 11:49:40 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1244 ms / want 500 ms¡¿ 2018/4/8 17:03:21 ====
+select * from LoanApply where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3946 ms / want 500 ms¡¿ 2018/4/8 17:03:26 ====
+select * from God where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 16232 ms / want 500 ms¡¿ 2018/4/8 17:51:42 ====
+select * from god where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 5528 ms / want 500 ms¡¿ 2018/4/8 17:57:34 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 10565 ms / want 500 ms¡¿ 2018/4/8 17:57:39 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 7276 ms / want 500 ms¡¿ 2018/4/8 17:57:41 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_brief_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 6701 ms / want 500 ms¡¿ 2018/4/8 17:57:46 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_brief_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 9357 ms / want 500 ms¡¿ 2018/4/8 17:57:51 ====
+select * from sbt_sys_sub_system_define order by display_order
+
+==== ¡¾instanceDefault¡¿¡¾actual 769 ms / want 500 ms¡¿ 2018/4/8 17:58:39 ====
+select * from sbt_sys_menu order by list_order, menu_name
+

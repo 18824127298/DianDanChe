@@ -1,0 +1,66 @@
+==== ¡¾instanceDefault¡¿¡¾actual 1743 ms / want 500 ms¡¿ 2019/07/23 9:28:43 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 1060 ms / want 500 ms¡¿ 2019/07/23 10:00:09 ====
+select l.CreditPhone, i.Name, b.FullName,l.BusinessName, l.RecruitmentName,
+         l.TotalAmountStage, l.Deadline, l.CustomerClassification, l.AuditTime,l.Id,l.RepaymentStatus from LoanApply l join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id = l.SalesmanId
+ where l.IsValid= 1 and l.RepaymentStatus = 5 and i.IsValid= 1
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 858 ms / want 500 ms¡¿ 2019/07/23 10:06:34 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 659 ms / want 500 ms¡¿ 2019/07/23 10:07:05 ====
+insert into discount ([Amount],[LeftAmount],[BorrowerId],[LoanApplyId],[Creator],[Remark],[IsValid],[CreateTime],[UpdateTime]) values (@Amount,@LeftAmount,@BorrowerId,@LoanApplyId,@Creator,@Remark,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾instanceDefault¡¿¡¾actual 6933 ms / want 500 ms¡¿ 2019/7/23 14:28:10 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 4719 ms / want 500 ms¡¿ 2019/07/23 18:04:08 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 786 ms / want 500 ms¡¿ 2019/07/23 18:04:20 ====
+select * from sbt_log_user_login where last_heartbeat_time <= '2019-07-23 18:03:19' and has_logout = 'N'  and login_time <= '2019-07-23 18:03:19'
+
+==== ¡¾instanceDefault¡¿¡¾actual 1008 ms / want 500 ms¡¿ 2019/07/23 18:04:26 ====
+select l.Auditor, l.CreditPhone, i.Name, b.FullName,l.BusinessName, l.RecruitmentName,
+l.TotalAmountStage, l.Deadline, l.CustomerClassification, l.AuditTime,l.Id from LoanApply l join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id = l.SalesmanId
+ where l.IsValid= 1 and l.RepaymentStatus = 5 and i.IsValid= 1 and l.IsLending is null
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2751 ms / want 500 ms¡¿ 2019/07/23 18:04:39 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 2188 ms / want 500 ms¡¿ 2019/07/23 18:04:41 ====
+update loanapply set [BorrowerId]=@BorrowerId,[CreditPhone]=@CreditPhone,[CreditAmount]=@CreditAmount,[Deadline]=@Deadline,[CreditDescription]=@CreditDescription,[DownPayments]=@DownPayments,[AuditTime]=@AuditTime,[Auditor]=@Auditor,[AuditorRemark]=@AuditorRemark,[InterestDate]=@InterestDate,[RepaymentStatus]=@RepaymentStatus,[ExpectedRepayment]=@ExpectedRepayment,[SalesmanId]=@SalesmanId,[BatchDate]=@BatchDate,[IsLending]=@IsLending,[LendingDate]=@LendingDate,[IsValid]=@IsValid,[CreateTime]=@CreateTime,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 2188 ms / want 500 ms¡¿ 2019/07/23 18:04:41 ====
+update loanapply set [BorrowerId]=@BorrowerId,[CreditPhone]=@CreditPhone,[CreditAmount]=@CreditAmount,[Deadline]=@Deadline,[CreditDescription]=@CreditDescription,[DownPayments]=@DownPayments,[AuditTime]=@AuditTime,[Auditor]=@Auditor,[AuditorRemark]=@AuditorRemark,[InterestDate]=@InterestDate,[RepaymentStatus]=@RepaymentStatus,[ExpectedRepayment]=@ExpectedRepayment,[SalesmanId]=@SalesmanId,[BatchDate]=@BatchDate,[IsLending]=@IsLending,[LendingDate]=@LendingDate,[IsValid]=@IsValid,[CreateTime]=@CreateTime,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾instanceDefault¡¿¡¾actual 673 ms / want 500 ms¡¿ 2019/07/23 18:35:55 ====
+select b.UnPrincipal, b.UnTotalInterest, br.FullName, l.SalesmanId, br.Phone,
+                  b.ActualRepaymentDate, l.Brand, b.Stages, b.TotalPeriod, l.CreditAmount,b.RepaymentDate,br.Id 
+                  , (b.UnPrincipal+b.UnTotalInterest) as unSumAmount from Borrow b join Borrower br on b.BorrowerId = br.Id join LoanApply l 
+                  on b.LoanApplyId= l.Id where b.IsValid = 1
+                  and CONVERT(varchar(100), b.RepaymentDate, 111) = CONVERT(varchar(100), GETDATE(), 111)
+
+==== ¡¾instanceDefault¡¿¡¾actual 638 ms / want 500 ms¡¿ 2019/07/23 18:40:32 ====
+select b.UnPrincipal, b.UnTotalInterest, b.OverInterest, b.OverDay, br.FullName, l.SalesmanId, br.Phone,
+l.Brand, b.Stages, b.TotalPeriod, l.CreditAmount, (b.UnPrincipal+b.UnTotalInterest) as unSumAmount
+from Borrow b join Borrower br on b.BorrowerId = br.Id join LoanApply l
+on b.LoanApplyId= l.Id where b.IsValid = 1 and b.UnPrincipal>0 
+and CONVERT(varchar(100), b.RepaymentDate, 111) < CONVERT(varchar(100), GETDATE(), 111)
+

@@ -1,0 +1,36 @@
+==== (instanceDefault)【SQL语句运行错误】2017/5/12 10:18:46 ====
+select l.*, f.ZhengFilePath, f.FanFilePath, f.ZXName, f.ZXPassword, f.ZXCode from LoanApply l left join LoanFile f on l.Id = f.LoanApplyId where l.IsValid = true and l.SecondAuditResult = true and l.RepaymentStatus = 5
+ order by createtime desc
+-------- 错误信息 --------
+列名 'true' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/5/12 10:18:46 ====
+select l.*, f.ZhengFilePath, f.FanFilePath, f.ZXName, f.ZXPassword, f.ZXCode from LoanApply l left join LoanFile f on l.Id = f.LoanApplyId where l.IsValid = true and l.SecondAuditResult = true and l.RepaymentStatus = 5
+ order by createtime desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/5/12 10:18:46 ====
+select l.*, f.ZhengFilePath, f.FanFilePath, f.ZXName, f.ZXPassword, f.ZXCode from LoanApply l left join LoanFile f on l.Id = f.LoanApplyId where l.IsValid = true and l.SecondAuditResult = true and l.RepaymentStatus = 5
+ order by createtime desc
+-------- 错误信息 --------
+列名 'true' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/5/12 10:19:03 ====
+select l.*, f.ZhengFilePath, f.FanFilePath, f.ZXName, f.ZXPassword, f.ZXCode from LoanApply l left join LoanFile f on l.Id = f.LoanApplyId where l.IsValid = true and l.SecondAuditResult = true and l.RepaymentStatus = 5
+ order by createtime desc
+-------- 错误信息 --------
+列名 'true' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/5/12 10:19:03 ====
+select l.*, f.ZhengFilePath, f.FanFilePath, f.ZXName, f.ZXPassword, f.ZXCode from LoanApply l left join LoanFile f on l.Id = f.LoanApplyId where l.IsValid = true and l.SecondAuditResult = true and l.RepaymentStatus = 5
+ order by createtime desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/5/12 10:19:03 ====
+select l.*, f.ZhengFilePath, f.FanFilePath, f.ZXName, f.ZXPassword, f.ZXCode from LoanApply l left join LoanFile f on l.Id = f.LoanApplyId where l.IsValid = true and l.SecondAuditResult = true and l.RepaymentStatus = 5
+ order by createtime desc
+-------- 错误信息 --------
+列名 'true' 无效。
+

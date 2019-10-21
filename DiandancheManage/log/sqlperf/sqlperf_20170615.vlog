@@ -1,0 +1,11 @@
+==== ¡¾instanceDefault¡¿¡¾actual 2255 ms / want 500 ms¡¿ 2017/6/15 16:24:02 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 674 ms / want 500 ms¡¿ 2017/6/15 16:31:00 ====
+select * from BasicInformation where  IsValid=@IsValid
+

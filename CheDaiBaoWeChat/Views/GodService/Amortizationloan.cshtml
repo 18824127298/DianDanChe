@@ -1,0 +1,212 @@
+﻿@using CheDaiBaoWeChatModel.Models;
+@{
+    Layout = null;
+    ViewBag.Title = "还款详情";
+    List<LoanApply> LoanapplyList = ViewBag.LoanapplyList as List<LoanApply>;
+    Borrow borrow = ViewBag.borrow as Borrow;
+    List<Borrow> OverdueBorrowlist = ViewBag.OverdueBorrowlist as List<Borrow>;
+}
+<meta charset="UTF-8">
+<meta name="viewport" content="target-densitydpi=device-dpi,width=640, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no" />
+<link href="~/Content/newcss/common.css" rel="stylesheet" />
+<body bgcolor="#f5f5f9">
+    <section class="page">
+        <div class="content" style="padding-top: 55px; background: #fff;">
+            <div class="all fz25">@(ViewBag.Phone)的融资租赁</div>
+            <ul class="list2 fz30">
+                @if (ViewBag.IsLoanapply == true)
+                {
+                    foreach (LoanApply item in LoanapplyList)
+                    {
+                        if (item.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.还款中)
+                        {
+@*<li>
+                                        <span>@item.TotalAmountStage.Value.ToString("0")</span>
+                        <span>还款中</span>
+                    </li>
+                    <li>
+                        <span>最后一期还款日</span>
+                        <span>@item.ExpectedRepayment.Value.ToString("yyyy年MM月dd日")</span>
+                    </li>*@
+
+                    @* <a href="~/GodService/GetMyBill?nId=@item.Id">
+                        <li>
+                            <span>账单记录</span>
+                            <span><i></i></span>
+                        </li>
+                    </a>*@
+                            if (ViewBag.tborrow == true)
+                            {
+                    <a onclick="fn_Prepayment(@item.Id,@borrow.Id)">
+                        <li>
+                            <span>查看第@(borrow.Stages)/@(@borrow.TotalPeriod)期未还账单</span>
+                            <span><i></i></span>
+                        </li>
+                    </a>
+                            }
+                            if (OverdueBorrowlist.Count > 0)
+                            {
+                    <a href="~/GodService/OverdueUnpaid?nLoanApplyId=@item.Id">
+                        <li>
+                            <span>查看逾期未还账单</span>
+                            <span><i></i></span>
+                        </li>
+                    </a>
+                            }
+                            if (item.IsMentionBack == true)
+                            {
+                    <div class="footer">
+                        <a onclick="fn_MentionBack(@item.Id)" id="footer">
+                            <button class="amortize fz35">提前还款</button></a>
+                    </div> 
+                            }
+                        }
+                        else if (item.RepaymentStatus == CheDaiBaoWeChatModel.CreditStatus.还款完成)
+                        {
+                    <li>
+                        <span>融资租赁款项</span>
+                        <span>已结清</span>
+                    </li>
+                    <li>
+                        <span>结清日</span>
+                        <span>@item.ClosingDate.Value.ToString("yyyy年MM月dd日")</span>
+                    </li>
+                    @*<a href="~/GodService/GetMyBill?nId=@item.Id">
+                        <li>
+                            <span>账单记录</span>
+                            <span><i></i></span>
+                        </li>
+                    </a>*@
+                        }
+                    }
+                }
+            </ul>
+        </div>
+    </section>
+</body>
+<script src="~/Content/js/jquery-1.11.1.min.js"></script>
+<script src="~/Content/js/jquery.similar.msgbox.js"></script>
+<script type="text/javascript">
+    function fn_MentionBack(Id) {
+        $("#footer").attr('disabled', true);
+        //$.ajax({
+        //    type: 'post',
+        //    url: "IsOverdueBorrow?r=" + Math.random(),
+        //    data: {
+        //        nLoanApplyId: Id
+        //    },
+        //    success: function (data) {
+        //        if (data == "True") {
+        $.ajax({
+            async: false,
+            type: 'post',
+            url: "MentionBack?r=" + Math.random(),
+            data: {
+                nId: Id
+            },
+            success: function (json) {
+                if (json.Result == true) {
+                    var tip = "";
+                    tip = "<span>本次提前还款总计金额为" + json.dSumAmount + "元，是否确定提还？(该笔金额仅" + show() + "有效)</span>";
+                    $.MsgBox.Confirm("温馨提示", tip, function () {
+                        callpay(Id);
+                    });
+                    $("#footer").attr('disabled', false);
+                }
+            }
+        });
+        //        }
+        //        else {
+        //            alert("请优先还完您的逾期账单");
+        //        }
+        //    }
+        //});
+    }
+
+    function show() {
+        var mydate = new Date();
+        var str = "" + mydate.getFullYear() + "年";
+        str += (mydate.getMonth() + 1) + "月";
+        str += mydate.getDate() + "日";
+        return str;
+    }
+
+    function jsApiCall(json) {
+        var data = $.parseJSON(json);
+        console.log(WeixinJSBridge.invoke(
+        'getBrandWCPayRequest',
+         {
+             "appId": data.appId.toString(), //公众号名称，由商户传入
+             "timeStamp": data.timeStamp.toString(), //时间戳 这里随意使用了一个值
+             "nonceStr": data.nonceStr.toString(), //随机串
+             "package": data.package.toString(),
+             "signType": data.signType.toString(), //微信签名方式:sha1
+             "paySign": data.paySign.toString().toUpperCase() //微信签名
+         },//josn串
+         function (res) {
+             if (res.err_msg == "get_brand_wcpay_request:ok") {
+                 alert("温馨提示", "恭喜您，本次交易成功");
+                 window.location.reload();
+             }
+             else {
+                 $.MsgBox.Alert("温馨提示", "本次交易失败，如有问题请联系客服");
+             }
+         }));
+    }
+
+
+    function callpay(Id) {
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+            }
+            else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+            }
+        }
+        else {
+            $.ajax({
+                async: false,
+                type: 'post',
+                url: "GetWxPayment?r=" + Math.random(),
+                data: {
+                    nId: Id
+                },
+                success: function (json) {
+                    jsApiCall(json);
+                }
+            });
+        }
+    }
+
+    function fn_Prepayment(lId, bId) {
+        $.ajax({
+            type: 'post',
+            url: "IsOverdueBorrow?r=" + Math.random(),
+            data: {
+                nLoanApplyId: lId
+            },
+            success: function (data) {
+                if (data == "True") {
+                    location.href = "../GodService/Prepayment?nId=" + bId;
+                }
+                else {
+                    alert("请优先还完您的逾期账单");
+                }
+            }
+        });
+    }
+
+    window.alert = function (name) {
+        var iframe = document.createElement("IFRAME");
+        iframe.style.display = "none";
+        iframe.setAttribute("src", 'data:text/plain,');
+        document.documentElement.appendChild(iframe);
+        window.frames[0].window.alert(name);
+        iframe.parentNode.removeChild(iframe);
+    };
+</script>

@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "身份证信息";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width">
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+    <style type="text/css">
+        .myUl5 li {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body class="bodybg">
+    @using (Html.BeginForm("IdCardSubmit", "GodService", FormMethod.Post, new { id = "IdCardSubmit" }))
+    {                          
+
+        <div class="qbCon2" id="qd1">
+            <ul class="myUl5">
+                <li>&nbsp;姓名 <span>
+                    <input type="text" name="Name" id="Name" value="@ViewBag.Name" class="fxf gx" style="border: 0px" datatype="*" placeholder="姓名"></span> </li>
+
+                <li>&nbsp;出生 <span>
+                    <input type="text" name="Birth" id="Birth" value="@ViewBag.Birth" class="fxf gx" style="border: 0px" datatype="m" placeholder="出生"></span> </li>
+
+                <li>&nbsp;住址 <span style="width: 80%;">
+                    <input type="text" name="Address" id="Address" value="@ViewBag.Address" style="border: 0px; width:100%; text-align:right;" placeholder="住址"></span> </li>
+
+                <li>&nbsp;公民身份号码 <span>
+                    <input type="text" name="IdCardNumber" id="IdCardNumber" value="@ViewBag.IdCardNumber" class="fxf gx" style="border: 0px" datatype="m" placeholder="公民身份号码"></span> </li>
+
+                <li>&nbsp;性别 <span>
+                    <input type="text" name="Sex" id="Sex" value="@ViewBag.Sex" class="fxf gx" style="border: 0px" datatype="m" placeholder="性别"></span> </li>
+
+                <li>&nbsp;民族 <span>
+                    <input type="text" name="Nation" id="Nation" value="@ViewBag.Nation" class="fxf gx" style="border: 0px" datatype="m" placeholder="民族"></span> </li>
+
+                <li>&nbsp;签发机关 <span>
+                    <input type="text" name="SigningOrganization" id="SigningOrganization" value="@ViewBag.SigningOrganization" class="fxf gx" style="border: 0px" datatype="m" placeholder="签发机关"></span> </li>
+
+                <li>&nbsp;签发日期 <span>
+                    <input type="text" name="IssuanceDate" id="IssuanceDate" value="@ViewBag.IssuanceDate" class="fxf gx" style="border: 0px" datatype="m" placeholder="签发日期"></span> </li>
+
+                <li>&nbsp;失效日期 <span>
+                    <input type="text" name="ExpirationDate" id="ExpirationDate" value="@ViewBag.ExpirationDate" class="fxf gx" style="border: 0px" datatype="m" placeholder="失效日期"></span> </li>
+
+            </ul>
+
+
+
+        </div>
+
+        <input type="button" onclick="fn_tijiao()" class="userbtn" id="tijiao" value="提交">
+
+    }
+</body>
+<script type="text/javascript">
+    function fn_tijiao() {
+        $("#tijiao").attr('disabled', true);
+        $("#IdCardSubmit").submit();
+    }
+</script>
+</html>

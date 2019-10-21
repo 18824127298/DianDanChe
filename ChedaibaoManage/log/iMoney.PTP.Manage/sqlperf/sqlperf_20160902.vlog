@@ -1,0 +1,6 @@
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 585 ms / want 500 ms¡¿ 2016/9/2 17:18:46 ====
+update repaymentplan set [RepaymentPlanMode]=@RepaymentPlanMode,[ActualRepaymentDate]=@ActualRepaymentDate,[UnPrincipal]=@UnPrincipal,[ExpectedInterest]=@ExpectedInterest,[UnTotalInterest]=@UnTotalInterest,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 585 ms / want 500 ms¡¿ 2016/9/2 17:18:46 ====
+update repaymentplan set [RepaymentPlanMode]=@RepaymentPlanMode,[ActualRepaymentDate]=@ActualRepaymentDate,[UnPrincipal]=@UnPrincipal,[ExpectedInterest]=@ExpectedInterest,[UnTotalInterest]=@UnTotalInterest,[UpdateTime]=@UpdateTime where id=@Id
+

@@ -1,0 +1,303 @@
+﻿@using CheDaiBaoWeChatModel.Models;
+@{
+    ViewBag.Title = "申请基本信息";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width">
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+    <style type="text/css">
+        .myUl5 li {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body class="bodybg">
+    @using (Html.BeginForm("EssentialInformation", "Loan", FormMethod.Post, new { id = "EssentialInformation" }))
+    {
+@*<div class="qbCon2" id="qd1">
+            <ul class="myUl5">
+                <li>&nbsp;融资租赁额度 <span>
+                    <input type="tel" name="TotalAmountStage" id="TotalAmountStage" value="" onblur="fn_DownPayments()" class="fxf gx" style="border: 0px" datatype="m" placeholder="融资租赁额度"></span> </li>
+
+                <li>&nbsp;自付 <span>
+                    <input type="tel" name="DownPayments" id="DownPayments" value="" onblur="fn_DownPayments()" class="fxf gx" style="border: 0px" datatype="m" placeholder="自付"></span> </li>
+
+                <li>&nbsp;期数 <span>
+                    <input type="tel" name="Deadline" id="Deadline" value="" class="fxf gx" onblur="fn_DownPayments()" style="border: 0px" datatype="m" placeholder="期数"></span> </li>
+
+                <li>&nbsp;价格 <span>
+                    <input type="tel" name="CreditAmount" id="CreditAmount" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="价格" readonly="readonly"></span> </li>
+
+                <li>&nbsp;费率<span>
+                    <select id="RentRate" name="RentRate">
+                        <option value="0">请选择</option>
+                        <option value="4.5">东莞</option>
+                        <option value="4.1">广州</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;月供 <span>
+                    <input type="tel" name="MonthlyPayment" id="MonthlyPayment" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="月供" readonly="readonly"></span> </li>
+            </ul>
+
+
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_xiayibu()" class="userbtn" style="width: 50%;" value="下一步">
+            </ul>
+        </div>*@
+
+        <div class="qbCon2" id="qd1">
+            <ul class="myUl5">
+                <li>&nbsp;上个工作单位名称<span>
+                    <input type="hidden" value="@ViewBag.Phone" id="CreditPhone" name="CreditPhone">
+                    <input type="text" name="LastWorkName" id="LastWorkName" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="上一份工作单位名称"></span> </li>
+
+                <li>&nbsp;工作内容<span>
+                    <input type="text" name="JobContent" id="JobContent" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="工作内容"></span> </li>
+
+                <li>&nbsp;月工资<span>
+                    <input type="tel" name="MonthlyWage" id="MonthlyWage" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="月工资"></span> </li>
+
+                <li>&nbsp;工作时间<span>
+                    <input type="tel" name="WorkingYear" id="WorkingYear" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="以月为单位"></span></li>
+
+                <li>&nbsp;总工作年限<span>
+                    <input type="tel" name="WorkingSeniority" id="WorkingSeniority" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="以月为单位"></span></li>
+
+                <li>&nbsp;支出<span>
+                    <input type="tel" name="Expenditure" id="Expenditure" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="支出"></span> </li>
+
+                <li>&nbsp;生活费用<span>
+                    <input type="tel" name="LivingCost" id="LivingCost" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="生活费用"></span> </li>
+
+                <li>&nbsp;房租<span>
+                    <input type="tel" name="Rent" id="Rent" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="房租"></span> </li>
+
+            </ul>
+
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_xiayibu()" class="userbtn" style="width: 50%;" value="下一步">
+            </ul>
+
+        </div>
+        
+
+        <div class="qbCon2" style="display: none" id="qd2">
+            <ul class="myUl5">
+                <li style="text-align: center; background-color: #ADD8E6">支付宝</li>
+
+                <li>&nbsp;芝麻信用<span>
+                    <input type="tel" name="SesameCredit" id="SesameCredit" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="芝麻信用"></span> </li>
+
+                <li>&nbsp;是否花呗逾期<span>
+                    <select id="IsFlowersOverdue" name="IsFlowersOverdue">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;花呗逾期金额<span>
+                    <input type="tel" name="FlowersOverdueAmount" id="FlowersOverdueAmount" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="花呗逾期金额"></span> </li>
+
+                <li>&nbsp;是否借呗逾期<span>
+                    <select id="IsBorrowOverdue" name="IsBorrowOverdue">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;借呗逾期金额<span>
+                    <input type="tel" name="BorrowOverdueAmount" id="BorrowOverdueAmount" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="借呗逾期金额"></span> </li>
+            </ul>
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_fanhui()" class="userbtn" style="width: 35%;" value="返回">
+                <input type="button" onclick="fn_xiayibu1()" class="userbtn" style="width: 35%;" value="下一步">
+            </ul>
+
+        </div>
+        
+        
+        <div class="qbCon2" style="display: none" id="qd3">
+            <ul class="myUl5">
+                <li style="text-align: center; background-color: #ADD8E6">银行</li>
+                <li>&nbsp;是否在银行贷款<span>
+                    <select id="IsBankLoan" name="IsBankLoan">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;银行贷款余额<span>
+                    <input type="tel" name="BankLoanBalance" id="BankLoanBalance" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="银行贷款余额"></span> </li>
+
+
+                <li>&nbsp;是否银行逾期<span>
+                    <select id="IsBorrowOverdueAmount" name="IsBorrowOverdueAmount">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;银行逾期金额<span>
+                    <input type="tel" name="BankOverdueAmount" id="BankOverdueAmount" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="银行逾期金额"></span> </li>
+
+            </ul>
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_fanhui1()" class="userbtn" style="width: 35%;" value="返回">
+                <input type="button" onclick="fn_xiayibu2()" class="userbtn" style="width: 35%;" value="下一步">
+            </ul>
+        </div>
+        
+        <div class="qbCon2" style="display: none" id="qd4">
+            <ul class="myUl5">
+                <li style="text-align: center; background-color: #ADD8E6">P2P/小贷</li>
+                <li>&nbsp;是否在P2P/小贷借款<span>
+                    <select id="IsPtpLoan" name="IsPtpLoan">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;P2P/小贷贷款余额<span>
+                    <input type="tel" name="PtpLoanBalance" id="PtpLoanBalance" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="P2P贷款余额"></span> </li>
+
+
+                <li>&nbsp;是否P2P/小贷逾期<span>
+                    <select id="IsPtpOverdueAmount" name="IsPtpOverdueAmount">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </span></li>
+
+
+                <li>&nbsp;P2P/小贷逾期金额<span>
+                    <input type="tel" name="PtpOverdueAmount" id="PtpOverdueAmount" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="银行P2P逾期金额"></span> </li>
+
+                <li>&nbsp;贷款未通过说明<span>
+                    <input type="text" name="FailurePassReason" id="FailurePassReason" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="贷款未通过说明"></span> </li>
+
+
+            </ul>
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_fanhui2()" class="userbtn" style="width: 35%;" value="返回">
+                <input type="button" onclick="fn_xiayibu3()" class="userbtn" style="width: 35%;" value="下一步">
+            </ul>
+
+        </div>
+        
+        <div class="qbCon2" style="display: none" id="qd5">
+            <ul class="myUl5">
+                <li style="text-align: center; background-color: #ADD8E6">银行信用卡</li>
+                <li>&nbsp;是否办理银行信用卡<span>
+                    <select id="IsCreditcardLoan" name="IsCreditcardLoan">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;信用卡已用金额<span>
+                    <input type="tel" name="CreditcardLoanBalance" id="CreditcardLoanBalance" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="信用卡已用金额"></span> </li>
+
+                <li>&nbsp;是否信用卡逾期<span>
+                    <select id="IsCreditcardOverdueAmount" name="IsCreditcardOverdueAmount">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </span></li>
+
+                <li>&nbsp;信用卡逾期金额<span>
+                    <input type="tel" name="CreditcardOverdueAmount" id="CreditcardOverdueAmount" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="信用卡逾期金额"></span> </li>
+
+                <div class="qbCon2" style="border: 1px solid #ebf0f2">
+                    <textarea name="OtherLoan" id="OtherLoan" cols="" rows="" style="width: 100%; height: 6rem; border: none; padding: 0.2rem" placeholder="其他贷款说明"></textarea>
+                </div>
+
+            </ul>
+            <ul style="text-align: center;">
+                <input type="button" onclick="fn_fanhui3()" class="userbtn" style="width: 35%;" value="返回">
+            </ul>
+        </div>
+        
+        <div class="qbCon2">
+            <textarea name="Remark" id="Remark" cols="" rows="" style="width: 100%; height: 6rem; border: none; padding: 0.2rem" placeholder="备注"></textarea>
+        </div>
+
+
+        <input type="button" onclick="fn_tijiao()" class="userbtn" id="tijiao" value="提交" style="display: none;">
+
+
+
+
+@*<div style="text-align: center; margin-top: 2rem"><a href="#" style="color: #3697d5">《杰运好车贷款服务协议》</a></div>*@
+    }
+
+    <script src="~/Content/js/Validform_v5.3.2_min.js"></script>
+    <script type="text/javascript">
+        function fn_tijiao() {
+            if ($("#CreditPhone").val() == "") {
+                alert("请填写手机号");
+                return false;
+            }
+            var mobile = $.trim($("#CreditPhone").val());
+            var regmobile = /^1\d{10}$/;
+            if (regmobile.test(mobile) == false) {
+                alert("手机号码错误，请重新输入");
+                return false;
+            }
+            $("#EssentialInformation").submit();
+        }
+
+        function fn_xiayibu() {
+            $("#qd2").show();
+            $("#qd1").hide();
+        }
+
+        function fn_fanhui() {
+            $("#qd2").hide();
+            $("#qd1").show();
+        }
+
+        function fn_xiayibu1() {
+            $("#qd3").show();
+            $("#qd2").hide();
+        }
+
+        function fn_fanhui1() {
+            $("#qd3").hide();
+            $("#qd2").show();
+        }
+
+        function fn_xiayibu2() {
+            $("#qd4").show();
+            $("#qd3").hide();
+        }
+
+        function fn_fanhui2() {
+            $("#qd4").hide();
+            $("#qd3").show();
+        }
+
+        function fn_xiayibu3() {
+            $("#qd5").show();
+            $("#qd4").hide();
+            $("#tijiao").show();
+        }
+
+        function fn_fanhui3() {
+            $("#qd5").hide();
+            $("#qd4").show();
+            $("#tijiao").hide();
+        }
+
+
+    </script>
+
+
+</body>
+</html>

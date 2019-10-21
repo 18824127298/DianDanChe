@@ -1,0 +1,45 @@
+==== (instanceDefault)【SQL语句运行错误】2017/2/17 18:35:19 ====
+insert into LadderGains 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  CreditId,         LadderGainsCaps,  
+  CreditRate        Deadline          
+) values (          
+1,
+'2017-02-17 18:35:19','2017-02-17 18:35:19',
+11,100000,
+0.11,1)
+
+-------- 错误信息 --------
+'Deadline' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/17 18:35:19 ====
+insert into LadderGains 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  CreditId,         LadderGainsCaps,  
+  CreditRate        Deadline          
+) values (          
+1,
+'2017-02-17 18:35:19','2017-02-17 18:35:19',
+11,100000,
+0.11,1)
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/17 18:35:19 ====
+insert into LadderGains 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  CreditId,         LadderGainsCaps,  
+  CreditRate        Deadline          
+) values (          
+1,
+'2017-02-17 18:35:19','2017-02-17 18:35:19',
+11,100000,
+0.11,1)
+
+-------- 错误信息 --------
+'Deadline' 附近有语法错误。
+

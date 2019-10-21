@@ -1,0 +1,9 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3490 ms / want 500 ms¡¿ 2019/8/30 16:40:32 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 654 ms / want 500 ms¡¿ 2019/8/30 16:44:20 ====
+select * from loanapply where 1=1  and [CreditPhone]=@CreditPhone  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 742 ms / want 500 ms¡¿ 2019/8/30 16:45:06 ====
+insert into borrower ([Aliases],[Guid],[Phone],[IsValidatePhone],[IsSalesman],[LoanType],[IsValid],[CreateTime],[UpdateTime]) values (@Aliases,@Guid,@Phone,@IsValidatePhone,@IsSalesman,@LoanType,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+

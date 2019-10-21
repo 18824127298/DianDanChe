@@ -1,0 +1,60 @@
+==== ¡¾instanceDefault¡¿¡¾actual 1884 ms / want 500 ms¡¿ 2019/06/14 11:08:29 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 874 ms / want 500 ms¡¿ 2019/06/14 11:10:22 ====
+select menu_name,           menu_link,           menu_class,           
+       menu_style,          menu_icon,           parent_menu_code,     
+       level_num,           list_order,          is_active,            
+       has_child,           is_menu_item,        is_log_item,          
+       is_right_item,       remarks              
+  from sbt_sys_menu    
+  where menu_code = 'bsi-credit'
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 620 ms / want 500 ms¡¿ 2019/06/14 11:11:12 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+
+==== ¡¾instanceDefault¡¿¡¾actual 1545 ms / want 500 ms¡¿ 2019/06/14 15:03:15 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 1074 ms / want 500 ms¡¿ 2019/06/14 15:03:15 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾instanceDefault¡¿¡¾actual 536 ms / want 500 ms¡¿ 2019/06/14 17:51:45 ====
+select * from sbt_log_user_login where last_heartbeat_time <= '2019-06-14 17:50:45' and has_logout = 'N'  and login_time <= '2019-06-14 17:50:45'
+
+==== ¡¾instanceDefault¡¿¡¾actual 572 ms / want 500 ms¡¿ 2019/06/14 17:51:58 ====
+select * from LoanApply where IsValid= 1 and RepaymentStatus = 1 and IsAudit is null
+
+==== ¡¾instanceDefault¡¿¡¾actual 2345 ms / want 500 ms¡¿ 2019/06/14 18:01:15 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 550 ms / want 500 ms¡¿ 2019/06/14 18:01:47 ====
+select * from LoanApply where id=@Id and IsValid=@IsValid
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 595 ms / want 500 ms¡¿ 2019/06/14 18:06:39 ====
+update loanapply set [BorrowerId]=@BorrowerId,[CreditPhone]=@CreditPhone,[IsAudit]=@IsAudit,[CreditAmount]=@CreditAmount,[Deadline]=@Deadline,[CreditDescription]=@CreditDescription,[BusinessName]=@BusinessName,[RecruitmentName]=@RecruitmentName,[EntrySiteName]=@EntrySiteName,[SiteAddress]=@SiteAddress,[StationMasterPhone]=@StationMasterPhone,[Brand]=@Brand,[TotalAmountStage]=@TotalAmountStage,[DownPayments]=@DownPayments,[ResidentialPhone]=@ResidentialPhone,[Email]=@Email,[EducationLevel]=@EducationLevel,[MaritalStatus]=@MaritalStatus,[ChildrenNumber]=@ChildrenNumber,[ComingTime]=@ComingTime,[LivingConditions]=@LivingConditions,[ResidenceAddress]=@ResidenceAddress,[LastWorkName]=@LastWorkName,[JobContent]=@JobContent,[MonthlyWage]=@MonthlyWage,[WorkingSeniority]=@WorkingSeniority,[Expenditure]=@Expenditure,[LivingCost]=@LivingCost,[Rent]=@Rent,[SesameCredit]=@SesameCredit,[IsFlowersOverdue]=@IsFlowersOverdue,[FlowersOverdueAmount]=@FlowersOverdueAmount,[IsBankLoan]=@IsBankLoan,[BankLoanBalance]=@BankLoanBalance,[CustomerClassification]=@CustomerClassification,[Spouse]=@Spouse,[IsSpouseKnowStages]=@IsSpouseKnowStages,[ContactPhone]=@ContactPhone,[ContactAddress]=@ContactAddress,[Parents]=@Parents,[Brothers]=@Brothers,[IsBrothersKnowStages]=@IsBrothersKnowStages,[BrothersContactPhone]=@BrothersContactPhone,[AuditTime]=@AuditTime,[Auditor]=@Auditor,[AuditorRemark]=@AuditorRemark,[RepaymentStatus]=@RepaymentStatus,[SalesmanId]=@SalesmanId,[IsValid]=@IsValid,[CreateTime]=@CreateTime,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 595 ms / want 500 ms¡¿ 2019/06/14 18:06:39 ====
+update loanapply set [BorrowerId]=@BorrowerId,[CreditPhone]=@CreditPhone,[IsAudit]=@IsAudit,[CreditAmount]=@CreditAmount,[Deadline]=@Deadline,[CreditDescription]=@CreditDescription,[BusinessName]=@BusinessName,[RecruitmentName]=@RecruitmentName,[EntrySiteName]=@EntrySiteName,[SiteAddress]=@SiteAddress,[StationMasterPhone]=@StationMasterPhone,[Brand]=@Brand,[TotalAmountStage]=@TotalAmountStage,[DownPayments]=@DownPayments,[ResidentialPhone]=@ResidentialPhone,[Email]=@Email,[EducationLevel]=@EducationLevel,[MaritalStatus]=@MaritalStatus,[ChildrenNumber]=@ChildrenNumber,[ComingTime]=@ComingTime,[LivingConditions]=@LivingConditions,[ResidenceAddress]=@ResidenceAddress,[LastWorkName]=@LastWorkName,[JobContent]=@JobContent,[MonthlyWage]=@MonthlyWage,[WorkingSeniority]=@WorkingSeniority,[Expenditure]=@Expenditure,[LivingCost]=@LivingCost,[Rent]=@Rent,[SesameCredit]=@SesameCredit,[IsFlowersOverdue]=@IsFlowersOverdue,[FlowersOverdueAmount]=@FlowersOverdueAmount,[IsBankLoan]=@IsBankLoan,[BankLoanBalance]=@BankLoanBalance,[CustomerClassification]=@CustomerClassification,[Spouse]=@Spouse,[IsSpouseKnowStages]=@IsSpouseKnowStages,[ContactPhone]=@ContactPhone,[ContactAddress]=@ContactAddress,[Parents]=@Parents,[Brothers]=@Brothers,[IsBrothersKnowStages]=@IsBrothersKnowStages,[BrothersContactPhone]=@BrothersContactPhone,[AuditTime]=@AuditTime,[Auditor]=@Auditor,[AuditorRemark]=@AuditorRemark,[RepaymentStatus]=@RepaymentStatus,[SalesmanId]=@SalesmanId,[IsValid]=@IsValid,[CreateTime]=@CreateTime,[UpdateTime]=@UpdateTime where id=@Id
+

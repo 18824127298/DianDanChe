@@ -1,0 +1,49 @@
+<body bgcolor="#F0F9F0" topmargin="0" leftmargin="0" 
+	onselectstart="return false" onload="timeview();">
+
+<table width="100%" height="70" border="0" align="right" 
+	cellpadding="0" cellspacing="0" id="__01">
+  <tr align="right" >
+	  
+  <!-- 显示默认图标 -->
+	<td width="94" rowspan="3" align="left" nowrap>
+	  <div align="left">
+		<img src="../../App_Themes/green-bamboo/template/index_top/index_01.jpg" alt="" width="188" height="70" align="middle" />
+	  </div>
+	</td>
+	
+	<td width="76" rowspan="3" align="left" nowrap>
+		<img src="../../App_Themes/green-bamboo/template/index_top/index_02.jpg" 
+			alt="" width="152" height="70" align="middle" /></td>
+	
+	<td rowspan="3" align="left" nowrap 
+		background="../../App_Themes/green-bamboo/template/index_top/index_03.jpg">&nbsp;</td>
+
+	<td width="241" height="50" >
+		<img src="../../App_Themes/green-bamboo/template/index_top/index_04.jpg" 
+			alt="" width="241" height="50" align="middle" /></td>
+	
+	<td width="48">
+		<img src="../../App_Themes/green-bamboo/template/index_top/index_05.jpg" 
+			alt="返回桌面" width="48" height="50" border="0" 
+			style="cursor:hand" onClick="javascript:GoTable();"/></td>
+	
+	<td width="40">
+		<img src="../../App_Themes/green-bamboo/template/index_top/index_06.jpg" 
+			alt="注销[%LOGIN_USER_ID%]" width="40" height="50" border="0" 
+			style="cursor:hand"  onClick="javascript:iflogout()"/></td>
+	
+	<td width="49" >
+		<img src="../../App_Themes/green-bamboo/template/index_top/index_07.jpg" 
+			alt="退出系统" width="49" height="50" border="0" 
+			style="cursor:hand" onClick="javascript:ifexit()"/></td>
+  </tr>
+  
+  <tr align="right">
+	<td height="20" colspan="4" background="../../App_Themes/green-bamboo/template/index_top/index_08.jpg" align="right" class="small" style="color:#D9E9D6;">
+	    现在时刻：<b><span id="time_area"></span></b>&nbsp;&nbsp;&nbsp;&nbsp;
+	</td>
+  </tr>
+</table>
+
+</body>

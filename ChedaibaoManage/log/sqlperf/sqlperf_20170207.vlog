@@ -1,0 +1,356 @@
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 10:49:45 ====
+
+ order by createtime desc
+-------- 错误信息 --------
+关键字 'order' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 10:49:45 ====
+
+ order by createtime desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 10:49:45 ====
+
+ order by createtime desc
+-------- 错误信息 --------
+关键字 'order' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 10:49:53 ====
+
+ order by createtime desc
+-------- 错误信息 --------
+关键字 'order' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 10:49:53 ====
+
+ order by createtime desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 10:49:53 ====
+
+ order by createtime desc
+-------- 错误信息 --------
+关键字 'order' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 10:49:57 ====
+
+ order by createtime desc
+-------- 错误信息 --------
+关键字 'order' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 10:49:57 ====
+
+ order by createtime desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 10:49:57 ====
+
+ order by createtime desc
+-------- 错误信息 --------
+关键字 'order' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 11:02:02 ====
+
+ order by createtime desc
+-------- 错误信息 --------
+关键字 'order' 附近有语法错误。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 11:02:02 ====
+
+ order by createtime desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 11:02:02 ====
+
+ order by createtime desc
+-------- 错误信息 --------
+关键字 'order' 附近有语法错误。
+
+==== 【instanceDefault】【actual 668 ms / want 500 ms】 2017/2/7 11:05:04 ====
+select parameter_value,     remarks              
+  from sbt_sys_parameter    
+  where application_name = 'sbt_license'
+    and parameter_class = 'id_features'
+    and parameter_name = 'system_full_name'
+
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 11:05:15 ====
+
+-------- 错误信息 --------
+ExecuteReader: CommandText 属性尚未初始化
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 11:05:15 ====
+
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 11:05:15 ====
+
+-------- 错误信息 --------
+ExecuteReader: CommandText 属性尚未初始化
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 14:50:38 ====
+select * from god where IsVaild=1 
+ order by createtime desc
+-------- 错误信息 --------
+列名 'IsVaild' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 14:50:38 ====
+select * from god where IsVaild=1 
+ order by createtime desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 14:50:38 ====
+select * from god where IsVaild=1 
+ order by createtime desc
+-------- 错误信息 --------
+列名 'IsVaild' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 14:54:01 ====
+select * from god where IsVaild=1 
+ order by createtime desc
+-------- 错误信息 --------
+列名 'IsVaild' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 14:54:01 ====
+select * from god where IsVaild=1 
+ order by createtime desc
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 14:54:01 ====
+select * from god where IsVaild=1 
+ order by createtime desc
+-------- 错误信息 --------
+列名 'IsVaild' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 14:54:50 ====
+select * from RecommendType where isValid = 1 order by sort
+-------- 错误信息 --------
+对象名 'RecommendType' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 14:54:50 ====
+select * from RecommendType where isValid = 1 order by sort
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 14:54:50 ====
+select * from RecommendType where isValid = 1 order by sort
+-------- 错误信息 --------
+对象名 'RecommendType' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:02:54 ====
+insert into LadderGains 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  CreditId,         LadderGainsCaps,  
+  CreditRate        
+) values (          
+1,
+'2017-02-07 16:02:54','2017-02-07 16:02:54',
+1,100000,
+0.11)
+
+-------- 错误信息 --------
+对象名 'LadderGains' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:02:54 ====
+insert into LadderGains 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  CreditId,         LadderGainsCaps,  
+  CreditRate        
+) values (          
+1,
+'2017-02-07 16:02:54','2017-02-07 16:02:54',
+1,100000,
+0.11)
+
+-------- 错误信息 --------
+【重试一次(ExecuteNonQuery)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:02:54 ====
+insert into LadderGains 
+( IsValid,          
+  CreateTime,       UpdateTime,       
+  CreditId,         LadderGainsCaps,  
+  CreditRate        
+) values (          
+1,
+'2017-02-07 16:02:54','2017-02-07 16:02:54',
+1,100000,
+0.11)
+
+-------- 错误信息 --------
+对象名 'LadderGains' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:06:03 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:06:03 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:06:03 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:06:37 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:06:37 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:06:37 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:10:59 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:10:59 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:10:59 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:11:42 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:11:42 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:11:42 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:11:50 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:11:50 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:11:50 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:12:27 ====
+select * from ptp_credit_audit where credit_id=1 order by audit_time
+-------- 错误信息 --------
+对象名 'ptp_credit_audit' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:12:27 ====
+select * from ptp_credit_audit where credit_id=1 order by audit_time
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:12:27 ====
+select * from ptp_credit_audit where credit_id=1 order by audit_time
+-------- 错误信息 --------
+对象名 'ptp_credit_audit' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:13:35 ====
+select * from ptp_credit_audit where credit_id=1 order by audit_time
+-------- 错误信息 --------
+对象名 'ptp_credit_audit' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:13:35 ====
+select * from ptp_credit_audit where credit_id=1 order by audit_time
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:13:35 ====
+select * from ptp_credit_audit where credit_id=1 order by audit_time
+-------- 错误信息 --------
+对象名 'ptp_credit_audit' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:15:10 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:15:10 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:15:10 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:32:31 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:32:31 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:32:31 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:32:42 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:32:42 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:32:42 ====
+select * from CreditRelationCompact where IsValid=1 and CreditId=1
+-------- 错误信息 --------
+对象名 'CreditRelationCompact' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:37:46 ====
+select c.CommissionRate, c.Id, c.Name,c.Amount,c.Number,c.BidStartTime, p.RepaymentDate,c.GainsRate,c.CommissionRate, c.CreditType,p.Stages,g.FullName,c.DateType,c.Deadline, c.CommissionFee,SUM(p.EstimationOfInterest) as EstimationOfInterest, SUM(p.Principal) as Principal from RepaymentPlan p join Credit c on p.CreditId = c.Id join God g on c.CreditGodId=g.Id where c.CreditStatus=5 group by c.CommissionRate, c.Id, p.CreditId ,c.BidStartTime, c.Name,c.Amount,c.Number, p.RepaymentDate,c.GainsRate,c.CreditType,c.DateType,c.Deadline,c.CommissionRate,p.Stages,g.FullName,c.CommissionFee order by p.RepaymentDate
+-------- 错误信息 --------
+对象名 'RepaymentPlan' 无效。
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:37:46 ====
+select c.CommissionRate, c.Id, c.Name,c.Amount,c.Number,c.BidStartTime, p.RepaymentDate,c.GainsRate,c.CommissionRate, c.CreditType,p.Stages,g.FullName,c.DateType,c.Deadline, c.CommissionFee,SUM(p.EstimationOfInterest) as EstimationOfInterest, SUM(p.Principal) as Principal from RepaymentPlan p join Credit c on p.CreditId = c.Id join God g on c.CreditGodId=g.Id where c.CreditStatus=5 group by c.CommissionRate, c.Id, p.CreditId ,c.BidStartTime, c.Name,c.Amount,c.Number, p.RepaymentDate,c.GainsRate,c.CreditType,c.DateType,c.Deadline,c.CommissionRate,p.Stages,g.FullName,c.CommissionFee order by p.RepaymentDate
+-------- 错误信息 --------
+【重试一次(ExecuteDataSet)】
+
+==== (instanceDefault)【SQL语句运行错误】2017/2/7 16:37:46 ====
+select c.CommissionRate, c.Id, c.Name,c.Amount,c.Number,c.BidStartTime, p.RepaymentDate,c.GainsRate,c.CommissionRate, c.CreditType,p.Stages,g.FullName,c.DateType,c.Deadline, c.CommissionFee,SUM(p.EstimationOfInterest) as EstimationOfInterest, SUM(p.Principal) as Principal from RepaymentPlan p join Credit c on p.CreditId = c.Id join God g on c.CreditGodId=g.Id where c.CreditStatus=5 group by c.CommissionRate, c.Id, p.CreditId ,c.BidStartTime, c.Name,c.Amount,c.Number, p.RepaymentDate,c.GainsRate,c.CreditType,c.DateType,c.Deadline,c.CommissionRate,p.Stages,g.FullName,c.CommissionFee order by p.RepaymentDate
+-------- 错误信息 --------
+对象名 'RepaymentPlan' 无效。
+
