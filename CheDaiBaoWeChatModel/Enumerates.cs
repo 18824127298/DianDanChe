@@ -250,6 +250,14 @@ namespace CheDaiBaoWeChatModel
     }
 
     /// <summary>
+    /// 支付接口 
+    /// </summary>
+    public enum PayMode
+    {
+        微信公众号支付 = 1
+    }
+    
+    /// <summary>
     /// 操作类型 
     /// </summary>
     public enum OperaType
@@ -317,7 +325,9 @@ namespace CheDaiBaoWeChatModel
         邮箱修改 = 802,
 
         驳回申请原因 = 196,
-        押金回退操作 = 19918
+        押金回退操作 = 19918,
+        后台新增加油站点 = 191115,
+        后台修改加油站点 = 19118
     }
 
     /// <summary>
@@ -551,4 +561,5 @@ namespace CheDaiBaoWeChatModel
         以租代购 = 0,
         租客 = 1
     }
+
 }

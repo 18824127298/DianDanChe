@@ -1,0 +1,90 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "注册新会员";
+}
+
+<body class="bodybg">
+    <meta name="viewport" content="width=device-width">
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+@*    <header>
+        <a class="back" href="javascript:history.go(-1)"></a>
+        <a class="h02" href="http://wx.che01.com/reg.php?urls=/loan_index.php">绑定 </a>
+    </header>*@
+    <div class="banner">
+        @*        <a href="http://wx.che01.com/wx.php?urls=/loan_index.php&amp;code=071UWOvk0VMlCn1Togyk0OhQvk0UWOvA&amp;state=STATE#">
+            <img width="100%" img src="~/Content/images/chbcreate.png" /></a>*@
+    </div>
+    <form action="Create" class="registerform" method="post">
+        <div class="box">
+            <input name="Phone" id="Phone" type="tel" class="user" value="" datatype="m" nullmsg="请输入电话号码！" placeholder="请输入手机号码">
+
+            <input type="tel" name="Code" id="Code" class="user" value="" datatype="*" placeholder="请输入手机验证码" style="width: 50%">
+            <input type="button" id="CallSmsCode" class="yzmbtn" value="获取验证码">
+
+            <input name="提交" type="submit" class="userbtn" style="background-color:rgb(3, 193, 97)" value="绑定微信">
+            @*<div class="forget"><a href="http://wx.che01.com/reset.php">忘记密码？</a></div>*@
+            <br>
+        </div>
+    </form>
+</body>
+<script>
+    $(function () {
+        $("#CallSmsCode").on("click", function () {
+            CallPhoneCode($(this));
+            return false;
+        });
+
+        function CallPhoneCode(obj) {
+            var mobile = $.trim($("#Phone").val());
+            var regmobile = /^1\d{10}$/;
+            if (regmobile.test(mobile) == false) {
+                alert("手机号码错误，请重新输入");
+                return false;
+            }
+
+            $.post("/FLSendCode/FLSendCode",
+                {
+                    msisdn: mobile,
+                    rn: Math.random()
+                }, function (json) {
+                    confirm(json.Message, json.Result);
+                    if (json.Result) {
+                        settime();
+                    }
+                    else {
+                        alert(json.Message);
+                    }
+                });
+        }
+
+    });
+    var countdown = 60;
+    function settime() {
+        if (countdown == 0) {
+            $("#CallSmsCode").val("获取验证码");
+            countdown = 60;
+            $("#CallSmsCode").attr("disabled", false);
+            return false;
+        } else {
+            $("#CallSmsCode").val("重新发送(" + countdown + ")");
+            $("#CallSmsCode").attr("disabled", true);
+            countdown--;
+        }
+        setTimeout(function () {
+            settime()
+        }, 1000)
+    }
+
+    $("#btnRegister").click(function () {
+        if ($("#Phone").val() == "") {
+            alert("请输入手机号码");
+            return false;
+        }
+        if ($("#Code").val() == "") {
+            alert("请输入验证码");
+            return false;
+        }
+    });
+</script>

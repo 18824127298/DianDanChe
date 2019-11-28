@@ -1,0 +1,24 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 8407 ms / want 500 ms¡¿ 2019/11/21 11:29:36 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2397 ms / want 500 ms¡¿ 2019/11/21 11:29:49 ====
+insert into opera ([OperaType],[Remark],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 781 ms / want 500 ms¡¿ 2019/11/21 11:37:14 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 802 ms / want 500 ms¡¿ 2019/11/21 11:56:15 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2579 ms / want 500 ms¡¿ 2019/11/21 15:06:57 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 7583 ms / want 500 ms¡¿ 2019/11/21 17:15:47 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 570 ms / want 500 ms¡¿ 2019/11/21 17:26:38 ====
+insert into member ([Phone],[OpenId],[MemberLevel],[Guid],[IsValid],[CreateTime],[UpdateTime]) values (@Phone,@OpenId,@MemberLevel,@Guid,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1255 ms / want 500 ms¡¿ 2019/11/21 17:58:50 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+

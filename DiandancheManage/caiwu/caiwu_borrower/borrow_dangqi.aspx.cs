@@ -67,7 +67,7 @@ public partial class caiwu_caiwu_borrower_borrow_dangqi : SbtPageBase
         decimal balance = fundsflowService.GetAmountByBorrowerId(borrower.Id);
         if (balance != ConvertUtil.ToDecimal(edtSumAmount.Text))
         {
-            Response.Write("<script>alert('还款金额与用户的余额不等')</script>");
+            Response.Write("<script>alert('支付金额与用户的余额不等')</script>");
             return;
         }
         using (var connection = SqlConnections.GetOpenConnection())
@@ -111,7 +111,7 @@ public partial class caiwu_caiwu_borrower_borrow_dangqi : SbtPageBase
                                 RelationId = fscId
                             }, sqltran);
                         }
-                        Response.Write("<script>alert('还款操作完成')</script>");
+                        Response.Write("<script>alert('支付操作完成')</script>");
                     }
                     else
                     {
@@ -127,7 +127,7 @@ public partial class caiwu_caiwu_borrower_borrow_dangqi : SbtPageBase
         Recharge newrecharge = rechargeService.Search(new Recharge() { IsValid = true }).Where(o => o.IsAudit == true && o.BorrowerId == borrower.Id).OrderByDescending(o => o.CreateTime).FirstOrDefault();
 
         QiyebaoSms qiyebaoSms = new QiyebaoSms();
-        string sContent = string.Format("恭喜您，本次还款成功，还款金额为{0}元，订单号{1}", edtSumAmount.Text, newrecharge.OrderNumber);
+        string sContent = string.Format("恭喜您，本次融资租赁费支付成功，金额为{0}元，订单号{1}【车1号】", edtSumAmount.Text, newrecharge.OrderNumber);
         qiyebaoSms.SendSms(borrower.Phone, sContent);
     }
 }

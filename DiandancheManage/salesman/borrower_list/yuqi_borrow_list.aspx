@@ -47,7 +47,7 @@
                                         <%# VIVSalesmanName(Eval("SalesmanId")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="UnPrincipal" HeaderText="未还本金" SortExpression="UnPrincipal">
+                                <asp:BoundField DataField="UnPrincipal" HeaderText="未还融资租赁总额" SortExpression="UnPrincipal">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="UnTotalInterest" HeaderText="未还手续费" SortExpression="UnTotalInterest">
@@ -71,7 +71,7 @@
                                 <asp:BoundField DataField="TotalPeriod" HeaderText="总期次" SortExpression="TotalPeriod">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:TemplateField HeaderText="应还款时间" SortExpression="RepaymentDate">
+                                <asp:TemplateField HeaderText="应支付时间" SortExpression="RepaymentDate">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
                                         <%# VIVHTime(Eval("RepaymentDate")) %>

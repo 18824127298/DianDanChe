@@ -27,7 +27,7 @@ public partial class loan_loan_list_all_loan_list : SbtPageBase
         if (!IsPostBack)
         {
             CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql
-                      = @"select l.Auditor, l.CreditPhone, i.Name, b.FullName,l.BusinessName, l.RecruitmentName,
+                      = @"select l.Auditor, l.CreditPhone, i.Name, b.FullName,l.BusinessName, l.RecruitmentName, l.MonthlyPayment, l.DownPayments,
 l.TotalAmountStage, l.Deadline, l.CustomerClassification, l.AuditTime,l.Id from LoanApply l 
 join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id = l.SalesmanId where l.IsValid= 1 and i.IsValid= 1";
 
@@ -111,7 +111,7 @@ join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id =
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        string sql = @"select l.Auditor, l.CreditPhone, i.Name, b.FullName,l.BusinessName, l.RecruitmentName,
+        string sql = @"select l.Auditor, l.CreditPhone, i.Name, b.FullName,l.BusinessName, l.RecruitmentName,l.MonthlyPayment, l.DownPayments,
 l.TotalAmountStage, l.Deadline, l.CustomerClassification, l.AuditTime,l.Id from LoanApply l 
 join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id = l.SalesmanId where l.IsValid= 1 and i.IsValid= 1";
         if (edtRecruitmentName.Text.Trim() != "")
@@ -233,6 +233,8 @@ join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id =
         dt.Columns.Add("BusinessName");
         dt.Columns.Add("RecruitmentName");
         dt.Columns.Add("TotalAmountStage");
+        dt.Columns.Add("MonthlyPayment");
+        dt.Columns.Add("DownPayments");
         dt.Columns.Add("Deadline");
         dt.Columns.Add("CustomerClassification");
         dt.Columns.Add("Auditor");
@@ -248,6 +250,8 @@ join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id =
                 dRow["BusinessName"].ToString(),
                 dRow["RecruitmentName"].ToString(),
                 dRow["TotalAmountStage"].ToString(),
+                dRow["MonthlyPayment"].ToString(),
+                dRow["DownPayments"].ToString(),
                 dRow["Deadline"].ToString(),
                 dRow["CustomerClassification"].ToString(),
                 dRow["Auditor"].ToString(),

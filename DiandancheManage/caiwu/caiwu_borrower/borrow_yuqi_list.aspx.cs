@@ -124,7 +124,7 @@ and CONVERT(varchar(100), b.RepaymentDate, 111) < CONVERT(varchar(100), GETDATE(
             decimal balance = fundsflowService.GetAmountByBorrowerId(borrower.Id);
             if (balance < ConvertUtil.ToDecimal(lblBalance.Text))
             {
-                return "还款金额不能大于用户的余额";
+                return "支付金额不能大于用户的余额";
             }
             using (var connection = SqlConnections.GetOpenConnection())
             {
@@ -159,7 +159,7 @@ and CONVERT(varchar(100), b.RepaymentDate, 111) < CONVERT(varchar(100), GETDATE(
                 }
                 connection.Close();
 
-                return "还款已成功";
+                return "支付已成功";
             }
         }
         catch (Exception ex)

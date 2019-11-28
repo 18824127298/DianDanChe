@@ -23,7 +23,14 @@ namespace CheDaiBaoCommonService.Service
         {
             var code = filterContext.HttpContext.Request.QueryString["Code"];
             DebugLogger.LogDebugMessage(code + "," + loanurl);
-            if (string.IsNullOrEmpty(code))
+            if (string.IsNullOrEmpty(code) && filterContext.ActionDescriptor.ControllerDescriptor.ControllerName == "YouKa")
+            {
+                var url = string.Format("https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri=" + loanurl + "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect", appid);
+                //filterContext.HttpContext.Response.Redirect(url);
+                //filterContext.HttpContext.Response.End();
+                filterContext.Result = new RedirectResult(url);
+            }
+            else if (string.IsNullOrEmpty(code))
             {
                 var url = string.Format("https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri=" + loanurl + "&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect", appid);
                 //filterContext.HttpContext.Response.Redirect(url);
@@ -34,7 +41,7 @@ namespace CheDaiBaoCommonService.Service
             {
                 var url = string.Format("https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code", appid, appsecret, code);
 
-                
+
 
                 string authorization_code = WeChatBaseRequestService.RequestUrl(url);
 

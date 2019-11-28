@@ -46,12 +46,38 @@
                     </div>
                     <div class="item-con">
                         <ul class="bchart clearfix">
-                            <li id="threeB1" style="width:100%"></li>
+                            <li id="threeB1" style="width: 100%"></li>
                         </ul>
                     </div>
                 </div>
             </div>
-             
+            
+            <div class="trade-data">
+                <div class="item-box">
+                    <div class="item-tit" style="font-size: 28px;">
+                        招聘站点上个月单量
+                    </div>
+                    <div class="item-con">
+                        <ul class="bchart clearfix">
+                            <li id="threeB2" style="width: 100%"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trade-data">
+                <div class="item-box">
+                    <div class="item-tit" style="font-size: 28px;">
+                        招聘站点本月单量
+                    </div>
+                    <div class="item-con">
+                        <ul class="bchart clearfix">
+                            <li id="threeB3" style="width: 100%"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <div class="trade-data">
                 <div class="item-box">
                     <div class="item-tit" style="font-size: 28px;">
@@ -66,11 +92,11 @@
             <div class="trade-data">
                 <div class="item-box">
                     <div class="item-tit" style="font-size: 28px;">
-                        还款金额
+                        支付金额
                     </div>
                     <div class="item-con">
                         <ul class="tab clearfix">
-                            <li class="on">还款金额</li>
+                            <li class="on">支付金额</li>
                             <%--                            <li>回款金额</li>
                             <li>平均满标时间</li>--%>
                         </ul>
@@ -218,7 +244,7 @@
             }
         });
 
-        // 近三个月标类型、期限、金额统计饼图
+        // 本月业务员单量统计图
         $.ajax({
             type: 'get',
             async: false,
@@ -300,6 +326,82 @@
                 //myChart4.setOption(option4);
             }
         });
+        
+        //上个月招聘点单量饼图
+        $.ajax({
+            type: 'get',
+            async: false,
+            url: 'graphic_data_list.aspx?r=' + Math.random(),
+            data: {
+                Action: 'LastRecruitmentNumber'
+            },
+            success: function (data) {
+                var json = JSON.parse(data);
+                var myChart6 = echarts.init(document.getElementById("threeB2"));
+                var option2 = {
+                    legend: {
+                        orient: 'vertical',
+                        left: 'left',
+                        data: json.namelists.split(',')
+                    },
+                    series: [
+                        {
+                            name: '访问来源',
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['50%', '60%'],
+                            label: {
+                                normal: {
+                                    show: true,
+                                    formatter: '{b}: {c}({d}%)'
+                                }
+                            },
+                            data: JSON.parse(json.jolists)
+                        }
+                    ]
+                };
+                myChart6.setOption(option2);
+            }
+        });
+
+        //本月招聘站点单量饼图
+        $.ajax({
+            type: 'get',
+            async: false,
+            url: 'graphic_data_list.aspx?r=' + Math.random(),
+            data: {
+                Action: 'RecruitmentMonthNumber'
+            },
+            success: function (data) {
+                var json = JSON.parse(data);
+                var myChart3 = echarts.init(document.getElementById("threeB3"));
+                var option2 = {
+                    legend: {
+                        orient: 'vertical',
+                        left: 'left',
+                        data: json.namelists.split(',')
+                    },
+                    series: [
+                        {
+                            name: '访问来源',
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['50%', '60%'],
+                            label: {
+                                normal: {
+                                    show: true,
+                                    formatter: '{b}: {c}({d}%)'
+                                }
+                            },
+                            data: JSON.parse(json.jolists)
+                        }
+                    ]
+                };
+                myChart3.setOption(option2);
+            }
+        });
+
+
         //本月每天成交量
         $.ajax({
             type: 'get',
@@ -386,7 +488,7 @@
                         trigger: 'axis'
                     },
                     legend: {
-                        data: ['还款金额']
+                        data: ['支付金额']
                     },
                     grid: {
                         left: '3%',
@@ -420,7 +522,7 @@
                     },
                     series: [
                     {
-                        name: '还款金额',
+                        name: '支付金额',
                         type: 'line',
                         stack: '总量',
                         data: json.lists19

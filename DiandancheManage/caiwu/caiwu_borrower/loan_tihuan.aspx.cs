@@ -181,7 +181,7 @@ public partial class caiwu_caiwu_borrower_loan_tihuan : SbtPageBase
         decimal balance = fundsflowService.GetAmountByBorrowerId(borrower.Id);
         if (balance < ConvertUtil.ToDecimal(edtSumAmount.Text))
         {
-            Response.Write("<script>alert('还款金额不能大于用户的余额')</script>");
+            Response.Write("<script>alert('支付金额不能大于用户的余额')</script>");
             return;
         }
         using (var connection = SqlConnections.GetOpenConnection())
@@ -337,7 +337,7 @@ public partial class caiwu_caiwu_borrower_loan_tihuan : SbtPageBase
                                 RelationId = fscId
                             }, sqltran);
                         }
-                        Response.Write("<script>alert('还款操作完成')</script>");
+                        Response.Write("<script>alert('支付操作完成')</script>");
                     }
                     else
                     {

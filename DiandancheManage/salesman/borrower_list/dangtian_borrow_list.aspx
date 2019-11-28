@@ -44,7 +44,7 @@
                                         <%# VIVSalesmanName(Eval("SalesmanId")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="Principal" HeaderText="本金" SortExpression="Principal">
+                                <asp:BoundField DataField="Principal" HeaderText="融资租赁总额" SortExpression="Principal">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="Interest" HeaderText="手续费" SortExpression="Interest">

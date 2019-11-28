@@ -57,7 +57,7 @@
                                 <asp:BoundField DataField="RecruitmentName" HeaderText="招聘点名称" SortExpression="RecruitmentName">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="TotalAmountStage" HeaderText="分期总额" SortExpression="TotalAmountStage">
+                                <asp:BoundField DataField="TotalAmountStage" HeaderText="融资租赁总额" SortExpression="TotalAmountStage">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="Deadline" HeaderText="期数" SortExpression="Deadline">

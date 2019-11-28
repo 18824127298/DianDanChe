@@ -26,8 +26,12 @@ namespace CheDaiBaoWeChatController.Controllers
             this.loanapplyService = new LoanApplyService();
             this.borrowerService = new BorrowerService();
         }
-        public ActionResult LoanIndex()
+        public ActionResult LoanIndex(string state)
         {
+            if (state == "123")
+            {
+                return RedirectToAction("AllGasStation", "YouKa");
+            }
 
             Borrower borrower = new BorrowerAuthenticationService().GetAuthenticatedBorrower();
             if (borrower == null)

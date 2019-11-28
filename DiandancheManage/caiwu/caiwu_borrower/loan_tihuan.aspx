@@ -51,7 +51,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>未还总本金：
+                            <td>未还总融资租赁总额：
                           <asp:Label ID="lblunSumPrincipal" runat="server"></asp:Label>元
                             </td>
                         </tr>
@@ -71,7 +71,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>还款总金额：
+                            <td>支付总金额：
                            <asp:TextBox ID="edtSumAmount" runat="server"></asp:TextBox>元
                             </td>
                         </tr>

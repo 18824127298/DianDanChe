@@ -527,6 +527,7 @@ namespace CheDaiBaoWeChatService.Service
         {
 
             WechatPushMessage wechatpushMessage = new WechatPushMessage();
+            BorrowService borrowService = new BorrowService();
             //BorrowerService borrowerService = new BorrowerService();
             //Borrower borrower = borrowerService.GetById(1);
             //if (!string.IsNullOrEmpty(borrower.WeiXinId))
@@ -543,11 +544,13 @@ where b.IsValid= 1 and b.RepaymentPlanMode is null and l.RepaymentStatus= @Repay
             }, new { RepaymentStatus = CreditStatus.还款中 }).ToList();
 
             #region 提前
-            List<Borrow> tqBorrowList = borrowList.FindAll(o =>  o.RepaymentDate.Value.AddDays(-3).Date == nowDateTime.Date).ToList();
+            List<Borrow> tqBorrowList = borrowList.FindAll(o => o.RepaymentDate.Value.AddDays(-3).Date == nowDateTime.Date).ToList();
 
             foreach (var item in tqBorrowList)
             {
-                string sContent = string.Format(@"尊敬的客户，您的电单车融资租赁本月应还金额为{0}元，还款日为{1}，请登录车1号公众号进行还款。详询020-89851216【车1号】", (item.UnPrincipal + item.UnTotalInterest).Value.ToString("N0"), item.RepaymentDate.Value.ToString("yyyy年MM月dd日"));
+                List<Borrow> yfBorrowList = borrowService.Search(new Borrow() { IsValid = true }).Where(o => o.BorrowerId == item.BorrowerId && o.LoanApplyId == item.LoanApplyId && (o.UnPrincipal + o.UnTotalInterest) == 0).ToList();
+                List<Borrow> wfBorrowList = borrowService.Search(new Borrow() { IsValid = true }).Where(o => o.BorrowerId == item.BorrowerId && o.LoanApplyId == item.LoanApplyId && (o.UnPrincipal + o.UnTotalInterest) > 0).ToList();
+                string sContent = string.Format(@"尊敬的客户，您电单车融资租赁费用已付{0}月，剩余{1}月，本月费用{2}元，请登录车1号公众号进支付。详询020-89851216【车1号】", yfBorrowList.Count, wfBorrowList.Count, (item.UnPrincipal + item.UnTotalInterest).Value.ToString("N0"));
                 QiyebaoSms qiyebaoSms = new QiyebaoSms();
                 qiyebaoSms.SendSms(item.LoanApply.CreditPhone, sContent);
 
@@ -566,7 +569,9 @@ where b.IsValid= 1 and b.RepaymentPlanMode is null and l.RepaymentStatus= @Repay
 
             foreach (var item in dtBorrowList)
             {
-                string sContent = string.Format(@"尊敬的客户，您的电单车融资租赁业务本月应还金额为{0}元，请务必在今日登录车1号公众号进行还款！详询020-89851216 【车1号】", (item.UnPrincipal + item.UnTotalInterest).Value.ToString("N0"));
+                List<Borrow> yfBorrowList = borrowService.Search(new Borrow() { IsValid = true }).Where(o => o.BorrowerId == item.BorrowerId && o.LoanApplyId == item.LoanApplyId && (o.UnPrincipal + o.UnTotalInterest) == 0).ToList();
+                List<Borrow> wfBorrowList = borrowService.Search(new Borrow() { IsValid = true }).Where(o => o.BorrowerId == item.BorrowerId && o.LoanApplyId == item.LoanApplyId && (o.UnPrincipal + o.UnTotalInterest) > 0).ToList();
+                string sContent = string.Format(@"尊敬的客户，您电单车融资租赁已付{0}月，剩余{1}月，本月费用{2}元，请务必在今日登录车1号公众号进行支付！详询020-89851216 【车1号】", yfBorrowList.Count, wfBorrowList.Count, (item.UnPrincipal + item.UnTotalInterest).Value.ToString("N0"));
                 QiyebaoSms qiyebaoSms = new QiyebaoSms();
                 qiyebaoSms.SendSms(item.LoanApply.CreditPhone, sContent);
 

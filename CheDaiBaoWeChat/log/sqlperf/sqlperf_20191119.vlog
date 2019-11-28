@@ -1,0 +1,41 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3987 ms / want 500 ms¡¿ 2019/11/19 11:44:10 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1803 ms / want 500 ms¡¿ 2019/11/19 12:03:30 ====
+insert into opera ([OperaType],[Remark],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1314 ms / want 500 ms¡¿ 2019/11/19 14:21:26 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 5468 ms / want 500 ms¡¿ 2019/11/19 14:26:02 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_MultiMapImpl¡¿¡¾actual 858 ms / want 500 ms¡¿ 2019/11/19 14:26:03 ====
+
+                select * from PaymentForm p join GasStation g on p.GasStationId = g.Id
+join OilGun o on p.OilGunId = o.Id where p.IsValid= 1 and p.MemberId = @MemberId
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1960 ms / want 500 ms¡¿ 2019/11/19 15:10:27 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 725 ms / want 500 ms¡¿ 2019/11/19 15:30:35 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1815 ms / want 500 ms¡¿ 2019/11/19 16:35:49 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1922 ms / want 500 ms¡¿ 2019/11/19 16:47:03 ====
+insert into opera ([OperaType],[Remark],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 5109 ms / want 500 ms¡¿ 2019/11/19 17:09:18 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1198 ms / want 500 ms¡¿ 2019/11/19 17:56:04 ====
+select * from oilgun where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 631 ms / want 500 ms¡¿ 2019/11/19 18:04:11 ====
+select OilNumber from OilGun where IsValid = 1 and GasStationId =1Group by OilNumber
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 625 ms / want 500 ms¡¿ 2019/11/19 18:33:14 ====
+insert into paymentform ([GasStationId],[MemberId],[GasStationAmount],[ActualAmount],[OrderNumber],[PayTime],[ServiceFee],[RiseNumber],[OilGunId],[IsValid],[CreateTime],[UpdateTime]) values (@GasStationId,@MemberId,@GasStationAmount,@ActualAmount,@OrderNumber,@PayTime,@ServiceFee,@RiseNumber,@OilGunId,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+

@@ -5,7 +5,7 @@
 <%@ Register Src="../../module/My97DatePicker.ascx" TagName="My97DatePicker" TagPrefix="uc1" %>
 <html>
 <head id="Head1" runat="server">
-    <title>还款中贷款</title>
+    <title>支付中的融资租赁</title>
 </head>
 <script language="javascript" src="../../js/grid_ui_func.js"></script>
 <body>
@@ -16,7 +16,7 @@
                     <tr>
                         <td>
                             <img src="../../images/menu_icon/pen.gif" />
-                            还款中贷款</td>
+                            支付中的融资租赁</td>
                     </tr>
                     <tr>
                         <td>客户：<asp:TextBox ID="edtCreditName" runat="server" />&nbsp;
@@ -27,8 +27,8 @@
                             <asp:DropDownList ID="ddlRepaymentStatus" runat="server">
                                 <Items>
                                     <asp:ListItem Value='all'>全部</asp:ListItem>
-                                    <asp:ListItem Value='5'>还款中</asp:ListItem>
-                                    <asp:ListItem Value='6'>还款完成</asp:ListItem>
+                                    <asp:ListItem Value='5'>支付中</asp:ListItem>
+                                    <asp:ListItem Value='6'>支付完成</asp:ListItem>
                                     <asp:ListItem Value='3'>审核未通过</asp:ListItem>
                                 </Items>
                             </asp:DropDownList>
@@ -40,8 +40,8 @@
                             <table cellspacing="0" cellpadding="0" width="100%" border="0" align="center">
                                 <tr>
                                     <td>总笔数：<asp:Label ID="lblAllCount" runat="server" Width="15%" ForeColor="Red"></asp:Label>&nbsp;
-                                        还款中：<asp:Label ID="lblHkz" runat="server" Width="15%" ForeColor="Red"></asp:Label>&nbsp;
-                                        还款完成：<asp:Label ID="lblHkzwc" runat="server" Width="15%" ForeColor="Red"></asp:Label>&nbsp;
+                                        支付中：<asp:Label ID="lblHkz" runat="server" Width="15%" ForeColor="Red"></asp:Label>&nbsp;
+                                        支付完成：<asp:Label ID="lblHkzwc" runat="server" Width="15%" ForeColor="Red"></asp:Label>&nbsp;
                                         未通过：<asp:Label ID="lblWtg" runat="server" Width="15%" ForeColor="Red"></asp:Label>&nbsp;
                                     </td>
                                 </tr>
@@ -78,7 +78,7 @@
                                 <asp:BoundField DataField="RecruitmentName" HeaderText="招聘点名称" SortExpression="RecruitmentName">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="TotalAmountStage" HeaderText="分期总额" SortExpression="TotalAmountStage">
+                                <asp:BoundField DataField="TotalAmountStage" HeaderText="融资租赁总额" SortExpression="TotalAmountStage">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="Deadline" HeaderText="期数" SortExpression="Deadline">

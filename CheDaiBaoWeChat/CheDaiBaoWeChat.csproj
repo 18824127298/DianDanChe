@@ -488,6 +488,28 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\youka\css\demo.css" />
+    <Content Include="Content\youka\css\demo1.css" />
+    <Content Include="Content\youka\css\demo2.css" />
+    <Content Include="Content\youka\css\demo3.css" />
+    <Content Include="Content\youka\css\demo4.css" />
+    <Content Include="Content\youka\css\normalize.css" />
+    <Content Include="Content\youka\css\tabs.css" />
+    <Content Include="Content\youka\css\tabstyles.css" />
+    <Content Include="Content\youka\images\jiayou.png" />
+    <Content Include="Content\youka\images\导航.png" />
+    <Content Include="Content\youka\img\dh.png" />
+    <Content Include="Content\youka\img\down.png" />
+    <Content Include="Content\youka\img\dw.png" />
+    <Content Include="Content\youka\img\tab1.png" />
+    <Content Include="Content\youka\img\tab11.png" />
+    <Content Include="Content\youka\img\tab2.png" />
+    <Content Include="Content\youka\img\tab22.png" />
+    <Content Include="Content\youka\js\cbpFWTabs.js" />
+    <Content Include="Content\youka\js\fastclick.js" />
+    <Content Include="Content\youka\js\jquery.min.js" />
+    <Content Include="Content\youka\js\jquery.newsimilar.msgbox.js" />
+    <Content Include="Content\youka\js\modernizr.custom.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="config\Sigbit.App.Net.IBXService.DNS.Client.config" />
@@ -605,6 +627,13 @@
     <Content Include="Views\Loan\LoanStages.cshtml" />
     <Content Include="Views\GodService\RentPayment.cshtml" />
     <Content Include="Views\PictureUpload\SelfRentPhoto.cshtml" />
+    <Content Include="Views\YouKa\NativePay.cshtml" />
+    <Content Include="Views\Member\Create.cshtml" />
+    <Content Include="Views\YouKa\OrdersRecord.cshtml" />
+    <Content Include="Views\YouKa\FillBill.cshtml" />
+    <Content Include="Views\YouKa\AllGasStation.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\YouKa\OrdersRecordDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

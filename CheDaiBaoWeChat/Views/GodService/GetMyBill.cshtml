@@ -28,7 +28,7 @@
                             <span class="fz25">@((item.Principal + item.Interest + item.OverInterest).Value.ToString("N2"))元</span>
                         </div>
                         <div class="status">
-                            <span>实际还款日 @item.ActualRepaymentDate.Value.ToString("yyyy/MM/dd")</span>
+                            <span>实际支付日 @item.ActualRepaymentDate.Value.ToString("yyyy/MM/dd")</span>
                             <span class="off">已还清</span>
                         </div>
                         @if (item.OverDay > 0)
@@ -48,7 +48,7 @@
                             <span class="fz25">@((item.UnPrincipal + item.UnTotalInterest).Value.ToString("N2"))元</span>
                         </div>
                         <div class="status">
-                            <span>还款日 @item.RepaymentDate.Value.ToString("yyyy/MM/dd")</span>
+                            <span>支付日 @item.RepaymentDate.Value.ToString("yyyy/MM/dd")</span>
                             <span>剩余应还@((item.UnPrincipal + item.UnTotalInterest).Value.ToString("N2"))元</span>
                         </div>
                         @if (item.OverDay > 0)

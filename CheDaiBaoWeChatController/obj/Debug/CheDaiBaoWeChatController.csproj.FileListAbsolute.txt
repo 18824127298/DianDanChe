@@ -92,3 +92,5 @@ D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatController\bi
 D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatController\bin\Debug\WxPayApi.pdb
 D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatController\bin\Debug\System.Web.Mvc.dll
 D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatController\bin\Debug\zh-Hans\System.Web.Mvc.resources.dll
+D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatController\bin\Debug\JiaYouWxPayApi.dll
+D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatController\bin\Debug\JiaYouWxPayApi.pdb

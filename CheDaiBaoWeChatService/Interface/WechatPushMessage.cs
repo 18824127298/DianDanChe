@@ -58,15 +58,16 @@ namespace CheDaiBaoWeChatService.Interface
             return userinfo;
         }
 
-        //还款成功提醒
-        public string SuccessfulReminder(string sName, string sOpenId, string keyword1, string keyword2)
+        //支付成功提醒
+        public string SuccessfulReminder(string sName, string sOpenId, string keyword1, string keyword2, string keyword3)
         {
             string apptoken = WeChatBaseRequestService.getApptoken();
             var url = string.Format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={0}", apptoken);
 
-            string sContent = "{\"touser\":\"" + sOpenId + "\",\"template_id\":\"fpNDIbYFKkXHK_gQ7C_gKv7PSUc7sUqJMv_u8QxZkA0\",\"url\":\"\",\"topcolor\":\"#FF0000\"," +
-                "\"data\":{\"first\": {\"value\":\"尊敬的" + sName + "，您已成功还款\",\"color\":\"#173177\"},\"remark\": {\"value\":\"感谢您的支持。\",\"color\":\"#173177\"}," +
-                "\"keyword1\": {\"value\":\"" + keyword1 + "\",\"color\":\"#173177\"},\"keyword2\": {\"value\":\"" + keyword2 + "\",\"color\":\"#173177\"}}}";
+            string sContent = "{\"touser\":\"" + sOpenId + "\",\"template_id\":\"Ad4XyeOIfS_qOxKQN-ugRmPB3mnI7Az-m2ZfO1ZUwAY\",\"url\":\"\",\"topcolor\":\"#FF0000\"," +
+                "\"data\":{\"first\": {\"value\":\"尊敬的" + sName + "，您已成功支付融资租赁费\",\"color\":\"#173177\"},\"remark\": {\"value\":\"感谢您的支持。\",\"color\":\"#173177\"}," +
+                "\"keyword1\": {\"value\":\"" + keyword1 + "\",\"color\":\"#173177\"},\"keyword2\": {\"value\":\"" + keyword2 + "\",\"color\":\"#173177\"}," +
+                "\"keyword3\": {\"value\":\"" + keyword3 + "\",\"color\":\"#173177\"}}}";
             string userinfo = WeChatBaseRequestService.PostUrl(url, sContent);
             DebugLogger.LogDebugMessage(userinfo);
             return userinfo;
@@ -79,13 +80,13 @@ namespace CheDaiBaoWeChatService.Interface
             string apptoken = WeChatBaseRequestService.getApptoken();
             var url = string.Format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={0}", apptoken);
 
-            string sContent = "{\"touser\":\"" + sOpenId + "\",\"template_id\":\"bVXMLZQdAvN7Uz7WP-QZ2hnR8OqUXlaRYPQDKCDfZdc\",\"url\":\"\",\"topcolor\":\"#FF0000\"," +
-                "\"data\":{\"first\": {\"value\":\"您好，客户已回款\",\"color\":\"#173177\"},\"remark\": {\"value\":\"请您及时登录系统查看是否到账核实。\",\"color\":\"#173177\"}," +
+            string sContent = "{\"touser\":\"" + sOpenId + "\",\"template_id\":\"3oX1bSjKFyqvcDWKqFuDS0DSV6JoWM1Ksn839_nHAWw\",\"url\":\"\",\"topcolor\":\"#FF0000\"," +
+                "\"data\":{\"first\": {\"value\":\"您好，客户已支付融资租赁费\",\"color\":\"#173177\"},\"remark\": {\"value\":\"请您及时登录系统查看是否到账核实。\",\"color\":\"#173177\"}," +
                 "\"keyword1\": {\"value\":\"" + keyword1 + "\",\"color\":\"#173177\"},\"keyword2\": {\"value\":\"" + keyword2 + "\",\"color\":\"#173177\"}," +
                 "\"keyword3\": {\"value\":\"" + keyword3 + "\",\"color\":\"#173177\"}}}";
             string userinfo = WeChatBaseRequestService.PostUrl(url, sContent);
             DebugLogger.LogDebugMessage(userinfo);
-            return userinfo;
+            return userinfo; 
         }
 
 

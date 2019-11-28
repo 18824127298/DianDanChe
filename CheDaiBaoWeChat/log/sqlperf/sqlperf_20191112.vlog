@@ -1,0 +1,27 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1446 ms / want 500 ms¡¿ 2019/11/12 11:53:55 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2885 ms / want 500 ms¡¿ 2019/11/12 14:11:26 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1077 ms / want 500 ms¡¿ 2019/11/12 14:34:45 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 667 ms / want 500 ms¡¿ 2019/11/12 14:35:03 ====
+select * from oilgun where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1567 ms / want 500 ms¡¿ 2019/11/12 16:08:12 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1007 ms / want 500 ms¡¿ 2019/11/12 16:21:55 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1180 ms / want 500 ms¡¿ 2019/11/12 17:05:30 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3332 ms / want 500 ms¡¿ 2019/11/12 18:10:22 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1060 ms / want 500 ms¡¿ 2019/11/12 18:11:38 ====
+select * from PaymentForm where id=@Id and IsValid=@IsValid
+

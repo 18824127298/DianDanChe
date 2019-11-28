@@ -43,7 +43,7 @@
                         </tr>
                         <tr>
                             <td>型号：<asp:Label ID="CheType" runat="server" Style="color: red;"></asp:Label></td>
-                            <td>分期总额：<asp:Label ID="TotalAmountStage" runat="server" Style="color: red;"></asp:Label></td>
+                            <td>融资租赁总额：<asp:Label ID="TotalAmountStage" runat="server" Style="color: red;"></asp:Label></td>
                             <td>首付：<asp:Label ID="DownPayments" runat="server" Style="color: red;"></asp:Label></td>
                         </tr>
                         <tr>
@@ -291,9 +291,9 @@
 
                         <tr id="Gains" runat="server">
                             <td>用户借款相关：</td>
-                            <td colspan="3">月供：
+                            <td colspan="3">融资租赁费：
                                 <asp:TextBox ID="edtMonthlyPayment" runat="server"></asp:TextBox>元
-                                 参考的月供：<asp:Label ID="lblMonthlyPayment" runat="server"></asp:Label>元
+                                 参考的融资租赁费：<asp:Label ID="lblMonthlyPayment" runat="server"></asp:Label>元
                     &nbsp;&nbsp;多少个月内提还收取两百加一个月手续费：
                                 <asp:TextBox ID="edtWithinMonth" runat="server" Text="4" Width="15%"></asp:TextBox>个月
                                 利率：<asp:Label ID="lblRentRate" runat="server"></asp:Label>%

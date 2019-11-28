@@ -1,0 +1,154 @@
+﻿@model CheDaiBaoWeChatModel.Models.PaymentForm
+@{
+    Layout = null;
+    ViewBag.Title = "加油订单详情";
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="divport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="~/Content/youka/js/fastclick.js"></script>
+    <script src="~/Content/youka/js/jquery.min.js"></script>
+    <link href="~/Content/youka/css/demo4.css" rel="stylesheet" />
+    <script>
+        if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+            document.addEventListener('DOMContentLoaded', function (e) {
+                var doc = document
+                var win = window
+                var docEl = win.document.documentElement;
+                var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+                var metaEl = doc.querySelector('meta[name="viewport"]');
+                var dpr = 0;
+                var scale = 0;
+                // 对iOS设备进行dpr的判断，对于Android系列，始终认为其dpr为1
+                if (!dpr && !scale) {
+                    var isAndroid = win.navigator.appVersion.match(/android/gi);
+                    var isIPhone = win.navigator.appVersion.match(/[iphone|ipad]/gi);
+                    var devicePixelRatio = win.devicePixelRatio;
+
+                    if (isIPhone) {
+                        dpr = devicePixelRatio;
+                    } else {
+                        drp = 1;
+                    }
+
+                    scale = 1 / dpr;
+                }
+                docEl.setAttribute('data-dpr', dpr);
+                if (!metaEl) {
+                    metaEl = doc.createElement('meta');
+                    metaEl.setAttribute('name', 'viewport');
+                    metaEl.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale +
+                      ', minimum-scale=' + scale + ', user-scalable=no');
+                    document.documentElement.firstElementChild.appendChild(metaEl);
+                } else {
+                    metaEl.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale +
+                      ', minimum-scale=' + scale + ', user-scalable=no');
+                }
+                document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
+            }, false);
+            window.onresize = function () {
+                document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
+            }
+            $(function () {
+                FastClick.attach(document.body);
+            });
+        }
+
+        function fn_GasStation() {
+            window.location.href = "../YouKa/AllGasStation";
+        }
+        function fn_OrdersRecord() {
+            window.location.href = "../YouKa/OrdersRecord";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header1">加油@(Model.IsAudit == true ? "支付" : "未支付")明细</div>
+        <div class="list_item">
+            <div class="list_left">交易单号</div>
+            <div class="list_right">@Model.OrderNumber</div>
+        </div>
+        <div class="list_item">
+            <div class="list_left">加油站名称</div>
+            <div class="list_right">@Model.GasStation.Name</div>
+        </div>
+        <div class="list_item">
+            <div class="list_left">地址</div>
+            <div class="list_right">@Model.GasStation.AddressName</div>
+        </div>
+        <div class="list_item">
+            <div class="list_left">油号</div>
+            <div class="list_right">@(Model.OilGun.OilNumber)</div>
+        </div>
+        <div class="list_item">
+            <div class="list_left">枪号</div>
+            <div class="list_right">@(Model.OilGun.GunNumber)号枪</div>
+        </div>
+        <div class="list_item">
+            <div class="list_left">输入加油金额</div>
+            <div class="list_right">￥@(Model.GasStationAmount.Value.ToString("N2"))</div>
+        </div>
+        <div class="list_item bdb">
+            <div class="list_left">加油升数</div>
+            <div class="list_right">@(Model.RiseNumber.Value.ToString("N2"))升</div>
+        </div>
+        <div class="list_item">
+            <div class="list_left">直降优惠</div>
+            <div class="list_right blue">￥@((Model.GasStationAmount - Model.ActualAmount).Value.ToString("N2"))</div>
+        </div>
+        <div class="list_item">
+            <div class="list_left">优惠券优惠</div>
+            <div class="list_right blue">未使用</div>
+        </div>
+        <div class="list_item bdb">
+            <div class="list_left">合计优惠</div>
+            <div class="list_right blue">￥@((Model.GasStationAmount - Model.ActualAmount).Value.ToString("N2"))</div>
+        </div>
+        <div class="list_item bdb">
+            <div class="list_left big">加油支付</div>
+            <div class="list_right blue">￥@(Model.ActualAmount.Value.ToString("N2"))</div>
+        </div>
+        <div class="list_item">
+            <div class="list_left">下单时间</div>
+            <div class="list_right">@(Model.PayTime.Value.ToString("yyyy-MM-dd HH:mm:ss"))</div>
+        </div>
+        <div class="list_item">
+            <div class="list_left">余额支付</div>
+            <div class="list_right">￥0.00</div>
+        </div>
+        <div class="list_item">
+            <div class="list_left">微信公众号支付</div>
+            <div class="list_right">￥@(Model.ActualAmount.Value.ToString("N2"))</div>
+        </div>
+        @*        <div class="list_item">
+            <div class="list_left">本次加油奖励277积分</div>
+        </div>*@
+    </div>
+    <div class="footer rflex">
+        <div class="footer_item flex1 cflex" onclick="fn_GasStation()">
+            <div class="item_wrap rflex flex1">
+                <div class="top_wrap flex1">
+                    <img src="~/Content/youka/img/tab1.png" alt="" class="footer_img">
+                </div>
+            </div>
+            <div class="footer_text">加油</div>
+        </div>
+        <div class="footer_item flex1 cflex" onclick="fn_OrdersRecord()">
+            <div class="item_wrap rflex flex1">
+                <div class="top_wrap flex1">
+                    <img src="~/Content/youka/img/tab22.png" alt="" class="footer_img">
+                </div>
+            </div>
+            <div class="footer_text green_text flex1">我的</div>
+        </div>
+    </div>
+</body>
+</html>

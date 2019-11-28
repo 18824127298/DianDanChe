@@ -365,7 +365,7 @@ public partial class loan_loan_list_loan_details : SbtPageBase
                         dSumAmount = unSumPrincipal + dServiceCharge;
                     }
                 }
-                lblART.Text = "提还总金额：" + (dSumAmount + overdueInterest - dStandardDeduction).ToString() + "元，未还本金为：" + unSumPrincipal.ToString()
+                lblART.Text = "提还总金额：" + (dSumAmount + overdueInterest - dStandardDeduction).ToString() + "元，未还融资租赁总额为：" + unSumPrincipal.ToString()
                     + "元，手续费为：" + (dServiceCharge + overdueInterest).ToString() + "元，减免额为：" + dStandardDeduction + "元";
             }
         }
@@ -407,7 +407,7 @@ public partial class loan_loan_list_loan_details : SbtPageBase
     {
         if (edtMonthlyPayment.Text == "")
         {
-            Response.Write("<script>alert('请填写用户的月供!')</script>");
+            Response.Write("<script>alert('请填写用户的融资租赁费!')</script>");
             return;
         }
         if (edtWithinMonth.Text == "")
@@ -455,7 +455,7 @@ public partial class loan_loan_list_loan_details : SbtPageBase
                 Borrower borrower = borrowerService.GetById(loanapply.BorrowerId);
                 Borrower salesman = borrowerService.GetById(loanapply.SalesmanId);
                 QiyebaoSms qiyebaoSms = new QiyebaoSms();
-                string sContent = string.Format(@"尊敬的{0}，您申请的电单车融资租赁已获批，每月应还金额和还款日期在5日后登录车1号公众号查询。详询020-89851216【车1号】", borrower.FullName);
+                string sContent = string.Format(@"尊敬的{0}，您申请的电单车融资租赁已获批，融资租赁费情况及支付日期在5日后登录车1号公众号查询。详询020-89851216【车1号】", borrower.FullName);
                 qiyebaoSms.SendSms(loanapply.CreditPhone, sContent);
                 //sContent = string.Format(@"客户{0},审核已通过【车1号】", borrower.FullName); 
                 //qiyebaoSms.SendSms(salesman.Phone, sContent);

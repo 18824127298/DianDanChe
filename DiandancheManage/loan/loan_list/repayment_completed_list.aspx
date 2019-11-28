@@ -5,7 +5,7 @@
 <%@ Register Src="../../module/My97DatePicker.ascx" TagName="My97DatePicker" TagPrefix="uc1" %>
 <html>
 <head id="Head1" runat="server">
-    <title>还款完成融资租赁</title>
+    <title>支付完成融资租赁</title>
 </head>
 <script language="javascript" src="../../js/grid_ui_func.js"></script>
 <body>
@@ -16,7 +16,7 @@
                     <tr>
                         <td>
                             <img src="../../images/menu_icon/pen.gif" />
-                            还款完成融资租赁</td>
+                            支付完成融资租赁</td>
                     </tr>
                     <tr>
                         <td>客户姓名：<asp:TextBox ID="edtCreditName" runat="server" />&nbsp;
@@ -59,7 +59,7 @@
                                 <asp:BoundField DataField="RecruitmentName" HeaderText="招聘点名称" SortExpression="RecruitmentName">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="TotalAmountStage" HeaderText="分期总额" SortExpression="TotalAmountStage">
+                                <asp:BoundField DataField="TotalAmountStage" HeaderText="融资租赁总额" SortExpression="TotalAmountStage">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="Deadline" HeaderText="期数" SortExpression="Deadline">
@@ -71,13 +71,13 @@
                                 <asp:BoundField DataField="AuditTime" HeaderText="审核时间" SortExpression="AuditTime">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                  <asp:TemplateField HeaderText="预计还款时间" SortExpression="ExpectedRepayment">
+                                  <asp:TemplateField HeaderText="预计支付时间" SortExpression="ExpectedRepayment">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
                                         <%# VIVHTime(Eval("ExpectedRepayment")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="ClosingDate" HeaderText="实际还款时间" SortExpression="ClosingDate">
+                                <asp:BoundField DataField="ClosingDate" HeaderText="实际支付时间" SortExpression="ClosingDate">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:TemplateField HeaderText="类型" SortExpression="RepaymentPlanMode">

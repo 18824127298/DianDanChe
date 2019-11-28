@@ -53,10 +53,10 @@
                                 <asp:BoundField DataField="FullName" HeaderText="业务员" SortExpression="FullName">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="BusinessName" HeaderText="还款期次" SortExpression="BusinessName">
+                                <asp:BoundField DataField="BusinessName" HeaderText="支付期次" SortExpression="BusinessName">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="RecruitmentName" HeaderText="还款金额" SortExpression="RecruitmentName">
+                                <asp:BoundField DataField="RecruitmentName" HeaderText="支付金额" SortExpression="RecruitmentName">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="TotalAmountStage" HeaderText="支付时间" SortExpression="TotalAmountStage">

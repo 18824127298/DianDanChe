@@ -21,7 +21,7 @@
                     @if (Model != null)
                     {
                         <span class="fz40 p-t20" style="color: #b41f23" id="SumAmount">@(Model.UnTotalInterest + unDeposit)</span>
-                        <span class="fz18 p-t30" style="color: #b41f23">最后还款日 @Model.RepaymentDate.Value.Date.ToString("yyyy年MM月dd日")</span>
+                        <span class="fz18 p-t30" style="color: #b41f23">最后支付日 @Model.RepaymentDate.Value.Date.ToString("yyyy年MM月dd日")</span>
                     }
                     else
                     {
@@ -34,7 +34,7 @@
                 if (Model.UnTotalInterest > 0)
                 {
 <div class="p-t55 p-b40">
-                    <button class="confirm m-t25 fz25" onclick="fn_repayment()">确定还款</button>
+                    <button class="confirm m-t25 fz25" onclick="fn_repayment()">确定支付</button>
                 </div>
                 }
             }

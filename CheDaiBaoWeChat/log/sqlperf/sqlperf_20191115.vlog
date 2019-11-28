@@ -1,0 +1,17 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 4549 ms / want 500 ms¡¿ 2019/11/15 12:04:03 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1115 ms / want 500 ms¡¿ 2019/11/15 12:04:14 ====
+insert into opera ([OperaType],[Remark],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 729 ms / want 500 ms¡¿ 2019/11/15 14:05:06 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_MultiMapImpl¡¿¡¾actual 524 ms / want 500 ms¡¿ 2019/11/15 14:37:24 ====
+
+                select * from PaymentForm p join GasStation g on p.GasStationId = g.Id
+join OilGun o on p.OilGunId = o.Id where p.IsValid= 1 and p.MemberId = @MemberId
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2402 ms / want 500 ms¡¿ 2019/11/15 16:31:31 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+

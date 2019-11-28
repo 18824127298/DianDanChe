@@ -51,7 +51,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>当期未还本金：
+                            <td>当期未还融资租赁总额：
                           <asp:Label ID="lblunSumPrincipal" runat="server"></asp:Label>元
                             </td>
                         </tr>
@@ -71,15 +71,15 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>还款总金额：
+                            <td>支付总金额：
                            <asp:TextBox ID="edtSumAmount" runat="server"></asp:TextBox>元
                             </td>
                         </tr>
                     </tbody>
                     <tfoot>
-                        <tr align="center">
+                        <tr align="center"> 
                             <td colspan="2" nowrap>
-                                <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" OnClientClick="return confirm('确认还款吗?')" Text="确定" /></td>
+                                <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" OnClientClick="return confirm('确认支付吗?')" Text="确定" /></td>
                         </tr>
                     </tfoot>
                 </table>

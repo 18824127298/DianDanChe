@@ -56,7 +56,7 @@
                                 <asp:BoundField DataField="FullName" HeaderText="姓名" SortExpression="FullName">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="Principal" HeaderText="未还的本金" SortExpression="Principal">
+                                <asp:BoundField DataField="Principal" HeaderText="未还的融资租赁总额" SortExpression="Principal">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="InterestDate" HeaderText="起息日" SortExpression="InterestDate">

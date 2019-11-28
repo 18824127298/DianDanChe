@@ -58,7 +58,7 @@
                                         <%# VIVInterestDate(Eval("InterestDate")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="MonthlyPayment" HeaderText="月供">
+                                <asp:BoundField DataField="MonthlyPayment" HeaderText="融资租赁费">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="overday" HeaderText="逾期的天数">

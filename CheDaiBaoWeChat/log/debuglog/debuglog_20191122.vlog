@@ -1,0 +1,123 @@
+========== 2019-11-22 10:29:12 ==========
+,http://192.168.0.133/
+
+========== 2019-11-22 10:29:12 ==========
+,http://192.168.0.133/
+
+========== 2019-11-22 10:29:23 ==========
+021yIY6b0G6Gvx12dH6b0wAJ6b0yIY6Q,http://192.168.0.133/
+
+========== 2019-11-22 10:29:25 ==========
+27_d_XhTyqJqi6gxw-FVmkY56I18Wm8VgZWqhPIBKxCZDCSEEVYxgRTR8MnvZetbQbmoyGg-yHXpcKgYjlQ9UqA6gKctHEmh4fNIP3z1TebHYNrX0AbtNwdURaciVuPnN_7gE8i8-aPgnTb6CznNJKeAAAGCD
+
+========== 2019-11-22 14:18:05 ==========
+,http://192.168.0.133/
+
+========== 2019-11-22 14:18:05 ==========
+011KoMUw046gZb1WcdVw0lpoUw0KoMUw,http://192.168.0.133/
+
+========== 2019-11-22 14:18:07 ==========
+27_jGHcWW3gHa0GJRB1ljPGAyWgX2G1YaY2ga7_IKp_kmGgfrUnGrMY65O1XtyV9kToiES9DPUSEJAYK90ijQTxkv6uYI7CEE1qhUMBWXMNbyLX3z0apxsiMFoZdArLBJSK6fkqZmTixuqSFAmUQGEeAGACSQ
+
+========== 2019-11-22 14:27:47 ==========
+WxPayApi UnfiedOrder request : <xml><appid><![CDATA[wx5142ed3da460173d]]></appid><attach><![CDATA[加油]]></attach><body><![CDATA[车一号]]></body><mch_id><![CDATA[1420533002]]></mch_id><nonce_str><![CDATA[ABC251238379618139787034]]></nonce_str><notify_url><![CDATA[http://manage.che01.com/notify/weixin/weixin_jiayounotify_return.aspx]]></notify_url><openid><![CDATA[o_DU4544q5ukwjVtC3tfBOzesFn4]]></openid><out_trade_no><![CDATA[CYH-2019112214264578819]]></out_trade_no><sign><![CDATA[9035408937FFEBA98F9B6BCA0AE1B3BD]]></sign><sign_type><![CDATA[MD5]]></sign_type><spbill_create_ip><![CDATA[39.108.61.177]]></spbill_create_ip><time_expire><![CDATA[20191122143747]]></time_expire><time_start><![CDATA[20191122142747]]></time_start><total_fee>10000</total_fee><trade_type><![CDATA[JSAPI]]></trade_type></xml>
+
+========== 2019-11-22 14:27:47 ==========
+WxPayApi UnfiedOrder response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx5142ed3da460173d]]></appid>
+<mch_id><![CDATA[1420533002]]></mch_id>
+<nonce_str><![CDATA[QSD6gjXWHNPrGlOZ]]></nonce_str>
+<sign><![CDATA[9F54454CB5FB3E4E7E9A41B4857DB781]]></sign>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<err_code_des><![CDATA[appid和openid不匹配]]></err_code_des>
+</xml>
+
+========== 2019-11-22 14:27:59 ==========
+WxPayApi UnfiedOrder request : <xml><appid><![CDATA[wx5142ed3da460173d]]></appid><attach><![CDATA[加油]]></attach><body><![CDATA[车一号]]></body><mch_id><![CDATA[1420533002]]></mch_id><nonce_str><![CDATA[ABC1763236953118607357055]]></nonce_str><notify_url><![CDATA[http://manage.che01.com/notify/weixin/weixin_jiayounotify_return.aspx]]></notify_url><openid><![CDATA[o_DU4544q5ukwjVtC3tfBOzesFn4]]></openid><out_trade_no><![CDATA[CYH-2019112214275597463]]></out_trade_no><sign><![CDATA[ECCF7DBB1CAAD600329BC8A10BFD2AD9]]></sign><sign_type><![CDATA[MD5]]></sign_type><spbill_create_ip><![CDATA[39.108.61.177]]></spbill_create_ip><time_expire><![CDATA[20191122143759]]></time_expire><time_start><![CDATA[20191122142759]]></time_start><total_fee>10000</total_fee><trade_type><![CDATA[JSAPI]]></trade_type></xml>
+
+========== 2019-11-22 14:27:59 ==========
+WxPayApi UnfiedOrder response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx5142ed3da460173d]]></appid>
+<mch_id><![CDATA[1420533002]]></mch_id>
+<nonce_str><![CDATA[5MmI4gHakTVLbLxE]]></nonce_str>
+<sign><![CDATA[8B51A7436B70C4C289486A9834BE9581]]></sign>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<err_code_des><![CDATA[appid和openid不匹配]]></err_code_des>
+</xml>
+
+========== 2019-11-22 14:28:06 ==========
+WxPayApi UnfiedOrder request : <xml><appid><![CDATA[wx5142ed3da460173d]]></appid><attach><![CDATA[加油]]></attach><body><![CDATA[车一号]]></body><mch_id><![CDATA[1420533002]]></mch_id><nonce_str><![CDATA[ABC2499199509541816496703]]></nonce_str><notify_url><![CDATA[http://manage.che01.com/notify/weixin/weixin_jiayounotify_return.aspx]]></notify_url><openid><![CDATA[o_DU4544q5ukwjVtC3tfBOzesFn4]]></openid><out_trade_no><![CDATA[CYH-2019112214265097040]]></out_trade_no><sign><![CDATA[717789401EDBB21876CAC48A0180E954]]></sign><sign_type><![CDATA[MD5]]></sign_type><spbill_create_ip><![CDATA[39.108.61.177]]></spbill_create_ip><time_expire><![CDATA[20191122143806]]></time_expire><time_start><![CDATA[20191122142806]]></time_start><total_fee>10000</total_fee><trade_type><![CDATA[JSAPI]]></trade_type></xml>
+
+========== 2019-11-22 14:28:06 ==========
+WxPayApi UnfiedOrder response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx5142ed3da460173d]]></appid>
+<mch_id><![CDATA[1420533002]]></mch_id>
+<nonce_str><![CDATA[unR4yQD6OyorzgI3]]></nonce_str>
+<sign><![CDATA[8B6B8EE8267DE375F268C354EE7A3D77]]></sign>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<err_code_des><![CDATA[appid和openid不匹配]]></err_code_des>
+</xml>
+
+========== 2019-11-22 14:28:16 ==========
+WxPayApi UnfiedOrder request : <xml><appid><![CDATA[wx5142ed3da460173d]]></appid><attach><![CDATA[加油]]></attach><body><![CDATA[车一号]]></body><mch_id><![CDATA[1420533002]]></mch_id><nonce_str><![CDATA[ABC2045900059261743958926]]></nonce_str><notify_url><![CDATA[http://manage.che01.com/notify/weixin/weixin_jiayounotify_return.aspx]]></notify_url><openid><![CDATA[o_DU4544q5ukwjVtC3tfBOzesFn4]]></openid><out_trade_no><![CDATA[CYH-2019112214281056700]]></out_trade_no><sign><![CDATA[1FF96074E40CF9E3C2BA9B401657C339]]></sign><sign_type><![CDATA[MD5]]></sign_type><spbill_create_ip><![CDATA[39.108.61.177]]></spbill_create_ip><time_expire><![CDATA[20191122143816]]></time_expire><time_start><![CDATA[20191122142816]]></time_start><total_fee>10000</total_fee><trade_type><![CDATA[JSAPI]]></trade_type></xml>
+
+========== 2019-11-22 14:28:16 ==========
+WxPayApi UnfiedOrder response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx5142ed3da460173d]]></appid>
+<mch_id><![CDATA[1420533002]]></mch_id>
+<nonce_str><![CDATA[eenwOhmNY7UP7Bqu]]></nonce_str>
+<sign><![CDATA[F1DA575ED902497B8AFF39CF31E88978]]></sign>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<err_code_des><![CDATA[appid和openid不匹配]]></err_code_des>
+</xml>
+
+========== 2019-11-22 14:28:40 ==========
+WxPayApi UnfiedOrder request : <xml><appid><![CDATA[wx5142ed3da460173d]]></appid><attach><![CDATA[加油]]></attach><body><![CDATA[车一号]]></body><mch_id><![CDATA[1420533002]]></mch_id><nonce_str><![CDATA[ABC2577404994113781764442]]></nonce_str><notify_url><![CDATA[http://manage.che01.com/notify/weixin/weixin_jiayounotify_return.aspx]]></notify_url><openid><![CDATA[o_DU4544q5ukwjVtC3tfBOzesFn4]]></openid><out_trade_no><![CDATA[CYH-201911221428332530]]></out_trade_no><sign><![CDATA[2E7EE29CD5481DCB8C263E358A27A927]]></sign><sign_type><![CDATA[MD5]]></sign_type><spbill_create_ip><![CDATA[39.108.61.177]]></spbill_create_ip><time_expire><![CDATA[20191122143840]]></time_expire><time_start><![CDATA[20191122142840]]></time_start><total_fee>10000</total_fee><trade_type><![CDATA[JSAPI]]></trade_type></xml>
+
+========== 2019-11-22 14:28:40 ==========
+WxPayApi UnfiedOrder response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx5142ed3da460173d]]></appid>
+<mch_id><![CDATA[1420533002]]></mch_id>
+<nonce_str><![CDATA[lKaGnvIvYwL651CJ]]></nonce_str>
+<sign><![CDATA[82B8CDF9830B5060FB6E3AB495E3C560]]></sign>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<err_code_des><![CDATA[appid和openid不匹配]]></err_code_des>
+</xml>
+
+========== 2019-11-22 14:29:08 ==========
+WxPayApi UnfiedOrder request : <xml><appid><![CDATA[wx5142ed3da460173d]]></appid><attach><![CDATA[加油]]></attach><body><![CDATA[车一号]]></body><mch_id><![CDATA[1420533002]]></mch_id><nonce_str><![CDATA[ABC232664123798440981696]]></nonce_str><notify_url><![CDATA[http://manage.che01.com/notify/weixin/weixin_jiayounotify_return.aspx]]></notify_url><openid><![CDATA[o_DU4544q5ukwjVtC3tfBOzesFn4]]></openid><out_trade_no><![CDATA[CYH-2019112214290339105]]></out_trade_no><sign><![CDATA[F7DBAF4D97FBD9BC9095BF619DFCEB59]]></sign><sign_type><![CDATA[MD5]]></sign_type><spbill_create_ip><![CDATA[39.108.61.177]]></spbill_create_ip><time_expire><![CDATA[20191122143908]]></time_expire><time_start><![CDATA[20191122142908]]></time_start><total_fee>10000</total_fee><trade_type><![CDATA[JSAPI]]></trade_type></xml>
+
+========== 2019-11-22 14:29:09 ==========
+WxPayApi UnfiedOrder response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx5142ed3da460173d]]></appid>
+<mch_id><![CDATA[1420533002]]></mch_id>
+<nonce_str><![CDATA[11ZlurdtHa16v9Ze]]></nonce_str>
+<sign><![CDATA[8993A15117CED1E69AE54DED67C5211F]]></sign>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<err_code_des><![CDATA[appid和openid不匹配]]></err_code_des>
+</xml>
+
+========== 2019-11-22 18:12:50 ==========
+,http://192.168.0.133/
+
+========== 2019-11-22 18:12:50 ==========
+,http://192.168.0.133/
+
+========== 2019-11-22 18:12:51 ==========
+081IfjCm0S6nPq1biIBm0tykCm0IfjCt,http://192.168.0.133/
+
+========== 2019-11-22 18:12:55 ==========
+27_G2wBF0BCOCF2smJYbs8FijH4L7-z5CLL1tVFr8AMZwEBhLcnnzkOHVcdno0eoFEnu5ROM3nMVVNwBUCz-Tim2HfueDm6VDVZHgih9fbZ2kiQcptPgDq9K_sP7UZcnst0Npj2XVY-zcaGuIetTQHiAHAEBS
+

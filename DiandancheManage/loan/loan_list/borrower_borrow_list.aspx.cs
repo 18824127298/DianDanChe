@@ -85,7 +85,7 @@ public partial class loan_loan_list_borrower_borrow_list : SbtPageBase
     {
         if (!string.IsNullOrEmpty(oRepaymentPlanMode.ToString()))
         {
-            return oRepaymentPlanMode.ToString() == "1" ? "正常还款" : oRepaymentPlanMode.ToString() == "2" ? "提前还款" : "逾期还款";
+            return oRepaymentPlanMode.ToString() == "1" ? "正常支付" : oRepaymentPlanMode.ToString() == "2" ? "提前支付" : "逾期支付";
         }
         else
         {

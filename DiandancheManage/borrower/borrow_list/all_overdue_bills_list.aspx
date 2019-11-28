@@ -41,16 +41,16 @@
                                 <asp:BoundField DataField="Stages" HeaderText="期次" SortExpression="Stages">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:TemplateField HeaderText="应还款时间" SortExpression="RepaymentDate">
+                                <asp:TemplateField HeaderText="应支付时间" SortExpression="RepaymentDate">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
                                         <%# VIVHTime(Eval("RepaymentDate")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="Principal" HeaderText="本金" SortExpression="Principal">
+                                <asp:BoundField DataField="Principal" HeaderText="融资租赁总额" SortExpression="Principal">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="UnPrincipal" HeaderText="未还本金" SortExpression="UnPrincipal">
+                                <asp:BoundField DataField="UnPrincipal" HeaderText="未还融资租赁总额" SortExpression="UnPrincipal">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="Interest" HeaderText="手续费" SortExpression="Interest">
@@ -68,7 +68,7 @@
                                 <asp:BoundField DataField="sumuntotal" HeaderText="未还总手续费" SortExpression="sumuntotal">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:TemplateField HeaderText="实际还款时间" SortExpression="ActualRepaymentDate">
+                                <asp:TemplateField HeaderText="实际支付时间" SortExpression="ActualRepaymentDate">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
                                         <%# VIVHTime(Eval("ActualRepaymentDate")) %>

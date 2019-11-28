@@ -352,7 +352,7 @@ public partial class loan_loan_list_rent_details : SbtPageBase
                         dSumAmount = unSumPrincipal + dServiceCharge;
                     }
                 }
-                lblART.Text = "提还总金额：" + (dSumAmount + overdueInterest).ToString() + "元，未还本金为：" + unSumPrincipal.ToString()
+                lblART.Text = "提还总金额：" + (dSumAmount + overdueInterest).ToString() + "元，未还融资租赁总额为：" + unSumPrincipal.ToString()
                     + "元，手续费为：" + (dServiceCharge + overdueInterest).ToString() + "元，减免额为：" + dStandardDeduction + "元";
             }
         }

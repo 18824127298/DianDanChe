@@ -1,7 +1,7 @@
 ﻿@using CheDaiBaoWeChatModel.Models;
 @{
     Layout = null;
-    ViewBag.Title = "还款详情";
+    ViewBag.Title = "支付详情";
     List<LoanApply> LoanapplyList = ViewBag.LoanapplyList as List<LoanApply>;
     Borrow borrow = ViewBag.borrow as Borrow;
     List<Borrow> OverdueBorrowlist = ViewBag.OverdueBorrowlist as List<Borrow>;
@@ -60,7 +60,7 @@
                             {
                     <div class="footer">
                         <a onclick="fn_MentionBack(@item.Id)" id="footer">
-                            <button class="amortize fz35">提前还款</button></a>
+                            <button class="amortize fz35">提前支付</button></a>
                     </div> 
                             }
                         }
@@ -110,7 +110,7 @@
             success: function (json) {
                 if (json.Result == true) {
                     var tip = "";
-                    tip = "<span>本次提前还款总计金额为" + json.dSumAmount + "元，是否确定提还？(该笔金额仅" + show() + "有效)</span>";
+                    tip = "<span>本次提前支付总计金额为" + json.dSumAmount + "元，是否确定提还？(该笔金额仅" + show() + "有效)</span>";
                     $.MsgBox.Confirm("温馨提示", tip, function () {
                         callpay(Id);
                     });

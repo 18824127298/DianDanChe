@@ -1,0 +1,194 @@
+﻿@using CheDaiBaoWeChatModel.Models;
+@{
+    Layout = null;
+    ViewBag.Title = "会员订单表";
+    List<PaymentForm> allPaymentFormList = ViewBag.allPaymentFormList as List<PaymentForm>;
+    List<PaymentForm> paidFormList = ViewBag.paidFormList as List<PaymentForm>;
+    List<PaymentForm> unpaidFormList = ViewBag.unpaidFormList as List<PaymentForm>;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="divport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="~/Content/youka/css/demo1.css" rel="stylesheet" />
+    <script src="~/Content/youka/js/fastclick.js"></script>
+    <script src="~/Content/youka/js/jquery.min.js"></script>
+    <script>
+        if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+            document.addEventListener('DOMContentLoaded', function (e) {
+                var doc = document
+                var win = window
+                var docEl = win.document.documentElement;
+                var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+                var metaEl = doc.querySelector('meta[name="viewport"]');
+                var dpr = 0;
+                var scale = 0;
+                // 对iOS设备进行dpr的判断，对于Android系列，始终认为其dpr为1
+                if (!dpr && !scale) {
+                    var isAndroid = win.navigator.appVersion.match(/android/gi);
+                    var isIPhone = win.navigator.appVersion.match(/[iphone|ipad]/gi);
+                    var devicePixelRatio = win.devicePixelRatio;
+
+                    if (isIPhone) {
+                        dpr = devicePixelRatio;
+                    } else {
+                        drp = 1;
+                    }
+
+                    scale = 1 / dpr;
+                }
+                docEl.setAttribute('data-dpr', dpr);
+                if (!metaEl) {
+                    metaEl = doc.createElement('meta');
+                    metaEl.setAttribute('name', 'viewport');
+                    metaEl.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale +
+                      ', minimum-scale=' + scale + ', user-scalable=no');
+                    document.documentElement.firstElementChild.appendChild(metaEl);
+                } else {
+                    metaEl.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale +
+                      ', minimum-scale=' + scale + ', user-scalable=no');
+                }
+                document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
+            }, false);
+            window.onresize = function () {
+                document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
+            }
+
+            $(function () {
+                FastClick.attach(document.body);
+            });
+
+            function showAll() {
+                $('.bar_item').removeClass('green')
+                $('#showAll').addClass('green')
+                $('.show_content').css('display', 'none')
+                $('#all_content').css('display', 'block')
+            }
+
+            function showPay() {
+                $('.bar_item').removeClass('green')
+                $('#showPay').addClass('green')
+                $('.show_content').css('display', 'none')
+                $('#pay_content').css('display', 'block')
+            }
+
+            function showUnpay() {
+                $('.bar_item').removeClass('green')
+                $('#showUnpay').addClass('green')
+                $('.show_content').css('display', 'none')
+                $('#unpay_content').css('display', 'block')
+            }
+
+            function fn_details(Id) {
+                window.location.href = "../YouKa/OrdersRecordDetails?Id=" + Id;
+            }
+
+            function fn_GasStation() {
+                window.location.href = "../YouKa/AllGasStation";
+            }
+            function fn_OrdersRecord() {
+                window.location.href = "../YouKa/OrdersRecord";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header_img">
+                <img src="@ViewBag.HeadImgurl" alt="" class="img1" style="width:2rem; height:2rem">
+            </div>
+            <div class="header_content">
+                <div class="header_name">@ViewBag.NickName</div>
+                <div class="header_mobile">@ViewBag.Phone</div>
+            </div>
+        </div>
+        <div class="section rflex">
+            <div class="sec_left cflex flex1">
+                <div class="sec_top flex1"><span class="sec_data">@(paidFormList.Sum(o => o.RiseNumber).Value.ToString("N2"))</span><span class="small_l">L</span></div>
+                <div class="sec_bottom flex1">累计加油升数</div>
+            </div>
+            <div class="sec_right cflex flex1">
+                <div class="sec_top flex1"><span class="small_l">￥</span><span class="sec_data">@(paidFormList.Sum(o => o.GasStationAmount - o.ActualAmount).Value.ToString("N2"))</span></div>
+                <div class="sec_bottom flex1">累计节省金额</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="select_bar rflex">
+                <div class="bar_item green flex1" id='showAll' onclick="showAll()">全部</div>
+                <div class="bar_item flex1" id='showPay' onclick="showPay()">已支付</div>
+                <div class="bar_item flex1" id='showUnpay' onclick="showUnpay()">未支付</div>
+            </div>
+            <div class="bar_content">
+                <div id='all_content' class="show_content">
+                    @foreach (PaymentForm itempayment in allPaymentFormList)
+                    {
+                        <div class="content_item rflex" onclick="fn_details(@itempayment.Id)">
+                            <div class="left_block cflex">
+                                <p class="detail flex1">@(itempayment.RiseNumber.Value.ToString("N2"))升 @(itempayment.OilGun.OilNumber) @(itempayment.GasStation.Name)</p>
+                                <p class="time flex1">@(itempayment.PayTime.Value.ToString("yyyy-MM-dd HH:mm:ss"))<a style="@(itempayment.IsAudit == true ? "color:rgb(3, 193, 97);" : itempayment.IsAudit == false ? "color:red;" : "") margin-left:1rem;">@(itempayment.IsAudit == true ? "已支付" : itempayment.IsAudit == false ? "已退款" : "未支付")</a></p>
+                            </div>
+                            <div class="right_block flex1">
+                                ￥@(itempayment.ActualAmount.Value.ToString("N2"))
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div id='pay_content' class="show_content">
+                    @foreach (PaymentForm itempayment in paidFormList)
+                    {
+                        <div class="content_item rflex" onclick="fn_details(@itempayment.Id)">
+                            <div class="left_block cflex">
+                                <p class="detail flex1">@(itempayment.RiseNumber.Value.ToString("N2"))升 @(itempayment.OilGun.OilNumber)# @(itempayment.GasStation.Name)</p>
+                                <p class="time flex1">@(itempayment.PayTime.Value.ToString("yyyy-MM-dd HH:mm:ss"))</p>
+                            </div>
+                            <div class="right_block flex1">
+                                ￥@(itempayment.ActualAmount.Value.ToString("N2"))
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div id='unpay_content' class="show_content">
+                    @foreach (PaymentForm itempayment in unpaidFormList)
+                    {
+                        <div class="content_item rflex"  onclick="fn_details(@itempayment.Id)">
+                            <div class="left_block cflex">
+                                <p class="detail flex1">@(itempayment.RiseNumber.Value.ToString("N2"))升 @(itempayment.OilGun.OilNumber)# @(itempayment.GasStation.Name)</p>
+                                <p class="time flex1">@(itempayment.PayTime.Value.ToString("yyyy-MM-dd HH:mm:ss"))</p>
+                            </div>
+                            <div class="right_block flex1">
+                                ￥@(itempayment.ActualAmount.Value.ToString("N2"))
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer rflex">
+        <div class="footer_item flex1 cflex" onclick="fn_GasStation()">
+            <div class="item_wrap rflex flex1">
+                <div class="top_wrap flex1">
+                    <img src="~/Content/youka/img/tab1.png" alt="" class="footer_img">
+                </div>
+            </div>
+            <div class="footer_text">加油</div>
+        </div>
+        <div class="footer_item flex1 cflex" onclick="fn_OrdersRecord()">
+            <div class="item_wrap rflex flex1">
+                <div class="top_wrap flex1">
+                    <img src="~/Content/youka/img/tab22.png" alt="" class="footer_img">
+                </div>
+            </div>
+            <div class="footer_text green_text flex1">我的</div>
+        </div>
+    </div>
+</body>
+
+</html>

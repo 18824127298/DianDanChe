@@ -36,6 +36,12 @@ public partial class borrower_borrow_list_graphic_data_list : SbtPageBase
                 case "CurrentMonthNumber":
                     Response.Write(CurrentMonthNumber());
                     break;
+                case "RecruitmentMonthNumber":
+                    Response.Write(RecruitmentMonthNumber());
+                    break;
+                case "LastRecruitmentNumber":
+                    Response.Write(LastRecruitmentNumber());
+                    break;
             }
             Response.End();
         }
@@ -73,7 +79,7 @@ public partial class borrower_borrow_list_graphic_data_list : SbtPageBase
                 lists19[loanapply.nmonth.Value - 1] = loanapply.count.Value;
         }
         Dictionary<string, Int32[]> lt = new Dictionary<string, Int32[]>();
-        lt.Add("lists19", lists19); 
+        lt.Add("lists19", lists19);
 
         string imfo = JsonConvert.SerializeObject(lt).ToString();
         return imfo;
@@ -119,6 +125,49 @@ public partial class borrower_borrow_list_graphic_data_list : SbtPageBase
         string sql = @"select COUNT(*) as value,b.FullName as name  from LoanApply l join Borrower b on l.SalesmanId = b.Id where l.IsValid= 1 
 and (l.RepaymentStatus = 5 or l.RepaymentStatus = 6) and convert(varchar(7),AuditTime ,120) = convert(varchar(7),GETDATE(),120)
   group by  b.FullName order by value desc";
+
+        DataSet ds = DataHelper.Instance.ExecuteDataSet(sql);
+        string[] namelists = new string[ds.Tables[0].Rows.Count];
+
+        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+        {
+            namelists[i] = ds.Tables[0].Rows[i]["name"].ToString();
+        }
+        Dictionary<string, string> lt = new Dictionary<string, string>();
+        lt.Add("namelists", string.Join(",", namelists));
+        lt.Add("jolists", JsonConvert.SerializeObject(ds.Tables[0]));
+
+        string imfo = JsonConvert.SerializeObject(lt).ToString();
+        return imfo;
+    }
+
+    public string RecruitmentMonthNumber()
+    {
+        string sql = @"select COUNT(*) as value, RecruitmentName as name  from LoanApply l where l.IsValid= 1 
+and (l.RepaymentStatus = 5 or l.RepaymentStatus = 6) and convert(varchar(7),AuditTime ,120) = convert(varchar(7),GETDATE(),120)
+  group by  RecruitmentName order by value desc";
+
+        DataSet ds = DataHelper.Instance.ExecuteDataSet(sql);
+        string[] namelists = new string[ds.Tables[0].Rows.Count];
+
+        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+        {
+            namelists[i] = ds.Tables[0].Rows[i]["name"].ToString();
+        }
+        Dictionary<string, string> lt = new Dictionary<string, string>();
+        lt.Add("namelists", string.Join(",", namelists));
+        lt.Add("jolists", JsonConvert.SerializeObject(ds.Tables[0]));
+
+        string imfo = JsonConvert.SerializeObject(lt).ToString();
+        return imfo;
+    }
+
+
+    public string LastRecruitmentNumber()
+    {
+        string sql = @"select COUNT(*) as value, RecruitmentName as name  from LoanApply l where l.IsValid= 1 
+and (l.RepaymentStatus = 5 or l.RepaymentStatus = 6) and convert(varchar(7),AuditTime ,120) = convert(varchar(7),DATEADD(month,-1,GETDATE()),120)
+  group by  RecruitmentName order by value desc";
 
         DataSet ds = DataHelper.Instance.ExecuteDataSet(sql);
         string[] namelists = new string[ds.Tables[0].Rows.Count];

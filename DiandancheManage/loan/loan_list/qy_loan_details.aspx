@@ -43,7 +43,7 @@
                         </tr>
                         <tr>
                             <td>型号：<asp:Label ID="CheType" runat="server" Style="color: red;"></asp:Label></td>
-                            <td>分期总额：<asp:Label ID="TotalAmountStage" runat="server" Style="color: red;"></asp:Label></td>
+                            <td>融资租赁总额：<asp:Label ID="TotalAmountStage" runat="server" Style="color: red;"></asp:Label></td>
                             <td>首付：<asp:Label ID="DownPayments" runat="server" Style="color: red;"></asp:Label></td>
                         </tr>
                         <tr>

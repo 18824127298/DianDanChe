@@ -5,7 +5,7 @@
 <%@ Register Src="../../module/My97DatePicker.ascx" TagName="My97DatePicker" TagPrefix="uc1" %>
 <html>
 <head id="Head1" runat="server">
-    <title>还款中融资租赁</title>
+    <title>支付中融资租赁</title>
 </head>
 <script language="javascript" src="../../js/grid_ui_func.js"></script>
 <body>
@@ -16,11 +16,12 @@
                     <tr>
                         <td>
                             <img src="../../images/menu_icon/pen.gif" />
-                            还款中融资租赁</td>
+                            支付中融资租赁</td>
                     </tr>
                     <tr> 
                         <td>客户姓名：<asp:TextBox ID="edtCreditName" runat="server" />&nbsp;
                             客户手机号：<asp:TextBox ID="edtCreditPhone" runat="server" />&nbsp;
+                            业务员：<asp:TextBox ID="edtSalesMan" runat="server" />&nbsp;
                             申请时间：<uc1:My97DatePicker ID="dpApplyFromTime" runat="server" Width="90px" />
                             -<uc1:My97DatePicker ID="dpApplyToTime" runat="server" Width="90px" />
                             商户：
@@ -91,13 +92,13 @@
                                 <asp:BoundField DataField="RecruitmentName" HeaderText="招聘点名称" SortExpression="RecruitmentName">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="TotalAmountStage" HeaderText="分期总额" SortExpression="TotalAmountStage">
+                                <asp:BoundField DataField="TotalAmountStage" HeaderText="融资租赁总额" SortExpression="TotalAmountStage">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="Deadline" HeaderText="期数" SortExpression="Deadline">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="MonthlyPayment" HeaderText="月供" SortExpression="MonthlyPayment">
+                                <asp:BoundField DataField="MonthlyPayment" HeaderText="融资租赁费" SortExpression="MonthlyPayment">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="CustomerClassification" HeaderText="客户的类型" SortExpression="CustomerClassification">

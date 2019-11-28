@@ -1,0 +1,129 @@
+========== 2019-11-20 09:38:16 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 09:38:16 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 09:38:16 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 09:38:16 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 09:38:22 ==========
+011bVhZr1u666l0jA9Zr1Uk1Zr1bVhZK,http://192.168.0.133/
+
+========== 2019-11-20 09:38:27 ==========
+27_nUwJo303eu-SWguUMgGBPN9Gbe0stJ6O0q40V2gpvbyo0-PQck6ekGUyoPO--G5TkcwjpmQkEK_RFbfVUCnjFFq8G_UUkZAUvRZiEsyGc8U6gQPbwwkU6Rk98MAefG-x6K0mzn1Nb87NtQeGGCYaAGAZVR
+
+========== 2019-11-20 09:42:23 ==========
+WxPayApi UnfiedOrder request : <xml><appid><![CDATA[wx5142ed3da460173d]]></appid><attach><![CDATA[加油]]></attach><body><![CDATA[车一号]]></body><mch_id><![CDATA[1525907491]]></mch_id><nonce_str><![CDATA[ABC4259931481604690678445]]></nonce_str><notify_url><![CDATA[http://manage.che01.com/notify/weixin/weixin_notify_return.aspx]]></notify_url><openid><![CDATA[o_DU4544q5ukwjVtC3tfBOzesFn4]]></openid><out_trade_no><![CDATA[CYH-2019112009421183894]]></out_trade_no><sign><![CDATA[0E3E5F8BBC97796765B8E29514CFD6DC]]></sign><sign_type><![CDATA[MD5]]></sign_type><spbill_create_ip><![CDATA[39.108.61.177]]></spbill_create_ip><time_expire><![CDATA[20191120095223]]></time_expire><time_start><![CDATA[20191120094223]]></time_start><total_fee>46500</total_fee><trade_type><![CDATA[JSAPI]]></trade_type></xml>
+
+========== 2019-11-20 09:42:23 ==========
+WxPayApi UnfiedOrder response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx5142ed3da460173d]]></appid>
+<mch_id><![CDATA[1525907491]]></mch_id>
+<nonce_str><![CDATA[nQltqlukccgWzlcY]]></nonce_str>
+<sign><![CDATA[C6D3DE96FAED544CD8892694EE00AC56]]></sign>
+<result_code><![CDATA[SUCCESS]]></result_code>
+<prepay_id><![CDATA[wx20094224911886e759ad703b1120904200]]></prepay_id>
+<trade_type><![CDATA[JSAPI]]></trade_type>
+</xml>
+
+========== 2019-11-20 09:42:59 ==========
+WxPayApi UnfiedOrder request : <xml><appid><![CDATA[wx5142ed3da460173d]]></appid><attach><![CDATA[加油]]></attach><body><![CDATA[车一号]]></body><mch_id><![CDATA[1525907491]]></mch_id><nonce_str><![CDATA[ABC399212249850155536611]]></nonce_str><notify_url><![CDATA[http://manage.che01.com/notify/weixin/weixin_notify_return.aspx]]></notify_url><openid><![CDATA[o_DU4544q5ukwjVtC3tfBOzesFn4]]></openid><out_trade_no><![CDATA[CYH-2019112009423567028]]></out_trade_no><sign><![CDATA[70C66E03A985AB1668C7A7230C1EBEAA]]></sign><sign_type><![CDATA[MD5]]></sign_type><spbill_create_ip><![CDATA[39.108.61.177]]></spbill_create_ip><time_expire><![CDATA[20191120095259]]></time_expire><time_start><![CDATA[20191120094259]]></time_start><total_fee>46500</total_fee><trade_type><![CDATA[JSAPI]]></trade_type></xml>
+
+========== 2019-11-20 09:42:59 ==========
+WxPayApi UnfiedOrder response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx5142ed3da460173d]]></appid>
+<mch_id><![CDATA[1525907491]]></mch_id>
+<nonce_str><![CDATA[NjYovB7oiLm9EZQq]]></nonce_str>
+<sign><![CDATA[1C3915807E6A30E720CE24757D844FE1]]></sign>
+<result_code><![CDATA[SUCCESS]]></result_code>
+<prepay_id><![CDATA[wx2009430070759866b72cbf141137144600]]></prepay_id>
+<trade_type><![CDATA[JSAPI]]></trade_type>
+</xml>
+
+========== 2019-11-20 11:18:32 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 11:18:40 ==========
+021PJJlD1Q6ld50TNHmD1KWGlD1PJJlz,http://192.168.0.133/
+
+========== 2019-11-20 11:18:42 ==========
+27_SsqHSXpVBtMBACx-z43bbqsJp7EeuWdHLacw2GNW5e7GNh1U8Bf35wR8t928AwenIce5RsVCn4ZGzrvuNjoQOQOK_C7tiGaaAIG7KOD_Hz5_5sgN5OsliQDqaQeSvhCCUOKU1soNnGjoMV2KIPPfAEARYY
+
+========== 2019-11-20 11:51:55 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 11:51:55 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 11:51:55 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 11:51:55 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 11:51:55 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 11:51:55 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 11:51:58 ==========
+021hHCe92Ain2K0Jmxf92pYFe92hHCeO,http://192.168.0.133/
+
+========== 2019-11-20 11:51:59 ==========
+27_iQli6A9iU5IRV7G7Ab_YXEESxhFr1Op1StEiG9in8bLjaQNmEnVMGrIc4twS_JgZRYOKQjOCyRHRHi56I0w5jm3BvYzqgkuICxcPV0pSuHkvoBHfNVzDg5YSZhEJTAiACATDK
+
+========== 2019-11-20 14:26:01 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 14:26:01 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 14:26:27 ==========
+0711mBOa2jxBhN0kPwOa2fWROa21mBO2,http://192.168.0.133/
+
+========== 2019-11-20 14:26:30 ==========
+27_DLE08TsFGQs-lywZrxg0sxl2AmTUrYOU8-0kyGbiqVf1FGYjakOmA0p4S5qrRDiA432NuwKO_vC0hTWu6CzLNFYEo5TrjYaGMDZKeZIWcCddf_7L7HGJFElXzlLWPHek3PHTP2-Qmz7sh17pAGEbAEADJH
+
+========== 2019-11-20 14:59:19 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 14:59:46 ==========
+0010j9z225u5xV09T1A22UU6z220j9zh,http://192.168.0.133/
+
+========== 2019-11-20 14:59:47 ==========
+27_DLE08TsFGQs-lywZrxg0sxl2AmTUrYOU8-0kyGbiqVf1FGYjakOmA0p4S5qrRDiA432NuwKO_vC0hTWu6CzLNFYEo5TrjYaGMDZKeZIWcCddf_7L7HGJFElXzlLWPHek3PHTP2-Qmz7sh17pAGEbAEADJH
+
+========== 2019-11-20 15:17:27 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 15:17:28 ==========
+001wP0Ln0Wvj8l1mA2Ln0wJWKn0wP0LD,http://192.168.0.133/
+
+========== 2019-11-20 15:17:29 ==========
+27_DLE08TsFGQs-lywZrxg0sxl2AmTUrYOU8-0kyGbiqVf1FGYjakOmA0p4S5qrRDiA432NuwKO_vC0hTWu6CzLNFYEo5TrjYaGMDZKeZIWcCddf_7L7HGJFElXzlLWPHek3PHTP2-Qmz7sh17pAGEbAEADJH
+
+========== 2019-11-20 16:58:55 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 16:58:55 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 16:58:55 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 16:58:55 ==========
+,http://192.168.0.133/
+
+========== 2019-11-20 16:59:16 ==========
+081fUbac1WaAnw01pUdc1MI8ac1fUbaz,http://192.168.0.133/
+
+========== 2019-11-20 16:59:18 ==========
+27_GsfGijaQwReeoC0KAb_YXEESxhFr1Op1StEiG-s6oL6uYoN6EJWq7ck1mhkX7_hD6CNKW3Y0kYjrA19nZI3V9YQ-pDW6BgmvjIalzezgbwIRLkrEsswZfbY8mhboXaOfXklhpf4TsuSaNKaVBIEeAGAKRN
+

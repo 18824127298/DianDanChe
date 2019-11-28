@@ -1,0 +1,32 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2953 ms / want 500 ms¡¿ 2019/11/20 9:38:34 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 532 ms / want 500 ms¡¿ 2019/11/20 9:42:16 ====
+insert into paymentform ([GasStationId],[MemberId],[GasStationAmount],[ActualAmount],[OrderNumber],[PayTime],[ServiceFee],[RiseNumber],[OilGunId],[IsValid],[CreateTime],[UpdateTime]) values (@GasStationId,@MemberId,@GasStationAmount,@ActualAmount,@OrderNumber,@PayTime,@ServiceFee,@RiseNumber,@OilGunId,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2603 ms / want 500 ms¡¿ 2019/11/20 11:18:47 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_MultiMapImpl¡¿¡¾actual 4906 ms / want 500 ms¡¿ 2019/11/20 11:27:35 ====
+
+                select * from PaymentForm p join GasStation g on p.GasStationId = g.Id
+join OilGun o on p.OilGunId = o.Id where p.IsValid= 1 and p.MemberId = @MemberId
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 698 ms / want 500 ms¡¿ 2019/11/20 11:52:01 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3822 ms / want 500 ms¡¿ 2019/11/20 14:26:36 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1248 ms / want 500 ms¡¿ 2019/11/20 14:59:48 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 593 ms / want 500 ms¡¿ 2019/11/20 14:59:52 ====
+
+            select g.Id,g.AddressName, g.Longitude, g.Dimension,g.Name,g.CountryMarkPrice,o.Amount from GasStation g 
+join OilGun o on o.GasStationId = g.Id where g.IsValid= 1 and o.OilType = @OilType group by g.Id,g.AddressName,
+ g.Longitude, g.Dimension,g.Name,g.CountryMarkPrice, o.Amount
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3979 ms / want 500 ms¡¿ 2019/11/20 16:59:24 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+

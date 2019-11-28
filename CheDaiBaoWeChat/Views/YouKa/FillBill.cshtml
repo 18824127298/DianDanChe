@@ -1,0 +1,354 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "加油详情";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>加油详情</title>
+    <meta name="divport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="~/Content/youka/js/jquery.min.js"></script>
+    <link href="~/Content/youka/css/demo2.css" rel="stylesheet" />
+    <script>
+        if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+            document.addEventListener('DOMContentLoaded', function (e) {
+                var doc = document
+                var win = window
+                var docEl = win.document.documentElement;
+                var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+                var metaEl = doc.querySelector('meta[name="viewport"]');
+                var dpr = 0;
+                var scale = 0;
+                // 对iOS设备进行dpr的判断，对于Android系列，始终认为其dpr为1
+                if (!dpr && !scale) {
+                    var isAndroid = win.navigator.appVersion.match(/android/gi);
+                    var isIPhone = win.navigator.appVersion.match(/[iphone|ipad]/gi);
+                    var devicePixelRatio = win.devicePixelRatio;
+
+                    if (isIPhone) {
+                        dpr = devicePixelRatio;
+                    } else {
+                        drp = 1;
+                    }
+
+                    scale = 1 / dpr;
+                }
+                docEl.setAttribute('data-dpr', dpr);
+                if (!metaEl) {
+                    metaEl = doc.createElement('meta');
+                    metaEl.setAttribute('name', 'viewport');
+                    metaEl.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale +
+                      ', minimum-scale=' + scale + ', user-scalable=no');
+                    document.documentElement.firstElementChild.appendChild(metaEl);
+                } else {
+                    metaEl.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale +
+                      ', minimum-scale=' + scale + ', user-scalable=no');
+                }
+                document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
+            }, false);
+            window.onresize = function () {
+                document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <div class="name">选择油号:</div>
+            <div class="group clearfix" id="OilNumber">
+            </div>
+        </div>
+@*        <div class="section">
+            <div class="name">选择油号:</div>
+            <div class="group clearfix" id="OilType">
+            </div>
+        </div>*@
+        <div class="section">
+            <div class="name">选择枪号:</div>
+            <div class="group clearfix" id="GunNumber">
+            </div>
+        </div>
+        <div class="tab">
+            <div class="tab_top lflex">
+                <div class="tab_name rflex">加油金额：</div>
+                <div class="tab_input rflex">
+                    <input type="number" class="input_money" name="" id="" style="padding: 0 0.2rem; width: 100%; height: 1rem; border: none; background-color: rgb(243,243,243); font-size: 0.4rem; border-radius: 5px; -webkit-user-select: auto">
+                </div>
+            </div>
+            <div class="top_bottom lflex">
+                <div class="item2" id="item2_100"><span class="small">￥</span>100</div>
+                <div class="item2" id="item2_200"><span class="small">￥</span>200</div>
+                <div class="item2" id="item2_300"><span class="small">￥</span>300</div>
+                <div class="item2 active" id="item2_500"><span class="small">￥</span>500</div>
+            </div>
+        </div>
+        <div class="sub_btn">确定</div>
+        <div class="footer rflex">
+            <div class="footer_item flex1 cflex"  onclick="fn_GasStation()">
+                <a href="~/YouKa/AllGasStation">
+                    <div class="item_wrap rflex flex1">
+                        <div class="top_wrap flex11">
+                            <img src="~/Content/youka/img/tab1.png" alt="" class="footer_img">
+                        </div>
+                    </div>
+                </a>
+                <div class="footer_text">加油</div>
+            </div>
+            <div class="footer_item flex1 cflex" onclick="fn_OrdersRecord()">
+                <a href="~/YouKa/OrdersRecord">
+                    <div class="item_wrap rflex flex1">
+                        <div class="top_wrap flex1">
+                            <img src="~/Content/youka/img/tab2.png" alt="" class="footer_img">
+                        </div>
+                    </div>
+                </a>
+                <div class="footer_text flex1">我的</div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/js/jquery-1.11.1.min.js"></script>
+    <script src="~/Content/youka/js/jquery.newsimilar.msgbox.js"></script>
+    <script>
+        function fn_GasStation() {
+            window.location.href = "../YouKa/AllGasStation";
+        }
+        function fn_OrdersRecord() {
+            window.location.href = "../YouKa/OrdersRecord";
+        }
+
+        $(function () {
+            GetOilNumber();
+            //GetOilType();
+            //GetOilName();
+
+
+            $(".item2").click(function () {
+                var isActive = $(this).hasClass("active")
+                if (isActive) {
+                    $(this).removeClass("active")
+                    $(".input_money").val("")
+                } else {
+                    $(".item2").removeClass("active")
+                    $(this).addClass("active")
+                    $(".input_money").val($(this).attr("id").split("_")[1])
+                }
+            })
+            $('.input_money').bind('input propertychange', function () {
+                $(".item2.active").removeClass("active")
+            });
+            $(".sub_btn").click(function () {
+                if ($(".item1.active").attr("id") == undefined) {
+                    alert("请选择油号！");
+                    return;
+                }
+                if ($(".item.active").attr("id") == undefined) {
+                    alert("请选择油枪！");
+                    return;
+                }
+                var item = $(".item.active").attr("id").split("_")[1] //枪号选择 数字=多少号
+                var item1 = $(".item1.active").attr("id").split("_")[1]//油号选择 1=第一个选择 2=第二个选择
+                //var item3 = $(".item3.active").attr("id").split("_")[1]
+                var money = $(".input_money").val() //输入或者选择的加油金额
+                if (money == "") {
+                    alert("请填写金额！");
+                    return;
+                }
+                $.ajax({
+                    url: '/YouKa/GetActualAmount',
+                    type: 'post',
+                    data: {
+                        Id: "@ViewBag.Id",
+                        OilNumber: item1,
+                        //OilType: item3,
+                        GunNumber: item,
+                        Amount: money,
+                        rn: Math.random()
+                    },//这里使用json对象
+                    success: function (json) {
+                        tip = "<span>本次实际支付金额为" + json.ActualAmount + "元</span>";
+                        $.MsgBox.Confirm("温馨提示", tip, function () {
+                            callpay(json.pId, json.ActualAmount);
+                        });
+                    }
+                });
+            })
+        });
+
+        function GetOilNumber() {
+            $.ajax({
+                url: '/YouKa/GetOilNumber',
+                type: 'post',
+                async: false,//使用同步的方式,true为异步方式
+                data: {
+                    Id: "@ViewBag.Id",
+                    rn: Math.random()
+                },//这里使用json对象
+                success: function (json) {
+                    var html = "";
+                    for (var i = 0; i < json.length; i++) {
+                        if (i == 0)
+                            html += "<div class=\"item1 active\" id=\"item1_" + json[i].OilNumber + "\">" + json[i].OilNumber + "</div>";
+                        else
+                            html += "<div class=\"item1\" id=\"item1_" + json[i].OilNumber + "\">" + json[i].OilNumber + "</div>";
+                    }
+                    $("#OilNumber").html(html);
+                }
+            });
+            $(".item1").click(function () {
+                var isActive = $(this).hasClass("active")
+                if (isActive) {
+                    $(this).removeClass("active")
+                } else {
+                    $(".item1").removeClass("active")
+                    $(this).addClass("active")
+                }
+                GetOilName();
+                //GetOilType();
+            })
+            GetOilName();
+        }
+        @*function GetOilType() {
+            $.ajax({
+                url: '/YouKa/GetOilType',
+                type: 'post',
+                async: false,//使用同步的方式,true为异步方式
+                data: {
+                    Id: "@ViewBag.Id",
+                    OilNumber: $(".item1.active").attr("id").split("_")[1],
+                    rn: Math.random()
+                },//这里使用json对象
+                success: function (json) {
+                    var html = "";
+                    for (var i = 0; i < json.length; i++) {
+                        if (i == 0)
+                            html += "<div class=\"item3 active\" id=\"item3_" + json[i].OilType + "\">" + json[i].OilType + "#</div>";
+                        else
+                            html += "<div class=\"item3\" id=\"item3_" + json[i].OilType + "\">" + json[i].OilType + "#</div>";
+                    }
+                    $("#OilType").html(html);
+                }
+            });
+            $(".item3").click(function () {
+                var isActive = $(this).hasClass("active")
+                if (isActive) {
+                    $(this).removeClass("active")
+                } else {
+                    $(".item3").removeClass("active")
+                    $(this).addClass("active")
+                }
+                GetOilName();
+            })
+        }*@
+        function GetOilName() {
+            $.ajax({
+                url: '/YouKa/GetOilName',
+                type: 'post',
+                async: false,//使用同步的方式,true为异步方式
+                data: {
+                    Id: "@ViewBag.Id",
+                    OilNumber: $(".item1.active").attr("id").split("_")[1],
+                    //OilType: $(".item3.active").attr("id").split("_")[1],
+                    rn: Math.random()
+                },//这里使用json对象
+                success: function (json) {
+                    var html = "";
+                    for (var i = 0; i < json.length; i++) {
+                        if (i == 0)
+                            html += "<div class=\"item active\" id=\"item_" + json[i].GunNumber + "\">" + json[i].GunNumber + "号</div>";
+                        else
+                            html += "<div class=\"item\" id=\"item_" + json[i].GunNumber + "\">" + json[i].GunNumber + "号</div>";
+                    }
+                    $("#GunNumber").html(html);
+                }
+            });
+            $(".item").click(function () {
+                var isActive = $(this).hasClass("active")
+                if (isActive) {
+                    $(this).removeClass("active")
+                } else {
+                    $(".item").removeClass("active")
+                    $(this).addClass("active")
+                }
+            })
+        }
+
+        function jsApiCall(json) {
+            var data = $.parseJSON(json);
+            console.log(WeixinJSBridge.invoke(
+            'getBrandWCPayRequest',
+             {
+                 "appId": data.appId.toString(), //公众号名称，由商户传入
+                 "timeStamp": data.timeStamp.toString(), //时间戳 这里随意使用了一个值
+                 "nonceStr": data.nonceStr.toString(), //随机串
+                 "package": data.package.toString(),
+                 "signType": data.signType.toString(), //微信签名方式:sha1
+                 "paySign": data.paySign.toString().toUpperCase() //微信签名
+             },//josn串
+             function (res) {
+                 if (res.err_msg == "get_brand_wcpay_request:ok") {
+                     alert("温馨提示", "恭喜您，本次交易成功");
+                     window.location.reload();
+                 }
+                 else {
+                     $.MsgBox.Alert("温馨提示", "本次交易失败，如有问题请联系客服");
+                 }
+             }));
+        }
+
+
+        function callpay(pId, ActualAmount) {
+            if (typeof WeixinJSBridge == "undefined") {
+                if (document.addEventListener) {
+                    document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                }
+                else if (document.attachEvent) {
+                    document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                    document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                }
+            }
+            else {
+                $.ajax({
+                    async: false,
+                    type: 'post',
+                    url: "GetWxPayment?r=" + Math.random(),
+                    data: {
+                        pId: pId,
+                        ActualAmount: ActualAmount
+                    },
+                    success: function (json) {
+                        if (json == "0") {
+                            location.reload();
+                        } else if (json == "1") {
+                            $.MsgBox.Alert("温馨提示", "支付金额与订单金额不对等");
+                        } else {
+                            jsApiCall(json);
+                        }
+                    }
+                });
+            }
+        }
+
+        window.alert = function (name) {
+            var iframe = document.createElement("IFRAME");
+            iframe.style.display = "none";
+            iframe.setAttribute("src", 'data:text/plain,');
+            document.documentElement.appendChild(iframe);
+            window.frames[0].window.alert(name);
+            iframe.parentNode.removeChild(iframe);
+        };
+        window.confirm = function (name) {
+            var iframe = document.createElement("IFRAME");
+            iframe.style.display = "none";
+            iframe.setAttribute("src", 'data:text/plain,');
+            document.documentElement.appendChild(iframe);
+            window.frames[0].window.alert(name);
+            iframe.parentNode.removeChild(iframe);
+        };
+    </script>
+</body>
+</html>

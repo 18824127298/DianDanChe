@@ -1,0 +1,31 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 4808 ms / want 500 ms¡¿ 2019/11/25 14:14:21 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_MultiMapImpl¡¿¡¾actual 1172 ms / want 500 ms¡¿ 2019/11/25 14:14:48 ====
+
+                select * from PaymentForm p join GasStation g on p.GasStationId = g.Id
+join OilGun o on p.OilGunId = o.Id where p.IsValid= 1 and p.MemberId = @MemberId
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3028 ms / want 500 ms¡¿ 2019/11/25 15:07:35 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1785 ms / want 500 ms¡¿ 2019/11/25 15:07:44 ====
+
+            select g.Id,g.AddressName, g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice,o.Amount from GasStation g 
+join OilGun o on o.GasStationId = g.Id where g.IsValid= 1 and o.OilNumber = @OilNumber group by g.Id,g.AddressName,
+ g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice, o.Amount
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2596 ms / want 500 ms¡¿ 2019/11/25 16:26:07 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_MultiMapImpl¡¿¡¾actual 928 ms / want 500 ms¡¿ 2019/11/25 16:26:18 ====
+
+                select * from PaymentForm p join GasStation g on p.GasStationId = g.Id
+join OilGun o on p.OilGunId = o.Id where p.IsValid= 1 and p.MemberId = @MemberId
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1498 ms / want 500 ms¡¿ 2019/11/25 16:33:46 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 4179 ms / want 500 ms¡¿ 2019/11/25 17:33:11 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+

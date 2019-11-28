@@ -1,0 +1,30 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 4855 ms / want 500 ms¡¿ 2019/11/22 10:29:33 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1050 ms / want 500 ms¡¿ 2019/11/22 10:29:46 ====
+
+            select g.Id,g.AddressName, g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice,o.Amount from GasStation g 
+join OilGun o on o.GasStationId = g.Id where g.IsValid= 1 and o.OilNumber = @OilNumber group by g.Id,g.AddressName,
+ g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice, o.Amount
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3321 ms / want 500 ms¡¿ 2019/11/22 14:18:12 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 527 ms / want 500 ms¡¿ 2019/11/22 14:18:29 ====
+
+            select g.Id,g.AddressName, g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice,o.Amount from GasStation g 
+join OilGun o on o.GasStationId = g.Id where g.IsValid= 1 and o.OilNumber = @OilNumber group by g.Id,g.AddressName,
+ g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice, o.Amount
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1023 ms / want 500 ms¡¿ 2019/11/22 14:25:51 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 4182 ms / want 500 ms¡¿ 2019/11/22 14:26:49 ====
+insert into paymentform ([GasStationId],[MemberId],[TotalNationalPrice],[GasStationAmount],[ActualAmount],[OrderNumber],[PayTime],[ServiceFee],[RiseNumber],[OilGunId],[PayMode],[IsValid],[CreateTime],[UpdateTime]) values (@GasStationId,@MemberId,@TotalNationalPrice,@GasStationAmount,@ActualAmount,@OrderNumber,@PayTime,@ServiceFee,@RiseNumber,@OilGunId,@PayMode,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 12327 ms / want 500 ms¡¿ 2019/11/22 18:13:17 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 755 ms / want 500 ms¡¿ 2019/11/22 18:30:37 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+

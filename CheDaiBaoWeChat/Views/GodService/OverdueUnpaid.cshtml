@@ -15,7 +15,7 @@
 <body bgcolor="#f5f5f9">
     <section class="page">
         <div class="content">
-            <div class="all fz25">请按期次顺序依次还款</div>
+            <div class="all fz25">请按期次顺序依次支付</div>
             <ul class="bill">
                 @if (borrowlist.Count > 0)
                 {
@@ -27,7 +27,7 @@
                             <span class="fz25">@((item.Principal + item.Interest + item.OverInterest).Value.ToString("N2"))元</span>
                         </div>
                         <div class="status">
-                            <span >还款日 @item.RepaymentDate.Value.ToString("yyyy/MM/dd")</span>
+                            <span >支付日 @item.RepaymentDate.Value.ToString("yyyy/MM/dd")</span>
                             <span >剩余应还@((item.UnPrincipal + item.UnTotalInterest).Value.ToString("N2"))元</span>
 
                         </div>
@@ -108,7 +108,7 @@
             },
             success: function (json) {
                 if (json.Result == true) {
-                    $.MsgBox.Confirm("温馨提示", "<span>本次还款金额为" + json.SumAmount + "元，是否确定还款？</span>", function () {
+                    $.MsgBox.Confirm("温馨提示", "<span>本次支付金额为" + json.SumAmount + "元，是否确定支付？</span>", function () {
                         callpay(bId);
                     });
                 }

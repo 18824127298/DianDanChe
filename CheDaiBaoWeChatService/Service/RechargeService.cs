@@ -59,23 +59,29 @@ namespace CheDaiBaoWeChatService.Service
                     rechargeService.AuditRechargeIsSuccess(recharge.Id, TransactionId, BankType, Attach, TotalFee);
 
                     QiyebaoSms qiyebaoSms = new QiyebaoSms();
-                    string sContent = string.Format("恭喜您，本次还款成功，还款金额为{0}元，订单号{1}【车1号】", TotalFee / 100, TransactionId);
+                    string sContent = string.Format("恭喜您，本次融资租赁费支付成功，金额为{0}元，订单号{1}【车1号】", TotalFee / 100, TransactionId);
                     qiyebaoSms.SendSms(borrower.Phone, sContent);
                     WechatPushMessage wechatpushMessage = new WechatPushMessage();
-                    wechatpushMessage.SuccessfulReminder(borrower.FullName, borrower.WeiXinId, recharge.CreateTime.Value.ToString("yyyy年MM月dd日"), TotalFee / 100 + "元");
+                    //wechatpushMessage.SuccessfulReminder(borrower.FullName, borrower.WeiXinId, recharge.CreateTime.Value.ToString("yyyy年MM月dd日"), TotalFee / 100 + "元");
 
-                    sContent = string.Format("客户{0}已经回款，金额{1}元【车1号】", borrower.FullName, TotalFee / 100);
+                    //sContent = string.Format("客户{0}已经支付融资租赁费，金额{1}元【车1号】", borrower.FullName, TotalFee / 100);
                     LoanApplyService loanapplyService = new LoanApplyService();
                     LoanApply loanapply = loanapplyService.Search(new LoanApply()
                     {
                         IsValid = true,
                         BorrowerId = borrower.Id
                     }).OrderByDescending(o => o.CreateTime).SingleOrDefault();
+
+
                     //qiyebaoSms.SendSms("13763395495", sContent);
                     //qiyebaoSms.SendSms("18665573095", sContent);
                     Borrower salesman = borrowerService.GetById(loanapply.SalesmanId);
                     //qiyebaoSms.SendSms(salesman.Phone, sContent);
-
+                    if (loanapply.RepaymentStatus == CreditStatus.还款完成)
+                    {
+                        sContent = string.Format("尊敬的{0}客户您好，您在广州翼速融资租赁有限公司办理的电单车融资租赁业务已全部结清，感谢您对我们工作的支持。详询020-89851216【车1号】", borrower.FullName);
+                        qiyebaoSms.SendSms(borrower.Phone, sContent);
+                    }
                     if (!string.IsNullOrEmpty(salesman.WeiXinId))
                     {
                         wechatpushMessage.CustomerReminder(salesman.WeiXinId, borrower.FullName, (TotalFee / 100).ToString("N0") + "元", DateTime.Now.ToString("yyyy年MM月dd日"));

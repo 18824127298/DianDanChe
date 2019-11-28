@@ -121,8 +121,8 @@ l.TotalAmountStage, l.Deadline, l.CustomerClassification, l.AuditTime,l.Id from 
                 borrow.BreachAmount = 0;
                 if (i + 1 == loanapply.Deadline)
                 {
-                    borrow.Principal = loanapply.TotalAmountStage.Value - avgPrincipal * (loanapply.Deadline - 1);
-                    borrow.UnPrincipal = loanapply.TotalAmountStage.Value - avgPrincipal * (loanapply.Deadline - 1);
+                    borrow.Principal = loanapply.TotalAmountStage.Value - avgPrincipal * (loanapply.Deadline - 1) + 1;
+                    borrow.UnPrincipal = loanapply.TotalAmountStage.Value - avgPrincipal * (loanapply.Deadline - 1) + 1;
                     borrow.Interest = loanapply.MonthlyPayment.Value - borrow.Principal;
                     borrow.UnTotalInterest = loanapply.MonthlyPayment.Value - borrow.UnPrincipal;
                 }

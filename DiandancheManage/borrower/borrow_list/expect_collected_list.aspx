@@ -58,16 +58,16 @@
     <form id="form1" runat="server">
         <div class=" w800 fr border" style="width: 100%">
             <div class="news-title">
-                <h3>预计每月汇款金额列表</h3>
+                <h3>预计每月回款金额列表</h3>
             </div>
             <div class="pd20">
                 <table width="100%" border="0" class="table01" id="FinanceLogTable">
                     <thead>
                         <tr>
-                            <th>年月份 </th>
-                            <th>预计回款本金</th>
+                            <th>年月份</th>
+                            <th>预计回款融资租赁总额</th>
                             <th>预计回款手续费</th>
-                            <th>预计回款总金额</th>
+                            <th>预计回款融资租赁费</th>
                             <th>提还总金额</th>
                         </tr>
                     </thead>

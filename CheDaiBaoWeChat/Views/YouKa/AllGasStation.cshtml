@@ -1,0 +1,391 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "所有的加油站";
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>加油详情</title>
+    <meta name="divport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="~/Content/youka/css/demo3.css" rel="stylesheet" />
+    <script src="~/Content/youka/js/fastclick.js"></script>
+    <script src="~/Content/youka/js/jquery.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+            document.addEventListener('DOMContentLoaded', function (e) {
+                var doc = document
+                var win = window
+                var docEl = win.document.documentElement;
+                var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+                var metaEl = doc.querySelector('meta[name="viewport"]');
+                var dpr = 0;
+                var scale = 0;
+                // 对iOS设备进行dpr的判断，对于Android系列，始终认为其dpr为1
+                if (!dpr && !scale) {
+                    var isAndroid = win.navigator.appVersion.match(/android/gi);
+                    var isIPhone = win.navigator.appVersion.match(/[iphone|ipad]/gi);
+                    var devicePixelRatio = win.devicePixelRatio;
+
+                    if (isIPhone) {
+                        dpr = devicePixelRatio;
+                    } else {
+                        drp = 1;
+                    }
+
+                    scale = 1 / dpr;
+                }
+                docEl.setAttribute('data-dpr', dpr);
+                if (!metaEl) {
+                    metaEl = doc.createElement('meta');
+                    metaEl.setAttribute('name', 'viewport');
+                    metaEl.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale +
+                      ', minimum-scale=' + scale + ', user-scalable=no');
+                    document.documentElement.firstElementChild.appendChild(metaEl);
+                } else {
+                    metaEl.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale +
+                      ', minimum-scale=' + scale + ', user-scalable=no');
+                }
+                document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
+            }, false);
+            window.onresize = function () {
+                document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
+            }
+            $(function () {
+                FastClick.attach(document.body);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="select_bar rflex">
+            <div class="select_item">
+                <div class="top_item1 rflex">
+                    <div class="show1_item" data="6">200km内</div>
+                    <div>
+                        <img src="~/Content/youka/img/down.png" class="down_img" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="select_item">
+                <div class="top_item2 rflex">
+                    <div class="show2_item" data="4">0#</div>
+                    <div>
+                        <img src="~/Content/youka/img/down.png" class="down_img" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="select_item">
+                <div class="top_item3 rflex">
+                    <div class="show3_item" data="1">距离优先</div>
+                    <div>
+                        <img src="~/Content/youka/img/down.png" class="down_img" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="select_item">
+                <div class="top_item4 rflex">
+                    <div class="show4_item" data="1">全部品牌</div>
+                    <div>
+                        <img src="~/Content/youka/img/down.png" class="down_img" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="show_bar">
+            <div class="baro bottom1_item clearfix">
+                <div class="sflex">
+                    <div class="hide1_item" data="1_5km内">5km内</div>
+                    <div class="hide1_item" data="2_10km内">10km内</div>
+                    <div class="hide1_item" data="3_20km内">20km内</div>
+                </div>
+                <div class="sflex">
+                    <div class="hide1_item" data="4_30km内">30km内</div>
+                    <div class="hide1_item" data="5_50km内">50km内</div>
+                    <div class="hide1_item active" data="6_200km内">200km内</div>
+                </div>
+            </div>
+            <div class="baro bottom2_item clearfix">
+                <div class="bar_h1">汽油</div>
+                <div class="sflex">
+                    <div class="hide2_item" data="1_92#">92#</div>
+                    <div class="hide2_item" data="2_95#">95#</div>
+                    <div class="hide2_item" data="3_98#">98#</div>
+                </div>
+           @*     <div class="sflex">
+                    <div class="hide2_item" data="4_95#">95#</div>
+                </div>*@
+                <div class="bar_h1">柴油</div>
+                <div class="sflex">
+                    <div class="hide2_item active" data="4_0#">0#</div>
+                    @*<div class="hide2_item" data="2_93#">93#</div>
+                    <div class="hide2_item" data="3_94#">94#</div>*@
+                </div>
+               @* <div class="sflex">
+                    <div class="hide2_item" data="4_95#">95#</div>
+                </div>*@
+            </div>
+            <div class="baro bottom3_item clearfix">
+                <div class="sflex">
+                    <div class="hide3_item active" data="1_距离优先">距离优先</div>
+                    <div class="hide3_item" data="2_价格优先">价格优先</div>
+@*                    <div class="hide3_item" data="3_销量优先">销量优先</div>*@
+                </div>
+           @*     <div class="sflex">
+                    <div class="hide3_item" data="4_距离优先">距离优先</div>
+                </div>*@
+            </div>
+            <div class="baro bottom4_item clearfix">
+                <div class="sflex">
+                    <div class="hide4_item active" data="1_全部品牌">全部品牌</div>
+                  @*  <div class="hide4_item" data="2_品牌1">品牌1</div>
+                    <div class="hide4_item" data="3_品牌2">品牌2</div>*@
+                </div>
+              @*  <div class="sflex">
+                    <div class="hide4_item" data="4_品牌3">品牌3</div>
+                </div>*@
+            </div>
+        </div>
+
+        <div class="content" id="gsHtml">
+        </div>
+
+
+        <div class="footer rflex">
+            <div class="footer_item flex1 cflex" onclick="fn_GasStation()">
+                <div class="item_wrap rflex flex1">
+                    <div class="top_wrap flex11">
+                        <img src="~/Content/youka/img/tab1.png" alt="" class="footer_img">
+                    </div>
+                </div>
+                <div class="footer_text green_text">加油</div>
+            </div>
+            <div class="footer_item flex1 cflex" onclick="fn_OrdersRecord()">
+                <div class="item_wrap rflex flex1">
+                    <div class="top_wrap flex1">
+                        <img src="~/Content/youka/img/tab2.png" alt="" class="footer_img">
+                    </div>
+                </div>
+                <div class="footer_text flex1">我的</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function fn_GasStation() {
+            window.location.href = "../YouKa/AllGasStation";
+        }
+        function fn_OrdersRecord() {
+            window.location.href = "../YouKa/OrdersRecord";
+        }
+
+        $(".top_item1").click(function () {
+            var k = $(".bottom1_item").css("display")
+            if (k === "none") {
+                $(".baro").hide()
+                $(".bottom1_item").slideDown()
+            } else {
+                $(".bottom1_item").slideUp()
+            }
+        })
+        $(".top_item2").click(function () {
+            var k = $(".bottom2_item").css("display")
+            if (k === "none") {
+                $(".baro").hide()
+                $(".bottom2_item").slideDown()
+            } else {
+                $(".bottom2_item").slideUp()
+            }
+        })
+        $(".top_item3").click(function () {
+            var k = $(".bottom3_item").css("display")
+            if (k === "none") {
+                $(".baro").hide()
+                $(".bottom3_item").slideDown()
+            } else {
+                $(".bottom3_item").slideUp()
+            }
+        })
+        $(".top_item4").click(function () {
+            var k = $(".bottom4_item").css("display")
+            if (k === "none") {
+                $(".baro").hide()
+                $(".bottom4_item").slideDown()
+            } else {
+                $(".bottom4_item").slideUp()
+            }
+        })
+        //距离选择触发
+        $(".hide1_item").click(function () {
+            var k = $(this).attr("data").split("_")
+            $(".hide1_item").removeClass("active")
+            $(this).addClass("active")
+            $(".show1_item").text(k[1])
+            $(this).parent().parent().slideUp()
+            $(".show1_item").attr("data", k[0])
+            //此处触发ajax
+            submitSearch()
+        })
+        //油号选择触发
+        $(".hide2_item").click(function () {
+            var k = $(this).attr("data").split("_")
+            $(".hide2_item").removeClass("active")
+            $(this).addClass("active")
+            $(".show2_item").text(k[1])
+            $(this).parent().parent().slideUp()
+            $(".show2_item").attr("data", k[0])
+            //此处触发ajax
+            submitSearch()
+        })
+        //优先选择触发
+        $(".hide3_item").click(function () {
+            var k = $(this).attr("data").split("_")
+            $(".hide3_item").removeClass("active")
+            $(this).addClass("active")
+            $(".show3_item").text(k[1])
+            $(this).parent().parent().slideUp()
+            $(".show3_item").attr("data", k[0])
+            //此处触发ajax
+            submitSearch()
+        })
+        //品牌选择触发
+        $(".hide4_item").click(function () {
+            var k = $(this).attr("data").split("_")
+            $(".hide4_item").removeClass("active")
+            $(this).addClass("active")
+            $(".show4_item").text(k[1])
+            $(this).parent().parent().slideUp()
+            $(".show4_item").attr("data", k[0])
+            //此处触发ajax
+            submitSearch()
+        })
+
+
+        function submitSearch() {
+            wx.getLocation({
+                success: function (res) {
+                    $.ajax({
+                        url: '/YouKa/GetGasStation',
+                        type: 'post',
+                        async: false,//使用同步的方式,true为异步方式
+                        data: {
+                            latitude: res.latitude,
+                            longitude: res.longitude,
+                            juli: $(".show1_item").attr("data"), //距离
+                            youhao: $(".show2_item").attr("data"), //油号
+                            youxian: $(".show3_item").attr("data"), //优先
+                            pinpai: $(".show4_item").attr("data"), //品牌
+                            rn: Math.random()
+                        },//这里使用json对象
+                        success: function (json) {
+                            var html = "";
+                            for (var i = 0; i < json.length; i++) {
+                                html += "<div class=\"section\">";
+                                html += "<div class=\"top_sec\"  onclick = \"fn_gasstation('" + json[i].Id + "')\">" + json[i].Name + "</div>";
+                                html += "<div class=\"mid_sec\"  onclick = \"fn_gasstation('" + json[i].Id + "')\">";
+                                html += "<div class=\"mid_fir rflex\">";
+                                html += "<div class=\"small\">车1号价￥</div>";
+                                html += "<div class=\"blod\">" + ((parseFloat(json[i].Amount.toFixed(2)) - parseFloat(json[i].Reduction.toFixed(2)))).toFixed(2) + "</div></div>";
+                                html += "<div class=\"mid_tow\">已降￥" + (parseFloat(json[i].CountryMarkPrice.toFixed(2)) - parseFloat(json[i].Amount.toFixed(2)) + parseFloat(json[i].Reduction.toFixed(2))) + "</div>";
+                                html += "<div class=\"mid_th\"><s>国标价￥" + json[i].CountryMarkPrice.toFixed(2) + "</s></div></div>";
+                                html += "<div class=\"bottom_sec\"><div class=\"bot_left\">";
+                                html += "<img src=\"../Content/youka/img/dw.png\" class=\"dw_img\" alt=\"\">";
+                                html += "<div onclick = \"fn_gasstation('" + json[i].Id + "')\">" + json[i].AddressName + "</div>";
+                                html += "</div> <div class=\"bot_right\"  onclick = \"fn_map('" + json[i].AddressName + "','" + json[i].Name + "','" + json[i].Longitude + "','" + json[i].Dimension + "')\">";
+                                html += "<img src=\"../Content/youka/img/dh.png\" class=\"dh_img\" alt=\"\">";
+                                html += "<div>" + (parseFloat(json[i].Distance.toFixed(2))/1000).toFixed(2) + "km</div></div></div></div>";
+                            }
+                            $("#gsHtml").html(html);
+                        }
+                    });
+                },
+                cancel: function (res) {
+                    alert('用户拒绝授权获取地理位置');
+                }
+            });
+        }
+
+        $(function () {
+            var url = location.href.split('#')[0];
+            //从后端请求参数
+            $.post("GetWXSharedParam", { url: url, rn: Math.random() }, function (json) {
+                var data = $.parseJSON(json);
+                if (data.result === true) {
+                    wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: data.appId, // 必填，公众号的唯一标识
+                        timestamp: data.timestamp, // 必填，生成签名的时间戳
+                        nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                        signature: data.signature,// 必填，签名，见附录1
+                        ////menuItem: 'addContact',
+                        jsApiList: [
+                            'getLocation',
+                            'openLocation'
+                        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                    });
+                }
+            });
+        });
+        wx.ready(function () {
+            wx.checkJsApi({
+                success: function (res) {
+                    //alert(JSON.stringify(res));
+                    // alert(JSON.stringify(res.checkResult.getLocation));
+                    if (res.checkResult.getLocation == false) {
+                        alert('你的微信版本太低，不支持微信JS接口，请升级到最新的微信版本！');
+                        return;
+                    }
+                }
+            });
+            wx.error(function (res) {
+                alert("接口调取失败")
+            });
+            submitSearch();
+
+
+        });
+
+        function fn_map(AddressName, Name, Longitude, Dimension) {
+            //window.location.href = 'http://apis.map.qq.com/uri/v1/marker?marker=coord:' + Dimension + ',' + Longitude + ';title:' + Name + ';addr: ' + AddressName + '';
+            wx.openLocation({
+                latitude: Number(Dimension), // 纬度，浮点数，范围为90 ~ -90
+                longitude: Number(Longitude), // 经度，浮点数，范围为180 ~ -180。
+                name: Name, // 位置名
+                address: AddressName, // 地址详情说明
+                scale: 15, // 地图缩放级别,整形值,范围从1~28。默认为最大
+            });
+        };
+
+        function fn_gasstation(Id) {
+            window.location.href = '../YouKa/FillBill?Id=' + Id;
+        }
+
+        window.alert = function (name) {
+            var iframe = document.createElement("IFRAME");
+            iframe.style.display = "none";
+            iframe.setAttribute("src", 'data:text/plain,');
+            document.documentElement.appendChild(iframe);
+            window.frames[0].window.alert(name);
+            iframe.parentNode.removeChild(iframe);
+        };
+
+        window.confirm = function (message) {
+            var iframe = document.createElement("IFRAME");
+            iframe.style.display = "none";
+            iframe.setAttribute("src", 'data:text/plain,');
+            document.documentElement.appendChild(iframe);
+            var alertFrame = window.frames[0];
+            var result = alertFrame.window.confirm(message);
+            iframe.parentNode.removeChild(iframe);
+            return result;
+        };
+    </script>
+</body>
+
+</html>

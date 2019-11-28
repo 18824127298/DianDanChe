@@ -1,0 +1,62 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "会员中心主页";
+}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/youka/css/demo1.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+</head>
+
+<body class="bodybg">
+    <header style="display: none">
+        <a class="back" href="javascript:history.go(-1)"></a>
+        <h1 class="h01">会员中心主页</h1>
+    </header>
+    <div class="myban">
+        <div class="myPic">
+            <a href="http://wx.che01.com/files.php">
+                <img src="@ViewBag.HeadImgurl"></a>
+        </div>
+        <div class="myTxt">
+            <p>@ViewBag.NickName</p>
+            <p>@ViewBag.Phone</p>
+        </div>
+    </div>
+    <div class="qbCon2">
+        <ul class="myUl">
+            <li><a href="~/YouKa/OrdersRecord">会员交易记录<i></i></a></li>
+        </ul>
+    </div>
+    <div class="footer rflex">
+        <div class="footer_item flex1 cflex">
+            <a href="~/YouKa/AllGasStation">
+                <div class="item_wrap rflex flex1">
+                    <div class="top_wrap flex11">
+                        <img src="~/Content/youka/img/tab1.png" alt="" class="footer_img">
+                    </div>
+                </div>
+            </a>
+            <div class="footer_text green_text">加油</div>
+        </div>
+        <div class="footer_item flex1 cflex">
+            <a href="~/Member/Index">
+                <div class="item_wrap rflex flex1">
+                    <div class="top_wrap flex1">
+                        <img src="~/Content/youka/img/tab2.png" alt="" class="footer_img">
+                    </div>
+                </div>
+            </a>
+            <div class="footer_text flex1">我的</div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    function fn_AllGasStation() {
+        location.href = "../YouKa/AllGasStation";
+    }
+</script>
+

@@ -61,12 +61,12 @@ public partial class caiwu_caiwu_zhidan_deposit_refund_audit : SbtPageBase
         string sRecharegAlias = borrower.Phone;
 
 
-        if (refund.IsAudit != null)
-        {
-            msgPage.MessageText = "该记录已经审核操作过了，无需再进行审核操作";
-            msgPage.Show();
-            return;
-        }
+        //if (refund.IsAudit != null)
+        //{
+        //    msgPage.MessageText = "该记录已经审核操作过了，无需再进行审核操作";
+        //    msgPage.Show();
+        //    return;
+        //}
 
         RechargeService rechargeService = new RechargeService();
         Recharge recharge = rechargeService.GetById(refund.ReChargeId);

@@ -50,12 +50,12 @@
                                         <%# VIVSalesmanName(Eval("SalesmanId")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="UnPrincipal" HeaderText="未还本金" SortExpression="UnPrincipal">
+                                <asp:BoundField DataField="UnPrincipal" HeaderText="未还融资租赁总额" SortExpression="UnPrincipal">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="UnTotalInterest" HeaderText="未还总手续费" SortExpression="UnTotalInterest">
                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
+                                </asp:BoundField> 
                                 <asp:BoundField DataField="Brand" HeaderText="逾期手续费" SortExpression="Brand">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
@@ -65,10 +65,10 @@
                                 <asp:BoundField DataField="TotalPeriod" HeaderText="总期次" SortExpression="TotalPeriod">
                                     <ItemStyle HorizontalAlign="Center" /> 
                                 </asp:BoundField>
-                                <asp:TemplateField HeaderText="还款">
+                                <asp:TemplateField HeaderText="支付">
                                     <ItemStyle HorizontalAlign="Center" Width="10%" />
                                     <ItemTemplate>
-                                        <input name="button_test" type="button" value="还款" onclick="fn_huankuan(<%#Eval("Id") %>,<%#Eval("lId") %>)" />
+                                        <input name="button_test" type="button" value="支付" onclick="fn_huankuan(<%#Eval("Id") %>,<%#Eval("lId") %>)" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

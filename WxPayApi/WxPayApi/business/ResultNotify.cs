@@ -56,13 +56,26 @@ namespace WxPayApi
                 //跟本地订单作比较
                 try
                 {
-                    RechargeService rechargeService = new RechargeService();
-                    rechargeService.RechargeCompare(notifyData.GetValue("out_trade_no").ToString(), notifyData.GetValue("transaction_id").ToString(),
-                        notifyData.GetValue("openid").ToString(), ConvertUtil.ToInt(notifyData.GetValue("total_fee")), notifyData.GetValue("bank_type").ToString(), notifyData.GetValue("attach").ToString());
-                    res.SetValue("return_code", "SUCCESS");
-                    res.SetValue("return_msg", "OK");
-                    DebugLogger.LogDebugMessage(this.GetType().ToString() + "order query success : " + res.ToXml());
-                    page.Response.Write(res.ToXml());
+                    if (notifyData.GetValue("attach").ToString() == "加油")
+                    {
+                        PaymentFormService paymentFormService = new PaymentFormService();
+                        paymentFormService.PaymentFormCompare(notifyData.GetValue("out_trade_no").ToString(), notifyData.GetValue("transaction_id").ToString(),
+                            notifyData.GetValue("openid").ToString(), ConvertUtil.ToInt(notifyData.GetValue("total_fee")));
+                        res.SetValue("return_code", "SUCCESS");
+                        res.SetValue("return_msg", "OK");
+                        DebugLogger.LogDebugMessage(this.GetType().ToString() + "order query success : " + res.ToXml());
+                        page.Response.Write(res.ToXml());
+                    }
+                    else
+                    {
+                        RechargeService rechargeService = new RechargeService();
+                        rechargeService.RechargeCompare(notifyData.GetValue("out_trade_no").ToString(), notifyData.GetValue("transaction_id").ToString(),
+                            notifyData.GetValue("openid").ToString(), ConvertUtil.ToInt(notifyData.GetValue("total_fee")), notifyData.GetValue("bank_type").ToString(), notifyData.GetValue("attach").ToString());
+                        res.SetValue("return_code", "SUCCESS");
+                        res.SetValue("return_msg", "OK");
+                        DebugLogger.LogDebugMessage(this.GetType().ToString() + "order query success : " + res.ToXml());
+                        page.Response.Write(res.ToXml());
+                    }
                 }
                 catch (Exception ex)
                 {

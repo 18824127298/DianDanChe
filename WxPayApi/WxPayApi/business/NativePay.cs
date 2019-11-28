@@ -37,7 +37,7 @@ namespace WxPayApi
         */
         public string GetPayUrl(string productId)
         {
-            Log.Info(this.GetType().ToString(), "Native pay mode 2 url is producing...");
+            DebugLogger.LogDebugMessage(this.GetType().ToString(), "Native pay mode 2 url is producing...");
 
             WxPayData data = new WxPayData();
             data.SetValue("body", "test");//商品描述
@@ -53,7 +53,7 @@ namespace WxPayApi
             WxPayData result = WxPayApi.UnifiedOrder(data);//调用统一下单接口
             string url = result.GetValue("code_url").ToString();//获得统一下单接口返回的二维码链接
 
-            Log.Info(this.GetType().ToString(), "Get native pay mode 2 url : " + url);
+            DebugLogger.LogDebugMessage(this.GetType().ToString(), "Get native pay mode 2 url : " + url);
             return url;
         }
 

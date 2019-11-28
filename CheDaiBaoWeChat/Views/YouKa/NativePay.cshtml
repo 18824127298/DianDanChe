@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "支付内容填写";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width">
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.3.js"></script>
+    <style type="text/css">
+        .myUl5 li {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body class="bodybg">
+    @using (Html.BeginForm("RentInformation", "Loan", FormMethod.Post, new { id = "RentInformation" }))
+    {
+        <div class="qbCon">
+            <ul class="myUl5">
+                <li>&nbsp;价格 <span>
+                    <input type="tel" name="Price" id="Price" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="押金"></span> </li>
+
+                <li>&nbsp;油类 <span>
+                    <input type="tel" name="Oils" id="Oils" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="租金"></span> </li>
+
+                <li>&nbsp;容量 <span>
+                    <input type="text" name="Capacity" id="Capacity" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="电单车编号"></span> </li>
+            </ul>
+        </div>
+        <input type="button" onclick="fn_tijiao()" class="userbtn" id="tijiao" value="提交">
+    }
+
+    <script type="text/javascript">
+
+    </script>
+
+
+</body>
+</html>
+

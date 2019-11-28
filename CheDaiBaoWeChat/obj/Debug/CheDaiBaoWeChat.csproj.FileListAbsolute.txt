@@ -139,3 +139,5 @@ D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChat\bin\LitJson.
 D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChat\bin\WxPayApi.pdb
 D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChat\bin\System.Web.Mvc.dll
 D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChat\bin\zh-Hans\System.Web.Mvc.resources.dll
+D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChat\bin\JiaYouWxPayApi.dll
+D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChat\bin\JiaYouWxPayApi.pdb

@@ -55,16 +55,22 @@
     <Compile Include="Controllers\GodController.cs" />
     <Compile Include="Controllers\GodServiceController.cs" />
     <Compile Include="Controllers\LoanController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\PictureUploadController.cs" />
     <Compile Include="Controllers\ReceiveController.cs" />
     <Compile Include="Controllers\RechargeController.cs" />
     <Compile Include="Controllers\WxSharedController.cs" />
+    <Compile Include="Controllers\YouKaController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\code\diandanche\BaiDuSdk\BaiDuSdk\BaiDuSdk.csproj">
       <Project>{a3d287c6-0f0c-4dff-8d03-91e35370452d}</Project>
       <Name>BaiDuSdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\code\diandanche\JiaYouWxPayApi\JiaYouWxPayApi\JiaYouWxPayApi.csproj">
+      <Project>{5508f590-dbde-4bc4-acc7-b0c0dbaf19b9}</Project>
+      <Name>JiaYouWxPayApi</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\code\diandanche\WxPayApi\WxPayApi\WxPayApi.csproj">
       <Project>{a035cef3-9d79-4fbb-b251-3d5a4985406e}</Project>

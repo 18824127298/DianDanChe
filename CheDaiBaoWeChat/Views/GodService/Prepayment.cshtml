@@ -1,7 +1,7 @@
 ﻿@using CheDaiBaoWeChatModel.Models;
 @model Borrow
 @{
-    ViewBag.Title = "还款";
+    ViewBag.Title = "支付";
     int j = 0;
 }
 <head>
@@ -19,24 +19,24 @@
                 <div class="odd-ed">
                     <span class="fz30" style="color: #6e6e6e; padding-top: 105px;">本期账单未还金额</span>
                     <span class="fz40 p-t20" style="color: #b41f23" id="SumAmount">@(Model.UnPrincipal + Model.UnTotalInterest)</span>
-                    <span class="fz18 p-t30" style="color: #b41f23">最后还款日 @Model.RepaymentDate.Value.Date.ToString("yyyy年MM月dd日")</span>
+                    <span class="fz18 p-t30" style="color: #b41f23">最后支付日 @Model.RepaymentDate.Value.Date.ToString("yyyy年MM月dd日")</span>
                 </div>
             </div>
             @*@foreach (LoanApply item in LoanApplyList)
             {
                 <div class="fz20" style="padding: 30px 25px 0; color: #8E8D8D">
                     <input type="checkbox" name="Agree" value="@j" checked="checked" id="@(j)Agree" style="width: 25px; height: 25px">
-                    @item.CreditAmount.Value.ToString("N0")融资租赁未还金额为 @((item.OutstandingInterest.Value + item.UnPrincipal.Value + item.UnPrincipal.Value / 100 + Convert.ToDecimal(0.004)).ToString("N2"))元(含提前还款违约金 @((item.UnPrincipal.Value / 100 + Convert.ToDecimal(0.004)).ToString("N2")))元
+                    @item.CreditAmount.Value.ToString("N0")融资租赁未还金额为 @((item.OutstandingInterest.Value + item.UnPrincipal.Value + item.UnPrincipal.Value / 100 + Convert.ToDecimal(0.004)).ToString("N2"))元(含提前支付违约金 @((item.UnPrincipal.Value / 100 + Convert.ToDecimal(0.004)).ToString("N2")))元
                 </div>
                 <div class="refund m-t20" style="height: 68px; line-height: 68px;">
-                    <span class="fz25" style="display: block;">还款金额<input class="fz25" placeholder="输入还款金额" type="text"disabled="disabled" value="@((item.OutstandingInterest.Value + item.UnPrincipal.Value + item.UnPrincipal.Value / 100 + Convert.ToDecimal(0.004)).ToString("N2").Replace(",", ""))" id= "@(j)Amount" name="@(item.Id)"/></span>
+                    <span class="fz25" style="display: block;">还款金额<input class="fz25" placeholder="输入支付金额" type="text"disabled="disabled" value="@((item.OutstandingInterest.Value + item.UnPrincipal.Value + item.UnPrincipal.Value / 100 + Convert.ToDecimal(0.004)).ToString("N2").Replace(",", ""))" id= "@(j)Amount" name="@(item.Id)"/></span>
                 </div>
                 j++;
             }*@
             @if ((Model.UnPrincipal + Model.UnTotalInterest) > 0)
             {
                 <div class="p-t55 p-b40">
-                    <button class="confirm m-t25 fz25" onclick="fn_repayment()">确定还款</button>
+                    <button class="confirm m-t25 fz25" onclick="fn_repayment()">确定支付</button>
                 </div>
             }
         </div>

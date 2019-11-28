@@ -131,6 +131,12 @@ public partial class loan_loan_list_success_loans_list : SbtPageBase
         {
             sql += " and l.CreditPhone = " + StringUtil.QuotedToDBStr(edtCreditPhone.Text);
         }
+
+        if (edtSalesMan.Text.Trim() != "")
+        {
+            sql += " and b.FullName = " + StringUtil.QuotedToDBStr(edtSalesMan.Text);
+        }
+
         if (dpApplyFromTime.DateTimeString != "")
         {
             sql += " and l.AuditTime >= " + StringUtil.QuotedToDBStr(DateTimeUtil.BeginTimeOfDay(dpApplyFromTime.DateTimeString));

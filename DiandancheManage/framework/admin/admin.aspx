@@ -158,7 +158,7 @@
                             <font color="#4bb2df"><u>设为首页</u></font></a>
                     </td>
                     <td align="center" valign="middle" nowrap>
-                        <font color="#4bb2df">欢迎使用<a href="http://www.sigbit.com" target="_blank"><font color="#4bb2df">广州杰莱互联网综合应用平台</font></a>，本系统推荐运行在IE8.0。</font>
+                        <font color="#4bb2df">欢迎使用<a href="http://manage.che01.com" target="_blank"><font color="#4bb2df">广州翼速物联综合应用平台</font></a>，本系统推荐运行在IE8.0。</font>
                     </td>
                     <td width="80" align="center" valign="middle" nowrap></td>
                 </tr>

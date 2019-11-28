@@ -1,0 +1,20 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3413 ms / want 500 ms¡¿ 2019/11/14 14:31:38 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2318 ms / want 500 ms¡¿ 2019/11/14 15:31:37 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2503 ms / want 500 ms¡¿ 2019/11/14 16:29:35 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_MultiMapImpl¡¿¡¾actual 1113 ms / want 500 ms¡¿ 2019/11/14 16:30:26 ====
+
+                select * from PaymentForm p join GasStation g on p.GasStationId = g.Id
+join OilGun o on p.OilGunId = o.Id where p.IsValid= 1 and p.MemberId = @MemberId
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 5573 ms / want 500 ms¡¿ 2019/11/14 18:19:05 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 579 ms / want 500 ms¡¿ 2019/11/14 18:19:11 ====
+select * from GasStation where  IsValid=@IsValid
+

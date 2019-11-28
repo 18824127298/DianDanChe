@@ -1,0 +1,21 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2301 ms / want 500 ms¡¿ 2019/11/13 11:10:54 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 625 ms / want 500 ms¡¿ 2019/11/13 11:11:47 ====
+select OilNumber from OilGun where IsValid = 1 and GasStationId =2Group by OilNumber
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3051 ms / want 500 ms¡¿ 2019/11/13 11:54:37 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 7062 ms / want 500 ms¡¿ 2019/11/13 14:54:08 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2682 ms / want 500 ms¡¿ 2019/11/13 16:38:09 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 5467 ms / want 500 ms¡¿ 2019/11/13 16:39:16 ====
+select OilNumber from OilGun where IsValid = 1 and GasStationId =1Group by OilNumber
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1595 ms / want 500 ms¡¿ 2019/11/13 18:07:22 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+

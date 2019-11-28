@@ -77,3 +77,4 @@ D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatService\obj\D
 D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatService\obj\Debug\CheDaiBaoWeChatService.pdb
 D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatService\bin\Debug\System.Web.Mvc.dll
 D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatService\bin\Debug\zh-Hans\System.Web.Mvc.resources.dll
+D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatService\bin\Debug\Newtonsoft.Json.dll

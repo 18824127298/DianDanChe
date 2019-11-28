@@ -32,8 +32,8 @@
                                     <asp:ListItem Value='8'>通过单量</asp:ListItem>
                                     <asp:ListItem Value='3'>拒绝单量</asp:ListItem>
                                     <asp:ListItem Value='11'>撤销单量</asp:ListItem>
-                                    <asp:ListItem Value='5'>还款中</asp:ListItem>
-                                    <asp:ListItem Value='6'>还款完成</asp:ListItem>
+                                    <asp:ListItem Value='5'>支付中</asp:ListItem>
+                                    <asp:ListItem Value='6'>支付完成</asp:ListItem>
                                 </Items>
                             </asp:DropDownList>
                             &nbsp;客户的类型：
@@ -97,7 +97,13 @@
                                 <asp:BoundField DataField="RecruitmentName" HeaderText="招聘点名称" SortExpression="RecruitmentName">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="TotalAmountStage" HeaderText="分期总额" SortExpression="TotalAmountStage">
+                                <asp:BoundField DataField="TotalAmountStage" HeaderText="融资租赁总额" SortExpression="TotalAmountStage">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="MonthlyPayment" HeaderText="融资租赁费" SortExpression="MonthlyPayment">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="DownPayments" HeaderText="首付" SortExpression="DownPayments">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="Deadline" HeaderText="期数" SortExpression="Deadline">
