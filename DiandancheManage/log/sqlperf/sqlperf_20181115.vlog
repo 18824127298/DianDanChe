@@ -1,3 +1,0 @@
-==== ¡¾instanceDefault¡¿¡¾actual 569 ms / want 500 ms¡¿ 2018/11/15 14:41:52 ====
-select COUNT(*) FROM [Credit] WHERE [IsValid] =1 and ([CreditStatus] = 5 or [CreditStatus] = 6) and [CreditTime] < convert(NVARCHAR(10), getdate(), 120) and ([CreditMode] = 1 or [CreditMode] = 8 or [CreditMode] = 9) and [Name] NOT LIKE '%²âÊÔ%' and [Name] NOT LIKE '%¸£Àû%' and [CreditTime] < convert(NVARCHAR(10), getdate(), 120)
-

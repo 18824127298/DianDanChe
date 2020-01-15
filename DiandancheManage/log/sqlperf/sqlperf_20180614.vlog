@@ -1,8 +1,0 @@
-==== ¡¾instanceDefault¡¿¡¾actual 511 ms / want 500 ms¡¿ 2018/6/14 15:22:23 ====
-select parameter_value,     remarks              
-  from sbt_sys_parameter    
-  where application_name = 'sbt_license'
-    and parameter_class = 'id_features'
-    and parameter_name = 'system_full_name'
-
-

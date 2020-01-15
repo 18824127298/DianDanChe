@@ -31,6 +31,20 @@ namespace CheDaiBaoWeChatModel.Models
         [OriginalField]
         [Display(Name = "减免额")]
         public Decimal? Reduction { get; set; }
+
+        /// <summary>
+        /// 新的减免额
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "新的减免额")]
+        public Decimal? NewReduction { get; set; }
+
+        /// <summary>
+        /// 时间点
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "时间点")]
+        public DateTime? ReductionTime { get; set; }
     }
 
 }

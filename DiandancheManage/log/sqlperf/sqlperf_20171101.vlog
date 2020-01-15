@@ -1,3 +1,0 @@
-==== ¡¾instanceDefault¡¿¡¾actual 501 ms / want 500 ms¡¿ 2017/11/1 17:45:10 ====
-select * from sbt_sys_menu order by list_order, menu_name
-

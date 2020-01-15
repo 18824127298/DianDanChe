@@ -22,7 +22,7 @@ public partial class youka_gasstation_gasstation_list : SbtPageBase
         if (!IsPostBack)
         {
             CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql
-                       = @"select * from GasStation where IsValid = 1";
+                       = @"select g.*, s.Name as SupplierName from GasStation g join Supplier s on g.SupplierId = s.Id where g.IsValid = 1";
             if (CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql == "")
             {
                 CurrentPageStatus.DataViewStatus.SqlBuilder.PushSortField("CreateTime");
@@ -85,5 +85,28 @@ public partial class youka_gasstation_gasstation_list : SbtPageBase
         int nId = ConvertUtil.ToInt(oId);
         string sRet = "<a href=\"../oilgun/oilgun_list.aspx?Id=" + oId.ToString() + "\"><image src='../../images/menu_icon/erp.gif' title='查看' /></a>";
         return sRet;
+    }
+    protected void btnupdate_Click(object sender, EventArgs e)
+    {
+        if (CountryMarkPrice.Text == "")
+        {
+            Response.Write("<script language='javascript'>alert('国标价不能为空！')</script>");
+            return;
+        }
+        if (NewCountryPrice.Text == "")
+        {
+            Response.Write("<script language='javascript'>alert('新的国标价不能为空！')</script>");
+            return;
+        }
+        if (CountryPointTime.DateTimeString == "")
+        {
+            Response.Write("<script language='javascript'>alert('国标价时间点不能为空！')</script>");
+            return;
+        }
+        string sql = @"update OilGun set CountryMarkPrice = " + CountryMarkPrice.Text + @", NewCountryPrice = " + NewCountryPrice.Text
+            + @", CountryPointTime = " + StringUtil.QuotedToDBStr(CountryPointTime.DateTimeString) + @" where IsValid= 1 and  OilNumber = " + StringUtil.QuotedToDBStr(ddlOilNumber.SelectedValue);
+        DataHelper.Instance.ExecuteNonQuery(sql);
+        Response.Write("<script language='javascript'>alert('已修改成功！')</script>");
+        return;
     }
 }

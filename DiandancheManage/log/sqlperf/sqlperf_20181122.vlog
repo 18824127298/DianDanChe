@@ -1,3 +1,0 @@
-==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 754 ms / want 500 ms¡¿ 2018/11/22 11:55:01 ====
-select * from compact where 1=1  and [IsValid]=@IsValid
-

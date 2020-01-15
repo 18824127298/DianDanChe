@@ -190,7 +190,7 @@
                                         <asp:BoundField DataField="Phone" HeaderText="手机号" SortExpression="Phone">
                                             <ItemStyle HorizontalAlign="Center" />
                                         </asp:BoundField>
-                                        <asp:TemplateField HeaderText="是否知晓分期" SortExpression="IsKnowStages">
+                                        <asp:TemplateField HeaderText="是否知晓融资租赁" SortExpression="IsKnowStages">
                                             <ItemStyle HorizontalAlign="Center" />
                                             <ItemTemplate>
                                                 <%# VIVIsKnowStages(Eval("IsKnowStages")) %>

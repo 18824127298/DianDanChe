@@ -23,7 +23,7 @@ namespace CheDaiBaoWeChatController.Controllers
         {
             MemberService memberService = new MemberService();
             WeiXinModel WeiXin = (WeiXinModel)System.Web.HttpContext.Current.Session["WeiXin"];
-            Member member = memberService.Search(new Member() { IsValid = true }).Where(o => o.OpenId == WeiXin.OpenId).FirstOrDefault();
+            Member member = memberService.Search(new Member() { IsValid = true }).Where(o => o.OpenId == WeiXin.OpenId && !string.IsNullOrEmpty(o.Phone)).FirstOrDefault();
             if (member != null)
             {
                 return View();
@@ -111,7 +111,11 @@ namespace CheDaiBaoWeChatController.Controllers
                     gs.Distance = GetDistance(Convert.ToDouble(latitude), Convert.ToDouble(longitude), Convert.ToDouble(gs.Dimension), Convert.ToDouble(gs.Longitude));
                     if (gs.Distance < djuli)
                     {
-                        gs.Reduction = gasStationLevelService.Search(new GasStationLevel() { IsValid = true }).Where(o => o.MemberLevel == member.MemberLevel && o.GasStationId == gs.Id).Single().Reduction.Value;
+                        GasStationLevel gsl = gasStationLevelService.Search(new GasStationLevel() { IsValid = true }).Where(o => o.MemberLevel == member.MemberLevel && o.GasStationId == gs.Id).Single();
+                        if (gsl.ReductionTime > DateTime.Now)
+                            gs.Reduction = gsl.Reduction.Value;
+                        else
+                            gs.Reduction = gsl.NewReduction.Value;
                         newgasStationList.Add(gs);
                     }
                 }
@@ -121,7 +125,7 @@ namespace CheDaiBaoWeChatController.Controllers
                 }
                 if (youxian == "2")
                 {
-                    newgasStationList = newgasStationList.OrderBy(o => o.Amount - o.Reduction).ToList();
+                    newgasStationList = newgasStationList.OrderBy(o => o.Amount + o.Reduction).ToList();
                 }
                 return Json(newgasStationList);
             }
@@ -216,47 +220,214 @@ namespace CheDaiBaoWeChatController.Controllers
             Member member = memberService.Search(new Member() { IsValid = true }).Where(o => o.OpenId == WeiXin.OpenId).FirstOrDefault();
             if (member != null)
             {
+                PaymentFormService paymentformService = new PaymentFormService();
+                List<PaymentForm> paymentformList = paymentformService.Search(new PaymentForm() { IsValid = true }).Where(o => o.MemberId == member.Id && o.CreateTime.Value.Date == DateTime.Now.Date && o.IsAudit == true).ToList();
+                if (paymentformList.Count >= member.Count)
+                {
+                    return Json(new
+                    {
+                        Count = 1
+                    }, JsonRequestBehavior.AllowGet);
+                }
+
                 OilGunService oilgunService = new OilGunService();
                 OilGun oilgun = oilgunService.Search(new OilGun() { IsValid = true }).Where(o => o.GasStationId == Convert.ToInt32(Id) && o.OilNumber == OilNumber && o.GunNumber == Convert.ToInt32(GunNumber)).Single();
+
+                decimal godbounsAmount = 0;
+                GodBouns godbouns = new GodBouns();
+                if (Convert.ToDecimal(Amount) >= 300)
+                {
+                    GodBounsService godbounsService = new GodBounsService();
+                    godbouns = godbounsService.Search(new GodBouns() { IsValid = true }).Where(o => o.MemberId == member.Id && o.BounsStatus == BounsStatus.未使用).FirstOrDefault();
+                    if (godbouns != null)
+                    {
+                        godbounsAmount = godbouns.BounsAmount.Value;
+                    }
+                }
 
                 GasStationLevelService gasStationLevelService = new GasStationLevelService();
                 GasStationLevel gasStationLevel = gasStationLevelService.Search(new GasStationLevel() { IsValid = true }).Where(o => o.GasStationId == Convert.ToInt32(Id) && o.MemberLevel == member.MemberLevel).FirstOrDefault();
                 if (gasStationLevel != null)
                 {
+                    GasStationService gasStationService = new GasStationService();
+                    GasStation gasStation = gasStationService.GetById(Convert.ToInt32(Id));
+                    SupplierService supplierService = new SupplierService();
+                    Supplier supplier = supplierService.GetById(gasStation.SupplierId.Value);
+
+
                     Random r = new Random();
                     if (DateTime.Now < oilgun.PointTime)
                     {
-                        decimal? RiseNumber = Convert.ToDecimal(Amount) / oilgun.Amount;
-                        decimal? ActualAmount = Convert.ToDecimal((Convert.ToDecimal(Amount) / oilgun.Amount * (oilgun.Amount - gasStationLevel.Reduction)).Value.ToString("N2"));
-                        string orderNumber = "CYH-" + DateTime.Now.ToString("yyyyMMddHHmmss") + r.Next(0, 99999);
                         decimal dTotalNationalPrice = 0;
+
                         if (DateTime.Now < oilgun.CountryPointTime)
-                            dTotalNationalPrice = oilgun.CountryMarkPrice.Value * Convert.ToDecimal(Amount) / oilgun.Amount.Value;
-                        else
-                            dTotalNationalPrice = oilgun.NewCountryPrice.Value * Convert.ToDecimal(Amount) / oilgun.Amount.Value;
-                        int pId = CreatePayForm(Convert.ToInt32(Id), member.Id, Convert.ToDecimal(Amount), ActualAmount.Value, orderNumber, ActualAmount.Value * Convert.ToDecimal(0.003), RiseNumber.Value, oilgun.Id, dTotalNationalPrice);
-                        return Json(new
                         {
-                            pId = pId,
-                            ActualAmount = ActualAmount
-                        }, JsonRequestBehavior.AllowGet);
+                            dTotalNationalPrice = oilgun.CountryMarkPrice.Value * Convert.ToDecimal(Amount) / (oilgun.CountryMarkPrice.Value - oilgun.Amount.Value);
+                            decimal? RiseNumber = Convert.ToDecimal(Amount) / (oilgun.CountryMarkPrice.Value - oilgun.Amount.Value);
+                            decimal? ActualAmount = 0;
+                            if (DateTime.Now < gasStationLevel.ReductionTime)
+                                ActualAmount = Convert.ToDecimal((RiseNumber * (oilgun.CountryMarkPrice.Value - oilgun.Amount.Value - gasStationLevel.Reduction)).Value.ToString("N2")) - godbounsAmount;
+                            else
+                                ActualAmount = Convert.ToDecimal((RiseNumber * (oilgun.CountryMarkPrice.Value - oilgun.Amount.Value - gasStationLevel.NewReduction)).Value.ToString("N2")) - godbounsAmount;
+
+                            string orderNumber = "CYH-" + DateTime.Now.ToString("yyyyMMddHHmmss") + r.Next(0, 99999);
+
+                            decimal dSupplierAmount = 0;
+                            if (DateTime.Now < supplier.ConcessionalPointTime)
+                                dSupplierAmount = (oilgun.CountryMarkPrice.Value - oilgun.Amount.Value - supplier.Concessional.Value) * RiseNumber.Value;
+                            else
+                                dSupplierAmount = (oilgun.CountryMarkPrice.Value - oilgun.Amount.Value - supplier.NewConcessional.Value) * RiseNumber.Value;
+
+                            int pId = CreatePayForm(Convert.ToInt32(Id), member.Id, Convert.ToDecimal(Amount), ActualAmount.Value, orderNumber, ActualAmount.Value * Convert.ToDecimal(0.003), RiseNumber.Value, oilgun.Id, dTotalNationalPrice, godbounsAmount, dSupplierAmount);
+                            if (godbouns != null)
+                            {
+                                GodBounsRecordService godbounsRecordService = new GodBounsRecordService();
+                                godbounsRecordService.Insert(new GodBounsRecord()
+                                {
+                                    BounsId = godbouns.Id,
+                                    MemberId = member.Id,
+                                    RelationId = pId,
+                                    UseAmount = godbounsAmount,
+                                    UseType = BounsUseType.支付
+                                });
+                            }
+                            return Json(new
+                            {
+                                Count = 2,
+                                pId = pId,
+                                ActualAmount = ActualAmount,
+                                GodbounsAmount = godbounsAmount
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            dTotalNationalPrice = oilgun.NewCountryPrice.Value * Convert.ToDecimal(Amount) / (oilgun.NewCountryPrice.Value - oilgun.Amount.Value);
+                            decimal? RiseNumber = Convert.ToDecimal(Amount) / (oilgun.NewCountryPrice.Value - oilgun.Amount.Value);
+                            decimal? ActualAmount = 0;
+                            if (DateTime.Now < gasStationLevel.ReductionTime)
+                                ActualAmount = Convert.ToDecimal((RiseNumber * (oilgun.NewCountryPrice.Value - oilgun.Amount.Value - gasStationLevel.Reduction)).Value.ToString("N2")) - godbounsAmount;
+                            else
+                                ActualAmount = Convert.ToDecimal((RiseNumber * (oilgun.NewCountryPrice.Value - oilgun.Amount.Value - gasStationLevel.NewReduction)).Value.ToString("N2")) - godbounsAmount;
+
+                            string orderNumber = "CYH-" + DateTime.Now.ToString("yyyyMMddHHmmss") + r.Next(0, 99999);
+
+                            decimal dSupplierAmount = 0;
+                            if (DateTime.Now < supplier.ConcessionalPointTime)
+                                dSupplierAmount = (oilgun.NewCountryPrice.Value - oilgun.Amount.Value - supplier.Concessional.Value) * RiseNumber.Value;
+                            else
+                                dSupplierAmount = (oilgun.NewCountryPrice.Value - oilgun.Amount.Value - supplier.NewConcessional.Value) * RiseNumber.Value;
+
+                            int pId = CreatePayForm(Convert.ToInt32(Id), member.Id, Convert.ToDecimal(Amount), ActualAmount.Value, orderNumber, ActualAmount.Value * Convert.ToDecimal(0.003), RiseNumber.Value, oilgun.Id, dTotalNationalPrice, godbounsAmount, dSupplierAmount);
+                            if (godbouns != null)
+                            {
+                                GodBounsRecordService godbounsRecordService = new GodBounsRecordService();
+                                godbounsRecordService.Insert(new GodBounsRecord()
+                                {
+                                    BounsId = godbouns.Id,
+                                    MemberId = member.Id,
+                                    RelationId = pId,
+                                    UseAmount = godbounsAmount,
+                                    UseType = BounsUseType.支付
+                                });
+                            }
+                            return Json(new
+                            {
+                                Count = 2,
+                                pId = pId,
+                                ActualAmount = ActualAmount,
+                                GodbounsAmount = godbounsAmount
+                            }, JsonRequestBehavior.AllowGet);
+                        }
                     }
                     else
                     {
-                        decimal? RiseNumber = Convert.ToDecimal(Amount) / oilgun.NewAmount;
-                        decimal? ActualAmount = Convert.ToDecimal((Convert.ToDecimal(Amount) / oilgun.NewAmount * (oilgun.NewAmount - gasStationLevel.Reduction)).Value.ToString("N2"));
-                        string orderNumber = "CYH-" + DateTime.Now.ToString("yyyyMMddHHmmss") + r.Next(0, 99999);
                         decimal dTotalNationalPrice = 0;
                         if (DateTime.Now < oilgun.CountryPointTime)
-                            dTotalNationalPrice = oilgun.CountryMarkPrice.Value * Convert.ToDecimal(Amount) / oilgun.NewAmount.Value;
-                        else
-                            dTotalNationalPrice = oilgun.NewCountryPrice.Value * Convert.ToDecimal(Amount) / oilgun.NewAmount.Value;
-                        int pId = CreatePayForm(Convert.ToInt32(Id), member.Id, Convert.ToDecimal(Amount), ActualAmount.Value, orderNumber, ActualAmount.Value * Convert.ToDecimal(0.003), RiseNumber.Value, oilgun.Id, dTotalNationalPrice);
-                        return Json(new
                         {
-                            pId = pId,
-                            ActualAmount = ActualAmount
-                        }, JsonRequestBehavior.AllowGet);
+                            dTotalNationalPrice = oilgun.CountryMarkPrice.Value * Convert.ToDecimal(Amount) / (oilgun.CountryMarkPrice.Value - oilgun.NewAmount.Value);
+                            decimal? RiseNumber = Convert.ToDecimal(Amount) / (oilgun.CountryMarkPrice.Value - oilgun.NewAmount.Value);
+                            decimal? ActualAmount = 0;
+                            if (DateTime.Now < gasStationLevel.ReductionTime)
+                                ActualAmount = Convert.ToDecimal((RiseNumber * (oilgun.CountryMarkPrice.Value - oilgun.NewAmount.Value - gasStationLevel.Reduction)).Value.ToString("N2")) - godbounsAmount;
+                            else
+                                ActualAmount = Convert.ToDecimal((RiseNumber * (oilgun.CountryMarkPrice.Value - oilgun.NewAmount.Value - gasStationLevel.NewReduction)).Value.ToString("N2")) - godbounsAmount;
+
+                            string orderNumber = "CYH-" + DateTime.Now.ToString("yyyyMMddHHmmss") + r.Next(0, 99999);
+
+
+
+                            decimal dSupplierAmount = 0;
+                            if (DateTime.Now < supplier.ConcessionalPointTime)
+                                dSupplierAmount = (oilgun.CountryMarkPrice.Value - oilgun.NewAmount.Value - supplier.Concessional.Value) * RiseNumber.Value;
+                            else
+                                dSupplierAmount = (oilgun.CountryMarkPrice.Value - oilgun.NewAmount.Value - supplier.NewConcessional.Value) * RiseNumber.Value;
+
+
+                            int pId = CreatePayForm(Convert.ToInt32(Id), member.Id, Convert.ToDecimal(Amount), ActualAmount.Value, orderNumber, ActualAmount.Value * Convert.ToDecimal(0.003), RiseNumber.Value, oilgun.Id, dTotalNationalPrice, godbounsAmount, dSupplierAmount);
+                            if (godbouns != null)
+                            {
+                                GodBounsRecordService godbounsRecordService = new GodBounsRecordService();
+                                godbounsRecordService.Insert(new GodBounsRecord()
+                                {
+                                    BounsId = godbouns.Id,
+                                    MemberId = member.Id,
+                                    RelationId = pId,
+                                    UseAmount = godbounsAmount,
+                                    UseType = BounsUseType.支付,
+                                    IsEffective = false
+                                });
+                            }
+                            return Json(new
+                            {
+                                Count = 2,
+                                pId = pId,
+                                ActualAmount = ActualAmount,
+                                GodbounsAmount = godbounsAmount
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            dTotalNationalPrice = oilgun.NewCountryPrice.Value * Convert.ToDecimal(Amount) / (oilgun.NewCountryPrice.Value - oilgun.NewAmount.Value);
+                            decimal? RiseNumber = Convert.ToDecimal(Amount) / (oilgun.NewCountryPrice.Value - oilgun.NewAmount.Value);
+                            decimal? ActualAmount = 0;
+                            if (DateTime.Now < gasStationLevel.ReductionTime)
+                                ActualAmount = Convert.ToDecimal((RiseNumber * (oilgun.NewCountryPrice.Value - oilgun.NewAmount.Value - gasStationLevel.Reduction)).Value.ToString("N2")) - godbounsAmount;
+                            else
+                                ActualAmount = Convert.ToDecimal((RiseNumber * (oilgun.NewCountryPrice.Value - oilgun.NewAmount.Value - gasStationLevel.NewReduction)).Value.ToString("N2")) - godbounsAmount;
+
+                            string orderNumber = "CYH-" + DateTime.Now.ToString("yyyyMMddHHmmss") + r.Next(0, 99999);
+
+
+
+                            decimal dSupplierAmount = 0;
+                            if (DateTime.Now < supplier.ConcessionalPointTime)
+                                dSupplierAmount = (oilgun.NewCountryPrice.Value - oilgun.NewAmount.Value - supplier.Concessional.Value) * RiseNumber.Value;
+                            else
+                                dSupplierAmount = (oilgun.NewCountryPrice.Value - oilgun.NewAmount.Value - supplier.NewConcessional.Value) * RiseNumber.Value;
+
+
+                            int pId = CreatePayForm(Convert.ToInt32(Id), member.Id, Convert.ToDecimal(Amount), ActualAmount.Value, orderNumber, ActualAmount.Value * Convert.ToDecimal(0.003), RiseNumber.Value, oilgun.Id, dTotalNationalPrice, godbounsAmount, dSupplierAmount);
+                            if (godbouns != null)
+                            {
+                                GodBounsRecordService godbounsRecordService = new GodBounsRecordService();
+                                godbounsRecordService.Insert(new GodBounsRecord()
+                                {
+                                    BounsId = godbouns.Id,
+                                    MemberId = member.Id,
+                                    RelationId = pId,
+                                    UseAmount = godbounsAmount,
+                                    UseType = BounsUseType.支付,
+                                    IsEffective = false
+                                });
+                            }
+                            return Json(new
+                            {
+                                Count = 2,
+                                pId = pId,
+                                ActualAmount = ActualAmount,
+                                GodbounsAmount = godbounsAmount
+                            }, JsonRequestBehavior.AllowGet);
+                        }
                     }
                 }
                 else
@@ -270,7 +441,7 @@ namespace CheDaiBaoWeChatController.Controllers
             }
         }
 
-        private int CreatePayForm(int gasStationId, int memberId, decimal gasStationAmount, decimal actualAmount, string orderNumber, decimal recharegeFee, decimal riseNumber, int oilgunId, decimal dTotalNationalPrice)
+        private int CreatePayForm(int gasStationId, int memberId, decimal gasStationAmount, decimal actualAmount, string orderNumber, decimal recharegeFee, decimal riseNumber, int oilgunId, decimal dTotalNationalPrice, decimal godbounsAmount, decimal dSupplierAmount)
         {
             PaymentFormService paymentFormService = new PaymentFormService();
             int pId = paymentFormService.Insert(new PaymentForm()
@@ -285,7 +456,9 @@ namespace CheDaiBaoWeChatController.Controllers
                 ServiceFee = recharegeFee,
                 RiseNumber = riseNumber,
                 OilGunId = oilgunId,
-                PayMode = PayMode.微信公众号支付
+                GodbounsAmount = godbounsAmount,
+                PayMode = PayMode.微信公众号支付,
+                SupplierAmount = dSupplierAmount
             });
             return pId;
         }

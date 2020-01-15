@@ -1,0 +1,39 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 40621 ms / want 500 ms¡¿ 2019/12/12 12:00:26 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 4425 ms / want 500 ms¡¿ 2019/12/12 12:00:35 ====
+select * from loanapply where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 16979 ms / want 500 ms¡¿ 2019/12/12 14:56:34 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3533 ms / want 500 ms¡¿ 2019/12/12 14:56:41 ====
+select * from loanapply where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 1675 ms / want 500 ms¡¿ 2019/12/12 14:59:28 ====
+update member set [OpenId]=@OpenId,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 1675 ms / want 500 ms¡¿ 2019/12/12 14:59:28 ====
+update member set [OpenId]=@OpenId,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 26441 ms / want 500 ms¡¿ 2019/12/12 15:09:12 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2780 ms / want 500 ms¡¿ 2019/12/12 15:09:20 ====
+select * from loanapply where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 11159 ms / want 500 ms¡¿ 2019/12/12 15:11:43 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 836 ms / want 500 ms¡¿ 2019/12/12 15:11:44 ====
+select * from loanapply where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1043 ms / want 500 ms¡¿ 2019/12/12 15:11:51 ====
+select * from Member where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 2625 ms / want 500 ms¡¿ 2019/12/12 15:11:58 ====
+update member set [OpenId]=@OpenId,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 2625 ms / want 500 ms¡¿ 2019/12/12 15:11:58 ====
+update member set [OpenId]=@OpenId,[UpdateTime]=@UpdateTime where id=@Id
+

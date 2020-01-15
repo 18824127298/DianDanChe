@@ -26,16 +26,16 @@ public partial class caiwu_caiwu_zhidan_deposit_refund_audit : SbtPageBase
 
 
         //========== 4. 取数据 ==========
-        RefundService refundService = new RefundService();
-        CheDaiBaoWeChatModel.Models.Refund refund = refundService.GetById(ConvertUtil.ToInt(sRecordPrimaryKey));
+        LoanApplyService loanapplyService = new LoanApplyService();
+        LoanApply loanapply = loanapplyService.GetById(ConvertUtil.ToInt(sRecordPrimaryKey));
 
         BorrowerService borrowerService = new BorrowerService();
-        Borrower borrower = borrowerService.GetById(refund.BorrowerId);
+        Borrower borrower = borrowerService.GetById(loanapply.BorrowerId);
 
 
         //========== 5. 更新各控件的显示 ==========
         lblFullname.Text = borrower.FullName;
-        lblAmount.Text = refund.Amount.Value.ToString("N0");
+        edtAmount.Text = loanapply.Deposit.Value.ToString("N0");
     }
 
     protected void btnAudit_Click(object sender, EventArgs e)
@@ -47,175 +47,147 @@ public partial class caiwu_caiwu_zhidan_deposit_refund_audit : SbtPageBase
         string sRemark = edtRemark.Text.Trim();
         if (sRemark == "")
         {
-            lblErrMessage.Visible = true;
-            lblErrMessage.Text = "备注不能为空！";
-            edtRemark.Focus();
+            msgPage.MessageText = "备注不能为空";
+            msgPage.Show();
             return;
         }
-        RefundService refundService = new RefundService();
-        CheDaiBaoWeChatModel.Models.Refund refund = refundService.GetById(ConvertUtil.ToInt(nRecordPrimaryKey));
 
+        LoanApplyService loanapplyService = new LoanApplyService();
         BorrowerService borrowerService = new BorrowerService();
-        Borrower borrower = borrowerService.GetById(refund.BorrowerId);
+        LoanApply loanapply = loanapplyService.GetById(ConvertUtil.ToInt(ConvertUtil.ToInt(nRecordPrimaryKey)));
+        Borrower borrower = borrowerService.GetById(loanapply.BorrowerId);
+        FundsFlowService fundsflowService = new FundsFlowService();
+        FundsFlow payfundsflow = fundsflowService.Search(new FundsFlow() { IsValid = true }).Where(o => o.PayGodId == borrower.Id && o.FeeType == FeeType.押金 && o.IsFreeze == false).FirstOrDefault();
 
-        string sRecharegAlias = borrower.Phone;
-
-
-        //if (refund.IsAudit != null)
-        //{
-        //    msgPage.MessageText = "该记录已经审核操作过了，无需再进行审核操作";
-        //    msgPage.Show();
-        //    return;
-        //}
-
-        RechargeService rechargeService = new RechargeService();
-        Recharge recharge = rechargeService.GetById(refund.ReChargeId);
-        if (recharge == null)
+        if (payfundsflow == null)
         {
-            msgPage.MessageText = "找不到该笔充值记录";
+            msgPage.MessageText = "该用户没有押金资金流";
             msgPage.Show();
             return;
         }
-        if (recharge.IsAudit != true)
+        else
         {
-            msgPage.MessageText = "该充值订单未审核或者审核不通过";
-            msgPage.Show();
-            return;
-        }
-
-        try
-        {
-            Random r = new Random();
-            string out_refund_no = DateTime.Now.ToString("yyyyMMddHHmmss") + r.Next(0, 99999);
-
-            string result = WxPayApi.Refund.Run(recharge.TransactionId, recharge.OrderNumber, recharge.Amount.Value.ToString("N0"), (refund.Amount * 100).Value.ToString("N0"), out_refund_no);
-
-            DebugLogger.LogDebugMessage("单号" + out_refund_no + "押金回退结果" + result);
-
-
-            WxPayData data = new WxPayData();
-            data.FromXml(result);
-            if (data.GetValue("return_code").ToString() == "SUCCESS")
+            decimal? dAmount = 0;
+            FundsFlow incomefundsflow = fundsflowService.Search(new FundsFlow() { IsValid = true }).Where(o => o.IncomeGodId == borrower.Id && o.FeeType == FeeType.押金 && o.IsFreeze == false).FirstOrDefault();
+            if (incomefundsflow == null)
             {
-                refund.Auditor = CurrentUser.RealName;
-                refund.AuditRemark = sRemark;
-                refund.IsAudit = true;
-                refund.AuditTime = DateTime.Now;
-                refund.OutRefundNo = data.GetValue("out_refund_no").ToString();
-                refund.RefundId = data.GetValue("refund_id").ToString();
-                refund.RefundTime = DateTime.Now;
-
-                refundService.Update(refund);
-
-                FundsFlowService fundsflowService = new FundsFlowService();
-
-                fundsflowService.Update(new FundsFlow()
-                {
-                    Id = refund.FundsFlowId,
-                    IsFreeze = false
-                });
-                fundsflowService.Insert(new FundsFlow()
-                {
-                    Amount = refund.Amount,
-                    FeeType = FeeType.押金回退,
-                    IncomeGodId = recharge.BorrowerId,
-                    IsFreeze = false,
-                    PayGodId = 2,
-                    Remark = "退回用户押金",
-                    IsComputing = true,
-                    RelationId = refund.Id
-                });
-
-
-                OperaService operaService = new OperaService();
-                operaService.Insert(new Opera()
-                {
-                    OperaType = OperaType.押金回退操作,
-                    BorrowerId = borrower.Id,
-                    RelationId = nRecordPrimaryKey,
-                    Remark = sRemark,
-                    ClientAddress = Request.UserHostAddress
-                });
-
-                SbtAppLogger.LogAction("押金退回审核通过", string.Format("退回用户{0},退回金额{1},退回时间{2},操作备注:{3};",
-                    borrower.Aliases, refund.Amount.Value.ToString("0.00"), refund.AuditTime.Value.ToString("yyyy-MM-dd HH:mm:ss"), sRemark));
-
-
-                msgPage.MessageText = "押金退回审核通过";
-                msgPage.Show();
+                dAmount = payfundsflow.Amount;
             }
             else
             {
-                refund.Auditor = CurrentUser.RealName;
-                refund.AuditRemark = sRemark;
-                refund.IsAudit = false;
-                refund.AuditTime = DateTime.Now;
-                refund.OutRefundNo = out_refund_no;
-                refund.Reason = data.GetValue("err_code_des").ToString();
-
-                refundService.Update(refund);
-
-                msgPage.MessageText = "押金退回审核未通过" + data.GetValue("err_code_des").ToString();
-                msgPage.Show();
+                dAmount = payfundsflow.Amount - incomefundsflow.Amount;
             }
+            if (dAmount == 0)
+            {
+                msgPage.MessageText = "该用户已经押金退款，请勿重复退款";
+                msgPage.Show();
+                return;
+            }
+            else
+            {
+                RefundService refundService = new RefundService();
 
+                string sRecharegAlias = borrower.Phone;
+
+
+                RechargeService rechargeService = new RechargeService();
+                Recharge recharge = rechargeService.GetById(payfundsflow.RelationId);
+                if (recharge == null)
+                {
+                    msgPage.MessageText = "找不到该笔充值记录";
+                    msgPage.Show();
+                    return;
+                }
+                if (recharge.IsAudit != true)
+                {
+                    msgPage.MessageText = "该充值订单未审核或者审核不通过";
+                    msgPage.Show();
+                    return;
+                }
+
+                try
+                {
+                    Random r = new Random();
+                    string out_refund_no = DateTime.Now.ToString("yyyyMMddHHmmss") + r.Next(0, 99999);
+
+                    string result = WxPayApi.Refund.Run(recharge.TransactionId, recharge.OrderNumber, recharge.Amount.Value.ToString("N0"), (ConvertUtil.ToDecimal(edtAmount.Text) * 100).ToString("N0"), out_refund_no);
+
+                    DebugLogger.LogDebugMessage("单号" + out_refund_no + "押金回退结果" + result);
+
+
+                    WxPayData data = new WxPayData();
+                    data.FromXml(result);
+                    if (data.GetValue("return_code").ToString() == "SUCCESS")
+                    {
+                        CheDaiBaoWeChatModel.Models.Refund refund = new CheDaiBaoWeChatModel.Models.Refund();
+                        refund.Amount = dAmount;
+                        refund.BorrowerId = borrower.Id;
+                        refund.ReChargeId = payfundsflow.RelationId;
+                        refund.FundsFlowId = payfundsflow.Id;
+                        refund.Auditor = CurrentUser.RealName;
+                        refund.AuditRemark = sRemark;
+                        refund.IsAudit = true;
+                        refund.AuditTime = DateTime.Now;
+                        refund.OutRefundNo = data.GetValue("out_refund_no").ToString();
+                        refund.RefundId = data.GetValue("refund_id").ToString();
+                        refund.RefundTime = DateTime.Now;
+
+                        refundService.Insert(refund);
+
+                        fundsflowService.Insert(new FundsFlow()
+                        {
+                            Amount = refund.Amount,
+                            FeeType = FeeType.押金回退,
+                            IncomeGodId = recharge.BorrowerId,
+                            IsFreeze = false,
+                            PayGodId = 2,
+                            Remark = "退回用户押金",
+                            IsComputing = true,
+                            RelationId = refund.Id
+                        });
+
+                        loanapply.unDeposit = -1;
+                        loanapplyService.Update(loanapply);
+
+                        OperaService operaService = new OperaService();
+                        operaService.Insert(new Opera()
+                        {
+                            OperaType = OperaType.押金回退操作,
+                            BorrowerId = borrower.Id,
+                            RelationId = nRecordPrimaryKey,
+                            Remark = sRemark,
+                            ClientAddress = Request.UserHostAddress
+                        });
+
+                        SbtAppLogger.LogAction("押金退回审核通过", string.Format("退回用户{0},退回金额{1},退回时间{2},操作备注:{3};",
+                            borrower.Aliases, refund.Amount.Value.ToString("0.00"), refund.AuditTime.Value.ToString("yyyy-MM-dd HH:mm:ss"), sRemark));
+
+
+                        msgPage.MessageText = "押金退回审核通过";
+                        msgPage.Show();
+                    }
+                    else
+                    {
+                        msgPage.MessageText = "押金退回审核未通过" + data.GetValue("err_code_des").ToString();
+                        msgPage.Show();
+                    }
+
+                }
+                catch (WxPayException ex)
+                {
+                    msgPage.MessageText = ex.ToString();
+                    msgPage.Show();
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    msgPage.MessageText = ex.ToString();
+                    msgPage.Show();
+                    return;
+                }
+            }
         }
-        catch (WxPayException ex)
-        {
-            msgPage.MessageText = ex.ToString();
-            msgPage.Show();
-            return;
-        }
-        catch (Exception ex)
-        {
-            msgPage.MessageText = ex.ToString();
-            msgPage.Show();
-            return;
-        }
-    }
 
-    protected void btnUnAudit_Click(object sender, EventArgs e)
-    {
-        SbtMessageBoxPage msgPage = new SbtMessageBoxPage(this);
-        msgPage.ReturnUrl = "~/caiwu/caiwu_zhidan/deposit_refund_list.aspx";
-
-        int nRecordPrimaryKey = ConvertUtil.ToInt(ViewState["rec_key"]);
-
-        string sRemark = edtRemark.Text.Trim();
-        if (sRemark == "")
-        {
-            lblErrMessage.Visible = true;
-            lblErrMessage.Text = "请填写不通过原因！";
-            edtRemark.Focus();
-            return;
-        }
-
-        RechargeService rechargeService = new RechargeService();
-        Recharge recharge = rechargeService.GetById(nRecordPrimaryKey);
-
-
-        BorrowerService borrowerService = new BorrowerService();
-        Borrower borrower = borrowerService.GetById(recharge.BorrowerId);
-
-        string sRecharegAlias = borrower.Phone;
-
-        recharge.Auditor = CurrentUser.RealName;
-        recharge.AuditRemark = sRemark;
-        recharge.IsAudit = false;
-        recharge.AuditTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-        rechargeService.Update(recharge);
-
-
-
-
-        SbtAppLogger.LogAction("充值审核不通过", string.Format("充值用户{0},充值金额{1},充值时间{2},不通过原因:{3};",
-              borrower.Aliases, recharge.Amount.Value.ToString("0.00"), recharge.RechargeTime, sRemark));
-
-        NaviTabController.ClearBar();
-        //========== 4. 返回到主页面 ==========
-        msgPage.MessageText = "充值审核不通过操作完成";
-        msgPage.Show();
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)

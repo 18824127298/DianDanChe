@@ -34,7 +34,7 @@ public partial class loan_loan_list_unaudited_loans_list : SbtPageBase
         {
             CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql
                        = @"select l.CreditPhone, i.Name, b.FullName,l.BusinessName, l.RecruitmentName,
-         l.TotalAmountStage, l.Deadline, l.CustomerClassification, l.CreateTime,l.Id, l.LoanType from LoanApply l join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id = l.SalesmanId
+         l.TotalAmountStage, l.Deadline, l.CustomerClassification, l.CreateTime,l.Id, l.LoanType, l.Company from LoanApply l join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id = l.SalesmanId
  where l.IsValid= 1 and l.RepaymentStatus = 1 and i.IsValid= 1";
 
             if (CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql == "")
@@ -56,7 +56,7 @@ public partial class loan_loan_list_unaudited_loans_list : SbtPageBase
 
     private void gvList__PageIndexChanged(int nNewPageIndex)
     {
-        gvList.PageIndex = nNewPageIndex; 
+        gvList.PageIndex = nNewPageIndex;
         FetchDataFromDB();
     }
 
@@ -95,16 +95,16 @@ public partial class loan_loan_list_unaudited_loans_list : SbtPageBase
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         string sql = @"select l.CreditPhone, i.Name, b.FullName,l.BusinessName, l.RecruitmentName,
-         l.TotalAmountStage, l.Deadline, l.CustomerClassification, l.CreateTime,l.Id, l.LoanType from LoanApply l join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id = l.SalesmanId
+         l.TotalAmountStage, l.Deadline, l.CustomerClassification, l.CreateTime,l.Id, l.LoanType, l.Company from LoanApply l join IdCardInformation i on l.BorrowerId= i.BorrowerId join Borrower b on b.Id = l.SalesmanId
  where l.IsValid= 1 and l.RepaymentStatus = 1 and i.IsValid= 1 ";
         if (edtCreditName.Text.Trim() != "")
         {
-           sql += " and i.Name = "+ StringUtil.QuotedToDBStr(edtCreditName.Text);
+            sql += " and i.Name = " + StringUtil.QuotedToDBStr(edtCreditName.Text);
         }
 
         if (edtCreditPhone.Text.Trim() != "")
         {
-           sql += " and l.CreditPhone = "+ StringUtil.QuotedToDBStr(edtCreditPhone.Text);
+            sql += " and l.CreditPhone = " + StringUtil.QuotedToDBStr(edtCreditPhone.Text);
         }
         CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql = sql;
         FetchDataFromDB();
@@ -122,7 +122,7 @@ public partial class loan_loan_list_unaudited_loans_list : SbtPageBase
         return ((LoanType)ConvertUtil.ToInt(oLoanType)).ToString();
     }
 
-    protected string VIVNavigateUrl(object oId, object oLoanType)
+    protected string VIVNavigateUrl(object oId, object oLoanType, object oCompany)
     {
         int nId = ConvertUtil.ToInt(oId);
         if (ConvertUtil.ToInt(oLoanType) == (int)LoanType.租客)
@@ -131,7 +131,19 @@ public partial class loan_loan_list_unaudited_loans_list : SbtPageBase
         }
         else
         {
-            return "loan_details.aspx?id=" + nId.ToString();
+            if (!string.IsNullOrEmpty(ConvertUtil.ToString(oCompany)))
+            {
+                if (ConvertUtil.ToInt(oCompany) == (int)Company.翼速)
+                {
+                    return "loan_details.aspx?id=" + nId.ToString();
+                }
+                else
+                {
+                    return "othercompany_loan_details.aspx?id=" + nId.ToString();
+                }
+            }
+            else
+                return "loan_details.aspx?id=" + nId.ToString();
         }
     }
 

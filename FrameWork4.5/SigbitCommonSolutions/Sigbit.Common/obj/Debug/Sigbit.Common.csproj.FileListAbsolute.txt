@@ -9,3 +9,4 @@ D:\phonelee126576\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common\bin\
 D:\phonelee126576\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common\bin\Debug\Sigbit.Common.pdb
 D:\phonelee126576\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common\obj\Debug\Sigbit.Common.dll
 D:\phonelee126576\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common\obj\Debug\Sigbit.Common.pdb
+D:\phonelee126576\phonelee\FrameWork4.5\SigbitCommonSolutions\Sigbit.Common\obj\Debug\Sigbit.Common.csprojResolveAssemblyReference.cache

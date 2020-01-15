@@ -22,8 +22,14 @@ public partial class caiwu_caiwu_borrower_borrower_balance_list : SbtPageBase
         if (!IsPostBack)
         {
             CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql
-                       = @"select tab.amount, br.Phone, br.FullName from(select (income-pay) as amount, IncomeGodId from (select SUM(Amount) income, IncomeGodId from FundsFlow where IsValid= 1 group by IncomeGodId) as ice join
-(select SUM(Amount) pay, PayGodId from FundsFlow where IsValid= 1 group by PayGodId) as pg on ice.IncomeGodId = pg.PayGodId where (income-pay)>0) as tab join Borrower br on tab.IncomeGodId = br.Id";
+                       = @"select (tab.income-tab.pay) as amount, br.Phone, br.FullName 
+from(select income, isnull(pay,0) as pay, IncomeGodId 
+from (select SUM(Amount) income, IncomeGodId 
+from FundsFlow where IsValid= 1 group by IncomeGodId) as ice left join
+(select SUM(Amount) pay, PayGodId 
+from FundsFlow where IsValid= 1 group by PayGodId) as pg 
+on ice.IncomeGodId = pg.PayGodId) as tab 
+join Borrower br on tab.IncomeGodId = br.Id where (tab.income-tab.pay)>0 and br.Id>5"; 
 
             if (CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql == "")
             {

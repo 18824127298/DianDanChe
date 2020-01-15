@@ -34,10 +34,13 @@
 
             <asp:Button ID="btnHuiKuang" runat="server" Text="测试发送客户支付成功提醒" OnClick="btnHuiKuang_Click" style="margin-bottom: 0px" />
             <asp:Button ID="btnResult" runat="server" Text="测试客户融资租赁审核结果通知" OnClick="btnResult_Click"/>
-            <asp:Button ID="btnRemind" runat="server" Text="测试融资租赁审核处理提醒" OnClick="btnRemind_Click"/>
+            <asp:Button ID="btnOilPaymentReminder" runat="server" Text="测试油卡支付成功提醒" OnClick="btnOilPaymentReminder_Click"/>
             
             <asp:Button ID="btn_dayinji" runat="server" Text="测试打印机" OnClick="btn_dayinji_Click" />
+            <asp:Button ID="btnDownLoad" runat="server" Text=" 下载 " OnClick="btnDownLoad_Click" />
+            
+            <asp:Button ID="btn_buzijin" runat="server" Text=" 补资金 " OnClick="btn_buzijin_Click" style="height: 21px"  />
         </div>
-    </form>
+    </form> 
 </body>
 </html>

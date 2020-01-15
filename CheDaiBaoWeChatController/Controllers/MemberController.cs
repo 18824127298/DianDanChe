@@ -19,7 +19,7 @@ namespace CheDaiBaoWeChatController.Controllers
         {
             MemberService memberService = new MemberService();
             WeiXinModel WeiXin = (WeiXinModel)System.Web.HttpContext.Current.Session["WeiXin"];
-            Member member = memberService.Search(new Member() { IsValid = true }).Where(o => o.OpenId == WeiXin.OpenId).FirstOrDefault();
+            Member member = memberService.Search(new Member() { IsValid = true }).Where(o => o.OpenId == WeiXin.OpenId && !string.IsNullOrEmpty(o.Phone)).FirstOrDefault();
             if (member == null)
             {
                 return View();
@@ -38,26 +38,67 @@ namespace CheDaiBaoWeChatController.Controllers
             Member member = memberService.Search(new Member() { IsValid = true }).Where(o => o.OpenId == WeiXin.OpenId).FirstOrDefault();
             OperaService operaService = new OperaService();
             Member model = new Member();
-            if (member != null)
-            {
-                return RedirectToAction("AllGasStation", "YouKa");
-            }
-
             try
             {
-                model.Code = Code;
-                model.Phone = Phone;
-                model.OpenId = WeiXin.OpenId;
-                Member newMember = memberService.Registration(model);
-                operaService.Insert(new Opera()
+                if (member != null)
                 {
-                    BorrowerId = newMember.Id,
-                    OperaType = OperaType.注册,
-                    RelationId = newMember.Id,
-                    Remark = string.Format("注册成功！用户名：{0}", newMember.Phone),
-                    ClientAddress = Request.UserHostAddress
-                });
-                return RedirectToAction("AllGasStation", "YouKa");
+                    if (string.IsNullOrEmpty(member.Phone))
+                    {
+                        model.Code = Code;
+                        model.Phone = Phone;
+                        model.OpenId = WeiXin.OpenId;
+                        Member newMember = memberService.Updateration(model, member);
+                        operaService.Insert(new Opera()
+                        {
+                            BorrowerId = member.Id,
+                            OperaType = OperaType.注册,
+                            RelationId = member.Id,
+                            Remark = string.Format("注册成功！用户名：{0}", newMember.Phone),
+                            ClientAddress = Request.UserHostAddress
+                        });
+                        if (member.RecommendId > 0)
+                        {
+                            Member recommendMember = memberService.GetById(member.RecommendId.Value);
+                            GodBounsService godBounsService = new GodBounsService();
+                            godBounsService.Insert(new GodBouns()
+                            {
+                                BounsAmount = 30,
+                                BounsStatus = BounsStatus.未激活,
+                                BounsType = BounsType.推荐优惠券,
+                                ExpireTime = DateTime.Now.AddMonths(1),
+                                ConvertRate = 1,
+                                IsActive = true,
+                                LeftAmount = 30,
+                                LimitAmount = 300,
+                                MemberId = recommendMember.Id,
+                                Name = "加油优惠券",
+                                OpenId = recommendMember.OpenId,
+                                RelationId = member.Id
+                            });
+                        }
+                        return RedirectToAction("AllGasStation", "YouKa");
+                    }
+                    else
+                    {
+                        return RedirectToAction("AllGasStation", "YouKa");
+                    }
+                }
+                else
+                {
+                    model.Code = Code;
+                    model.Phone = Phone;
+                    model.OpenId = WeiXin.OpenId;
+                    Member newMember = memberService.Registration(model);
+                    operaService.Insert(new Opera()
+                    {
+                        BorrowerId = newMember.Id,
+                        OperaType = OperaType.注册,
+                        RelationId = newMember.Id,
+                        Remark = string.Format("注册成功！用户名：{0}", newMember.Phone),
+                        ClientAddress = Request.UserHostAddress
+                    });
+                    return RedirectToAction("AllGasStation", "YouKa");
+                }
             }
             catch (Exception ex)
             {

@@ -10,7 +10,8 @@ namespace CheDaiBaoWeChatModel
     {
         人身照 = 1,
         客户的信息照 = 2,
-        作证的资料 = 3
+        作证的资料 = 3,
+        文件 = 6
     }
 
     /// <summary>
@@ -143,6 +144,7 @@ namespace CheDaiBaoWeChatModel
         审核未通过 = 3,
         还款中 = 5,
         还款完成 = 6,
+        已初审 = 8,
         撤单 = 11
     }
 
@@ -215,6 +217,8 @@ namespace CheDaiBaoWeChatModel
         提现手续费 = 3,
 
         推荐费 = 6,
+        支付 = 8,
+        退费 = 9,
 
         后台充值 = 11,
         后台提现 = 12,
@@ -256,7 +260,7 @@ namespace CheDaiBaoWeChatModel
     {
         微信公众号支付 = 1
     }
-    
+
     /// <summary>
     /// 操作类型 
     /// </summary>
@@ -327,7 +331,8 @@ namespace CheDaiBaoWeChatModel
         驳回申请原因 = 196,
         押金回退操作 = 19918,
         后台新增加油站点 = 191115,
-        后台修改加油站点 = 19118
+        后台修改加油站点 = 19118,
+        后台新增代理商 = 1912
     }
 
     /// <summary>
@@ -562,4 +567,47 @@ namespace CheDaiBaoWeChatModel
         租客 = 1
     }
 
+    public enum CardBrand
+    {
+        中国石化 = 1,
+        中油BP = 2,
+        中国石油 = 3
+    }
+
+    public enum BounsType
+    {
+        注册优惠券 = 1,
+        推荐优惠券 = 2
+    }
+
+    /// <summary>
+    /// 奖金状态
+    /// </summary>
+    public enum BounsStatus
+    {
+        未使用 = 1,
+        使用中 = 2,
+        已用完 = 3,
+        过期失效 = 4,
+        未激活 = 5
+    }
+
+    /// <summary>
+    /// 奖金使用类型
+    /// </summary>
+    public enum BounsUseType
+    {
+        支付 = 1,
+        充值 = 2
+    }
+
+    /// <summary>
+    /// 奖金使用类型
+    /// </summary>
+    public enum CardStatus
+    {
+        正常 = 1,
+        已销卡 = 2,
+        已挂失 = 3
+    }
 }

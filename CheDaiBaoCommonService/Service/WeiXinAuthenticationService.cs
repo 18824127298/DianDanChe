@@ -23,7 +23,7 @@ namespace CheDaiBaoCommonService.Service
         {
             var code = filterContext.HttpContext.Request.QueryString["Code"];
             DebugLogger.LogDebugMessage(code + "," + loanurl);
-            if (string.IsNullOrEmpty(code) && filterContext.ActionDescriptor.ControllerDescriptor.ControllerName == "YouKa")
+            if (string.IsNullOrEmpty(code) && (filterContext.ActionDescriptor.ControllerDescriptor.ControllerName == "YouKa"||filterContext.ActionDescriptor.ControllerDescriptor.ControllerName == "YouKaRules"))
             {
                 var url = string.Format("https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri=" + loanurl + "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect", appid);
                 //filterContext.HttpContext.Response.Redirect(url);

@@ -54,5 +54,14 @@ namespace CheDaiBaoWeChatModel.Models
         [OriginalField]
         [Display(Name = "品牌")]
         public string Brand { get; set; }
+
+         
+        /// <summary>
+        /// 供应商 
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "供应商")]
+        public Int32? SupplierId { get; set; }
+         
     }
 }

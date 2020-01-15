@@ -41,7 +41,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>总借款金额：
+                            <td>总融资租赁金额：
                            <asp:Label ID="lblAmount" runat="server"></asp:Label>元
                             </td>
                         </tr>

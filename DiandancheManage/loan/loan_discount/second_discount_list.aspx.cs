@@ -22,8 +22,8 @@ public partial class loan_loan_discount_second_discount_list : SbtPageBase
         if (!IsPostBack)
         {
             CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql
-                       = @"select d.*, b.FullName,b.Phone from Discount d join Borrower b
-on d.BorrowerId = b.Id where d.IsValid= 1 and d.IsAudit = 1 and d.SecondAuditResult is null";
+                       = @"select d.*, b.FullName,b.Phone from Discount d join Borrower b on d.BorrowerId = b.Id join LoanApply l on l.Id=d.LoanApplyId
+where d.IsValid= 1 and d.IsAudit = 1 and d.SecondAuditResult is null and l.Company = 0";
 
             if (CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql == "")
             {

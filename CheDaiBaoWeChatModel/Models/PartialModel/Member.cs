@@ -50,6 +50,22 @@ namespace CheDaiBaoWeChatModel.Models
         [OriginalField]
         [Display(Name = "验证码")]
         public string Code { get; set; }
+
+
+        /// <summary>
+        ///推荐人Id
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "推荐人Id")]
+        public Int32? RecommendId { get; set; }
+
+
+        /// <summary>
+        ///支付的次数
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "支付的次数")]
+        public Int32? Count { get; set; }
     }
 
 }

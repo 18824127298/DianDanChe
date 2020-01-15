@@ -1,3 +1,0 @@
-==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1103 ms / want 500 ms¡¿ 2018/1/19 18:19:33 ====
-select * from FundsFlow where  IsValid=@IsValid
-

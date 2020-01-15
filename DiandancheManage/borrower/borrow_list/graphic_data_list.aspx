@@ -21,8 +21,8 @@
                 <div id="trebChart" style="width: 1100px; height: 324px; margin: 0 auto"></div>
                 <div class="selcomponent">
                     <select id="selChart">
+                        <option value="2020">2020</option>
                         <option value="2019">2019</option>
-                        <option value="2018">2018</option>
                     </select>
                     <div style="font-size: 15px; color: #000; padding-top: 5px; text-align: center">可选择年限</div>
                 </div>
@@ -33,8 +33,8 @@
                 <div id="trebChart1" style="width: 1100px; height: 324px; margin: 0 auto"></div>
                 <div class="selcomponent">
                     <select id="selChart1">
+                        <option value="2020">2020</option>
                         <option value="2019">2019</option>
-                        <option value="2018">2018</option>
                     </select>
                     <div style="font-size: 15px; color: #000; padding-top: 5px; text-align: center">可选择年限</div>
                 </div>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="trade-data">
                 <div class="item-box">
                     <div class="item-tit" style="font-size: 28px;">
@@ -121,7 +121,7 @@
             success: function (data) {
                 var json = JSON.parse(data);
                 var data2019 = json.lists19;
-                var data2018 = [];
+                var data2020 = json.lists20;
                 var myChart1 = echarts.init(document.getElementById("trebChart"));
                 var option1 = {
                     color: ['#fc9246'],
@@ -161,17 +161,17 @@
                             name: '金额',
                             type: 'bar',
                             barWidth: '60%',
-                            data: data2019
+                            data: data2020
                         }
                     ]
                 };
                 myChart1.setOption(option1);
                 $("#selChart").change(function () {
                     var val = $("#selChart option:selected").val();//获取选中的项
-                    if (val === '2018') {
-                        myChart1.setOption({ series: [{ data: data2018 }] });
-                    } else if (val === '2019') {
+                    if (val === '2019') {
                         myChart1.setOption({ series: [{ data: data2019 }] });
+                    } else if (val === '2020') {
+                        myChart1.setOption({ series: [{ data: data2020 }] });
                     }
                 });
             }
@@ -188,7 +188,7 @@
             success: function (data) {
                 var json = JSON.parse(data);
                 var data2019 = json.lists19;
-                var data2018 = [];
+                var data2020 = json.lists20;
                 var myChart1 = echarts.init(document.getElementById("trebChart1"));
                 var option1 = {
                     color: ['#fc9246'],
@@ -228,17 +228,17 @@
                             name: '笔',
                             type: 'bar',
                             barWidth: '60%',
-                            data: data2019
+                            data: data2020
                         }
                     ]
                 };
                 myChart1.setOption(option1);
                 $("#selChart1").change(function () {
                     var val = $("#selChart1 option:selected").val();//获取选中的项
-                    if (val === '2018') {
-                        myChart1.setOption({ series: [{ data: data2018 }] });
-                    } else if (val === '2019') {
+                    if (val === '2019') {
                         myChart1.setOption({ series: [{ data: data2019 }] });
+                    } else if (val === '2020') {
+                        myChart1.setOption({ series: [{ data: data2020 }] });
                     }
                 });
             }
@@ -326,7 +326,7 @@
                 //myChart4.setOption(option4);
             }
         });
-        
+
         //上个月招聘点单量饼图
         $.ajax({
             type: 'get',
@@ -505,10 +505,10 @@
                         type: 'category',
                         boundaryGap: false,
                         data: function () {
-                            var list = [];
-                            for (var i = 1; i <= 12; i++) {
-                                list.push(i + '月');
-                            }
+                            var list = ['19年7月', '19年8月', '19年9月', '19年10月', '19年11月', '19年12月', '20年1月', '20年2月', '20年3月', '20年4月', '20年5月', '20年6月'];
+                            //for (var i = 1; i <= 12; i++) {
+                            //    list.push(i + '月');
+                            //}
                             return list;
                         }()
                     },

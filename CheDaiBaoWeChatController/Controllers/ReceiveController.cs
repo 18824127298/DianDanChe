@@ -11,32 +11,34 @@ using System.Xml;
 using CheDaiBaoCommonService.Service;
 using Sigbit.Common;
 using CheDaiBaoCommonController.Controllers;
+using CheDaiBaoWeChatService.Service;
+using CheDaiBaoWeChatModel.Models;
+using CheDaiBaoWeChatModel;
 
 namespace CommonMainSiteController.Controllers
 {
     public class ReceiveController : BaseCommonController
     {
-        public string Token = "chedaibao123";
-        //[HttpGet]
-        //public ActionResult Index(string signature, string timestamp, string nonce, string echostr)
-        //{
-        //    if (string.IsNullOrEmpty(Request.QueryString["echoStr"])) { Response.End(); }
+        public string Token = "cheyihao123";
+        [HttpGet]
+        public ActionResult Index(string signature, string timestamp, string nonce, string echostr)
+        {
+            if (string.IsNullOrEmpty(Request.QueryString["echoStr"])) { Response.End(); }
 
-        //    string echoStr = Request.QueryString["echoStr"].ToString();
-        //    if (CheckSignature())
-        //    {
-        //        if (!string.IsNullOrEmpty(echoStr))
-        //        {
-        //            return Content(echostr);
-        //        }
-        //    }
-        //    return Content("err");
-        //}
+            string echoStr = Request.QueryString["echoStr"].ToString();
+            if (CheckSignature())
+            {
+                if (!string.IsNullOrEmpty(echoStr))
+                {
+                    return Content(echostr);
+                }
+            }
+            return Content("err");
+        }
 
         [HttpPost]
         public ActionResult Index(string signature, string timestamp, string nonce)
         {
-
             if (!CheckSignature())
             {
                 return Content("");
@@ -47,7 +49,6 @@ namespace CommonMainSiteController.Controllers
             requestStream.Read(requestByte, 0, (int)requestStream.Length);
             string requestStr = Encoding.UTF8.GetString(requestByte);
             DebugLogger.LogDebugMessage(requestStr);
-            string resxml = string.Empty;
             if (!string.IsNullOrEmpty(requestStr))
             {
                 string xmltem = string.Empty;
@@ -57,47 +58,134 @@ namespace CommonMainSiteController.Controllers
                 string msgType = WeChatRequest.ReadXmlElement(requestStr, "MsgType");
                 string Event = "";
                 string eventKey = "";
-                string sJson = "";
                 if (msgType == "event")
                 {
                     Event = WeChatRequest.ReadXmlElement(requestStr, "Event");
                     eventKey = WeChatRequest.ReadXmlElement(requestStr, "EventKey");
                 }
-                if (msgType == "text")
+                MemberService memberService = new MemberService();
+                Member member = new Member();
+                string apptoken = WeChatBaseRequestService.getApptoken();
+
+                string url = string.Format("https://api.weixin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}&lang=zh_CN", apptoken, fromUserName);
+                string userinfo = WeChatBaseRequestService.RequestUrl(url);
+                string unionid = WeChatBaseRequestService.GetJsonValue(userinfo, "unionid");
+                List<Member> memberList = memberService.Search(new Member { IsValid = true }).Where(o => o.OpenId == fromUserName).ToList();
+                if (memberList.Count > 0)
                 {
-                    string xml = string.Empty;
-                    xml = WeChatRequest.ReplyText(fromUserName, toUserName, WeChatRequest.GetNowTime(), "transfer_customer_service");
-                    return Content(xml);
+                    member = memberList.First();
+                    if (!string.IsNullOrEmpty(member.Phone))
+                    {
+                        return Content("");
+                    }
+                }
+                else
+                {
+                    member.OpenId = fromUserName;
+                    int newMemberId = memberService.Insert(member);
+                    member = memberService.GetById(newMemberId);
+                }
+                if (Event == "unsubscribe")
+                {
+                    string sJson = "{\"touser\": \"" + fromUserName + "\" ,\"msgtype\":\"text\",\"text\":{\"content\":\"车1号!\"}}";
+                    WeChatBaseRequestService.PostUrl("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + WeChatBaseRequestService.getApptoken(), sJson);
                 }
                 if (Event == "subscribe")
                 {
-                    sJson = @"";
-                    //WeChatBaseRequestService.PostUrl("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + WeChatBaseRequestService.getApptoken(), sJson);
+                    string stext = @"欢迎您关注车1号";
+                    string sJson = "{\"touser\": \"" + fromUserName + "\" ,\"msgtype\":\"text\",\"text\":{\"content\":\"" + stext + "\"}}";
+                    WeChatBaseRequestService.PostUrl("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + WeChatBaseRequestService.getApptoken(), sJson);
+
+                    if (eventKey != "")
+                    {
+                        int nId = ConvertUtil.ToInt(eventKey.Split('_')[1]);
+                        if (nId > 0)
+                        {
+                            if (member.Id != nId)
+                            {
+                                Member recommendMember = memberService.GetById(nId);
+                                member.RecommendId = nId;
+                                memberService.Update(member);
+                                GetGodBouns(member.Id, member.OpenId);
+                                sJson = "{\"touser\": \"" + recommendMember.OpenId + "\" ,\"msgtype\":\"text\",\"text\":{\"content\":\"亲，感谢您为我们推荐客户\"}}";
+                                WeChatBaseRequestService.PostUrl("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + WeChatBaseRequestService.getApptoken(), sJson);
+                            }
+                        }
+                    }
                 }
                 if (Event == "SCAN")
                 {
-                    sJson = @"红海‘薪’时代
-企事业员工的专属借款
-满足员工消费需求，结婚、装修、购车、教育、旅游…
-给员工最暖的福利和诚挚的帮助！
-圆您的消费梦！
-红海‘红薪宝’让员工借款更安心！
-<a href='http://a1.rabbitpre.com/m/JZnFvMu6Y'>更多详情点我直达。</a>";
-                    //WeChatBaseRequestService.PostUrl("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + WeChatBaseRequestService.getApptoken(), sJson);
-                }
-                DebugLogger.LogDebugMessage(Event + "," + eventKey + "," + fromUserName);
-                if (Event == "CLICK")
-                {
-                    if (eventKey == "33")
+                    string stext = @"欢迎您关注车1号";
+
+                    string sJson = "{\"touser\": \"" + fromUserName + "\" ,\"msgtype\":\"text\",\"text\":{\"content\":\"" + stext + "\"}}";
+                    WeChatBaseRequestService.PostUrl("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + WeChatBaseRequestService.getApptoken(), sJson);
+
+                    if (eventKey != "")
                     {
-                        sJson = "客官么么哒，如有任何问题，请在输入框内输入，我会立刻回答您哟！哦对了，人家的私人微信号“FLJF01”，朋友圈经常爆料~如遇紧急咨询，请拨打客服热线： 400-837-2223";
-                        //WeChatBaseRequestService.PostUrl("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + WeChatBaseRequestService.getApptoken(), sJson);
+                        int nId = ConvertUtil.ToInt(eventKey);
+                        if (nId > 0)
+                        {
+                            if (member.Id != nId)
+                            {
+                                Member recommendMember = memberService.GetById(nId);
+                                member.RecommendId = nId;
+                                memberService.Update(member);
+                                GetGodBouns(member.Id, member.OpenId);
+                                sJson = "{\"touser\": \"" + recommendMember.OpenId + "\" ,\"msgtype\":\"text\",\"text\":{\"content\":\"亲，感谢您为我们推荐客户\"}}";
+                                WeChatBaseRequestService.PostUrl("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + WeChatBaseRequestService.getApptoken(), sJson);
+                            }
+                        }
                     }
                 }
-                resxml = "<xml><ToUserName><![CDATA[" + fromUserName + "]]></ToUserName><FromUserName><![CDATA[" + toUserName + "]]></FromUserName><CreateTime>" + WeChatRequest.GetNowTime() + "</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[" + sJson + "]]></Content><FuncFlag>0</FuncFlag></xml>";
+                //    if (msgType == "text")
+                //    {
+                //        string xml = string.Empty;
+                //        xml = WeChatRequest.ReplyText(fromUserName, toUserName, WeChatRequest.GetNowTime(), "transfer_customer_service");
+                //        return Content(xml);
+                //    }
+                //    if (Event == "CLICK")
+                //    {
+                //        if (eventKey == "33")
+                //        {
+                //            DateTime DateTime1 = Convert.ToDateTime("2016-07-13");
+                //            TimeSpan ts1 = new TimeSpan(DateTime.Now.Ticks);
+                //            TimeSpan ts2 = new TimeSpan(DateTime1.Ticks);
+                //            TimeSpan ts = ts1.Subtract(ts2).Duration();
+                //            string sJson = "";
+                //            if (ts.Hours % 3 == 1)
+                //                sJson = "{\"touser\": \"" + fromUserName + "\" ,\"msgtype\":\"text\",\"text\":{\"content\":\"客官么么哒，我是小丰利，最可爱最温柔的小丰利，帮您越赚越多的小丰利~~以后在您赚大钱、走上人生巅峰的道路上，提供理财建议的繁重劳动就交给我啦!如有问题请在输入框内输入，小丰利立刻回答您呦！哦对了，人家的私人微信号是“FLJF01”，朋友圈经常爆料~如遇紧急咨询，请拨打客服热线：400 837 2223\"}}";
+                //            else if (ts.Hours % 3 == 2)
+                //                sJson = "{\"touser\": \"" + fromUserName + "\" ,\"msgtype\":\"text\",\"text\":{\"content\":\"客官么么哒，我是小丰利，最可爱最温柔的小丰利，帮您越赚越多的小丰利~~以后在您赚大钱、走上人生巅峰的道路上，提供理财建议的繁重劳动就交给我啦!如有问题请在输入框内输入，小丰利立刻回答您呦！哦对了，人家的私人微信号是“FLJF03”，朋友圈经常爆料~如遇紧急咨询，请拨打客服热线：400 837 2223\"}}";
+                //            else
+                //                sJson = "{\"touser\": \"" + fromUserName + "\" ,\"msgtype\":\"text\",\"text\":{\"content\":\"客官么么哒，我是小丰利，最可爱最温柔的小丰利，帮您越赚越多的小丰利~~以后在您赚大钱、走上人生巅峰的道路上，提供理财建议的繁重劳动就交给我啦!如有问题请在输入框内输入，小丰利立刻回答您呦！哦对了，人家的私人微信号是“FLJF04”，朋友圈经常爆料~如遇紧急咨询，请拨打客服热线：400 837 2223\"}}";
+                //            WeChatBaseRequestService.PostUrl("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + WeChatBaseRequestService.getApptoken(), sJson);
+                //        }
+                //    }
             }
+            return Content("");
+        }
 
-            return Content(resxml);
+        public void GetGodBouns(int nMemberId, string sOpenId)
+        {
+            GodBounsService godBounsService = new GodBounsService();
+            GodBouns godbouns = godBounsService.Search(new GodBouns() { IsValid = true }).Where(o => o.MemberId == nMemberId && o.OpenId == sOpenId).FirstOrDefault();
+            if (godbouns == null)
+            {
+                godBounsService.Insert(new GodBouns()
+                {
+                    BounsAmount = 30,
+                    BounsStatus = BounsStatus.未使用,
+                    BounsType = BounsType.注册优惠券,
+                    ExpireTime = DateTime.Now.AddMonths(1),
+                    ConvertRate = 1,
+                    IsActive = true,
+                    LeftAmount = 30,
+                    LimitAmount = 300,
+                    MemberId = nMemberId,
+                    Name = "加油优惠券",
+                    OpenId = sOpenId
+                });
+            }
         }
 
         private bool CheckSignature()

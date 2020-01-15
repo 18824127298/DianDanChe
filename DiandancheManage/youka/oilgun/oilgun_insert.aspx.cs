@@ -37,10 +37,10 @@ public partial class youka_oilgun_oilgun_insert : SbtPageBase
             oilGun.Amount = Convert.ToDecimal(Amount.Text);
             oilGun.NewAmount = Convert.ToDecimal(NewAmount.Text);
             oilGun.PointTime = Convert.ToDateTime(PointTime.DateString);
-            oilGun.CountryMarkPrice = Convert.ToDecimal(CountryMarkPrice.Text);
+            //oilGun.CountryMarkPrice = Convert.ToDecimal(CountryMarkPrice.Text);
             oilGun.GasStationId = ConvertUtil.ToInt(PageParameter.GetCustomParamObject("id"));
-            oilGun.NewCountryPrice = ConvertUtil.ToDecimal(NewCountryPrice.Text);
-            oilGun.CountryPointTime = Convert.ToDateTime(CountryPointTime.DateString);
+            //oilGun.NewCountryPrice = ConvertUtil.ToDecimal(NewCountryPrice.Text);
+            //oilGun.CountryPointTime = Convert.ToDateTime(CountryPointTime.DateString);
             int Id = oilGunService.Insert(oilGun);
         }
 

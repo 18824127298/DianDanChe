@@ -281,10 +281,10 @@ namespace CheDaiBaoWeChatController.Controllers
             LoanApplyService loanapplyService = new LoanApplyService();
             IdCardInformationService idcardinformationService = new IdCardInformationService();
             Borrower borrower = new BorrowerAuthenticationService().GetAuthenticatedBorrower();
-            if (borrower.Company != Company.翼速)
-            {
-                information.CustomerClassification = "D";
-            }
+            //if (borrower.Company != Company.翼速)
+            //{
+            //    information.CustomerClassification = "D";
+            //}
             if (borrower.IsSalesman == true)
             {
                 if (Session["BorrowerPhone"] != null)
@@ -1603,15 +1603,23 @@ namespace CheDaiBaoWeChatController.Controllers
             BorrowService borrowService = new BorrowService();
             LoanApplyService loanApplyservice = new LoanApplyService();
             LoanApply loanapply = loanApplyservice.Search(new LoanApply() { IsValid = true }).Find(o => o.RepaymentStatus == CreditStatus.还款中 && o.BorrowerId == borrower.Id);
-            ViewBag.unDeposit = loanapply.unDeposit;
+            decimal sumAmount = 0;
+            Decimal? unDeposit = loanapply.unDeposit;
             Borrow borrow = borrowService.Search(new Borrow() { IsValid = true }).Where(o => o.LoanApplyId == loanapply.Id && o.RepaymentPlanMode == null).OrderBy(o => o.Stages).FirstOrDefault();
-            decimal sumAmount = (loanapply.unDeposit + borrow.UnTotalInterest).Value;
+            if (unDeposit > 0)
+            {
+                sumAmount = loanapply.unDeposit.Value;
+            }
+            else
+            {
+                sumAmount = (borrow.UnTotalInterest + borrow.UnPrincipal).Value;
+            }
             if (sumAmount == ConvertUtil.ToDecimal(Amount))
             {
                 return Json(new
                 {
                     Result = true,
-                    wxJsApiParam = wxJsApiParam(borrower, "还租金", sumAmount)
+                    wxJsApiParam = wxJsApiParam(borrower, unDeposit > 0 ? "还押金" : "还租金", sumAmount)
                 }, JsonRequestBehavior.AllowGet);
             }
             else

@@ -50,7 +50,11 @@
                             <td>未还的押金：<asp:Label ID="unDeposit" runat="server" Style="color: red;"></asp:Label></td>
                             <td>期数：<asp:Label ID="Deadline" runat="server" Style="color: red;"></asp:Label></td>
                             <td>电单车编号：<asp:Label ID="BicycleNumber" runat="server" Style="color: red;"></asp:Label></td>
-                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>委托车辆价格：<asp:Label ID="TotalAmountStage" runat="server" Style="color: red;"></asp:Label></td>
+                            <td>保险费：<asp:Label ID="Insurance" runat="server" Style="color: red;"></asp:Label></td>
+                            <td>起租期：<asp:Label ID="WithinMonth" runat="server" Style="color: red;"></asp:Label></td>
                         </tr>
                     </tbody>
                 </table>
@@ -183,23 +187,23 @@
                     <tbody>
                         <tr>
                             <td>配偶：<asp:Label ID="Spouse" runat="server" Style="color: red;"></asp:Label></td>
-                            <td>配偶是否知晓分期：<asp:Label ID="IsSpouseKnowStages" runat="server" Style="color: red;"></asp:Label></td>
+                            <td>配偶是否知晓融资租赁：<asp:Label ID="IsSpouseKnowStages" runat="server" Style="color: red;"></asp:Label></td>
                             <td>联系电话：<asp:Label ID="ContactPhone" runat="server" Style="color: red;"></asp:Label></td>
                         </tr>
                         <tr>
                             <td>联系地址：<asp:Label ID="ContactAddress" runat="server" Style="color: red;"></asp:Label></td>
                             <td>父母：<asp:Label ID="Parents" runat="server" Style="color: red;"></asp:Label></td>
-                            <td>父母是否知晓分期：<asp:Label ID="IsParentsKnowStages" runat="server" Style="color: red;"></asp:Label></td>
+                            <td>父母是否知晓融资租赁：<asp:Label ID="IsParentsKnowStages" runat="server" Style="color: red;"></asp:Label></td>
                         </tr>
                         <tr>
                             <td>父母联系电话：<asp:Label ID="ParentsContactPhone" runat="server" Style="color: red;"></asp:Label></td>
                             <td>兄弟姐妹：<asp:Label ID="Brothers" runat="server" Style="color: red;"></asp:Label></td>
-                            <td>兄弟姐妹是否知晓分期：<asp:Label ID="IsBrothersKnowStages" runat="server" Style="color: red;"></asp:Label></td>
+                            <td>兄弟姐妹是否知晓融资租赁：<asp:Label ID="IsBrothersKnowStages" runat="server" Style="color: red;"></asp:Label></td>
                         </tr>
                         <tr>
                             <td>兄弟姐妹联系电话：<asp:Label ID="BrothersContactPhone" runat="server" Style="color: red;"></asp:Label></td>
                             <td>朋友：<asp:Label ID="Friend" runat="server" Style="color: red;"></asp:Label></td>
-                            <td>朋友是否知晓分期：<asp:Label ID="IsFriendKnowStages" runat="server" Style="color: red;"></asp:Label></td>
+                            <td>朋友是否知晓融资租赁：<asp:Label ID="IsFriendKnowStages" runat="server" Style="color: red;"></asp:Label></td>
                         </tr>
                         <tr>
                             <td>朋友联系电话：<asp:Label ID="FriendContactPhone" runat="server" Style="color: red;"></asp:Label></td>
@@ -225,7 +229,7 @@
                                         <asp:BoundField DataField="Phone" HeaderText="手机号" SortExpression="Phone">
                                             <ItemStyle HorizontalAlign="Center" />
                                         </asp:BoundField>
-                                        <asp:TemplateField HeaderText="是否知晓分期" SortExpression="IsKnowStages">
+                                        <asp:TemplateField HeaderText="是否知晓融资租赁" SortExpression="IsKnowStages">
                                             <ItemStyle HorizontalAlign="Center" />
                                             <ItemTemplate>
                                                 <%# VIVIsKnowStages(Eval("IsKnowStages")) %>
@@ -314,6 +318,14 @@
                             </td>
 
                         </tr>
+                        <tr runat="server">
+                            <td>风控审核意见：</td>
+                            <td colspan="3">
+                                <asp:TextBox ID="edtAuditOpinion" runat="server" Width="100%" SkinID="MultiLine" TextMode="MultiLine" Rows="3" />
+
+                            </td>
+
+                        </tr>
                         <tr>
                             <td>附加：</td>
                             <td colspan="3">备注：
@@ -330,6 +342,22 @@
                                         <asp:ListItem Value='False'>否</asp:ListItem>
                                     </Items>
                                 </asp:DropDownList>
+                                是否有接听： 
+                                <asp:DropDownList ID="ddlIsAnswer" runat="server">
+                                    <Items>
+                                        <asp:ListItem Value='NotSure'>不清楚</asp:ListItem>
+                                        <asp:ListItem Value='True'>是</asp:ListItem>
+                                        <asp:ListItem Value='False'>否</asp:ListItem>
+                                    </Items>
+                                </asp:DropDownList>
+                                是否有异常： 
+                                <asp:DropDownList ID="ddlIsAbnormal" runat="server">
+                                    <Items>
+                                        <asp:ListItem Value='NotSure'>不清楚</asp:ListItem>
+                                        <asp:ListItem Value='True'>是</asp:ListItem>
+                                        <asp:ListItem Value='False'>否</asp:ListItem>
+                                    </Items>
+                                </asp:DropDownList>
                             </td>
                         </tr>
                     </tbody>
@@ -338,13 +366,16 @@
                 <table width="100%" cellpadding="8" cellspacing="1" align="center" id="btn" runat="server">
                     <tfoot>
                         <tr align="center">
-                            <td colspan="5">&nbsp;&nbsp;<asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" OnClientClick="return confirm('确认审核通过吗?')" Text="审核通过" />
-                                &nbsp;&nbsp;<asp:Button ID="btnUnAudit" runat="server" Text=" 审核不通过 " OnClientClick="return confirm('您确认审核不通过吗?')" OnClick="btnUnAudit_Click" />
+                            <td>
+                                <input id="File1" type="file" name="MyFileUploadInput" runat="server" /></td>
+                            <td colspan="5">&nbsp;&nbsp;<asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" OnClientClick="return confirm('确认提交吗?')" Text="提交" />
+                                <%--&nbsp;&nbsp;<asp:Button ID="btnUnAudit" runat="server" Text=" 审核不通过 " OnClientClick="return confirm('您确认审核不通过吗?')" OnClick="btnUnAudit_Click" />
                                 &nbsp;&nbsp;<asp:Button ID="btnLiXiRen" runat="server" Text=" 审核驳回 " OnClientClick="return confirm('您确认驳回吗?')" OnClick="btnLiXiRen_Click" />
-                                &nbsp;&nbsp;<asp:Button ID="btnMentionBack" runat="server" Text=" 允许用户提还 " OnClientClick="return confirm('您确认允许客户提还吗?')" OnClick="btnMentionBack_Click" Visible="false" />
+                                &nbsp;&nbsp;<asp:Button ID="btnMentionBack" runat="server" Text=" 允许用户提还 " OnClientClick="return confirm('您确认允许客户提还吗?')" OnClick="btnMentionBack_Click" Visible="false" />--%>
                                 &nbsp;&nbsp;<asp:Button ID="btnBuChongZiLiaoTiJiao" runat="server" Text=" 补充资料提交 " OnClientClick="return confirm('您确定补充资料提交吗?')" OnClick="btnBuChongZiLiaoTiJiao_Click" />
                                 &nbsp;&nbsp;<asp:Button ID="btnxiazai" runat="server" Text=" 一键下载图片 " OnClientClick="return confirm('您确定下载图片吗?')" OnClick="btnxiazai_Click" />
-                                &nbsp;&nbsp;<asp:Button ID="btnChedan" runat="server" Text=" 撤单 " OnClientClick="return confirm('您确定撤单吗?')" OnClick="btnChedan_Click" />
+                                <%--                                &nbsp;&nbsp;<asp:Button ID="btnChedan" runat="server" Text=" 撤单 " OnClientClick="return confirm('您确定撤单吗?')" OnClick="btnChedan_Click" />
+                                &nbsp;&nbsp;<asp:Button ID="btnDownLoad" runat="server" Text=" 下载 " OnClick="btnDownLoad_Click" />--%>
                             </td>
                         </tr>
                     </tfoot>

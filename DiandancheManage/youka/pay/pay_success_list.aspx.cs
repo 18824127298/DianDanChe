@@ -54,7 +54,7 @@ public partial class youka_pay_pay_success_list : SbtPageBase
             if (CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql == "")
             {
                 CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql
-                        = @"select g.Name, pf.* from PaymentForm pf join GasStation g on pf.GasStationId = g.Id where pf.IsValid=1";
+                        = @"select m.Phone, g.Name, pf.* from PaymentForm pf join GasStation g on pf.GasStationId = g.Id join Member m on m.Id= pf.MemberId where pf.IsValid=1";
 
                 CurrentPageStatus.DataViewStatus.SqlBuilder.PushSortField("PayTime");
                 CurrentPageStatus.DataViewStatus.SqlBuilder.PushSortField("PayTime");
@@ -93,6 +93,10 @@ public partial class youka_pay_pay_success_list : SbtPageBase
         if (DatePickerTo.DateString.Trim() != "")
             CurrentPageStatus.DataViewStatus.SqlBuilder.AddCondition("PayTime",
                 "结束时间", DatePickerTo.DateString, SQLConditionOperator.LessEqualThan);
+        if (Phone.Text.Trim() != "")
+            CurrentPageStatus.DataViewStatus.SqlBuilder.AddCondition("m.Phone",
+                "手机号", Phone.Text.Trim(), SQLConditionOperator.Like);
+
 
         if (ckbIsAudit.Checked)
         {
@@ -100,6 +104,11 @@ public partial class youka_pay_pay_success_list : SbtPageBase
                 "支付成功", 1, SQLConditionOperator.Equal, "支付成功");
         }
 
+        if (GasStationName.Text != "")
+        {
+            CurrentPageStatus.DataViewStatus.SqlBuilder.AddCondition("Name",
+                "结束时间", GasStationName.Text, SQLConditionOperator.Like);
+        }
 
         //========= 1. 取出数据，并绑定 ========
 
@@ -220,9 +229,9 @@ public partial class youka_pay_pay_success_list : SbtPageBase
 
         DatePickerFrom.DateTimeString = "";
         DatePickerTo.DateTimeString = "";
+        Phone.Text = "";
 
-
-
+        
 
         CurrentPageStatus.DataViewStatus.SqlBuilder.ClearConditions();
         gridViewPager.RefreshGridView();
@@ -232,7 +241,7 @@ public partial class youka_pay_pay_success_list : SbtPageBase
     {
         DataSet ds = PageParameter.GetCustomParamObject("recharge_online_xxx3") as DataSet;
 
-        string sTemplateFile = MapPath("../excel_template/客户线上充值模板.xls");
+        string sTemplateFile = MapPath("../excel_template/所有客户线上支付.xls");
 
         MediaServerPath mediaExportFile = new MediaServerPath();
 
@@ -252,7 +261,7 @@ public partial class youka_pay_pay_success_list : SbtPageBase
         export.ExportFileName = mediaExportFile.FullPath;
         export.DoExport();
 
-        string sFileName = "客户线上充值明细" + DateTime.Now.ToString("yyyyMMddHHmms") + ".xls";
+        string sFileName = "所有客户线上支付" + DateTime.Now.ToString("yyyyMMddHHmms") + ".xls";
         Response.Buffer = true;
         Response.Charset = "GB2312";
         Response.ContentType = "application/ms-excel";
@@ -269,23 +278,31 @@ public partial class youka_pay_pay_success_list : SbtPageBase
         DataSet dsRet = new DataSet();
 
         DataTable dt = new DataTable();
-        dt.Columns.Add("FullName");
-        dt.Columns.Add("RechargeTime");
-        dt.Columns.Add("Amount");
-        dt.Columns.Add("ActualRechargeFee");
-        dt.Columns.Add("RechargeMode");
-        dt.Columns.Add("TransactionId");
+        dt.Columns.Add("Phone");
+        dt.Columns.Add("PayTime");
+        dt.Columns.Add("GasStationAmount");
+        dt.Columns.Add("ActualAmount");
+        dt.Columns.Add("SupplierAmount");
+        dt.Columns.Add("ServiceFee");
+        dt.Columns.Add("RiseNumber");
+        dt.Columns.Add("Name");
+        dt.Columns.Add("OrderNumber");
+        dt.Columns.Add("IsAudit");
 
         for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
         {
             DataRow dRow = ds.Tables[0].Rows[i];
 
-            dt.Rows.Add(dRow["FullName"].ToString(),
-                dRow["RechargeTime"].ToString(),
-                VIVamount(dRow["Amount"].ToString()),
-                VIVamount(dRow["ActualRechargeFee"].ToString()),
-                VIVRechargemode(dRow["RechargeMode"].ToString()),
-                dRow["TransactionId"].ToString()
+            dt.Rows.Add(dRow["Phone"].ToString(),
+                dRow["PayTime"].ToString(),
+                VIVamount(dRow["GasStationAmount"].ToString()),
+                VIVamount(dRow["ActualAmount"].ToString()),
+                VIVamount(dRow["SupplierAmount"].ToString()),
+                VIVamount(dRow["ServiceFee"].ToString()),
+                dRow["RiseNumber"].ToString(),
+                dRow["Name"].ToString(),
+                dRow["OrderNumber"].ToString(),
+                VIVIsAudit(dRow["IsAudit"].ToString(), dRow["CreateTime"].ToString(), dRow["Id"].ToString())
             );
         }
 

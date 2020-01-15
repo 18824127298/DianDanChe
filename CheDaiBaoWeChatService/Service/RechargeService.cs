@@ -1,4 +1,5 @@
 ﻿using CheDaiBaoCommonService.Data;
+using CheDaiBaoCommonService.Service;
 using CheDaiBaoWeChatController.Interface;
 using CheDaiBaoWeChatModel;
 using CheDaiBaoWeChatModel.Models;
@@ -82,12 +83,37 @@ namespace CheDaiBaoWeChatService.Service
                         sContent = string.Format("尊敬的{0}客户您好，您在广州翼速融资租赁有限公司办理的电单车融资租赁业务已全部结清，感谢您对我们工作的支持。详询020-89851216【车1号】", borrower.FullName);
                         qiyebaoSms.SendSms(borrower.Phone, sContent);
                     }
+                    string userinfo = "";
+                    string errcode = "";
                     if (!string.IsNullOrEmpty(salesman.WeiXinId))
                     {
-                        wechatpushMessage.CustomerReminder(salesman.WeiXinId, borrower.FullName, (TotalFee / 100).ToString("N0") + "元", DateTime.Now.ToString("yyyy年MM月dd日"));
+                        userinfo = wechatpushMessage.CustomerReminder(salesman.WeiXinId, borrower.FullName, (TotalFee / 100).ToString("N0") + "元", DateTime.Now.ToString("yyyy年MM月dd日"));
+
+                        errcode = WeChatBaseRequestService.GetJsonValue(userinfo, "errcode");
+                        DebugLogger.LogDebugMessage(errcode);
+                        if (errcode != "0")
+                        {
+                            sContent = string.Format("客户{0}已经支付融资租赁费，金额{1}元【车1号】", borrower.FullName, (TotalFee / 100).ToString("N0"));
+                            qiyebaoSms.SendSms(salesman.Phone, sContent);
+                        }
                     }
-                    wechatpushMessage.CustomerReminder("oAh7kw5FFUFl4WagxnRqBCgB9ad8", borrower.FullName, (TotalFee / 100).ToString("N0") + "元", DateTime.Now.ToString("yyyy年MM月dd日"));
-                    wechatpushMessage.CustomerReminder("oAh7kw5BX2e9UmVc-ahGQ02j8Qt8", borrower.FullName, (TotalFee / 100).ToString("N0") + "元", DateTime.Now.ToString("yyyy年MM月dd日"));
+                    userinfo = wechatpushMessage.CustomerReminder("oAh7kw5FFUFl4WagxnRqBCgB9ad8", borrower.FullName, (TotalFee / 100).ToString("N0") + "元", DateTime.Now.ToString("yyyy年MM月dd日"));
+                    errcode = WeChatBaseRequestService.GetJsonValue(userinfo, "errcode");
+                    DebugLogger.LogDebugMessage(errcode);
+                    if (errcode != "0")
+                    {
+                        sContent = string.Format("客户{0}已经支付融资租赁费，金额{1}元【车1号】", borrower.FullName, (TotalFee / 100).ToString("N0"));
+                        qiyebaoSms.SendSms("13763395495", sContent);
+                    }
+
+                    userinfo = wechatpushMessage.CustomerReminder("oAh7kw5BX2e9UmVc-ahGQ02j8Qt8", borrower.FullName, (TotalFee / 100).ToString("N0") + "元", DateTime.Now.ToString("yyyy年MM月dd日"));
+                    errcode = WeChatBaseRequestService.GetJsonValue(userinfo, "errcode");
+                    DebugLogger.LogDebugMessage(errcode);
+                    if (errcode != "0")
+                    {
+                        sContent = string.Format("客户{0}已经支付融资租赁费，金额{1}元【车1号】", borrower.FullName, (TotalFee / 100).ToString("N0"));
+                        qiyebaoSms.SendSms("18665573095", sContent);
+                    }
                 }
                 else
                 {

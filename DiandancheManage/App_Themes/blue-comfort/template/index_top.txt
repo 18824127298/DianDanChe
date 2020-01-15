@@ -13,11 +13,10 @@
 	<!-- 显示默认图标 -->
 	<td width="80" height="50" rowspan="2" align="left" nowrap valign="top">
 	  <div align="left">
-		<img src="../../App_Themes/blue-comfort/template/index_top/logo.png" 
-			alt="" height="60" align="middle" style="margin-top: 3px;margin-left: 10px;" />
+	  		<img src="../../App_Themes/blue-comfort/template/index_top/logo.png" 			alt="" height="60" align="middle" style="margin-top: 3px;margin-left: 10px;" />
 	  </div>
 	</td>
-	<td align="left">电单车管理平台</td>
+	<td align="left">车1号管理平台</td>
 	<td >        
 		<table width="500" height="70" border="0" cellpadding="0" cellspacing="0">
 		  <tr>

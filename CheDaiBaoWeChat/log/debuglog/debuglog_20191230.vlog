@@ -1,0 +1,81 @@
+========== 2019-12-30 16:18:11 ==========
+,http://jiayouka.nat123.net/
+
+========== 2019-12-30 16:18:39 ==========
+,http://jiayouka.nat123.net/
+
+========== 2019-12-30 16:18:42 ==========
+061AAm4G0LxMFf2O3I0G06pc4G0AAm4z,http://jiayouka.nat123.net/
+
+========== 2019-12-30 16:18:44 ==========
+28_z5QbZj5XtbgxKHVIg77F2nSAFxd7GwQHGhHnZfa8WPh33apvtBJEvXnYG-c7kZic7ZjKNQwXlzSjKMlpQ6ZWCQYj28GdoG3GtXrTgmaFnmNqBsC5Elfr49p3aEgNVUfABARZY
+
+========== 2019-12-30 16:41:56 ==========
+,http://jiayouka.nat123.net/
+
+========== 2019-12-30 16:42:01 ==========
+061VmBSE1PfNc50wUPRE1MPSSE1VmBSk,http://jiayouka.nat123.net/
+
+========== 2019-12-30 16:42:02 ==========
+28_jBE74UhTcyP6c-OmO5vq7wxUFeJybFbHL285LdN48VMw8ODrdtbSZN_dMAkxu4FOtSzgdVOA1_xQ5sGgJ_4b87zUIosettFxs9d_mN4xCxdUOvjDxv7dDZEYqH1iYzLJsBmcYDlVNTKfwqvMTPQaAIANJK
+
+========== 2019-12-30 16:56:55 ==========
+WxPayApi UnfiedOrder request : <xml><appid><![CDATA[wx5142ed3da460173d]]></appid><attach><![CDATA[加油]]></attach><body><![CDATA[中化石油]]></body><mch_id><![CDATA[1420533002]]></mch_id><nonce_str><![CDATA[ABC1500190537206260649121]]></nonce_str><notify_url><![CDATA[http://manage.che01.com/notify/weixin/weixin_jiayounotify_return.aspx]]></notify_url><openid><![CDATA[o_DU4544q5ukwjVtC3tfBOzesFn4]]></openid><out_trade_no><![CDATA[CYH-2019123016564345798]]></out_trade_no><sign><![CDATA[9A20EBE411E047D8FFA8E77FDD00D303]]></sign><sign_type><![CDATA[MD5]]></sign_type><spbill_create_ip><![CDATA[39.108.61.177]]></spbill_create_ip><time_expire><![CDATA[20191230170655]]></time_expire><time_start><![CDATA[20191230165655]]></time_start><total_fee>26400</total_fee><trade_type><![CDATA[JSAPI]]></trade_type></xml>
+
+========== 2019-12-30 16:56:55 ==========
+WxPayApi UnfiedOrder response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx5142ed3da460173d]]></appid>
+<mch_id><![CDATA[1420533002]]></mch_id>
+<nonce_str><![CDATA[DsFWMeVPK5JM8FBs]]></nonce_str>
+<sign><![CDATA[0FC8F7EF6A7DC0A72C904AF456AC3D82]]></sign>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<err_code_des><![CDATA[appid和openid不匹配]]></err_code_des>
+</xml>
+
+========== 2019-12-30 17:03:12 ==========
+WxPayApi UnfiedOrder request : <xml><appid><![CDATA[wx5142ed3da460173d]]></appid><attach><![CDATA[加油]]></attach><body><![CDATA[中化石油]]></body><mch_id><![CDATA[1420533002]]></mch_id><nonce_str><![CDATA[ABC2018131085549709467953]]></nonce_str><notify_url><![CDATA[http://manage.che01.com/notify/weixin/weixin_jiayounotify_return.aspx]]></notify_url><openid><![CDATA[o_DU4544q5ukwjVtC3tfBOzesFn4]]></openid><out_trade_no><![CDATA[CYH-2019123017030974054]]></out_trade_no><sign><![CDATA[D753BA3EA824DC27E0EF3E2FAF776C56]]></sign><sign_type><![CDATA[MD5]]></sign_type><spbill_create_ip><![CDATA[39.108.61.177]]></spbill_create_ip><time_expire><![CDATA[20191230171312]]></time_expire><time_start><![CDATA[20191230170312]]></time_start><total_fee>25800</total_fee><trade_type><![CDATA[JSAPI]]></trade_type></xml>
+
+========== 2019-12-30 17:03:12 ==========
+WxPayApi UnfiedOrder response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx5142ed3da460173d]]></appid>
+<mch_id><![CDATA[1420533002]]></mch_id>
+<nonce_str><![CDATA[JDoSRpwfKNsg8rG4]]></nonce_str>
+<sign><![CDATA[43BCE759178FBCC42E02AD73480A906D]]></sign>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<err_code_des><![CDATA[appid和openid不匹配]]></err_code_des>
+</xml>
+
+========== 2019-12-30 17:55:47 ==========
+,http://jiayouka.nat123.net/
+
+========== 2019-12-30 17:55:47 ==========
+,http://jiayouka.nat123.net/
+
+========== 2019-12-30 17:56:23 ==========
+0614wRbL0iMnNb2SYwfL0i8YbL04wRbj,http://jiayouka.nat123.net/
+
+========== 2019-12-30 17:56:25 ==========
+28_ZkFJK6XT7wuj-_OnnTNNfV9Er8Q_anayVZTTqT_Ql88TyqqAbQSk4LA5GnmoOF1_HS-suCRaWHcrLDNnOXD7Z0v561l_VEvMs2trdsd2M4tbzfcqKlUHjtgkuFjCZipPhHBr9nG5qT0uARrGGRLcABALWQ
+
+========== 2019-12-30 18:10:57 ==========
+,http://jiayouka.nat123.net/
+
+========== 2019-12-30 18:10:57 ==========
+,http://jiayouka.nat123.net/
+
+========== 2019-12-30 18:10:57 ==========
+,http://jiayouka.nat123.net/
+
+========== 2019-12-30 18:10:57 ==========
+,http://jiayouka.nat123.net/
+
+========== 2019-12-30 18:11:01 ==========
+061qicKj24HjZA0WnvLj2r0dKj2qicKo,http://jiayouka.nat123.net/
+
+========== 2019-12-30 18:11:01 ==========
+28_Tt7DyLMiHiqjXUAuXk01O2iegmQbVKlRluSLhXR5Q70BvPtzFNcdYPhItuc5hLDcpLK2AHUPW86W-jDa3gcF7ceKaf2TnREDCnBMknrRtzFOWhinSMOiMfIryJTe1iYN2rgFaiM6OVr0uxUmTQWhAFAIFL
+

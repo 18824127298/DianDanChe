@@ -76,7 +76,7 @@
                                 <asp:TemplateField HeaderText="放款">
                                 <ItemStyle HorizontalAlign="Center" Width="10%" />
                                 <ItemTemplate>
-                                    <input name="button_test" type="button" value="放款" onclick="fn_huankuan(<%#Eval("ID") %>)" />
+                                    <input name="button_test" type="button" value="放款" onclick="fn_huankuan(<%#Eval("ID")%>)" />
                                 </ItemTemplate>
                             </asp:TemplateField>
                             </Columns>

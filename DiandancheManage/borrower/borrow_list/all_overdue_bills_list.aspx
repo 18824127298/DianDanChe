@@ -25,6 +25,10 @@
                 <tr>
                     <td>
                         <table cellspacing="0" cellpadding="0" width="90%" border="0" align="center" style="width: 1217px">
+                            <tr>
+                                <td>&nbsp;<asp:Button ID="btnExportExcel" runat="server" OnClick="btnExportExcel_Click" Text="导出EXCEL" />
+                                </td>
+                            </tr>
                         </table>
                     </td>
                 </tr>
@@ -32,12 +36,12 @@
                     <td>
                         <asp:GridView ID="gvList" runat="server" Width="100%" AllowPaging="True" AutoGenerateColumns="False" AllowSorting="True" OnSorting="gvList_Sorting" EnableViewState="False" CellPadding="8">
                             <Columns>
-                                 <asp:BoundField DataField="CreditPhone" HeaderText="手机号" SortExpression="CreditPhone">
+                                <asp:BoundField DataField="CreditPhone" HeaderText="手机号" SortExpression="CreditPhone">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="FullName" HeaderText="姓名" SortExpression="FullName">
                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField> 
+                                </asp:BoundField>
                                 <asp:BoundField DataField="Stages" HeaderText="期次" SortExpression="Stages">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>

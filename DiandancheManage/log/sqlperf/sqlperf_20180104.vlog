@@ -1,3 +1,0 @@
-==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1178 ms / want 500 ms¡¿ 2018/1/4 14:29:12 ====
-select * from CurrentInterest where  IsValid=@IsValid
-

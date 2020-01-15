@@ -24,7 +24,7 @@ public partial class caiwu_caiwu_borrower_borrower_weihuan_list : SbtPageBase
             CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql
                        = @"select SUM(b.Principal) as Principal, br.FullName, br.Phone, l.InterestDate from Borrow b join Borrower br
 on b.BorrowerId= br.Id join LoanApply l on b.LoanApplyId= l.Id join Borrower brs on l.SalesmanId= brs.Id 
-and b.IsValid= 1 and brs.Company = 0 group by br.FullName, br.Phone,l.InterestDate";
+and b.IsValid= 1 and brs.Company = 0 and l.RepaymentStatus = 5 group by br.FullName, br.Phone,l.InterestDate";
 
             if (CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql == "")
             {
@@ -94,9 +94,7 @@ on b.BorrowerId= br.Id join LoanApply l on b.LoanApplyId= l.Id join Borrower brs
 and b.IsValid= 1 and brs.Company = " + StringUtil.QuotedToDBStr(ddlCompany.SelectedValue);
         if (dpApplyToTime.DateTimeString != "")
         {
-            sql += " and ((Convert(varchar(100),b.RepaymentDate,23) >= " + StringUtil.QuotedToDBStr(dpApplyToTime.DateTimeString)
-                + " and (Convert(varchar(100),b.ActualRepaymentDate,23) >=" + StringUtil.QuotedToDBStr(dpApplyToTime.DateTimeString) + " or b.ActualRepaymentDate is null))"
-             + " or (Convert(varchar(100),b.RepaymentDate,23) < " + StringUtil.QuotedToDBStr(dpApplyToTime.DateTimeString) + " and b.ActualRepaymentDate is null)) and Convert(varchar(100), l.InterestDate ,23) <=" + StringUtil.QuotedToDBStr(dpApplyToTime.DateTimeString);
+            sql += " and (Convert(varchar(100),b.ActualRepaymentDate,23) >=" + StringUtil.QuotedToDBStr(dpApplyToTime.DateTimeString) + " or b.ActualRepaymentDate is null) and Convert(varchar(100), l.InterestDate ,23) <=" + StringUtil.QuotedToDBStr(dpApplyToTime.DateTimeString);
         }
         sql += " group by br.FullName, br.Phone,l.InterestDate order by l.InterestDate";
         CurrentPageStatus.DataViewStatus.SqlBuilder.ClearFixConditions();

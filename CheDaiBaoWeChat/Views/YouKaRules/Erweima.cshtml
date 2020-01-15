@@ -1,0 +1,18 @@
+﻿@model WeiXinModel
+ <div style="margin-top: 30%;">
+    <div class="portrait" style="margin: auto;" hidden="hidden"></div>
+    <img id="randimg" style="padding-left: 17%;" /><br />
+      @*我的专属链接：@ViewBag.Url*@
+</div>
+<script src="~/Content/js/jquery-1.8.2.min.js"></script>
+<script src="~/Content/js/jquery.qrcode.min-1.js"></script>
+<script type="text/javascript">
+    $('.portrait').qrcode({
+        render: "canvas",
+        src: "@Model.HeadImgurl",
+        text: "@ViewBag.Url"
+    });
+
+    $("#randimg").attr("src", $('.portrait').find("canvas")[0].toDataURL("image/png"));
+</script>
+

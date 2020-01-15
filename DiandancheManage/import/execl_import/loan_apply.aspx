@@ -13,7 +13,7 @@
                     <tr>
                         <td>
                             <img src="../../images/menu_icon/key2.gif" />
-                            <asp:Label ID="lblTitle" runat="server" Text="借款批量导入"></asp:Label>
+                            <asp:Label ID="lblTitle" runat="server" Text="融资租赁批量导入"></asp:Label>
                         </td>
                     </tr>
                 </table>
@@ -24,7 +24,7 @@
                 <table border="0" width="450" cellpadding="8" cellspacing="1" align="center">
                     <thead>
                         <tr>
-                            <td colspan="2" align="center">借款批量导入
+                            <td colspan="2" align="center">融资租赁批量导入
                             </td>
                         </tr>
                     </thead>

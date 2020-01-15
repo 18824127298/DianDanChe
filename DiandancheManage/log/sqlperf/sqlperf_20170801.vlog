@@ -1,3 +1,0 @@
-==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1122 ms / want 500 ms¡¿ 2017/8/1 10:41:39 ====
-select * from Credit where  IsValid=@IsValid
-

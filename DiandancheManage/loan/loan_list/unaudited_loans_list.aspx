@@ -70,7 +70,7 @@
                                 <asp:TemplateField HeaderText="手机号">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("CreditPhone")%>' NavigateUrl='<%# VIVNavigateUrl(Eval("Id"),Eval("LoanType")) %>'>HyperLink</asp:HyperLink>
+                                        <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("CreditPhone")%>' NavigateUrl='<%# VIVNavigateUrl(Eval("Id"),Eval("LoanType"),Eval("Company")) %>'>HyperLink</asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="Name" HeaderText="客户姓名">

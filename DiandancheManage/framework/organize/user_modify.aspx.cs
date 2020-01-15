@@ -109,13 +109,13 @@ public partial class genui_CRPN_user_modify : SbtPageBase
 
         //========== 1.2 判断手机号姓名是否为空 ==========
         string sPhone = edtMobilePhone.Text.Trim();
-        if (sPhone == "")
-        {
-            lblErrMessage.Text = "必须填写手机号";
-            lblErrMessage.Visible = true;
-            edtMobilePhone.Focus();
-            return;
-        }
+        //if (sPhone == "")
+        //{
+        //    lblErrMessage.Text = "必须填写手机号";
+        //    lblErrMessage.Visible = true;
+        //    edtMobilePhone.Focus();
+        //    return;
+        //}
 
         string sRealName = edtRealName.Text.Trim();
         if (sRealName == "")

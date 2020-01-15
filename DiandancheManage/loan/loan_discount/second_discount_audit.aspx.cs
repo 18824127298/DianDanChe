@@ -1,4 +1,5 @@
-﻿using CheDaiBaoWeChatModel.Models;
+﻿using CheDaiBaoWeChatController.Interface;
+using CheDaiBaoWeChatModel.Models;
 using CheDaiBaoWeChatService.Service;
 using Sigbit.Common;
 using Sigbit.Framework;
@@ -76,6 +77,10 @@ public partial class loan_loan_discount_second_discount_audit : SbtPageBase
         discount.SecondAuditTime = DateTime.Now;
 
         discountService.Update(discount);
+
+        QiyebaoSms qiyebaoSms = new QiyebaoSms();
+        string sContent = string.Format(@"客户{0}减免已通过，减免额{1}【车1号】", borrower.FullName, discount.Amount);
+        qiyebaoSms.SendSms("13802913688", sContent);
 
         msgPage.MessageText = "审核操作成功";
         msgPage.ReturnUrl = this.Request.Url.AbsoluteUri;

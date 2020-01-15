@@ -1,3 +1,0 @@
-==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 559 ms / want 500 ms¡¿ 2018/1/8 16:50:44 ====
-update repaymentplan set [UnTotalInterest]=@UnTotalInterest,[UId]=@UId,[UpdateTime]=@UpdateTime where id=@Id and UnTotalInterest=@UId
-

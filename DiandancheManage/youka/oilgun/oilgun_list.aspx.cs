@@ -1,4 +1,5 @@
-﻿using CheDaiBaoWeChatModel;
+﻿using CheDaiBaoCommonService.Data;
+using CheDaiBaoWeChatModel;
 using Sigbit.Common;
 using Sigbit.Data;
 using Sigbit.Framework;
@@ -29,7 +30,9 @@ public partial class youka_oilgun_oilgun_list : SbtPageBase
                 PageParameter.SetCustomParamObject("id", nId);
             }
             CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql
-                       = @"select g.Name,o.* from OilGun o join GasStation g on o.GasStationId = g.Id where o.IsValid= 1 and g.Id =" + nId;
+                       = @"select g.Id as gId, g.Name,o.OilNumber,o.Amount,o.NewAmount, o.CountryMarkPrice, o.NewCountryPrice, o.PointTime, o.CountryPointTime
+ from OilGun o join GasStation g on o.GasStationId = g.Id where o.IsValid= 1 and g.Id = " + nId + @" group by g.Id, 
+ g.Name,o.OilNumber,o.Amount,o.NewAmount, o.CountryMarkPrice, o.NewCountryPrice, o.PointTime, o.CountryPointTime";
             if (CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql == "")
             {
             }
@@ -86,11 +89,27 @@ public partial class youka_oilgun_oilgun_list : SbtPageBase
         string sRet = dAmount.ToString("N2");
         return sRet;
     }
-    protected string Name(object oName, object oId)
+    protected string Name(object oName, object gId, object OilNumber)
     {
-        int nId = ConvertUtil.ToInt(oId);
-        string sRet = "<a href=\"../oilgun/oilgun_update.aspx?id=" + oId.ToString() + "&lId=" + ConvertUtil.ToInt(PageParameter.GetCustomParamObject("id")) + "\">" + oName.ToString() + "</a>";
+        string sRet = "<a href=\"../oilgun/oilgun_update.aspx?id=" + gId.ToString() + "&lId=" + ConvertUtil.ToInt(PageParameter.GetCustomParamObject("id")) + "&oilne=" + OilNumber.ToString().Split('#')[0] + "&oilnr=" + OilNumber.ToString().Split('#')[1] + "\">" + oName.ToString() + "</a>";
         return sRet;
     }
+
+    protected string GunNumber(object gId, object OilNumber)
+    {
+        string sql = "select GunNumber from OilGun where IsValid= 1 and GasStationId = " + ConvertUtil.ToInt(gId) + " and OilNumber= " + StringUtil.QuotedToDBStr(OilNumber);
+        List<Int32?> lstGunNumber = SqlConnections.GetOpenConnection().Query<Int32?>(sql).ToList();
+        string GunNumber = "";
+        foreach (Int32? sGunNumber in lstGunNumber)
+        {
+            if (string.IsNullOrEmpty(sGunNumber.ToString()))
+            {
+                return "";
+            }
+            GunNumber += sGunNumber.ToString() + ",";
+        }
+        return GunNumber.TrimEnd(',');
+    }
+
 
 }

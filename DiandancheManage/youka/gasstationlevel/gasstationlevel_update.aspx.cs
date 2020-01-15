@@ -32,6 +32,8 @@ public partial class youka_gasstationlevel_gasstationlevel_update : SbtPageBase
         GasStationLevel gasStationLevel = gasStationLevelService.GetById(nId);
         MemberLevel.Text = gasStationLevel.MemberLevel.ToString();
         Reduction.Text = gasStationLevel.Reduction.Value.ToString("N2");
+        NewReduction.Text = gasStationLevel.NewReduction.Value.ToString("N2");
+        ReductionTime.DateTimeString = gasStationLevel.ReductionTime.Value.ToString("yyyy-MM-dd HH:mm:ss");
 
     }
     protected void btnOK_Click(object sender, EventArgs e)
@@ -41,6 +43,8 @@ public partial class youka_gasstationlevel_gasstationlevel_update : SbtPageBase
         gasStationLevel.Id = ConvertUtil.ToInt(PageParameter.GetCustomParamObject("id"));
         gasStationLevel.MemberLevel = ConvertUtil.ToInt(MemberLevel.Text);
         gasStationLevel.Reduction = ConvertUtil.ToDecimal(Reduction.Text);
+        gasStationLevel.NewReduction = ConvertUtil.ToDecimal(NewReduction.Text);
+        gasStationLevel.ReductionTime = ReductionTime.DateTime;
         gasStationLevelService.Update(gasStationLevel);
         Response.Redirect("../gasstationlevel/gasstationlevel_list.aspx?id=" + ConvertUtil.ToInt(PageParameter.GetCustomParamObject("lId")));
     }

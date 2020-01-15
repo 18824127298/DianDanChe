@@ -182,23 +182,23 @@
                     <tbody>
                         <tr>
                             <td>配偶：<asp:Label ID="Spouse" runat="server" Style="color: red;"></asp:Label></td>
-                            <td>配偶是否知晓分期：<asp:Label ID="IsSpouseKnowStages" runat="server" Style="color: red;"></asp:Label></td>
+                            <td>配偶是否知晓融资租赁：<asp:Label ID="IsSpouseKnowStages" runat="server" Style="color: red;"></asp:Label></td>
                             <td>联系电话：<asp:Label ID="ContactPhone" runat="server" Style="color: red;"></asp:Label></td>
                         </tr>
                         <tr>
                             <td>联系地址：<asp:Label ID="ContactAddress" runat="server" Style="color: red;"></asp:Label></td>
                             <td>父母：<asp:Label ID="Parents" runat="server" Style="color: red;"></asp:Label></td>
-                            <td>父母是否知晓分期：<asp:Label ID="IsParentsKnowStages" runat="server" Style="color: red;"></asp:Label></td>
+                            <td>父母是否知晓融资租赁：<asp:Label ID="IsParentsKnowStages" runat="server" Style="color: red;"></asp:Label></td>
                         </tr>
                         <tr>
                             <td>父母联系电话：<asp:Label ID="ParentsContactPhone" runat="server" Style="color: red;"></asp:Label></td>
                             <td>兄弟姐妹：<asp:Label ID="Brothers" runat="server" Style="color: red;"></asp:Label></td>
-                            <td>兄弟姐妹是否知晓分期：<asp:Label ID="IsBrothersKnowStages" runat="server" Style="color: red;"></asp:Label></td>
+                            <td>兄弟姐妹是否知晓融资租赁：<asp:Label ID="IsBrothersKnowStages" runat="server" Style="color: red;"></asp:Label></td>
                         </tr>
                         <tr>
                             <td>兄弟姐妹联系电话：<asp:Label ID="BrothersContactPhone" runat="server" Style="color: red;"></asp:Label></td>
                             <td>朋友：<asp:Label ID="Friend" runat="server" Style="color: red;"></asp:Label></td>
-                            <td>朋友是否知晓分期：<asp:Label ID="IsFriendKnowStages" runat="server" Style="color: red;"></asp:Label></td>
+                            <td>朋友是否知晓融资租赁：<asp:Label ID="IsFriendKnowStages" runat="server" Style="color: red;"></asp:Label></td>
                         </tr>
                         <tr>
                             <td>朋友联系电话：<asp:Label ID="FriendContactPhone" runat="server" Style="color: red;"></asp:Label></td>
@@ -224,7 +224,7 @@
                                         <asp:BoundField DataField="Phone" HeaderText="手机号" SortExpression="Phone">
                                             <ItemStyle HorizontalAlign="Center" />
                                         </asp:BoundField>
-                                        <asp:TemplateField HeaderText="是否知晓分期" SortExpression="IsKnowStages">
+                                        <asp:TemplateField HeaderText="是否知晓融资租赁" SortExpression="IsKnowStages">
                                             <ItemStyle HorizontalAlign="Center" />
                                             <ItemTemplate>
                                                 <%# VIVIsKnowStages(Eval("IsKnowStages")) %>
@@ -290,7 +290,7 @@
 
 
                         <tr id="Gains" runat="server">
-                            <td>用户借款相关：</td>
+                            <td>用户融资租赁相关：</td>
                             <td colspan="3">融资租赁费：
                                 <asp:TextBox ID="edtMonthlyPayment" runat="server"></asp:TextBox>元
                                  参考的融资租赁费：<asp:Label ID="lblMonthlyPayment" runat="server"></asp:Label>元

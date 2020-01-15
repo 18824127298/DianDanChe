@@ -45,15 +45,15 @@
                     <td>
                         <asp:GridView ID="gvList" runat="server" Width="100%" AllowPaging="True" AutoGenerateColumns="False" AllowSorting="True" OnSorting="gvList_Sorting" EnableViewState="False" CellPadding="8">
                             <Columns>
-                         <%--       <asp:TemplateField HeaderText="手机号" SortExpression="Phone">
+                                <asp:TemplateField HeaderText="手机号" SortExpression="Phone">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("Phone")%>' NavigateUrl='<%# "borrower_update.aspx?id=" + Eval("Id")%>'>HyperLink</asp:HyperLink>
+                                        <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("Phone")%>' NavigateUrl='<%# "member_update.aspx?id=" + Eval("Id")%>'>HyperLink</asp:HyperLink>
                                     </ItemTemplate>
-                                </asp:TemplateField>--%>
-                                <asp:BoundField DataField="Phone" HeaderText="手机号" SortExpression="Phone">
+                                </asp:TemplateField>
+                                <%--<asp:BoundField DataField="Phone" HeaderText="手机号" SortExpression="Phone">
                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
+                                </asp:BoundField>--%>
                                 <asp:BoundField DataField="FullName" HeaderText="姓名" SortExpression="FullName">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>

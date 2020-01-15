@@ -19,6 +19,40 @@
     <link href="~/Content/youka/css/demo1.css" rel="stylesheet" />
     <script src="~/Content/youka/js/fastclick.js"></script>
     <script src="~/Content/youka/js/jquery.min.js"></script>
+    <style>
+        p {
+            text-decoration: none;
+            margin: 0 0;
+        }
+
+        .container-fluid {
+            background-color: #FFF;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .container-fluid2 {
+            line-height: 100px;
+            height: 110px;
+            padding: 10px 6px 0 6px;
+        }
+
+        ul {
+            height: 50px;
+            line-height: 50px;
+            border-bottom: 1px dotted #eaeaea;
+            padding: 0 10px 0 10px;
+        }
+
+        .img1 img {
+            float: left;
+            margin-right: 30px;
+            width: 60px;
+            height: 60px;
+            margin-top: 18px;
+            margin-left: 10px;
+        }
+    </style>
     <script>
         if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
             document.addEventListener('DOMContentLoaded', function (e) {
@@ -38,7 +72,7 @@
                     if (isIPhone) {
                         dpr = devicePixelRatio;
                     } else {
-                        drp = 1;
+                        dpr = 1;
                     }
 
                     scale = 1 / dpr;
@@ -95,6 +129,12 @@
             function fn_OrdersRecord() {
                 window.location.href = "../YouKa/OrdersRecord";
             }
+            function fn_GodBouns() {
+                window.location.href = "../YouKaRules/GodBouns";
+            }
+            function fn_QRCode() {
+                window.location.href = "../YouKaRules/Erweima";
+            }
         }
     </script>
 </head>
@@ -119,6 +159,32 @@
                 <div class="sec_bottom flex1">累计节省金额</div>
             </div>
         </div>
+        <div class="container-fluid">
+            <a href="#" onclick="fn_GodBouns();">
+                <div class="container-fluid2">
+                    <div class="img1" style="float: left;">
+                        <img src="~/Content/youka/images/我要投资.png">
+                        <p style="color: #999; float: left">我的优惠券</p>
+                    </div>
+                    <div style="float: right; padding-top: 15px">
+                        <img src="~/Content/youka/images/enter.png" width="30" height="60" style="margin-right: 18px;">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="container-fluid">
+            <a href="#" onclick="fn_QRCode();">
+                <div class="container-fluid2">
+                    <div class="img1" style="float: left;">
+                        <img src="~/Content/youka/images/我的投资.png">
+                        <p style="color: #999; float: left">我的推荐码</p>
+                    </div>
+                    <div style="float: right; padding-top: 15px">
+                        <img src="~/Content/youka/images/enter.png" width="30" height="60" style="margin-right: 18px;">
+                    </div>
+                </div>
+            </a>
+        </div>
         <div class="content">
             <div class="select_bar rflex">
                 <div class="bar_item green flex1" id='showAll' onclick="showAll()">全部</div>
@@ -127,7 +193,7 @@
             </div>
             <div class="bar_content">
                 <div id='all_content' class="show_content">
-                    @foreach (PaymentForm itempayment in allPaymentFormList)
+                    @foreach (PaymentForm itempayment in allPaymentFormList.OrderByDescending(o => o.CreateTime))
                     {
                         <div class="content_item rflex" onclick="fn_details(@itempayment.Id)">
                             <div class="left_block cflex">
@@ -141,7 +207,7 @@
                     }
                 </div>
                 <div id='pay_content' class="show_content">
-                    @foreach (PaymentForm itempayment in paidFormList)
+                    @foreach (PaymentForm itempayment in paidFormList.OrderByDescending(o => o.CreateTime))
                     {
                         <div class="content_item rflex" onclick="fn_details(@itempayment.Id)">
                             <div class="left_block cflex">
@@ -155,7 +221,7 @@
                     }
                 </div>
                 <div id='unpay_content' class="show_content">
-                    @foreach (PaymentForm itempayment in unpaidFormList)
+                    @foreach (PaymentForm itempayment in unpaidFormList.OrderByDescending(o => o.CreateTime))
                     {
                         <div class="content_item rflex"  onclick="fn_details(@itempayment.Id)">
                             <div class="left_block cflex">

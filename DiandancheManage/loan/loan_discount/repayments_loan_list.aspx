@@ -41,12 +41,9 @@
                     <td>
                         <asp:GridView ID="gvList" runat="server" Width="100%" AllowPaging="True" AutoGenerateColumns="False" AllowSorting="True" OnSorting="gvList_Sorting" EnableViewState="False" CellPadding="8">
                             <Columns>
-                                <asp:TemplateField HeaderText="手机号" SortExpression="CreditPhone">
+                                 <asp:BoundField DataField="CreditPhone" HeaderText="手机号" SortExpression="CreditPhone">
                                     <ItemStyle HorizontalAlign="Center" />
-                                    <ItemTemplate>
-                                        <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("CreditPhone")%>' NavigateUrl='<%# "discount_insert.aspx?id=" + Eval("Id")%>'>HyperLink</asp:HyperLink>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
+                                </asp:BoundField>
                                 <asp:BoundField DataField="Name" HeaderText="客户姓名" SortExpression="Name">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>

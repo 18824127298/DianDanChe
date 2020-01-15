@@ -32,7 +32,7 @@ public partial class loan_loan_list_borrower_borrow_list : SbtPageBase
         if (!IsPostBack)
         {
             CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql
-                       = "select *, UnPrincipal+UnTotalInterest as sumuntotal from Borrow b join LoanApply l on b.LoanApplyId = l.Id where b.IsValid= 1 and b.LoanApplyId=" + nId;
+                       = "select *, UnPrincipal+UnTotalInterest as sumuntotal from Borrow b join LoanApply l on b.LoanApplyId = l.Id join Borrower br on br.Id = b.BorrowerId where b.IsValid= 1 and b.LoanApplyId=" + nId;
 
             if (CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql == "")
             {

@@ -66,7 +66,7 @@
         $("#mb_btnbox").css({ margin: '0.5rem 0 0.3rem 0', textAlign: 'center' });
         $("#mb_btn_ok,#mb_btn_no").css({ width: '2rem', height: '1rem', color: 'white', border: 'none' });
         $("#mb_btn_ok").css({ backgroundColor: 'rgb(3, 193, 97)', fontSize: '0.4rem', borderRadius: '0' });
-        $("#mb_btn_no").css({ backgroundColor: 'gray', marginLeft: '20px', fontSize: '0.4rem', borderRadius: '0'  });
+        $("#mb_btn_no").css({ backgroundColor: 'gray', marginLeft: '20px', fontSize: '0.4rem', borderRadius: '0' });
 
 
         //右上角关闭按钮hover样式

@@ -26,6 +26,8 @@
             <div>
                 &nbsp;支付的时间：<uc1:DatePicker ID="DatePickerFrom" runat="server" ShowDateFmt="yyyy-MM-dd" />
                 ~&nbsp;<uc1:DatePicker ID="DatePickerTo" runat="server" ShowDateFmt="yyyy-MM-dd" />
+                &nbsp;商户的名字：<asp:TextBox ID="GasStationName" runat="server" />
+                &nbsp;手机号：<asp:TextBox ID="Phone" runat="server" />
                 &nbsp;<asp:CheckBox ID="ckbIsAudit" runat="server" Text="支付成功" Checked="true" />
                 &nbsp;<asp:Button ID="btnSearch" runat="server" Text=" 搜索 " OnClick="btnSearch_Click" />
                 &nbsp;<asp:Button ID="btnExportExcel" runat="server" OnClick="btnExportExcel_Click" Text="导出EXCEL" />
@@ -36,7 +38,7 @@
                     <td>
                         <asp:GridView ID="gvList" runat="server" Width="100%" AllowPaging="True" AutoGenerateColumns="False" AllowSorting="True" OnSorting="gvList_Sorting" EnableViewState="False" CellPadding="8">
                             <Columns>
-                                <asp:BoundField DataField="Name" HeaderText="客户名" SortExpression="Name">
+                                <asp:BoundField DataField="Phone" HeaderText="客户名" SortExpression="Phone">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="PayTime" HeaderText="支付时间" SortExpression="PayTime">
@@ -54,19 +56,27 @@
                                         <%# VIVamount(Eval("ActualAmount")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:TemplateField HeaderText="物流公司金额" SortExpression="SupplierAmount">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                    <ItemTemplate>
+                                        <%# VIVamount(Eval("SupplierAmount")) %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="手续费" SortExpression="ServiceFee">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
                                         <%# VIVamount(Eval("ServiceFee")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:BoundField DataField="RiseNumber" HeaderText="升数" SortExpression="RiseNumber">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
                                 <asp:BoundField DataField="Name" HeaderText="加油站" SortExpression="Name">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="OrderNumber" HeaderText="订单号" SortExpression="OrderNumber">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-
                                 <asp:TemplateField HeaderText="状态" SortExpression="IsAudit">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>

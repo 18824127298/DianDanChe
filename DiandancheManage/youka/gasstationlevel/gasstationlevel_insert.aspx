@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="gasstationlevel_insert.aspx.cs" Inherits="youka_gasstationlevel_gasstationlevel_insert" %>
 
+<%@ Register Src="../../module/My97DatePicker.ascx" TagName="DatePicker" TagPrefix="uc1" %>
 <html>
 <head id="Head1" runat="server">
     <title>加油站等级优惠</title>
@@ -37,10 +38,19 @@
                             <td>&nbsp;<asp:TextBox ID="MemberLevel" runat="server"></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td>优惠额：</td>
+                            <td>旧的优惠额：</td>
                             <td>&nbsp;<asp:TextBox ID="Reduction" runat="server" /></td>
                         </tr>
-                       
+                        <tr>
+                            <td>新的优惠额：</td>
+                            <td>&nbsp;<asp:TextBox ID="NewReduction" runat="server" /></td>
+                        </tr>
+                        <tr>
+                            <td>时间点：</td>
+                            <td>&nbsp;<uc1:datepicker id="ReductionTime" runat="server" showdatefmt="yyyy-MM-dd HH:mm:ss" />
+                            </td>
+                        </tr>
+
                     </tbody>
                     <tfoot>
                         <tr>

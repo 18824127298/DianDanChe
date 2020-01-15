@@ -1,5 +1,0 @@
-==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 783 ms / want 500 ms¡¿ 2018/5/16 17:35:26 ====
-select [Id]  FROM [God] WHERE [IsValid] = 1 and [Id] in (select DISTINCT(godid) FROM [RepaymentPlan] WHERE [IsValid] = 1 and 
-(([CreateTime] < '2018-05-01' and  [ActualRepaymentDate] >= '2018-05-01')
-                                                       or ([CreateTime]  < '2018-05-01' and [RepaymentDate] > '2018-05-01' and [ActualRepaymentDate] is null))) and [Fraction] IS NOT NULL 
-

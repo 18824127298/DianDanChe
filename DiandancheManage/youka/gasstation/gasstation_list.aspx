@@ -2,6 +2,7 @@
 
 <%@ Register Src="../../module/GridViewPager.ascx" TagName="GridViewPager" TagPrefix="uc2" %>
 
+<%@ Register Src="../../module/My97DatePicker.ascx" TagName="DatePicker" TagPrefix="uc1" %>
 <html>
 <head id="Head1" runat="server">
     <title>加油站店列表</title>
@@ -23,6 +24,20 @@
                                 <tr>
                                     <td>
                                         <asp:Button ID="Insert" runat="server" Text=" 新 增 " OnClick="Insert_Click" />
+                                    </td>
+                                    <td>油号：<asp:DropDownList ID="ddlOilNumber" runat="server">
+                                        <Items>
+                                            <asp:ListItem Value='0#柴油'>0#柴油</asp:ListItem>
+                                            <asp:ListItem Value='92#汽油'>92#汽油</asp:ListItem>
+                                            <asp:ListItem Value='95#汽油'>95#汽油</asp:ListItem>
+                                            <asp:ListItem Value='98#汽油'>98#汽油</asp:ListItem>
+                                        </Items>
+                                    </asp:DropDownList>
+                                        国标价：<asp:TextBox ID="CountryMarkPrice" runat="server" />&nbsp;
+                                        新的国标价：<asp:TextBox ID="NewCountryPrice" runat="server" />&nbsp;
+                                        国标价节点：<uc1:DatePicker ID="CountryPointTime" runat="server" ShowDateFmt="yyyy-MM-dd HH:mm:ss" />
+                                        &nbsp;
+                                        <asp:Button ID="btnupdate" runat="server" Text=" 修 改 " OnClick="btnupdate_Click" />
                                     </td>
                                 </tr>
                             </table>
@@ -59,6 +74,9 @@
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="PrinterNumber" HeaderText="打印机编号" SortExpression="PrinterNumber">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="SupplierName" HeaderText="所属物流公司" SortExpression="SupplierName">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:TemplateField HeaderText="优惠">

@@ -1,3 +1,0 @@
-==== ¡¾instanceDefault¡¿¡¾actual 666 ms / want 500 ms¡¿ 2017/2/22 17:34:42 ====
-select sum(b.Amount) from Bid b join Credit c on b.CreditId = c.Id and c.IsValid=1 and b.IsValid=1 and (c.CreditStatus=3 or c.CreditStatus = 5) and b.GodId = '1'
-

@@ -20,9 +20,18 @@ namespace CheDaiBaoCommonController.ControllersEnumerates
             WeiXinAuthenticationService WeiXinBase = new WeiXinAuthenticationService();
             if (filterContext.ActionDescriptor.ControllerDescriptor.ControllerName != "Loan" || filterContext.ActionDescriptor.ActionName != "CapriciousLoan")
             {
-                if (System.Web.HttpContext.Current.Session["WeiXin"] == null)
+                if (filterContext.ActionDescriptor.ControllerDescriptor.ControllerName != "YouKaRules" || filterContext.ActionDescriptor.ActionName != "QRCode")
                 {
-                    WeiXinBase.WeiXinRenZheng(filterContext);
+                    if (filterContext.ActionDescriptor.ControllerDescriptor.ControllerName != "YouKaRules" || filterContext.ActionDescriptor.ActionName != "ActivityRules")
+                    {
+                        if (filterContext.ActionDescriptor.ControllerDescriptor.ControllerName != "Receive" || filterContext.ActionDescriptor.ActionName != "Index")
+                        {
+                            if (System.Web.HttpContext.Current.Session["WeiXin"] == null)
+                            {
+                                WeiXinBase.WeiXinRenZheng(filterContext);
+                            }
+                        }
+                    }
                 }
             }
         }

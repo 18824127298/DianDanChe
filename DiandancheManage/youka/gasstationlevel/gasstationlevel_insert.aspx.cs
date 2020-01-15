@@ -31,6 +31,8 @@ public partial class youka_gasstationlevel_gasstationlevel_insert : SbtPageBase
         GasStationLevel gasStationLevel = new GasStationLevel();
         gasStationLevel.MemberLevel = ConvertUtil.ToInt(MemberLevel.Text);
         gasStationLevel.Reduction = ConvertUtil.ToDecimal(Reduction.Text);
+        gasStationLevel.NewReduction = ConvertUtil.ToDecimal(NewReduction.Text);
+        gasStationLevel.ReductionTime = ReductionTime.DateTime;
         gasStationLevel.GasStationId = ConvertUtil.ToInt(PageParameter.GetCustomParamObject("id"));
         int Id = gasStationLevelService.Insert(gasStationLevel);
 

@@ -13,9 +13,7 @@ namespace CheDaiBaoWeChatService.Service
         {
             MemberService memberService = new MemberService();
             SmsService smsService = new SmsService();
-            EncryptionService encryptionService = new EncryptionService();
 
-            List<Member> borrowerOfRecommendedIdentifierList = memberService.GetAll();
 
             model.Phone = (model.Phone + "").Trim();
             model.Code = (model.Code + "").Trim();
@@ -38,12 +36,6 @@ namespace CheDaiBaoWeChatService.Service
 
             Member member = new Member();
 
-            #region 生成推荐人标示符
-
-            string recommendedIdentifier = Guid.NewGuid().ToString();
-
-
-            #endregion
 
             member.Guid = Guid.NewGuid().ToString();
             member.Phone = model.Phone;
@@ -54,6 +46,34 @@ namespace CheDaiBaoWeChatService.Service
             return member;
         }
 
+        public Member Updateration(Member model, Member member)
+        {
+            MemberService memberService = new MemberService();
+            SmsService smsService = new SmsService();
+            model.Phone = (model.Phone + "").Trim();
+            model.Code = (model.Code + "").Trim();
 
+            #region 服务端验证
+
+            if (!smsService.ValidateMobileCode(model.Code, model.Phone))
+            {
+                throw new Exception("验证码错误或者失效，请重新填写或者获取验证码");
+            }
+
+            if (memberService.Search(new Member() { Phone = model.Phone }).Any())
+            {
+                throw new Exception("已经有相同的手机号码");
+            }
+
+
+            #endregion
+
+
+            member.Guid = Guid.NewGuid().ToString();
+            member.Phone = model.Phone;
+            member.MemberLevel = 1;
+            memberService.Update(member);
+            return member;
+        }
     }
 }

@@ -61,6 +61,7 @@
     <Compile Include="Controllers\RechargeController.cs" />
     <Compile Include="Controllers\WxSharedController.cs" />
     <Compile Include="Controllers\YouKaController.cs" />
+    <Compile Include="Controllers\YouKaRulesController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +97,9 @@
       <Project>{767a08f9-e511-4cad-b8fa-a99b7a91c5da}</Project>
       <Name>CheDaiBaoWeChatService</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

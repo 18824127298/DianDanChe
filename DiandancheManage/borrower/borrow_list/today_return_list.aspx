@@ -50,7 +50,7 @@
                                  <asp:BoundField DataField="Amount" HeaderText="金额" SortExpression="Amount">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="TotalAmountStage" HeaderText="分期金额" SortExpression="TotalAmountStage">
+                                <asp:BoundField DataField="TotalAmountStage" HeaderText="融资租赁额" SortExpression="TotalAmountStage">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                             </Columns>

@@ -1,6 +1,0 @@
-==== ¡¾instanceDefault¡¿¡¾actual 539 ms / want 500 ms¡¿ 2017/11/24 14:46:40 ====
-SELECT b.[Id] as bId, (b.[UnPrincipal] + b.[UnTotalInterest]) AS UnSumAmount, b.[UnPrincipal], b.[UnTotalInterest], b.[Stages], b.[OverInterest], b.[RepaymentDate], g.[FullName] , g.[Id] 
-FROM [Borrow] b JOIN [God] g ON b.[GodId] = g.[Id] JOIN [LoanApply] l on b.[LoanApplyId] = l.[Id] WHERE b.[IsValid] = 1 AND g.[IsValid] = 1 
-AND l.[IsValid] = 1 AND b.[RepaymentDate] >=  '2017-11-24' AND b.[RepaymentDate] <= '2017-11-27' AND  (b.[UnPrincipal] + b.[UnTotalInterest]) > 0 AND l.[LoanType] = 2
- order by repaymentdate
-

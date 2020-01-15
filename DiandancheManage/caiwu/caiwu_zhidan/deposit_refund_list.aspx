@@ -38,19 +38,19 @@
                                 <asp:BoundField DataField="FullName" HeaderText="姓名" SortExpression="FullName">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="CreateTime" HeaderText="申请的时间" SortExpression="CreateTime">
+                                <asp:BoundField DataField="InterestDate" HeaderText="起租的日期" SortExpression="InterestDate">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:TemplateField HeaderText="金额">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
-                                        <%# VIVAmount(Eval("Amount")) %>
+                                        <%# VIVAmount(Eval("Deposit")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="审核">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
-                                        <%# VIVAudit(Eval("Id")) %>
+                                        <%# VIVAudit(Eval("Id"),Eval("unDeposit")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

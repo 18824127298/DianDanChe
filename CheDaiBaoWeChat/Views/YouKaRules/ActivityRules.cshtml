@@ -1,0 +1,103 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "优惠券活动规则";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="wap-font-scale" content="no">
+    <title>活动规则</title>
+    <link href="~/Content/youka/css/base.css" rel="stylesheet" />
+@*    <link href="~/Content/youka/css/rule.css" rel="stylesheet" />*@
+    <style type="text/css">
+        .yzmbtn {
+            width: 45%;
+            height: 1.5rem;
+            margin: 0.5rem 0 0 0;
+            border-radius: 0.4rem;
+            text-align: center;
+            font-size: 0.6rem;
+            color: #fff;
+            background: rgb(3, 193, 97);
+            border: none;
+            margin-left:3.3rem;
+        }
+
+        body:before {
+            content: '';
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            background: url(../Content/youka/images/rule_bg.jpg) center 0 no-repeat;
+            background-size: 100% 100%;
+            /*overflow: ;*/
+        }
+
+        body {
+            background: url(../Content/youka/images/rule_bg.jpg) no-repeat fixed;
+            background-size: 100% 100%;
+        }
+
+        .wbox {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .rule {
+            width: 12.34rem;
+            height: 9.78rem;
+            /*background:#ddd;*/
+            margin: 0 auto;
+            margin-top: 9rem;
+        }
+
+            .rule p {
+                font: 400 0.6rem/1rem "微软雅黑";
+                /*color: #f14d46;*/
+                color:rgb(128,128,128);
+                text-align: justify;
+                z-index: 99999;
+            }
+    </style>
+</head>
+<body>
+    <div class="wbox" style="z-index: 99999;"> 
+        <div class="rule">
+            <p style="z-index: 99999;">
+                1、活动时间：2019年12月15日-2019年12月31日；<br />
+                2、分享我的推荐码至朋友圈或者微信好友，好友扫码注册后将得到三十元优惠券；有效期为一个月；<br />
+                3、三十元优惠券必须满三百块可用；<br />
+                4、新客户使用完优惠券后老客户即可得三十元优惠券；<br />
+                5、活动最终解释权归车1号所有，如有疑问请打客服热线4008037268<br />
+            </p>
+            <input type="button" id="CallSmsCode" class="yzmbtn" value="马上领取优惠券" onclick="fn_Erweima()">
+        </div>
+    </div>
+</body>
+</html>
+<script src="~/Content/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        document.body.addEventListener('touchmove', function (event) {
+            event.preventDefault();
+        });
+    }
+
+    function fn_Erweima() {
+        location.href = "../YouKaRules/Erweima";
+    }
+</script>

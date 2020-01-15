@@ -1,5 +1,0 @@
-==== ¡¾instanceDefault¡¿¡¾actual 741 ms / want 500 ms¡¿ 2017/11/9 17:35:28 ====
-select God.*,FreeAmount,(WaitPrincipal+WaitInterest) as WaitAmount,(FreezeBid+FreezeWithdrawal+ExFloat01) as FreezeAmount,RecommName,RecommCount  from God inner join GodSummary on God.id=GodSummary.id
- where GodType <> 4 and GodType <> 3
- order by god.createtime desc
-

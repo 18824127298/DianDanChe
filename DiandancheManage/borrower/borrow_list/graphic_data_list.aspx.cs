@@ -55,13 +55,17 @@ public partial class borrower_borrow_list_graphic_data_list : SbtPageBase
         LoanApplyService loanApplyService = new LoanApplyService();
         List<LoanApply> MonthlyVolumeList = loanApplyService.MonthlyVolume();
         Int32[] lists19 = new Int32[12];
+        Int32[] lists20 = new Int32[12];
         foreach (LoanApply loanapply in MonthlyVolumeList)
         {
             if (loanapply.syear.Contains("2019"))
                 lists19[loanapply.nmonth.Value - 1] = Convert.ToInt32((loanapply.TotalAmountStage.Value));
+            if (loanapply.syear.Contains("2020"))
+                lists20[loanapply.nmonth.Value - 1] = Convert.ToInt32((loanapply.TotalAmountStage.Value));
         }
         Dictionary<string, Int32[]> lt = new Dictionary<string, Int32[]>();
         lt.Add("lists19", lists19);
+        lt.Add("lists20", lists20);
 
         string imfo = JsonConvert.SerializeObject(lt).ToString();
         return imfo;
@@ -73,13 +77,17 @@ public partial class borrower_borrow_list_graphic_data_list : SbtPageBase
         LoanApplyService loanApplyService = new LoanApplyService();
         List<LoanApply> MonthlyTransactionsList = loanApplyService.MonthlyTransactions();
         Int32[] lists19 = new Int32[12];
+        Int32[] lists20 = new Int32[12];
         foreach (LoanApply loanapply in MonthlyTransactionsList)
         {
             if (loanapply.syear.Contains("2019"))
                 lists19[loanapply.nmonth.Value - 1] = loanapply.count.Value;
+            if (loanapply.syear.Contains("2020"))
+                lists20[loanapply.nmonth.Value - 1] = loanapply.count.Value;
         }
         Dictionary<string, Int32[]> lt = new Dictionary<string, Int32[]>();
         lt.Add("lists19", lists19);
+        lt.Add("lists20", lists20);
 
         string imfo = JsonConvert.SerializeObject(lt).ToString();
         return imfo;
@@ -111,7 +119,9 @@ public partial class borrower_borrow_list_graphic_data_list : SbtPageBase
         foreach (Recharge recharge in MonthlyRepaymentList)
         {
             if (recharge.syear.Contains("2019"))
-                lists19[recharge.nmonth.Value - 1] = Convert.ToInt32((recharge.Amount.Value / 100));
+                lists19[recharge.nmonth.Value - 7] = Convert.ToInt32((recharge.Amount.Value / 100));
+            if (recharge.syear.Contains("2020"))
+                lists19[recharge.nmonth.Value + 5] = Convert.ToInt32((recharge.Amount.Value / 100));
         }
         Dictionary<string, Int32[]> lt = new Dictionary<string, Int32[]>();
         lt.Add("lists19", lists19);

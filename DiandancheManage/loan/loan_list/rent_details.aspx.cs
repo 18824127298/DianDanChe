@@ -58,7 +58,7 @@ public partial class loan_loan_list_rent_details : SbtPageBase
         lblAuditorRemark.Text = loanapply.AuditorRemark;
         lblOtherLoan.Text = loanapply.OtherLoan;
         lblRemark.Text = loanapply.Remark;
-        edtElectricCore.Text = loanapply.ElectricCore; 
+        edtElectricCore.Text = loanapply.ElectricCore;
         edtFengKongRemark.Text = loanapply.FengKongRemark;
         edtVisitRecord.Text = loanapply.VisitRecord;
         edtZhiCha.Text = loanapply.ZhiCha;
@@ -66,6 +66,9 @@ public partial class loan_loan_list_rent_details : SbtPageBase
         lblTongDunWang.Text = loanapply.TongDunWang;
         edtTongDunWang.Text = loanapply.TongDunWang;
         ddlIsRider.SelectedValue = ConvertUtil.ToString(loanapply.IsRider);
+        WithinMonth.Text = loanapply.WithinMonth.ToString() + "个月";
+        Insurance.Text = loanapply.Insurance.Value.ToString() + "元";
+        TotalAmountStage.Text = loanapply.TotalAmountStage.Value.ToString("N0") + "元";
 
         if (idCardInformation != null)
         {
@@ -166,8 +169,6 @@ public partial class loan_loan_list_rent_details : SbtPageBase
         if (loanapply.RepaymentStatus != CreditStatus.未审核)
         {
             btnOK.Visible = false;
-            btnUnAudit.Visible = false;
-            btnLiXiRen.Visible = false;
             TrBoHui.Visible = false;
         }
         if (loanapply.RepaymentStatus == CreditStatus.审核未通过)
@@ -215,152 +216,6 @@ public partial class loan_loan_list_rent_details : SbtPageBase
         FetchDataFromDBContacts();
 
         tbART.Visible = false;
-        if (loanapply.RepaymentStatus == CreditStatus.还款中)
-        {
-            TrBoHui.Visible = true;
-            edtAuditorRemark.Visible = false;
-            lblAuditorRemark.Visible = true;
-            tbART.Visible = true;
-            btnMentionBack.Visible = true;
-            lblART.Visible = true;
-            DiscountService discountService = new DiscountService();
-            decimal dStandardDeduction = 0;
-            Discount discount = discountService.Search(new Discount() { IsValid = true }).Where(o => o.LeftAmount > 0 && o.BorrowerId == loanapply.BorrowerId && o.LoanApplyId == loanapply.Id && o.SecondAuditResult == true).FirstOrDefault();
-            if (discount != null)
-            {
-                dStandardDeduction = discount.LeftAmount.Value;
-            }
-            BorrowService borrowService = new BorrowService();
-            List<Borrow> borrowList = borrowService.Search(new Borrow() { IsValid = true }).Where(o => o.LoanApplyId == loanapply.Id && o.BorrowerId == loanapply.BorrowerId && (o.UnTotalInterest + o.UnPrincipal) > 0).ToList();
-            if (borrowList.Count > 0)
-            {
-                Borrow newborrow = borrowList.Find(o => o.ActualRepaymentDate == null && o.RepaymentDate >= DateTime.Now.Date && DateTime.Now.Date > o.RepaymentDate.Value.AddMonths(-1).Date);
-                List<Borrow> overdueborrowlist = borrowList.FindAll(o => o.ActualRepaymentDate == null && o.OverDay > 0 && o.UnTotalInterest > 0);
-                decimal overdueInterest = overdueborrowlist.Sum(o => o.UnTotalInterest).Value;
-
-                decimal unSumPrincipal = borrowList.Sum(o => o.UnPrincipal).Value;
-                decimal oneInterest = borrowList.FirstOrDefault().Interest.Value;
-                decimal dServiceCharge = 0;
-                decimal dSumAmount = 0;
-                if (loanapply.InterestDate.Value.Date < new DateTime(2019, 07, 18))
-                {
-                    if (loanapply.InterestDate.Value.AddDays(15) >= DateTime.Now.Date)
-                    {
-                        dServiceCharge = 200;
-                        dSumAmount = unSumPrincipal + dServiceCharge;
-                    }
-                    else if (loanapply.InterestDate.Value.AddMonths(3) >= DateTime.Now.Date)
-                    {
-                        if (newborrow == null)
-                        {
-                            dServiceCharge = 200;
-                        }
-                        else
-                        {
-                            dServiceCharge = 200 + oneInterest;
-                        }
-                        dSumAmount = unSumPrincipal + dServiceCharge;
-                    }
-                    else
-                    {
-                        List<Borrow> newborrowList = borrowList.FindAll(o => o.Stages <= 11);
-                        if (newborrowList.Count > 0)
-                        {
-                            DateTime dtTime = borrowList.Find(o => o.RepaymentDate >= DateTime.Now.Date && DateTime.Now.Date > o.RepaymentDate.Value.AddMonths(-1).Date).RepaymentDate.Value.Date;
-                            if (newborrow == null)
-                            {
-                                if (DateTime.Now.Date.AddMonths(1).AddDays(15) > dtTime)
-                                {
-                                    dServiceCharge = oneInterest;
-                                }
-                                else
-                                {
-                                    dServiceCharge = 0;
-                                }
-                            }
-                            else
-                            {
-                                if (DateTime.Now.Date.AddDays(15) > dtTime)
-                                {
-                                    dServiceCharge = oneInterest * 2;
-                                }
-                                else
-                                {
-                                    dServiceCharge = oneInterest;
-                                }
-                            }
-
-                        }
-                        else
-                        {
-                            dServiceCharge = oneInterest;
-                        }
-                        dSumAmount = unSumPrincipal + dServiceCharge;
-                    }
-                }
-                else if (loanapply.InterestDate.Value.Date < new DateTime(2019, 08, 27))
-                {
-                    if (loanapply.InterestDate.Value.AddMonths(loanapply.WithinMonth) >= DateTime.Now.Date)
-                    {
-                        if (newborrow == null)
-                        {
-                            dServiceCharge = 200;
-                        }
-                        else
-                        {
-                            dServiceCharge = 200 + oneInterest;
-                        }
-                        dSumAmount = unSumPrincipal + dServiceCharge;
-                    }
-                    else
-                    {
-                        if (newborrow == null)
-                        {
-                            dServiceCharge = 100;
-                        }
-                        else
-                        {
-                            dServiceCharge = 100 + oneInterest;
-                        }
-                        dSumAmount = unSumPrincipal + dServiceCharge;
-                    }
-                }
-                else
-                {
-                    if (loanapply.InterestDate.Value.AddMonths(loanapply.WithinMonth) >= DateTime.Now.Date)
-                    {
-                        if (newborrow == null)
-                        {
-                            dServiceCharge = 300;
-                        }
-                        else
-                        {
-                            dServiceCharge = 300 + oneInterest;
-                        }
-                        dSumAmount = unSumPrincipal + dServiceCharge;
-                    }
-                    else
-                    {
-                        if (newborrow == null)
-                        {
-                            dServiceCharge = 200;
-                        }
-                        else
-                        {
-                            dServiceCharge = 200 + oneInterest;
-                        }
-                        dSumAmount = unSumPrincipal + dServiceCharge;
-                    }
-                }
-                lblART.Text = "提还总金额：" + (dSumAmount + overdueInterest).ToString() + "元，未还融资租赁总额为：" + unSumPrincipal.ToString()
-                    + "元，手续费为：" + (dServiceCharge + overdueInterest).ToString() + "元，减免额为：" + dStandardDeduction + "元";
-            }
-        }
-
-        if (loanapply.IsMentionBack == true)
-        {
-            btnMentionBack.Visible = false;
-        }
     }
 
 
@@ -394,13 +249,43 @@ public partial class loan_loan_list_rent_details : SbtPageBase
     {
         try
         {
+            if (edtAuditOpinion.Text == "")
+            {
+                Response.Write("<script>alert('请填写风控审核意见!')</script>");
+                return;
+            }
+
             int nId = ConvertUtil.ToInt(PageParameter.GetCustomParamObject("id"));
             LoanApplyService loanapplyService = new LoanApplyService();
             LoanApply loanapply = loanapplyService.GetById(nId);
+            HttpFileCollection files = Request.Files;
+            string filePath = Server.MapPath("~/UploadFiles/");
+            if (Directory.Exists(filePath) == false)
+            {
+                Directory.CreateDirectory(filePath);
+            }
+            if (files.Count != 0)
+            {
+                string fileName = files[0].FileName;
+                files[0].SaveAs(Path.Combine(filePath, fileName));
+                BusinessFileService businessFileService = new BusinessFileService();
+                BusinessFile businessFile = new BusinessFile();
+                businessFile.BorrowerId = loanapply.BorrowerId;
+                businessFile.BusinessType = BusinessType.文件;
+                businessFile.FilePath = Path.Combine(filePath, fileName);
+                businessFile.RelationId = loanapply.Id;
+                businessFile.FileName = Name.Text;
+                businessFileService.Insert(businessFile);
+            }
+            else
+            {
+                Response.Write("<script>alert('未获取到Files:" + files.Count.ToString() + "')</script>");
+                return;
+            }
+
             loanapply.AuditTime = DateTime.Now;
             loanapply.Auditor = CurrentUser.UserName;
-            loanapply.RepaymentStatus = CreditStatus.还款中;
-            loanapply.IsLending = false;
+            loanapply.RepaymentStatus = CreditStatus.已初审;
             loanapply.TongDunWang = edtTongDunWang.Text;
             loanapply.ElectricCore = edtElectricCore.Text;
             loanapply.FengKongRemark = edtFengKongRemark.Text;
@@ -408,48 +293,25 @@ public partial class loan_loan_list_rent_details : SbtPageBase
             loanapply.ZhiCha = edtZhiCha.Text;
             loanapply.DaiQian = edtDaiQian.Text;
             loanapply.AuditorRemark = edtAuditorRemark.Text;
+            loanapply.AuditOpinion = edtAuditOpinion.Text;
+
             if (ddlIsRider.SelectedValue != "NotSure")
             {
                 loanapply.IsRider = ConvertUtil.ToBool(ddlIsRider.SelectedValue);
             }
-            loanapply.InterestDate = DateTime.Now.Date;
-            loanapply.ExpectedRepayment = DateTime.Now.Date.AddMonths(ConvertUtil.ToInt(loanapply.Deadline));
-            loanapply.IsLending = true;
-            loanapply.LendingDate = DateTime.Now.Date;
-            loanapply.BatchDate = DateTime.Now.Date.AddDays(-1);
+            if (ddlIsAnswer.SelectedValue != "NotSure")
+            {
+                loanapply.IsAnswer = ConvertUtil.ToBool(ddlIsAnswer.SelectedValue);
+            }
+            if (ddlIsAbnormal.SelectedValue != "NotSure")
+            {
+                loanapply.IsAbnormal = ConvertUtil.ToBool(ddlIsAbnormal.SelectedValue);
+            }
+
             loanapplyService.Update(loanapply);
 
 
-
-            BorrowService borrowService = new BorrowService();
-            Borrow borrow = new Borrow();
-            for (int i = 0; i < loanapply.Deadline; i++)
-            {
-                borrow.BorrowerId = loanapply.BorrowerId;
-                borrow.LoanApplyId = loanapply.Id;
-                borrow.RepaymentDate = DateTime.Now.AddMonths(i).Date;
-                borrow.Stages = i + 1;
-                borrow.TotalPeriod = loanapply.Deadline.Value;
-                borrow.OverInterest = 0;
-                borrow.OverDay = 0;
-                borrow.BreachAmount = 0;
-                borrow.Principal = 0;
-                borrow.UnPrincipal = 0;
-                borrow.Interest = loanapply.BicyclesRent;
-                borrow.UnTotalInterest = loanapply.BicyclesRent;
-
-                borrowService.Insert(borrow);
-            }
-            BorrowerService borrowerService = new BorrowerService();
-            Borrower borrower = borrowerService.GetById(loanapply.BorrowerId);
-            Borrower salesman = borrowerService.GetById(loanapply.SalesmanId);
-            QiyebaoSms qiyebaoSms = new QiyebaoSms();
-            string sContent = string.Format(@"尊敬的{0}客户您好，您在广州翼速融资租赁有限公司申请电单车租赁业务已获批 ，期限{1}个月，起租期{2}个月 【车1号】", borrower.FullName, loanapply.Deadline, loanapply.WithinMonth);
-            qiyebaoSms.SendSms(loanapply.CreditPhone, sContent);
-            sContent = string.Format(@"客户{0},审核已通过【车1号】", borrower.FullName);
-            qiyebaoSms.SendSms(salesman.Phone, sContent);
-
-            Response.Redirect("../loan_list/success_loans_list.aspx");
+            Response.Redirect("../loan_list/second_loan_list.aspx");
         }
         catch (Exception ex)
         {
@@ -911,5 +773,43 @@ public partial class loan_loan_list_rent_details : SbtPageBase
         {
             Response.Write("<script>alert('" + ex.Message + "')</script>");
         }
+    }
+    protected void btnDownLoad_Click(object sender, EventArgs e)
+    {
+        // 定义文件名    
+        string fileName = "";
+        // 获取文件在服务器的地址    
+        string url = "";
+
+        // 判断传输地址是否为空    
+        if (url == "")
+        {
+            // 提示“该文件暂不提供下载”    
+            Page.ClientScript.RegisterStartupScript(Page.GetType(), "message", "<script defer>alert('该文件暂不提供下载！');</script>");
+            return;
+        }
+        // 判断获取的是否为地址，而非文件名    
+        if (url.IndexOf("\\") > -1)
+        {
+            // 获取文件名    
+            fileName = url.Substring(url.LastIndexOf("\\") + 1);
+        }
+        else
+        {
+            // url为文件名时，直接获取文件名    
+            fileName = url;
+        }
+        // 以字符流的方式下载文件   
+        FileStream fileStream = new FileStream(@url, FileMode.Open);
+        byte[] bytes = new byte[(int)fileStream.Length];
+        fileStream.Read(bytes, 0, bytes.Length);
+        fileStream.Close();
+        Response.ContentType = "application/octet-stream";
+
+        // 通知浏览器下载   
+        Response.AddHeader("Content-Disposition", "attachment; filename=" + fileName);
+        Response.BinaryWrite(bytes);
+        Response.Flush();
+        Response.End();
     }
 }

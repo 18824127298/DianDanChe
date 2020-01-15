@@ -41,7 +41,7 @@ namespace CheDaiBaoWeChatModel.Models
         ///  收入用户 
         /// </summary>         
         [OriginalField]
-        [Display(Name = "支付用户")]
+        [Display(Name = "收入用户")]
         public int IncomeGodId { get; set; }
 
 
@@ -51,7 +51,7 @@ namespace CheDaiBaoWeChatModel.Models
         /// 支付用户
         /// </summary>         
         [OriginalField]
-        [Display(Name = "收入用户")]
+        [Display(Name = "支付用户")]
         public int PayGodId { get; set; }
 
 

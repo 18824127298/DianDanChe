@@ -58,6 +58,15 @@
                                         <%# Amount(Eval("Reduction")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:TemplateField HeaderText="新的减免额">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                    <ItemTemplate>
+                                        <%# Amount(Eval("NewReduction")) %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="ReductionTime" HeaderText="减免额时间点" SortExpression="ReductionTime">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
                             </Columns>
                             <PagerSettings Visible="False" />
                         </asp:GridView>

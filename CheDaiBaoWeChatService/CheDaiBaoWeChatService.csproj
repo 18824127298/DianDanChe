@@ -58,11 +58,16 @@
     <Compile Include="Service\LoanApplyService.cs" />
     <Compile Include="Service\MemberService.cs" />
     <Compile Include="Service\OilGunService.cs" />
+    <Compile Include="Service\PartialService\AgentService.cs" />
     <Compile Include="Service\PartialService\CapriciousLoanService.cs" />
+    <Compile Include="Service\PartialService\CardAgentIdService.cs" />
+    <Compile Include="Service\PartialService\CardService.cs" />
     <Compile Include="Service\PartialService\ContactsService.cs" />
     <Compile Include="Service\PartialService\FollowUpService.cs" />
     <Compile Include="Service\PartialService\GasStationLevelService.cs" />
     <Compile Include="Service\PartialService\GasStationService.cs" />
+    <Compile Include="Service\PartialService\GodBounsRecordService.cs" />
+    <Compile Include="Service\PartialService\GodBounsService.cs" />
     <Compile Include="Service\PartialService\LoanApplyService.cs" />
     <Compile Include="Service\OperaService.cs" />
     <Compile Include="Service\PartialService\BankCardService.cs" />
@@ -74,6 +79,8 @@
     <Compile Include="Service\PartialService\FundsFlowService.cs" />
     <Compile Include="Service\PartialService\IdCardInformationService.cs" />
     <Compile Include="Service\PartialService\LoanFileService.cs" />
+    <Compile Include="Service\PartialService\MemberCardService.cs" />
+    <Compile Include="Service\PartialService\SupplierFundsFlowService.cs" />
     <Compile Include="Service\PartialService\MemberService.cs" />
     <Compile Include="Service\PartialService\OilGunService.cs" />
     <Compile Include="Service\PartialService\OperateModelService.cs" />
@@ -87,6 +94,7 @@
     <Compile Include="Service\PartialService\RefundService.cs" />
     <Compile Include="Service\PartialService\SendMessageHistoryService.cs" />
     <Compile Include="Service\PartialService\SeparateAccountsService.cs" />
+    <Compile Include="Service\PartialService\SupplierService.cs" />
     <Compile Include="Service\PartialService\YouKaService.cs" />
     <Compile Include="Service\PaymentFormService.cs" />
     <Compile Include="Service\RechargeService.cs" />

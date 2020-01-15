@@ -488,16 +488,28 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\youka\css\base.css" />
     <Content Include="Content\youka\css\demo.css" />
     <Content Include="Content\youka\css\demo1.css" />
     <Content Include="Content\youka\css\demo2.css" />
     <Content Include="Content\youka\css\demo3.css" />
     <Content Include="Content\youka\css\demo4.css" />
     <Content Include="Content\youka\css\normalize.css" />
+    <Content Include="Content\youka\css\rule.css" />
     <Content Include="Content\youka\css\tabs.css" />
     <Content Include="Content\youka\css\tabstyles.css" />
+    <Content Include="Content\youka\css\yhj.css" />
+    <Content Include="Content\youka\images\enter.png" />
+    <Content Include="Content\youka\images\icon1.png" />
+    <Content Include="Content\youka\images\icon2.png" />
     <Content Include="Content\youka\images\jiayou.png" />
+    <Content Include="Content\youka\images\rule_bg.jpg" />
+    <Content Include="Content\youka\images\yhjyw.png" />
+    <Content Include="Content\youka\images\yhj_using.png" />
+    <Content Include="Content\youka\images\youhui_03.png" />
     <Content Include="Content\youka\images\导航.png" />
+    <Content Include="Content\youka\images\我的投资.png" />
+    <Content Include="Content\youka\images\我要投资.png" />
     <Content Include="Content\youka\img\dh.png" />
     <Content Include="Content\youka\img\down.png" />
     <Content Include="Content\youka\img\dw.png" />
@@ -509,6 +521,7 @@
     <Content Include="Content\youka\js\fastclick.js" />
     <Content Include="Content\youka\js\jquery.min.js" />
     <Content Include="Content\youka\js\jquery.newsimilar.msgbox.js" />
+    <Content Include="Content\youka\js\jquery.qrcode.min-1.js" />
     <Content Include="Content\youka\js\modernizr.custom.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -634,6 +647,10 @@
     <Content Include="Views\YouKa\AllGasStation.cshtml" />
     <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\YouKa\OrdersRecordDetails.cshtml" />
+    <Content Include="Views\YouKaRules\ActivityRules.cshtml" />
+    <Content Include="Views\YouKaRules\QRCode.cshtml" />
+    <Content Include="Views\YouKaRules\Erweima.cshtml" />
+    <Content Include="Views\YouKaRules\GodBouns.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

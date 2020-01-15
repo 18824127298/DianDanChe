@@ -23,7 +23,7 @@ public partial class caiwu_caiwu_zhidan_deposit_refund_list : SbtPageBase
         if (!IsPostBack)
         {
             CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql
-                       = @"select r.*, b.Phone, b.FullName from Refund r join Borrower b on r.BorrowerId = b.Id where r.IsValid= 1 and r.IsAudit is null";
+                       = @"select l.Id, l.Deposit, b.FullName, b.Phone, l.InterestDate, l.unDeposit from loanapply l join Borrower b on l.BorrowerId = b.Id where l.IsValid= 1 and Deposit>0 and (l.RepaymentStatus=5 or l.RepaymentStatus=6)";
 
             if (CurrentPageStatus.DataViewStatus.SqlBuilder.NonConditionSql == "")
             {
@@ -76,13 +76,18 @@ public partial class caiwu_caiwu_zhidan_deposit_refund_list : SbtPageBase
 
     }
 
-    protected string VIVAudit(object oId)
+    protected string VIVAudit(object oId, object ounDeposit)
     {
-        return "<a class=\"bkcYellow\"  title=\"审核\" href=\"deposit_refund_audit.aspx?rec_key=" + ConvertUtil.ToInt(oId) + "\"  >审核</a>";
+        if (ConvertUtil.ToDecimal(ounDeposit) == 0)
+            return "<a class=\"bkcYellow\"  title=\"审核\" href=\"deposit_refund_audit.aspx?rec_key=" + ConvertUtil.ToInt(oId) + "\"  >审核</a>";
+        else if (ConvertUtil.ToDecimal(ounDeposit) > 0)
+            return "未交钱";
+        else
+            return "已退款";
     }
 
     protected string VIVAmount(object oAmount)
     {
         return ConvertUtil.ToDecimal(oAmount).ToString("#0");
-    } 
+    }
 }

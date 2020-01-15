@@ -310,47 +310,11 @@ namespace CheDaiBaoWeChatController.Controllers
             }
         }
 
-        [HttpPost]
-        public string Refund()
-        {
-            Borrower borrower = new BorrowerAuthenticationService().GetAuthenticatedBorrower();
-            FundsFlowService fundsflowService = new FundsFlowService();
-            FundsFlow payfundsflow = fundsflowService.Search(new FundsFlow() { IsValid = true }).Where(o => o.PayGodId == borrower.Id && o.FeeType == FeeType.押金 && o.IsFreeze == false).FirstOrDefault();
+        //[HttpPost]
+        //public string Refund()
+        //{
+          
 
-            if (payfundsflow == null)
-            {
-                return "0";
-            }
-            else
-            {
-                decimal? dAmount = 0;
-                FundsFlow incomefundsflow = fundsflowService.Search(new FundsFlow() { IsValid = true }).Where(o => o.IncomeGodId == borrower.Id && o.FeeType == FeeType.押金 && o.IsFreeze == false).FirstOrDefault();
-                if (incomefundsflow == null)
-                    dAmount = payfundsflow.Amount;
-                else
-                {
-                    dAmount = payfundsflow.Amount - incomefundsflow.Amount;
-                }
-                if (dAmount == 0)
-                {
-                    return "0";
-                }
-                else
-                {
-                    RefundService refundService = new RefundService();
-                    refundService.Insert(new Refund()
-                    {
-                        Amount = dAmount,
-                        BorrowerId = borrower.Id,
-                        ReChargeId = payfundsflow.RelationId,
-                        FundsFlowId = payfundsflow.Id
-                    });
-                    payfundsflow.IsFreeze = true;
-                    fundsflowService.Update(payfundsflow);
-                    return "1";
-                }
-            }
-
-        }
+        //}
     }
 }

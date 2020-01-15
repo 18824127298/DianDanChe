@@ -1,3 +1,0 @@
-==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 13531 ms / want 500 ms¡¿ 2016/9/14 11:50:56 ====
-update fundsflow set [AnarchyFfId]=@AnarchyFfId,[UpdateTime]=@UpdateTime where id=@Id
-

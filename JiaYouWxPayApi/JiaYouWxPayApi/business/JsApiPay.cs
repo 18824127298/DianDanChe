@@ -153,7 +153,7 @@ namespace JiaYouWxPayApi
         {
             //统一下单
             WxPayData data = new WxPayData();
-            data.SetValue("body", "车一号");
+            data.SetValue("body", "中化石油");
             data.SetValue("attach", attach);
             data.SetValue("out_trade_no", out_trade_no);
             data.SetValue("total_fee", total_fee);

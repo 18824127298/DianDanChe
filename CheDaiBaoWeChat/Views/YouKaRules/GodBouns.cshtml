@@ -1,0 +1,83 @@
+﻿@using CheDaiBaoWeChatModel;
+@using CheDaiBaoWeChatModel.Models;
+@model List<GodBouns>
+@{
+    Layout = null;
+    ViewBag.Title = "我的优惠券";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="wap-font-scale" content="no">
+    <link href="~/Content/youka/css/base.css" rel="stylesheet" />
+    <link href="~/Content/youka/css/yhj.css" rel="stylesheet" />
+    <title>我的优惠券</title>
+</head>
+<body style="padding-bottom: 60px;">
+    @if (Model.Count > 0)
+    {
+        foreach (var item in Model)
+        {
+        <div class="wrap@((item.BounsStatus.Value == BounsStatus.已用完 || item.BounsStatus.Value == BounsStatus.过期失效) == true ? "-used" : item.IsActive == true ? "-using" : "")">
+            <div class="coup-tit" style="@((item.BounsStatus.Value == BounsStatus.已用完 || item.BounsStatus.Value == BounsStatus.过期失效) == true ? "color: #ccc" : "")">@item.Name</div>
+            <div class="con">
+                <div class="cont-l">
+                    @if (item.BounsStatus.Value == BounsStatus.已用完 || item.BounsStatus.Value == BounsStatus.过期失效)
+                    {
+                        <span class="symbol" style="color: #ccc">@item.BounsStatus.Value</span>
+                    }
+                    else
+                    {
+                        <span class="symbol">￥</span>
+                        <span class="num">@item.LeftAmount.Value.ToString("N0")</span>
+                    }
+                </div>
+                <div class="cont-r">
+                    @if (item.BounsStatus.Value == BounsStatus.已用完 || item.BounsStatus.Value == BounsStatus.过期失效)
+                    {
+                        <span class="type-tit" style="text-align: right; color: #ccc">@item.Name</span>
+                        <span class="tit-use" style="color: #ccc">满 @(item.LimitAmount.Value.ToString("N0")) 元可用</span>
+                    }
+                    else
+                    { <span class="type-tit" style="text-align: right;">@item.Name</span>
+                        <span class="tit-use">满 @(item.LimitAmount.Value.ToString("N0"))  元可用</span>
+                    }
+                </div>
+            </div>
+            <div class="detial">
+                <ul>
+                    @if (item.ExpireTime != null)
+                    {
+                        <li>优惠券有效期：@item.ExpireTime.Value.AddMonths(-1).ToString("yyyy-MM-dd")--@item.ExpireTime.Value.ToString("yyyy-MM-dd")</li>}
+                    else
+                    {
+                        <li>优惠券使用说明</li>
+                        <li style="padding-right: 15px;">使用完上一个可用</li>
+                    }
+                </ul>
+            </div>
+        </div>
+        }
+    }
+    else
+    {
+        <div style="margin-top: 25%; text-align: center;">
+            <table style="text-align: center; width: 100%;">
+                <tbody style="margin-top: 10%; table-layout: fixed; text-align: center;">
+                    <tr>
+                        <td style="font-size: 18px; color: #f08916; text-align: center;"><a href="~/YouKaRules/Erweima" style="text-decoration:none; color:rgb(3, 193, 97)">您还没有优惠券，马上领取优惠券</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    }
+</body>
+</html>
+<script type="text/javascript">
+</script>

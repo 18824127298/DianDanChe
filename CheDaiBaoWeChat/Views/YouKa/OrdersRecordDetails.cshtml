@@ -34,7 +34,7 @@
                     if (isIPhone) {
                         dpr = devicePixelRatio;
                     } else {
-                        drp = 1;
+                        dpr = 1;
                     }
 
                     scale = 1 / dpr;
@@ -71,7 +71,7 @@
 
 <body>
     <div class="container">
-        <div class="header1">加油@(Model.IsAudit == true ? "支付" : "未支付")明细</div>
+        <div class="header1">加油@(Model.IsAudit == true ? "支付" : Model.IsAudit == false ? "已退款" : "未支付")明细</div>
         <div class="list_item">
             <div class="list_left">交易单号</div>
             <div class="list_right">@Model.OrderNumber</div>
@@ -102,11 +102,11 @@
         </div>
         <div class="list_item">
             <div class="list_left">直降优惠</div>
-            <div class="list_right blue">￥@((Model.GasStationAmount - Model.ActualAmount).Value.ToString("N2"))</div>
+            <div class="list_right blue">￥@((Model.GasStationAmount - Model.ActualAmount - Model.GodbounsAmount).Value.ToString("N2"))</div>
         </div>
         <div class="list_item">
             <div class="list_left">优惠券优惠</div>
-            <div class="list_right blue">未使用</div>
+            <div class="list_right blue">@(Model.GodbounsAmount > 0 ? Model.GodbounsAmount.Value.ToString("N2") : "0")</div>
         </div>
         <div class="list_item bdb">
             <div class="list_left">合计优惠</div>

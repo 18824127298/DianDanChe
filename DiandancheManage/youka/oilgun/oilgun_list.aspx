@@ -24,6 +24,7 @@
                                     <td>
                                         <asp:Button ID="Insert" runat="server" Text=" 新 增 " OnClick="Insert_Click" />
                                     </td>
+                                   
                                 </tr>
                             </table>
                         </td>
@@ -46,34 +47,46 @@
                                 <asp:TemplateField HeaderText="加油站名字">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
-                                        <%# Name(Eval("Name"), Eval("Id")) %>
+                                        <%# Name(Eval("Name"),Eval("gId"),Eval("OilNumber")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="OilNumber" HeaderText="油号" SortExpression="OilNumber">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="GunNumber" HeaderText="枪号" SortExpression="GunNumber">
+                                <asp:TemplateField HeaderText="枪号">
                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:TemplateField HeaderText="老价格">
+                                    <ItemTemplate>
+                                        <%# GunNumber(Eval("gId"),Eval("OilNumber")) %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="老优惠">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
                                         <%# Amount(Eval("Amount")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="新价格">
+                                <asp:TemplateField HeaderText="新优惠">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
                                         <%# Amount(Eval("NewAmount")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                   <asp:TemplateField HeaderText="国标价">
+                                <asp:TemplateField HeaderText="旧的国标价">
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
                                         <%# Amount(Eval("CountryMarkPrice")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                       <asp:BoundField DataField="PointTime" HeaderText="时间点" SortExpression="PointTime">
+                                <asp:TemplateField HeaderText="新的国标价">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                    <ItemTemplate>
+                                        <%# Amount(Eval("NewCountryPrice")) %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="PointTime" HeaderText="时间点" SortExpression="PointTime">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="CountryPointTime" HeaderText="国标价时间点" SortExpression="CountryPointTime">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                             </Columns>

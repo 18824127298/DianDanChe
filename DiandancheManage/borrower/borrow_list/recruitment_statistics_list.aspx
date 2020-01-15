@@ -64,9 +64,11 @@
                 <table width="100%" border="0" class="table01" id="FinanceLogTable">
                     <thead>
                         <tr>
+                            <th colspan="11">2019</th>
+                            <th colspan="3">2020</th>
+                        </tr>
+                        <tr>
                             <th>招聘点名称</th>
-                            <th>一月</th>
-                            <th>二月</th>
                             <th>三月</th>
                             <th>四月</th>
                             <th>五月</th>
@@ -77,6 +79,8 @@
                             <th>十月</th>
                             <th>十一月</th>
                             <th>十二月</th>
+                            <th>一月</th>
+                            <th>二月</th>
                             <th>总计</th>
                         </tr>
                     </thead>
@@ -130,14 +134,6 @@
                          + parseInt(json[i].July) + parseInt(json[i].August) + parseInt(json[i].September) + parseInt(json[i].October) + parseInt(json[i].November) + parseInt(json[i].December);
                     html += "<tr>";
                     html += "    <td style='color:#ff0000'>" + json[i].RecruitmentName + "</td>";
-                    if (json[i].January > 0)
-                        html += "    <td style='color:#ff0000'>" + json[i].January + "</td>";
-                    else
-                        html += "    <td>" + json[i].January + "</td>";
-                    if (json[i].February > 0)
-                        html += "    <td style='color:#ff0000'>" + json[i].February + "</td>";
-                    else
-                        html += "    <td>" + json[i].February + "</td>";
                     if (json[i].March > 0)
                         html += "    <td style='color:#ff0000'>" + json[i].March + "</td>";
                     else
@@ -178,14 +174,20 @@
                         html += "    <td style='color:#ff0000'>" + json[i].December + "</td>";
                     else
                         html += "    <td>" + json[i].December + "</td>";
+                    if (json[i].January > 0)
+                        html += "    <td style='color:#ff0000'>" + json[i].January + "</td>";
+                    else
+                        html += "    <td>" + json[i].January + "</td>";
+                    if (json[i].February > 0)
+                        html += "    <td style='color:#ff0000'>" + json[i].February + "</td>";
+                    else
+                        html += "    <td>" + json[i].February + "</td>";
                     html += "    <td style='color:#ff0000'>" + sumAmount1 + "</td>";
                     html += "</tr>";
                     sumAmount += sumAmount1;
                 }
                 html += "<tr>";
                 html += "    <td style='color:#ff0000'>总计</td>";
-                html += "    <td style='color:#ff0000'>" + JanuaryAmount + "</td>";
-                html += "    <td style='color:#ff0000'>" + FebruaryAmount + "</td>";
                 html += "    <td style='color:#ff0000'>" + MarchAmount + "</td>";
                 html += "    <td style='color:#ff0000'>" + AprilAmount + "</td>";
                 html += "    <td style='color:#ff0000'>" + MayAmount + "</td>";
@@ -196,6 +198,8 @@
                 html += "    <td style='color:#ff0000'>" + OctoberAmount + "</td>";
                 html += "    <td style='color:#ff0000'>" + NovemberAmount + "</td>";
                 html += "    <td style='color:#ff0000'>" + DecemberAmount + "</td>";
+                html += "    <td style='color:#ff0000'>" + JanuaryAmount + "</td>";
+                html += "    <td style='color:#ff0000'>" + FebruaryAmount + "</td>";
                 html += "    <td style='color:#ff0000'>" + sumAmount + "</td>";
                 html += "</tr>";
                 $("#ECLTAB").html(html);

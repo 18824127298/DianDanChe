@@ -81,7 +81,7 @@ public partial class import_execl_import_borrow_import : System.Web.UI.Page
 
             if (loanApply == null)
             {
-                sOutputMessage += "第" + (i + 1) + "行,客户" + sFullName + "找不到借贷<br/>";
+                sOutputMessage += "第" + (i + 1) + "行,客户" + sFullName + "找不到融资租赁<br/>";
                 j++;
                 continue;
             }
@@ -118,6 +118,6 @@ public partial class import_execl_import_borrow_import : System.Web.UI.Page
         lblErrMessage.Text = sOutputMessage;
         sOutputMessage += "总共" + ds.GetRecordCount() + "条数据,成功导入" + (ds.GetRecordCount() - j) + "条";
         lblErrMessage.Text = sOutputMessage;
-        SbtAppLogger.LogAction("批量导入贷款信息", "导入" + ds.GetRecordCount() + "个贷款");
+        SbtAppLogger.LogAction("批量导入融资租赁信息", "导入" + ds.GetRecordCount() + "个融资租赁");
     }
 }

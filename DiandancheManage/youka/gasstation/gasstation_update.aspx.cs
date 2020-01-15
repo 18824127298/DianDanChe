@@ -15,13 +15,23 @@ public partial class youka_gasstation_gasstation_update : SbtPageBase
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack)
-            return;
+            return; 
         int nId = ConvertUtil.ToInt(Request["id"]);
 
         if (nId != 0)
         {
             PageParameter.SetCustomParamObject("id", nId);
         }
+        SupplierService supplierService = new SupplierService();
+        List<Supplier> supplierList = supplierService.GetAll();
+        foreach (Supplier sp in supplierList)
+        {
+            ListItem li = new ListItem();
+            li.Value = sp.Id.ToString();
+            li.Text = sp.Name;
+            ddlSupplier.Items.Insert(0, li);
+        }
+
         GasStationService gasStationService = new GasStationService();
         GasStation gasStation = gasStationService.GetById(nId);
         Name.Text = gasStation.Name;
@@ -30,6 +40,9 @@ public partial class youka_gasstation_gasstation_update : SbtPageBase
         Dimension.Text = gasStation.Dimension.ToString();
         PrinterNumber.Text = gasStation.PrinterNumber.ToString();
         Brand.Text = gasStation.Brand;
+        ddlSupplier.SelectedValue = gasStation.SupplierId.ToString();
+
+        
     }
     protected void btnOK_Click(object sender, EventArgs e)
     {
@@ -42,6 +55,7 @@ public partial class youka_gasstation_gasstation_update : SbtPageBase
         gasStation.Dimension = Convert.ToDecimal(Dimension.Text);
         gasStation.PrinterNumber = PrinterNumber.Text;
         gasStation.Brand = Brand.Text;
+        gasStation.SupplierId = ConvertUtil.ToInt(ddlSupplier.SelectedValue);
         gasStationService.Update(gasStation);
 
         OperaService operaService = new OperaService();

@@ -448,7 +448,7 @@ public partial class Default2 : System.Web.UI.Page
     protected void btnHuiKuang_Click(object sender, EventArgs e)
     {
         WechatPushMessage wechatpushMessage = new WechatPushMessage();
-        wechatpushMessage.CustomerReminder("oAh7kw24ZCfQCZyuHia7IOQ0Nd9A", "周生", "1元", "2019年10月29日");
+        wechatpushMessage.CustomerReminder("oAh7kw7PifGUvX8jqkkaGWQsK3tg", "朱志华", "358元", "2019年12月6日");
     }
     protected void btnResult_Click(object sender, EventArgs e)
     {
@@ -579,4 +579,98 @@ public partial class Default2 : System.Web.UI.Page
     }
 
 
+    protected void btnOilPaymentReminder_Click(object sender, EventArgs e)
+    {
+        WechatPushMessage wechatpushMessage = new WechatPushMessage();
+        wechatpushMessage.OilPaymentReminder("oAh7kw24ZCfQCZyuHia7IOQ0Nd9A", DateTime.Now.ToString("yyyyMMddHHmmss"), "28.88元", "油卡", "2019年11月11日17:00:00");
+    }
+    protected void btnDownLoad_Click(object sender, EventArgs e)
+    {
+        //// 定义文件名    
+        //string fileName = "ceshi";
+        //// 获取文件在服务器的地址    
+        //string url = "http:\\manage.che01.com\\youka\\excel_template\\客户线上支付.xls";
+
+        //// 判断传输地址是否为空    
+        //if (url == "")
+        //{
+        //    // 提示“该文件暂不提供下载”    
+        //    Page.ClientScript.RegisterStartupScript(Page.GetType(), "message", "<script defer>alert('该文件暂不提供下载！');</script>");
+        //    return;
+        //}
+        //// 判断获取的是否为地址，而非文件名    
+        //if (url.IndexOf("\\") > -1)
+        //{
+        //    // 获取文件名    
+        //    fileName = url.Substring(url.LastIndexOf("\\") + 1);
+        //}
+        //else
+        //{
+        //    // url为文件名时，直接获取文件名    
+        //    fileName = url;
+        //}
+        //// 以字符流的方式下载文件   
+        //FileStream writeStream = File.OpenWrite(url);
+        //FileStream fileStream = new FileStream(@url, FileMode.Open);
+        //byte[] bytes = new byte[(int)fileStream.Length];
+        //fileStream.Read(bytes, 0, bytes.Length);
+        //fileStream.Close();
+        //Response.ContentType = "application/octet-stream";
+
+        //// 通知浏览器下载   
+        //Response.AddHeader("Content-Disposition", "attachment; filename=" + fileName);
+        //Response.BinaryWrite(bytes);
+        //Response.Flush();
+        //Response.End();
+
+        string fileName = "客户线上支付.xls";//客户端保存的文件名
+        string filePath = Server.MapPath("youka/excel_template/客户线上支付.xls");//路径
+
+        FileInfo fileInfo = new FileInfo(filePath);
+        Response.Clear();
+        Response.ClearContent();
+        Response.ClearHeaders();
+        Response.AddHeader("Content-Disposition", "attachment;filename=" + fileName);
+        Response.AddHeader("Content-Length", fileInfo.Length.ToString());
+        Response.AddHeader("Content-Transfer-Encoding", "binary");
+        Response.ContentType = "application/octet-stream";
+        Response.ContentEncoding = System.Text.Encoding.GetEncoding("gb2312");
+        Response.WriteFile(fileInfo.FullName);
+        Response.Flush();
+        Response.End();
+    }
+    protected void btn_buzijin_Click(object sender, EventArgs e)
+    {
+        PaymentFormService paymentFormService = new PaymentFormService();
+        GasStationService gasstationService = new GasStationService();
+        SupplierService supplierService = new SupplierService();
+        SupplierFundsFlowService spplierFundsFlowService = new SupplierFundsFlowService();
+        List<PaymentForm> paymentformlist = paymentFormService.Search(new PaymentForm() { IsValid = true }).Where(o => o.IsAudit == true && string.IsNullOrEmpty(o.SupplierAmount.ToString())).ToList();
+        TextBox1.Text = paymentformlist.Count.ToString();
+        foreach (PaymentForm paymentform in paymentformlist)
+        {
+            paymentform.SupplierAmount = paymentform.GasStationAmount - (ConvertUtil.ToDecimal(0.5) * paymentform.RiseNumber);
+
+            GasStation gasstation = gasstationService.GetById(paymentform.GasStationId.Value);
+            Supplier supplier = supplierService.GetById(gasstation.SupplierId.Value);
+
+            spplierFundsFlowService.Insert(new SupplierFundsFlow()
+                        {
+                            Amount = paymentform.SupplierAmount.Value,
+                            FeeType = FeeType.支付,
+                            IncomeSupplierId = 1,
+                            PaySupplierId = supplier.Id,
+                            IsComputing = true,
+                            IsFreeze = false,
+                            RelationId = paymentform.Id,
+                            Remark = "供应商支出"
+                        });
+
+            supplier.Balance = supplier.Balance - paymentform.SupplierAmount.Value;
+
+            supplierService.Update(supplier);
+
+            paymentFormService.Update(paymentform);
+        }
+    }
 }

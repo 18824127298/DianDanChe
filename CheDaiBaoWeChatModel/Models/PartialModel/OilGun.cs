@@ -40,10 +40,10 @@ namespace CheDaiBaoWeChatModel.Models
         public Int32? GunNumber { get; set; }
 
         /// <summary>
-        ///价格
+        ///旧的减免额
         /// </summary>         
         [OriginalField]
-        [Display(Name = "价格")]
+        [Display(Name = "旧的减免额")]
         public Decimal? Amount { get; set; }
 
         /// <summary>
@@ -54,10 +54,10 @@ namespace CheDaiBaoWeChatModel.Models
         public DateTime? PointTime { get; set; }
 
         /// <summary>
-        ///新价格
+        ///新的减免额
         /// </summary>         
         [OriginalField]
-        [Display(Name = "新价格")]
+        [Display(Name = "新的减免额")]
         public Decimal? NewAmount { get; set; }
 
         

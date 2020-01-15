@@ -22,6 +22,7 @@ namespace CheDaiBaoWeChatService.Interface
             string userinfo = WeChatBaseRequestService.PostUrl(url, sContent);
             DebugLogger.LogDebugMessage(userinfo);
             return userinfo;
+
         }
 
 
@@ -86,7 +87,7 @@ namespace CheDaiBaoWeChatService.Interface
                 "\"keyword3\": {\"value\":\"" + keyword3 + "\",\"color\":\"#173177\"}}}";
             string userinfo = WeChatBaseRequestService.PostUrl(url, sContent);
             DebugLogger.LogDebugMessage(userinfo);
-            return userinfo; 
+            return userinfo;
         }
 
 
@@ -128,6 +129,21 @@ namespace CheDaiBaoWeChatService.Interface
                 "\"keyword1\": {\"value\":\"" + keyword1 + "\",\"color\":\"#173177\"},\"keyword2\": {\"value\":\"" + keyword2 + "\",\"color\":\"#173177\"}," +
                 "\"keyword3\": {\"value\":\"" + keyword3 + "\",\"color\":\"#173177\"}}}";
 
+            string userinfo = WeChatBaseRequestService.PostUrl(url, sContent);
+            DebugLogger.LogDebugMessage(userinfo);
+            return userinfo;
+        }
+
+        //油卡支付成功提醒
+        public string OilPaymentReminder(string sOpenId, string keyword1, string keyword2, string keyword3, string keyword4)
+        {
+            string apptoken = WeChatBaseRequestService.getApptoken();
+            var url = string.Format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={0}", apptoken);
+
+            string sContent = "{\"touser\":\"" + sOpenId + "\",\"template_id\":\"dEenin_vxmFqfKZB_T0ikPUTg6F82-j0XMXouwLOBXw\",\"url\":\"ddc.che01.com/YouKaRules/ActivityRules\",\"topcolor\":\"#FF0000\"," +
+                "\"data\":{\"first\": {\"value\":\"您好，您的微信支付已成功\",\"color\":\"#173177\"},\"remark\": {\"value\":\"点击累计消费金额\",\"color\":\"#173177\"}," +
+                "\"keyword1\": {\"value\":\"" + keyword1 + "\",\"color\":\"#173177\"},\"keyword2\": {\"value\":\"" + keyword2 + "\",\"color\":\"#173177\"}," +
+                "\"keyword3\": {\"value\":\"" + keyword3 + "\",\"color\":\"#173177\"},\"keyword4\": {\"value\":\"" + keyword4 + "\",\"color\":\"#173177\"}}}";
             string userinfo = WeChatBaseRequestService.PostUrl(url, sContent);
             DebugLogger.LogDebugMessage(userinfo);
             return userinfo;

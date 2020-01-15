@@ -56,6 +56,11 @@
                             <td>打印机编号：</td>
                             <td>&nbsp;<asp:TextBox ID="PrinterNumber" runat="server" /></td>
                         </tr>
+                        <tr>
+                            <td>归属物流公司：</td>
+                            <td>&nbsp;<asp:DropDownList ID="ddlSupplier" runat="server">
+                            </asp:DropDownList></td>
+                        </tr>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -63,7 +68,7 @@
                                 <asp:Button ID="btnOK" runat="server" Text="修改" OnClientClick="return confirm('您确认修改信息吗?')"
                                     OnClick="btnOK_Click" />
                                 &nbsp;&nbsp;
-                                <asp:Button ID="btnCancel" runat="server" Text=" 返 回 " OnClick="btnCancel_Click"/>
+                                <asp:Button ID="btnCancel" runat="server" Text=" 返 回 " OnClick="btnCancel_Click" />
                             </td>
                         </tr>
                     </tfoot>

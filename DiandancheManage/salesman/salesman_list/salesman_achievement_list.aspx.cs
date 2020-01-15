@@ -131,7 +131,10 @@ public partial class salesman_salesman_list_salesman_achievement_list : SbtPageB
         int nRepaymentStatus = ConvertUtil.ToInt(oRepaymentStatus);
         lblAllCount.Text = (ConvertUtil.ToInt(lblAllCount.Text) + 1).ToString();
         if ((CreditStatus)nRepaymentStatus == CreditStatus.还款中)
+        {
             lblHkz.Text = (ConvertUtil.ToInt(lblHkz.Text) + 1).ToString();
+            return "支付中"; 
+        }
         else if ((CreditStatus)nRepaymentStatus == CreditStatus.还款完成)
             lblHkzwc.Text = (ConvertUtil.ToInt(lblHkzwc.Text) + 1).ToString();
         else if ((CreditStatus)nRepaymentStatus == CreditStatus.审核未通过)

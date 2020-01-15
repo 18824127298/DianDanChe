@@ -322,7 +322,7 @@
                 <li>&nbsp;配偶<span>
                     <input type="text" name="Spouse" id="Spouse" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="配偶"></span> </li>
 
-                <li>&nbsp;配偶是否知晓分期<span>
+                <li>&nbsp;配偶是否知晓融资租赁<span>
                     <select id="IsSpouseKnowStages" name="IsSpouseKnowStages">
                         <option value="0">否</option>
                         <option value="1">是</option>
@@ -339,7 +339,7 @@
                     <input type="text" name="Parents" id="Parents" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="父母"></span> </li>
 
 
-                <li>&nbsp;父母是否知晓分期<span>
+                <li>&nbsp;父母是否知晓融资租赁<span>
                     <select id="IsParentsKnowStages" name="IsParentsKnowStages">
                         <option value="0">否</option>
                         <option value="1">是</option>
@@ -354,7 +354,7 @@
                     <input type="text" name="Brothers" id="Brothers" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="兄弟姐妹"></span> </li>
 
 
-                <li>&nbsp;兄弟姐妹是否知晓分期<span>
+                <li>&nbsp;兄弟姐妹是否知晓融资租赁<span>
                     <select id="IsBrothersKnowStages" name="IsBrothersKnowStages">
                         <option value="0">否</option>
                         <option value="1">是</option>
@@ -368,7 +368,7 @@
                 <li>&nbsp;朋友<span>
                     <input type="text" name="Friend" id="Friend" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="朋友"></span> </li>
 
-                <li>&nbsp;朋友是否知晓分期<span>
+                <li>&nbsp;朋友是否知晓融资租赁<span>
                     <select id="IsFriendKnowStages" name="IsFriendKnowStages">
                         <option value="0">否</option>
                         <option value="1">是</option>
@@ -382,7 +382,7 @@
                     <input type="text" name="Relative" id="Relative" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="亲戚"></span> </li>
                 <li>&nbsp;与亲戚的关系<span>
                     <input type="text" name="RelativeRelationShip" id="RelativeRelationShip" value="" class="fxf gx" style="border: 0px" datatype="m" placeholder="与亲戚的关系"></span> </li>
-                <li>&nbsp;亲戚是否知晓分期<span>
+                <li>&nbsp;亲戚是否知晓融资租赁<span>
                     <select id="IsRelativeKnowStages" name="IsRelativeKnowStages">
                         <option value="0">否</option>
                         <option value="1">是</option>
@@ -469,7 +469,7 @@
         $("#RentRate").change(function () {
             var RentRateValue = $("#RentRate").val();
             if ($("#TotalAmountStage").val() == "") {
-                alert("分期总额不能为空！");
+                alert("融资租赁总额不能为空！");
                 $("#TotalAmountStage").focus();
                 return false;
             }

@@ -115,6 +115,79 @@ namespace CheDaiBaoWeChatModel.Models
         [OriginalField]
         [Display(Name = "是否已打印")]
         public Boolean? IsPrint { get; set; }
+
+
+        /// <summary>
+        /// 商户退款单号
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "商户退款单号")]
+        public string OutRefundNo { get; set; }
+
+        /// <summary>
+        /// 微信退款单号
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "微信退款单号")]
+        public string RefundId { get; set; }
+
+        /// <summary>
+        /// 退款时间
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "退款时间")]
+        public DateTime? RefundTime { get; set; }
+
+        /// <summary>
+        ///退款的金额
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "退款的金额")]
+        public Decimal? RefundAmount { get; set; }
+
+        /// <summary>
+        ///是否退款成功
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "是否退款成功")]
+        public Boolean? IsRefundAudit { get; set; }
+
+        /// <summary>
+        ///退款操作人
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "退款操作人")]
+        public string RefundAuditor { get; set; }
+        
+        /// <summary>
+        ///退款的备注
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "退款的备注")]
+        public string RefundRemark { get; set; }
+        
+        /// <summary>
+        ///原因
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "原因")]
+        public string Reason { get; set; }
+
+        
+        /// <summary>
+        ///优惠的金额
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "优惠的金额")]
+        public Decimal? GodbounsAmount{ get; set; }
+
+       
+        /// <summary>
+        ///供应商价格
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "供应商价格")]
+        public Decimal? SupplierAmount { get; set; } 
     }
 
 }

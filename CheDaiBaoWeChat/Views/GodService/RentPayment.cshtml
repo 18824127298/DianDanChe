@@ -17,10 +17,14 @@
         <div class="content">
             <div class="p-t20 p-b40" style="border-bottom: 1px solid #eeedf2; background: #fff;">
                 <div class="odd-ed">
-                    <span class="fz30" style="color: #6e6e6e; padding-top: 105px;">@(unDeposit > 0 ? "租金(含押金)未还金额" : "租金未还金额")</span>
-                    @if (Model != null)
+                    <span class="fz30" style="color: #6e6e6e; padding-top: 105px;">@(unDeposit > 0 ? "押金未还金额" : "租金未还金额")</span>
+                    @if (unDeposit > 0)
                     {
-                        <span class="fz40 p-t20" style="color: #b41f23" id="SumAmount">@(Model.UnTotalInterest + unDeposit)</span>
+                        <span class="fz40 p-t20" style="color: #b41f23" id="SumAmount">@unDeposit</span>
+                    }
+                    else if (Model != null)
+                    {
+                        <span class="fz40 p-t20" style="color: #b41f23" id="SumAmount">@(Model.UnTotalInterest + Model.UnPrincipal)</span>
                         <span class="fz18 p-t30" style="color: #b41f23">最后支付日 @Model.RepaymentDate.Value.Date.ToString("yyyy年MM月dd日")</span>
                     }
                     else
@@ -29,11 +33,17 @@
                     }
                 </div>
             </div>
-            @if (Model != null)
+            @if (unDeposit > 0)
+            { 
+                <div class="p-t55 p-b40">
+                    <button class="confirm m-t25 fz25" onclick="fn_repayment()">确定支付</button>
+                </div>
+            }
+            else if (Model != null)
             {
-                if (Model.UnTotalInterest > 0)
+                if (Model.UnTotalInterest + Model.UnPrincipal > 0)
                 {
-<div class="p-t55 p-b40">
+                <div class="p-t55 p-b40">
                     <button class="confirm m-t25 fz25" onclick="fn_repayment()">确定支付</button>
                 </div>
                 }

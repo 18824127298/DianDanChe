@@ -849,7 +849,7 @@ namespace CheDaiBaoWeChatModel.Models
         /// </summary>         
         [OriginalField]
         [Display(Name = "第二次审核结果")]
-        public int SecondAuditResult { get; set; }
+        public Boolean? SecondAuditResult { get; set; }
 
         /// <summary>
         /// 第二次审核人 
@@ -1086,5 +1086,41 @@ namespace CheDaiBaoWeChatModel.Models
         [OriginalField]
         [Display(Name = "是否有异常")]
         public Boolean? IsAbnormal { get; set; }
+
+        /// <summary>
+        ///  商户是否同意 
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "商户是否同意")]
+        public Boolean? IsMarchantAgree { get; set; }
+
+        /// <summary>
+        ///   商户审核人
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "商户审核人")]
+        public string MerchantAuditor { get; set; }
+
+        /// <summary>
+        ///   风控审核意见
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "风控审核意见")]
+        public string AuditOpinion { get; set; }
+
+        /// <summary>
+        ///   预付租金月数
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "预付租金月数")]
+        public Int32? AdvanceMonth { get; set; }
+
+
+        /// <summary>
+        ///   保险费
+        /// </summary>         
+        [OriginalField]
+        [Display(Name = "保险费")]
+        public Decimal? Insurance { get; set; }
     }
 }

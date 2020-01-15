@@ -16,6 +16,16 @@ public partial class youka_gasstation_gasstation_inster : SbtPageBase
     {
         if (IsPostBack)
             return;
+
+        SupplierService supplierService= new SupplierService();
+        List<Supplier> supplierList = supplierService.GetAll();
+        foreach (Supplier sp in supplierList)
+        {
+            ListItem li = new ListItem();
+            li.Value = sp.Id.ToString();
+            li.Text = sp.Name;
+            ddlSupplier.Items.Insert(0, li);
+        }
     }
     protected void btnOK_Click(object sender, EventArgs e)
     {
@@ -27,6 +37,7 @@ public partial class youka_gasstation_gasstation_inster : SbtPageBase
         gasStation.Dimension = Convert.ToDecimal(Dimension.Text);
         gasStation.PrinterNumber = PrinterNumber.Text;
         gasStation.Brand = Brand.Text;
+        gasStation.SupplierId = ConvertUtil.ToInt(ddlSupplier.SelectedValue);
         int Id = gasStationService.Insert(gasStation);
 
         OperaService operaService = new OperaService();

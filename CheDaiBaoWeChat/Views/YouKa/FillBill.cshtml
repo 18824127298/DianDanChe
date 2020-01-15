@@ -32,7 +32,7 @@
                     if (isIPhone) {
                         dpr = devicePixelRatio;
                     } else {
-                        drp = 1;
+                        dpr = 1;
                     }
 
                     scale = 1 / dpr;
@@ -63,7 +63,7 @@
             <div class="group clearfix" id="OilNumber">
             </div>
         </div>
-@*        <div class="section">
+        @*        <div class="section">
             <div class="name">选择油号:</div>
             <div class="group clearfix" id="OilType">
             </div>
@@ -89,7 +89,7 @@
         </div>
         <div class="sub_btn">确定</div>
         <div class="footer rflex">
-            <div class="footer_item flex1 cflex"  onclick="fn_GasStation()">
+            <div class="footer_item flex1 cflex" onclick="fn_GasStation()">
                 <a href="~/YouKa/AllGasStation">
                     <div class="item_wrap rflex flex1">
                         <div class="top_wrap flex11">
@@ -170,10 +170,23 @@
                         rn: Math.random()
                     },//这里使用json对象
                     success: function (json) {
-                        tip = "<span>本次实际支付金额为" + json.ActualAmount + "元</span>";
-                        $.MsgBox.Confirm("温馨提示", tip, function () {
-                            callpay(json.pId, json.ActualAmount);
-                        });
+                        if (json.Count == 1) {
+                            tip = "<span>您的手机号当天支付次数已达上限！</span>";
+                            $.MsgBox.Alert("温馨提示", tip);
+                        }
+                        else {
+                            if (json.GodbounsAmount > 0) {
+                                tip = "<span>本次实际支付金额为" + json.ActualAmount + "元，使用优惠券金额为" + json.GodbounsAmount + "元</span>";
+                                $.MsgBox.Confirm("温馨提示", tip, function () {
+                                    callpay(json.pId, json.ActualAmount);
+                                });
+                            } else {
+                                tip = "<span>本次实际支付金额为" + json.ActualAmount + "元</span>";
+                                $.MsgBox.Confirm("温馨提示", tip, function () {
+                                    callpay(json.pId, json.ActualAmount);
+                                });
+                            }
+                        }
                     }
                 });
             })
@@ -292,7 +305,7 @@
              function (res) {
                  if (res.err_msg == "get_brand_wcpay_request:ok") {
                      alert("温馨提示", "恭喜您，本次交易成功");
-                     window.location.reload();
+                     location.href = "../YouKa/OrdersRecord";
                  }
                  else {
                      $.MsgBox.Alert("温馨提示", "本次交易失败，如有问题请联系客服");

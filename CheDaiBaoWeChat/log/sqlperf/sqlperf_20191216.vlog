@@ -1,0 +1,42 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 4191 ms / want 500 ms¡¿ 2019/12/16 10:02:41 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 4192 ms / want 500 ms¡¿ 2019/12/16 10:02:41 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 627 ms / want 500 ms¡¿ 2019/12/16 10:02:48 ====
+
+            select g.Id,g.AddressName, g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice,o.Amount from GasStation g 
+join OilGun o on o.GasStationId = g.Id where g.IsValid= 1 and o.IsValid = 1 and o.OilNumber = @OilNumber group by g.Id,g.AddressName,
+ g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice, o.Amount
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 627 ms / want 500 ms¡¿ 2019/12/16 10:02:48 ====
+
+            select g.Id,g.AddressName, g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice,o.Amount from GasStation g 
+join OilGun o on o.GasStationId = g.Id where g.IsValid= 1 and o.IsValid = 1 and o.OilNumber = @OilNumber group by g.Id,g.AddressName,
+ g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice, o.Amount
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 573 ms / want 500 ms¡¿ 2019/12/16 10:20:13 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1483 ms / want 500 ms¡¿ 2019/12/16 10:38:04 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 743 ms / want 500 ms¡¿ 2019/12/16 10:38:12 ====
+select OilNumber from OilGun where IsValid = 1 and GasStationId =3Group by OilNumber
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 3149 ms / want 500 ms¡¿ 2019/12/16 14:20:17 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2596 ms / want 500 ms¡¿ 2019/12/16 15:55:54 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1860 ms / want 500 ms¡¿ 2019/12/16 16:46:18 ====
+insert into opera ([OperaType],[Remark],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1886 ms / want 500 ms¡¿ 2019/12/16 17:22:29 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2995 ms / want 500 ms¡¿ 2019/12/16 18:19:43 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+

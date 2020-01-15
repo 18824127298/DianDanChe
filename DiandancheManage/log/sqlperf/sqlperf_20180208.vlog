@@ -1,3 +1,0 @@
-==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 705 ms / want 500 ms¡¿ 2018/2/8 10:31:07 ====
-select * from repaymentplan where 1=1  and [IsValid]=@IsValid
-

@@ -1,3 +1,0 @@
-==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 760 ms / want 500 ms¡¿ 2018/3/30 19:46:54 ====
-select * from BankCard where  IsValid=@IsValid
-

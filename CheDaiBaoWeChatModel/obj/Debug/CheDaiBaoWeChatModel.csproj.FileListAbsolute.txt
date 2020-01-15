@@ -36,3 +36,4 @@ D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatModel\bin\Deb
 D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatModel\bin\Debug\tr\FluentValidation.resources.dll
 D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatModel\obj\Debug\CheDaiBaoWeChatModel.dll
 D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatModel\obj\Debug\CheDaiBaoWeChatModel.pdb
+D:\phonelee126576\phonelee\LanceNetFinance\PhoneLee\CheDaiBaoWeChatModel\obj\Debug\CheDaiBaoWeChatModel.csprojResolveAssemblyReference.cache

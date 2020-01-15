@@ -1,0 +1,63 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 4974 ms / want 500 ms¡¿ 2019/12/13 10:09:24 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 866 ms / want 500 ms¡¿ 2019/12/13 10:09:25 ====
+select * from loanapply where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1609 ms / want 500 ms¡¿ 2019/12/13 10:10:14 ====
+select * from member where 1=1  and [Phone]=@Phone  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 1709 ms / want 500 ms¡¿ 2019/12/13 10:10:16 ====
+update member set [OpenId]=@OpenId,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_ExecuteCommand¡¿¡¾actual 1709 ms / want 500 ms¡¿ 2019/12/13 10:10:16 ====
+update member set [OpenId]=@OpenId,[UpdateTime]=@UpdateTime where id=@Id
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2948 ms / want 500 ms¡¿ 2019/12/13 10:45:27 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 796 ms / want 500 ms¡¿ 2019/12/13 10:52:41 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 602 ms / want 500 ms¡¿ 2019/12/13 10:54:33 ====
+
+            select g.Id,g.AddressName, g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice,o.Amount from GasStation g 
+join OilGun o on o.GasStationId = g.Id where g.IsValid= 1 and o.IsValid = 1 and o.OilNumber = @OilNumber group by g.Id,g.AddressName,
+ g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice, o.Amount
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 554 ms / want 500 ms¡¿ 2019/12/13 11:28:42 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 2069 ms / want 500 ms¡¿ 2019/12/13 15:31:49 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1101 ms / want 500 ms¡¿ 2019/12/13 15:35:15 ====
+select * from godbouns where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 607 ms / want 500 ms¡¿ 2019/12/13 15:35:17 ====
+insert into opera ([OperaType],[Remark],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1360 ms / want 500 ms¡¿ 2019/12/13 15:57:33 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 529 ms / want 500 ms¡¿ 2019/12/13 15:59:10 ====
+insert into opera ([OperaType],[Remark],[RelationId],[BorrowerId],[ClientAddress],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@RelationId,@BorrowerId,@ClientAddress,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 504 ms / want 500 ms¡¿ 2019/12/13 16:08:49 ====
+
+            select g.Id,g.AddressName, g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice,o.Amount from GasStation g 
+join OilGun o on o.GasStationId = g.Id where g.IsValid= 1 and o.IsValid = 1 and o.OilNumber = @OilNumber group by g.Id,g.AddressName,
+ g.Longitude, g.Dimension,g.Name,o.CountryMarkPrice, o.Amount
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1498 ms / want 500 ms¡¿ 2019/12/13 16:11:48 ====
+insert into opera ([OperaType],[Remark],[IsValid],[CreateTime],[UpdateTime]) values (@OperaType,@Remark,@IsValid,@CreateTime,@UpdateTime)  SELECT CAST(SCOPE_IDENTITY() as int)
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 531 ms / want 500 ms¡¿ 2019/12/13 16:26:49 ====
+select * from Borrower where  IsValid=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 669 ms / want 500 ms¡¿ 2019/12/13 17:06:36 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 669 ms / want 500 ms¡¿ 2019/12/13 17:06:36 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+

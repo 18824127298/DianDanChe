@@ -35,7 +35,7 @@
                         <tr>
                             <td>加油站名字：</td>
                             <td>&nbsp;<asp:TextBox ID="Name" runat="server"></asp:TextBox></td>
-                        </tr> 
+                        </tr>
                         <tr>
                             <td>地址名：</td>
                             <td>&nbsp;<asp:TextBox ID="AddressName" runat="server" /></td>
@@ -55,6 +55,11 @@
                         <tr>
                             <td>打印机编号：</td>
                             <td>&nbsp;<asp:TextBox ID="PrinterNumber" runat="server" /></td>
+                        </tr>
+                        <tr>
+                            <td>归属物流公司：</td>
+                            <td>&nbsp;<asp:DropDownList ID="ddlSupplier" runat="server">
+                            </asp:DropDownList></td>
                         </tr>
                     </tbody>
                     <tfoot>

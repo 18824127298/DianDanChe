@@ -1,3 +1,0 @@
-==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 786 ms / want 500 ms¡¿ 2017/9/22 14:18:50 ====
-select * from basicinformation where 1=1  and [IsValid]=@IsValid
-

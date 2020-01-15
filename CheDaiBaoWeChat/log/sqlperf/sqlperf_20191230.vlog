@@ -1,0 +1,9 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1629 ms / want 500 ms¡¿ 2019/12/30 16:18:47 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 15402 ms / want 500 ms¡¿ 2019/12/30 16:48:40 ====
+select OilNumber from OilGun where IsValid = 1 and GasStationId =3Group by OilNumber
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1716 ms / want 500 ms¡¿ 2019/12/30 17:56:29 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+

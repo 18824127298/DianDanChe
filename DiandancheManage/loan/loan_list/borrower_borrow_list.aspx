@@ -4,7 +4,7 @@
 
 <html>
 <head id="Head1" runat="server">
-    <title>客户借款账单</title>
+    <title>客户融资租赁账单</title>
 </head>
 <script language="javascript" src="../../js/grid_ui_func.js"></script>
 <body>
@@ -15,7 +15,7 @@
                     <tr>
                         <td>
                             <img src="../../images/menu_icon/pen.gif" />
-                            客户借款账单</td>
+                            客户融资租赁账单</td>
                     </tr>
                 </table>
                 <hr />
@@ -32,6 +32,9 @@
                     <td>
                         <asp:GridView ID="gvList" runat="server" Width="100%" AllowPaging="True" AutoGenerateColumns="False" AllowSorting="True" OnSorting="gvList_Sorting" EnableViewState="False" CellPadding="8">
                             <Columns>
+                                 <asp:BoundField DataField="FullName" HeaderText="姓名" SortExpression="FullName">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
                                  <asp:BoundField DataField="CreditPhone" HeaderText="手机号" SortExpression="CreditPhone">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>

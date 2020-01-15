@@ -2,7 +2,9 @@
 using CheDaiBaoCommonService.Expansion;
 using CheDaiBaoCommonService.Service;
 using CheDaiBaoWeChatController.Interface;
+using CheDaiBaoWeChatModel;
 using CheDaiBaoWeChatModel.Models;
+using CheDaiBaoWeChatService.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -56,6 +58,28 @@ namespace CheDaiBaoWeChatService.Service
                 {
                     paymentFormService.AuditRechargeIsSuccess(paymentForm.Id, TransactionId);
 
+                    GodBounsService godbounsService = new GodBounsService();
+                    GodBouns godbouns = godbounsService.Search(new GodBouns() { IsValid = true }).Where(o => o.RelationId == paymentForm.MemberId && o.BounsStatus == BounsStatus.未激活 && o.BounsType == BounsType.推荐优惠券 && o.MemberId == member.RecommendId).FirstOrDefault();
+                    if (godbouns != null)
+                    {
+                        godbouns.BounsStatus = BounsStatus.未使用;
+                        godbouns.ExpireTime = DateTime.Now.AddMonths(1);
+                        godbounsService.Update(godbouns);
+                    }
+
+                    if (paymentForm.GodbounsAmount > 0)
+                    {
+                        GodBounsRecordService godbounsRecordService = new GodBounsRecordService();
+                        GodBounsRecord godbounsRecord = godbounsRecordService.Search(new GodBounsRecord() { IsValid = true }).Where
+                        (o => o.MemberId == member.Id && o.RelationId == paymentForm.Id && o.UseAmount == paymentForm.GodbounsAmount && o.UseType == BounsUseType.支付).FirstOrDefault();
+                        godbounsRecord.IsEffective = true;
+                        godbounsRecordService.Update(godbounsRecord);
+
+                        GodBouns memberGodBouns = godbounsService.GetById(godbounsRecord.BounsId.Value);
+                        memberGodBouns.LeftAmount = 0;
+                        memberGodBouns.BounsStatus = BounsStatus.已用完;
+                        godbounsService.Update(memberGodBouns);
+                    }
                     //QiyebaoSms qiyebaoSms = new QiyebaoSms();
                     //string sContent = string.Format("恭喜您，本次融资租赁费支付成功，金额为{0}元，订单号{1}【车1号】", paymentForm.ActualAmount.Value.ToString("N2"), TransactionId);
                     //qiyebaoSms.SendSms(member.Phone, sContent);
@@ -74,6 +98,8 @@ namespace CheDaiBaoWeChatService.Service
                     {
                         paymentForm.IsPrint = true;
                         paymentFormService.Update(paymentForm);
+                        WechatPushMessage wechatpushMessage = new WechatPushMessage();
+                        wechatpushMessage.OilPaymentReminder(Openid, paymentForm.OrderNumber, paymentForm.ActualAmount.Value.ToString("N2") + "元", gasStation.Name, paymentForm.CreateTime.Value.ToString("yyyy年MM月dd日 HH:mm:ss"));
                     }
 
                 }
@@ -107,6 +133,24 @@ namespace CheDaiBaoWeChatService.Service
                             paymentForm.TransactionId = TransactionId;
                             connection.Update(paymentForm, sqltran);
                         }
+                        GasStation gasStation = connection.GetById<GasStation>(paymentForm.GasStationId.Value, sqltran);
+                        Member member = connection.GetById<Member>(paymentForm.MemberId.Value, sqltran);
+                        Supplier supplier = connection.GetById<Supplier>(gasStation.SupplierId.Value, sqltran);
+
+                        connection.Insert(new SupplierFundsFlow()
+                        {
+                            Amount = paymentForm.SupplierAmount.Value,
+                            FeeType = FeeType.支付,
+                            IncomeSupplierId = 1,
+                            PaySupplierId = supplier.Id,
+                            IsComputing = true,
+                            IsFreeze = false,
+                            RelationId = paymentForm.Id,
+                            Remark = "供应商支出"
+                        }, sqltran);
+
+                        supplier.Balance = supplier.Balance - paymentForm.SupplierAmount.Value;
+                        connection.Update<Supplier>(supplier, sqltran);
                         sqltran.Commit();
                     }
                     connection.Close();
@@ -181,7 +225,7 @@ join OilGun o on p.OilGunId = o.Id where p.IsValid= 1 and p.Id = @Id",
         //**********************请先填打印机编号和KEY，再测试**************************
         public static string USER = "357454@qq.com";  //*必填*：登录管理后台的账号名
         public static string UKEY = "zEfpmArLngwTyzVV";//*必填*: 注册账号后生成的UKEY
-       
+
         public static string URL = "http://api.feieyun.cn/Api/Open/";//不需要修改
 
         //方法1
@@ -212,7 +256,7 @@ join OilGun o on p.OilGunId = o.Id where p.IsValid= 1 and p.Id = @Id",
             orderInfo += "<B>金额：" + Amount + "元</B><BR>";
             orderInfo += "--------------------------------<BR>";
 
-            orderInfo = Uri.EscapeDataString(orderInfo); 
+            orderInfo = Uri.EscapeDataString(orderInfo);
             HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(URL);
             req.Method = "POST";
             UTF8Encoding encoding = new UTF8Encoding();

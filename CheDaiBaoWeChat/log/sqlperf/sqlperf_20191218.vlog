@@ -1,0 +1,6 @@
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1991 ms / want 500 ms¡¿ 2019/12/18 10:20:42 ====
+select * from member where 1=1  and [IsValid]=@IsValid
+
+==== ¡¾SqlDapper_QueryInternal¡¿¡¾actual 1095 ms / want 500 ms¡¿ 2019/12/18 10:40:09 ====
+select * from loanapply where 1=1  and [IsValid]=@IsValid
+

@@ -28,19 +28,18 @@
                         </tr>
                         <tr>
                             <td nowrap>金额：</td>
-                            <td>&nbsp;<asp:Label ID="lblAmount" runat="server"></asp:Label></td>
+                            <td>&nbsp;<asp:TextBox ID="edtAmount" runat="server"></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td nowrap>审核备注：</td>
+                            <td nowrap>备注：</td>
                             <td>&nbsp;<asp:TextBox ID="edtRemark" runat="server" Width="450px" SkinID="MultiLine" TextMode="MultiLine" Rows="3" />
                             </td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr align="center">
-                            <td colspan="2" nowrap>&nbsp;<asp:Button ID="btnAudit" runat="server" Text="审核通过" OnClick="btnAudit_Click" OnClientClick="return confirm('您确认进行审核操作吗?')" />
+                            <td colspan="2" nowrap>&nbsp;<asp:Button ID="btnAudit" runat="server" Text="退押金" OnClick="btnAudit_Click" OnClientClick="return confirm('您确认进行审核操作吗?')" />
                                 &nbsp; &nbsp;
-                                <asp:Button ID="btnUnAudit" runat="server" Text="审核不通过" OnClick="btnUnAudit_Click" OnClientClick="return confirm('您确认审核不通过吗?')" />&nbsp;
                     <asp:Button ID="btnCancel" runat="server" Text=" 返 回 " OnClick="btnCancel_Click" /></td>
                         </tr>
                     </tfoot>

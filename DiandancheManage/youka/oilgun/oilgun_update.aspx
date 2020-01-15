@@ -46,14 +46,14 @@
                         </tr>
                         <tr>
                             <td>枪号：</td>
-                            <td>&nbsp;<asp:TextBox ID="GunNumber" runat="server" /></td>
+                            <td>&nbsp;<asp:Label ID="GunNumber" runat="server" Text="Label"></asp:Label></td>
                         </tr>
                         <tr>
-                            <td>旧价格：</td>
+                            <td>老优惠：</td>
                             <td>&nbsp;<asp:TextBox ID="Amount" runat="server" /></td>
                         </tr>
                         <tr>
-                            <td>新价格：</td>
+                            <td>新优惠：</td>
                             <td>&nbsp;<asp:TextBox ID="NewAmount" runat="server" /></td>
                         </tr>
                         <tr>
@@ -61,7 +61,7 @@
                             <td>&nbsp;<uc1:DatePicker ID="PointTime" runat="server" ShowDateFmt="yyyy-MM-dd HH:mm:ss" />
                             </td>
                         </tr>
-                        <tr>
+                    <%--    <tr>
                             <td>国标价：</td>
                             <td>&nbsp;<asp:TextBox ID="CountryMarkPrice" runat="server" /></td>
                         </tr>
@@ -73,7 +73,7 @@
                             <td>国标价时间点：</td>
                             <td>&nbsp;<uc1:DatePicker ID="CountryPointTime" runat="server" ShowDateFmt="yyyy-MM-dd HH:mm:ss" />
                             </td>
-                        </tr>
+                        </tr>--%>
                     </tbody>
                     <tfoot>
                         <tr>

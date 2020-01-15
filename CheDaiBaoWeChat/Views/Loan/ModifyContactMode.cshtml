@@ -463,12 +463,12 @@
         $("#RentRate").change(function () {
             var RentRateValue = $("#RentRate").val();
             if ($("#TotalAmountStage").val() == "") {
-                alert("分期总额不能为空！");
+                alert("融资租赁总额不能为空！");
                 $("#TotalAmountStage").focus();
                 return false;
             }
             if ($("#Deadline").val() == "") {
-                alert("期数不能为空！");
+                alert("期数不能为空！"); 
                 $("#Deadline").focus();
                 return false;
             }

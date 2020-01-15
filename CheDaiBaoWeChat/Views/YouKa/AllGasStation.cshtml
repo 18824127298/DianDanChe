@@ -35,7 +35,7 @@
                     if (isIPhone) {
                         dpr = devicePixelRatio;
                     } else {
-                        drp = 1;
+                        dpr = 1;
                     }
 
                     scale = 1 / dpr;
@@ -291,8 +291,8 @@
                                 html += "<div class=\"mid_sec\"  onclick = \"fn_gasstation('" + json[i].Id + "')\">";
                                 html += "<div class=\"mid_fir rflex\">";
                                 html += "<div class=\"small\">车1号价￥</div>";
-                                html += "<div class=\"blod\">" + ((parseFloat(json[i].Amount.toFixed(2)) - parseFloat(json[i].Reduction.toFixed(2)))).toFixed(2) + "</div></div>";
-                                html += "<div class=\"mid_tow\">已降￥" + (parseFloat(json[i].CountryMarkPrice.toFixed(2)) - parseFloat(json[i].Amount.toFixed(2)) + parseFloat(json[i].Reduction.toFixed(2))) + "</div>";
+                                html += "<div class=\"blod\">" + ((parseFloat(json[i].CountryMarkPrice) - parseFloat(json[i].Amount.toFixed(2)) - parseFloat(json[i].Reduction.toFixed(2)))).toFixed(2) + "</div></div>";
+                                html += "<div class=\"mid_tow\">已降￥" + (parseFloat(json[i].Amount) + parseFloat(json[i].Reduction)).toFixed(2) + "</div>";
                                 html += "<div class=\"mid_th\"><s>国标价￥" + json[i].CountryMarkPrice.toFixed(2) + "</s></div></div>";
                                 html += "<div class=\"bottom_sec\"><div class=\"bot_left\">";
                                 html += "<img src=\"../Content/youka/img/dw.png\" class=\"dw_img\" alt=\"\">";

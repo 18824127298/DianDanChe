@@ -1,9 +1,12 @@
 ﻿using Sigbit.Common;
+using Sigbit.Common.WordProcess.Excel;
 using Sigbit.Data;
 using Sigbit.Framework;
+using Sigbit.Web.MediaServer;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -55,16 +58,7 @@ on b.LoanApplyId = l.Id join Borrower br on b.BorrowerId= br.Id where b.IsValid=
         //========= 1. 取出数据，并绑定 ========
         DataSet ds = DataHelper.Instance.ExecuteDataSet
                 (CurrentPageStatus.DataViewStatus.SqlBuilder.ToString());
-
-        if (ds.Tables[0].Rows.Count == 0)
-        {
-            SbtMessageBoxPage msgPage = new SbtMessageBoxPage(this);
-            msgPage.ReturnUrl = this.Request.Url.AbsoluteUri;
-            msgPage.MessageText = "当前没有需要审核的记录，可休息一下啦！";
-            msgPage.Show();
-
-            return;
-        }
+        PageParameter.SetCustomParamObject("all_overdue_bills_list", ds);
 
         gvList.DataSource = ds;
         gvList.DataBind();
@@ -96,4 +90,77 @@ on b.LoanApplyId = l.Id join Borrower br on b.BorrowerId= br.Id where b.IsValid=
         }
     }
 
+    protected void btnExportExcel_Click(object sender, EventArgs e)
+    {
+        DataSet ds = PageParameter.GetCustomParamObject("all_overdue_bills_list") as DataSet;
+
+        string sTemplateFile = MapPath("../excel_template/所有的逾期账单.xls");
+
+        MediaServerPath mediaExportFile = new MediaServerPath();
+
+        mediaExportFile.RelativePath = "phonelee/cust_recharge/" + DateTime.Now.ToString("yyyyMMdd");
+
+        FileUtil.RemoveFilesBeforeTime(mediaExportFile.FullPath, DateTime.Now.AddMonths(-1));
+
+        Directory.CreateDirectory(mediaExportFile.FullPath);
+
+        string sExportFileName = RandUtil.NewString(10, RandStringType.LowerNumber) + ".xls";
+
+        mediaExportFile.RelativePath += "/" + sExportFileName;
+
+        ExcelExportDataSet export = new ExcelExportDataSet(); ;
+        export.InputDataSet = ToExcelDownloadDataSet(ds);
+        export.TemplateFile = sTemplateFile;
+        export.ExportFileName = mediaExportFile.FullPath;
+        export.DoExport();
+
+        string sFileName = "所有的逾期账单" + DateTime.Now.ToString("yyyyMMddHHmms") + ".xls";
+        Response.Buffer = true;
+        Response.Charset = "GB2312";
+        Response.ContentType = "application/ms-excel";
+        Response.AppendHeader("Content-Disposition", "attachment; filename=" +
+            System.Web.HttpUtility.UrlEncode(sFileName, System.Text.Encoding.UTF8));
+        Response.TransmitFile(mediaExportFile.FullPath);
+        Response.End();
+
+    }
+
+
+    protected DataSet ToExcelDownloadDataSet(DataSet ds)
+    {
+        DataSet dsRet = new DataSet();
+
+        DataTable dt = new DataTable();
+        dt.Columns.Add("FullName");
+        dt.Columns.Add("RepaymentDate");
+        dt.Columns.Add("Principal");
+        dt.Columns.Add("UnPrincipal");
+        dt.Columns.Add("Interest");
+        dt.Columns.Add("OverInterest");
+        dt.Columns.Add("OverDay");
+        dt.Columns.Add("UnTotalInterest");
+        dt.Columns.Add("sumuntotal");
+
+        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+        {
+            DataRow dRow = ds.Tables[0].Rows[i];
+
+            dt.Rows.Add(dRow["FullName"].ToString(),
+                VIVHTime(dRow["RepaymentDate"]),
+                dRow["Principal"].ToString(),
+                dRow["UnPrincipal"].ToString(),
+                dRow["Interest"].ToString(),
+                dRow["OverInterest"].ToString(),
+                dRow["OverDay"].ToString(),
+                dRow["UnTotalInterest"].ToString(),
+                dRow["sumuntotal"].ToString()
+            );
+        }
+
+        dsRet.Tables.Add(dt);
+
+
+        return dsRet;
+
+    }
 }

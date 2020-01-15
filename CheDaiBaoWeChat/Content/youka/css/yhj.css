@@ -1,0 +1,137 @@
+/*优惠券样式*/
+body{
+    background:#f8f8f8;
+    width: 100%;
+    height: 100%;
+}
+.wrap{
+    margin:10px;
+    background:url(../images/youhui_03.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    height: 5rem;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.wrap-used{
+    margin:10px;
+    background:url(../images/yhjyw.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    height: 5rem;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.wrap-using{
+    margin:10px;
+    background:url(../images/yhj_using.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    height: 5rem;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.coup-tit{
+    padding: .6rem 0 0 .5rem;
+    font-weight: 400;
+    font-size: .64rem;
+    color: #f38000;
+}
+.con{
+    position: relative;
+}
+.cont-l{
+    float: left;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.cont-l .symbol{
+    color:#f38000;
+    font-size: .8rem;
+}
+.cont-l .num{
+    color:#f38000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-left: 5px;
+}
+.cont-r{
+    float:right;
+    padding-right:40px;
+    position: relative;
+}
+.cont-r span{
+    display:block;
+}
+.cont-r .type-tit{
+    color:#1e1e20;
+    /*height:1rem;*/
+    font-size: .6rem;
+    padding:0 0 .2rem 0;
+    /*line-height: .9rem;*/
+}
+.cont-r .coupse-more{
+    height: 1.4rem;
+    color:#cfcfcf;
+    font-size: 25px;
+    text-align: right;
+    position: absolute;
+    top:20px;
+    right:15px;
+}
+.cont-r .tit-use{
+    color:#1e1e20;
+    font-size: .6rem;
+    padding:.2rem 0 0 0;
+}
+.con .cont-btn{
+    position: absolute;
+    top:10px;
+    right:10px;
+    /*background:#000;*/
+    width: 1rem;
+    height: 1rem;
+    
+}
+.con .cont-btn input{
+    background:url(../images/icon1.png) no-repeat center center;
+    background-size: 60% 100%;
+    width: 100%;
+    height:100%;
+
+}
+.detial{
+    position: relative;
+    padding: 2.3rem 0 0 .4rem;
+}
+.detial ul li{
+    float:left;
+    /*width:50%;*/
+    margin:8px 0;
+
+} 
+.detial ul li:first-child{
+     font-size: .5rem;
+    text-align: left;
+}
+.detial ul li:last-child{
+    text-align: right;
+    font-size: .4rem;
+}
+.detial .mor-btn{
+    position: absolute;
+    top: 68px;
+    left: 50%;
+    width: 1rem;
+    height: 1rem;
+    margin-left: -.75rem;
+}
+.detial .mor-btn input{
+    background:url(../images/icon2.png) no-repeat center center;
+    background-size: 80% 80%;
+    width: 100%;
+}
+/*优惠券样式*/

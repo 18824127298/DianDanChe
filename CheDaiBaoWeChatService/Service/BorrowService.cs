@@ -201,10 +201,9 @@ namespace CheDaiBaoWeChatService.Service
                 #region 还租金
                 if (sRepaymentType == "还租金")
                 {
-                    decimal? unDeposit = loanapply.unDeposit;
                     Borrow borrow = borrowList.FindAll(o => o.LoanApplyId == loanapply.Id && o.RepaymentPlanMode == null).OrderBy(o => o.Stages).FirstOrDefault();
-                    DebugLogger.LogDebugMessage("实际金额为：" + (borrow.UnTotalInterest + unDeposit - dStandardDeduction).ToString());
-                    if (dAmount == (borrow.UnTotalInterest + unDeposit - dStandardDeduction) * 100)
+                    DebugLogger.LogDebugMessage("实际金额为：" + (borrow.UnTotalInterest + borrow.UnPrincipal - dStandardDeduction).ToString());
+                    if (dAmount == (borrow.UnTotalInterest + borrow.UnPrincipal - dStandardDeduction) * 100)
                     {
                         fscId = RentRepayment(borrow, loanapply, nRechargeId, dStandardDeduction, sqlTransation);
                     }
@@ -220,6 +219,29 @@ namespace CheDaiBaoWeChatService.Service
                     }, sqlTransation);
                 }
                 #endregion
+
+                #region 还押金
+                if (sRepaymentType == "还押金")
+                {
+                    decimal? unDeposit = loanapply.unDeposit;
+                    DebugLogger.LogDebugMessage("实际金额为：" + (unDeposit - dStandardDeduction).ToString());
+                    if (dAmount == (unDeposit - dStandardDeduction) * 100)
+                    {
+                        fscId = YaJinRepayment(loanapply, nRechargeId, dStandardDeduction, sqlTransation);
+                    }
+                }
+
+                if (dStandardDeduction > 0)
+                {
+                    sqlConnection.Update(new Discount()
+                    {
+                        Id = discount.Id,
+                        LeftAmount = 0,
+                        RelationId = fscId
+                    }, sqlTransation);
+                }
+                #endregion
+
             }
         }
 
@@ -377,7 +399,7 @@ namespace CheDaiBaoWeChatService.Service
 
             int fId = sqlConnection.Insert(new FundsFlow()
             {
-                Amount = borrow.UnTotalInterest - dStandardDeduction,
+                Amount = (borrow.UnTotalInterest + borrow.UnPrincipal) - dStandardDeduction,
                 IncomeGodId = 2,
                 FeeType = FeeType.租金,
                 IsComputing = true,
@@ -387,33 +409,44 @@ namespace CheDaiBaoWeChatService.Service
                 IsFreeze = false,
                 Remark = borrow.Id.ToString()
             }, sqlTransation);
-            if (loanapply.unDeposit > 0)
-            {
-                int fscId = sqlConnection.Insert(new FundsFlow()
-                {
-                    Amount = loanapply.unDeposit,
-                    IncomeGodId = 2,
-                    FeeType = FeeType.押金,
-                    IsComputing = true,
-                    PayGodId = loanapply.BorrowerId,
-                    RelationId = nRechargeId,
-                    LoanApplyId = loanapply.Id,
-                    IsFreeze = false,
-                    Remark = loanapply.Id.ToString()
-                }, sqlTransation);
 
-                loanapply.unDeposit = 0;
-                sqlConnection.Update<LoanApply>(loanapply, sqlTransation);
-            }
+            borrow.Interest = 0;
+            borrow.UnTotalInterest = 0;
             borrow.ActualRepaymentDate = DateTime.Now;
             borrow.FundsFlowId = fId;
-            borrow.RepaymentPlanMode = RepaymentPlanMode.正常还款;
+            borrow.RepaymentPlanMode = borrow.OverDay > 0 ? RepaymentPlanMode.逾期还款 : RepaymentPlanMode.正常还款;
             borrow.UnTotalInterest = 0;
             borrow.UnPrincipal = 0;
             sqlConnection.Update<Borrow>(borrow, sqlTransation);
 
+
             return fId;
         }
+
+        public int YaJinRepayment(LoanApply loanapply, int nRechargeId, decimal dStandardDeduction, SqlTransaction sqlTransation = null)
+        {
+            SqlConnection sqlConnection = sqlTransation == null ? SqlConnections.GetOpenConnection() : sqlTransation.Connection;
+
+            int fscId = sqlConnection.Insert(new FundsFlow()
+            {
+                Amount = loanapply.unDeposit,
+                IncomeGodId = 2,
+                FeeType = FeeType.押金,
+                IsComputing = true,
+                PayGodId = loanapply.BorrowerId,
+                RelationId = nRechargeId,
+                LoanApplyId = loanapply.Id,
+                IsFreeze = false,
+                Remark = loanapply.Id.ToString()
+            }, sqlTransation);
+
+            loanapply.unDeposit = 0;
+            sqlConnection.Update<LoanApply>(loanapply, sqlTransation);
+
+
+            return fscId;
+        }
+
 
         public void Batch(DateTime nowDateTime)
         {
